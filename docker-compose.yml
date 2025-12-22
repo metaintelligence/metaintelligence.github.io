@@ -1,6 +1,6 @@
 services:
-  astrowind:
+  metaintelligence:
     build: .
-    container_name: astrowind
+    container_name: metaintelligence
     ports:
       - 8080:8080

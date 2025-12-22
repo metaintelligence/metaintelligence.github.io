@@ -1,4 +1,4 @@
-# 🚀 AstroWind
+# 🚀 MetaIntelligence
 
 <img src="https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/lighthouse-score.png" align="right"
      alt="AstroWind Lighthouse Score" width="100" height="358">
@@ -52,7 +52,7 @@
 
 ## Demo
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+📌 [https://metaintelligence.vercel.app/](https://metaintelligence.vercel.app/)
 
 <br>
 
