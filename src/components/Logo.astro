@@ -1,9 +1,74 @@
 ---
 import { SITE } from 'metaintelligence:config';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+/** * Load the SVG file content.
+ * Using absolute path to ensure reliability in different environments.
+ */
+const svgPath = path.resolve('./src/assets/favicons/logo_2025.svg');
+let svgContent = '';
+
+try {
+  svgContent = await fs.readFile(svgPath, 'utf-8');
+  // Remove XML declaration for clean inline injection
+  svgContent = svgContent.replace(/<\?xml.*?\?>/, '');
+} catch (error) {
+  console.error('Error loading logo SVG:', error);
+}
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
+<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white flex items-center">
+  <div class="h-14 w-14 mr-4 flex items-center justify-center custom-logo-wrapper">
+    <Fragment set:html={svgContent} />
+  </div>
+  <span>{SITE?.name}</span>
 </span>
+
+<style is:global>
+  /* Only layout styling, no theme logic here */
+  .custom-logo-wrapper svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script is:inline>
+  /**
+   * Syncs the 'dark'/'light' class from the <html> tag to the inline <svg>.
+   * This triggers the internal CSS logic already present in the SVG file.
+   */
+  const syncLogoTheme = () => {
+    const svgElement = document.querySelector('.custom-logo-wrapper svg');
+    if (!svgElement) return;
+
+    const isDarkMode = document.documentElement.classList.contains('dark');
+
+    // Toggle the classes your SVG expects
+    if (isDarkMode) {
+      svgElement.classList.add('dark');
+      svgElement.classList.remove('light');
+    } else {
+      svgElement.classList.add('light');
+      svgElement.classList.remove('dark');
+    }
+  };
+
+  // 1. Initial sync on page load
+  syncLogoTheme();
+
+  // 2. Immediate sync on theme toggle button click
+  const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
+  toggleButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // Smallest delay to ensure html class has flipped
+      setTimeout(syncLogoTheme, 10);
+    });
+  });
+
+  // 3. Fallback: Watch for any changes to <html> class
+  new MutationObserver(syncLogoTheme).observe(document.documentElement, { 
+    attributes: true, 
+    attributeFilter: ['class'] 
+  });
+</script>
