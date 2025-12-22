@@ -1,24 +1,29 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { I18N } from 'metaintelligence:config';
+import en from '~/i18n/en.json';
+import ko from '~/i18n/ko.json';
+
+const T = I18N?.language === 'ko' ? ko : en;
 
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: T.nav.company,
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: T.nav.introduction,
+          href: getPermalink('/homes/intro'),
         },
         {
-          text: 'Startup',
+          text: T.nav.startup,
           href: getPermalink('/homes/startup'),
         },
         {
-          text: 'Mobile App',
+          text: T.nav.mobileApp,
           href: getPermalink('/homes/mobile-app'),
         },
         {
-          text: 'Personal',
+          text: T.nav.personal,
           href: getPermalink('/homes/personal'),
         },
       ],
@@ -115,7 +120,7 @@ export const headerData = {
       href: '#',
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  actions: [{ text: T.header?.download ?? 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
