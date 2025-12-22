@@ -1,32 +1,59 @@
 ---
+/* All source code comments are in English */
 import { SITE } from 'metaintelligence:config';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-/** * Load the SVG file content.
- * Using absolute path to ensure reliability in different environments.
- */
+interface Props {
+  mode?: 'horizontal' | 'vertical' | 'logo_only';
+  size?: string;
+}
+
+const { mode = 'horizontal', size = "" } = Astro.props;
+
+// 1. Unified Spacing Logic: Use 'gap' for consistent distance
+const spacingClass = mode === 'vertical' ? 'gap-3' : 'gap-4'; 
+
+// 2. Determine Logo Size
+const defaultSize = mode === 'vertical' ? 'h-20 w-20' : 'h-14 w-14';
+const finalSize = size || defaultSize;
+
 const svgPath = path.resolve('./src/assets/favicons/logo_2025.svg');
 let svgContent = '';
-
 try {
   svgContent = await fs.readFile(svgPath, 'utf-8');
-  // Remove XML declaration for clean inline injection
   svgContent = svgContent.replace(/<\?xml.*?\?>/, '');
 } catch (error) {
   console.error('Error loading logo SVG:', error);
 }
+
+// 3. Consolidated Classes
+const containerClasses = [
+  'self-center text-gray-900 whitespace-nowrap dark:text-white flex items-center',
+  spacingClass, // Apply consistent gap here
+  mode === 'vertical' ? 'flex-col text-center' : 'flex-row',
+].join(' ');
+
+const textClasses = [
+  'font-bold tracking-tight',
+  mode === 'logo_only' ? 'hidden' : 'block',
+  'text-2xl md:text-xl', // Unified text size for consistency
+].join(' ');
+
+const wrapperClasses = [
+  'flex items-center justify-center custom-logo-wrapper shrink-0',
+  finalSize,
+].join(' ');
 ---
 
-<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white flex items-center">
-  <div class="h-14 w-14 mr-4 flex items-center justify-center custom-logo-wrapper">
+<span class={containerClasses}>
+  <div class={wrapperClasses}>
     <Fragment set:html={svgContent} />
   </div>
-  <span>{SITE?.name}</span>
+  <span class={textClasses}>{SITE?.name}</span>
 </span>
 
 <style is:global>
-  /* Only layout styling, no theme logic here */
   .custom-logo-wrapper svg {
     width: 100%;
     height: 100%;
@@ -34,41 +61,19 @@ try {
 </style>
 
 <script is:inline>
-  /**
-   * Syncs the 'dark'/'light' class from the <html> tag to the inline <svg>.
-   * This triggers the internal CSS logic already present in the SVG file.
-   */
+  /* Theme sync logic remains the same */
   const syncLogoTheme = () => {
     const svgElement = document.querySelector('.custom-logo-wrapper svg');
     if (!svgElement) return;
-
     const isDarkMode = document.documentElement.classList.contains('dark');
-
-    // Toggle the classes your SVG expects
     if (isDarkMode) {
-      svgElement.classList.add('dark');
-      svgElement.classList.remove('light');
+      svgElement.classList.add('dark'); svgElement.classList.remove('light');
     } else {
-      svgElement.classList.add('light');
-      svgElement.classList.remove('dark');
+      svgElement.classList.add('light'); svgElement.classList.remove('dark');
     }
   };
-
-  // 1. Initial sync on page load
   syncLogoTheme();
-
-  // 2. Immediate sync on theme toggle button click
   const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
-  toggleButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Smallest delay to ensure html class has flipped
-      setTimeout(syncLogoTheme, 10);
-    });
-  });
-
-  // 3. Fallback: Watch for any changes to <html> class
-  new MutationObserver(syncLogoTheme).observe(document.documentElement, { 
-    attributes: true, 
-    attributeFilter: ['class'] 
-  });
+  toggleButtons.forEach((btn) => btn.addEventListener('click', () => setTimeout(syncLogoTheme, 10)));
+  new MutationObserver(syncLogoTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 </script>

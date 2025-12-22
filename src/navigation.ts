@@ -1,17 +1,5 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
-import ko from '~/i18n/ko.json';
-
-// Helper: resolve a dotted key path from the i18n files and return
-// an object { en: string, ko: string } when present.
-const resolveI18nPair = (keyPath: string) => {
-  const get = (obj: any, path: string) => path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
-  const enVal = get(en, keyPath);
-  const koVal = get(ko, keyPath);
-  if (enVal === undefined && koVal === undefined) return undefined;
-  return { en: enVal ?? '', ko: koVal ?? '' };
-};
+import { resolveI18nPair } from './utils/i18n';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 // headerData provides both English and Korean labels so the client
 // can toggle language dynamically. Each `text` value is either a
@@ -21,9 +9,9 @@ export const headerData = {
     {
       text: resolveI18nPair('nav.company.title') || 'Company',
       links: [
-        { text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values', href: getPermalink('/about/identity') },
-        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/about/history') },
-        { text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture', href: getPermalink('/about/culture') },
+        { text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values', href: getPermalink('/company/identity') },
+        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/company/history') },
+        { text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture', href: getPermalink('/company/culture') },
       ],
     },
     {

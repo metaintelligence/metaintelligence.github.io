@@ -1,0 +1,160 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import { headerData } from '~/navigation';
+import { I18N } from 'metaintelligence:config';
+import en from '~/i18n/en.json';
+import ko from '~/i18n/ko.json';
+
+const T = I18N?.language === 'ko' ? ko : en;
+
+const metadata = {
+  title: T.introductionPage.title || 'Identity & Values — MetaIntelligence',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+
+  <Hero2
+    tagline="Who We Are"
+    actions={[
+      { variant: 'primary', text: 'Our Technology', href: '/tech/core-tech' },
+      { text: 'Contact Us', href: '#contact' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2072&q=80',
+      alt: 'MetaIntelligence Identity Image',
+    }}
+  >
+    <Fragment slot="title">
+      {T.introductionPage.hero.title}
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      MetaIntelligence는 단순한 기술 구현을 넘어, 인류가 마주한 복잡한 문제의 **본질을 통찰**하고 실질적인 **가치를 설계**합니다. 
+      공학적 완성도를 바탕으로 산업 현장에 지능형 솔루션을 이식하는 것이 우리의 사명입니다.
+    </Fragment>
+  </Hero2>
+
+  <Features2
+    title="Our Core Identity"
+    subtitle="우리가 추구하는 가치와 존재의 이유"
+    items={[
+      {
+        title: T.introductionPage.identity.title,
+        description: T.introductionPage.identity.content,
+        icon: 'tabler:fingerprint',
+      },
+      {
+        title: T.introductionPage.mission.title,
+        description: T.introductionPage.mission.content,
+        icon: 'tabler:rocket',
+      },
+      {
+        title: T.introductionPage.slogan.title,
+        description: T.introductionPage.slogan.content,
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Values 01"
+    title="Insight into Essence"
+    items={[
+      {
+        title: '문제의 이면을 봅니다',
+        description:
+          '우리는 데이터의 나열에서 멈추지 않습니다. 현상 뒤에 숨겨진 근본 원인(Root Cause)을 다각도로 분석하여 해결의 실마리를 찾습니다.',
+      },
+      {
+        title: '물리학 기반 모델링',
+        description:
+          '데이터가 부족한 극한의 환경에서도 물리 법칙과 AI를 결합한 Physics-Informed Modeling을 통해 정교한 통찰을 제공합니다.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Insight Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        본질을 꿰뚫는 분석력
+      </h3>
+      복잡한 수식과 데이터 속에서 가장 명확한 해답을 이끌어냅니다.
+    </Fragment>
+  </Content>
+
+  <Content
+    isAfterContent
+    tagline="Values 02"
+    title="Design for Value"
+    items={[
+      {
+        title: '실용적 솔루션 공급',
+        description:
+          '화려한 기술보다는 실제 현장에서 작동하고 생산성을 높이는 실용성을 우선합니다.',
+      },
+      {
+        title: '유연한 아키텍처',
+        description:
+          '변화하는 비즈니스 요구사항에 기민하게 대응할 수 있는 고품질 소프트웨어 설계를 지향합니다.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Value Design Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        지속 가능한 가치 창출
+      </h3>
+      고객의 비즈니스 성장을 최우선으로 고려한 지능형 시스템을 설계합니다.
+    </Fragment>
+  </Content>
+
+  <Stats
+    title="Proven Expertise"
+    stats={[
+      { title: 'R&D Projects', amount: '15+' },
+      { title: 'Core Patents', amount: '10+' },
+      { title: 'Engineering Experience', amount: '10y+' },
+      { title: 'Client Satisfaction', amount: '98%' },
+    ]}
+  />
+
+  <Steps2
+    id="contact"
+    title="함께 미래를 설계하세요"
+    subtitle="MetaIntelligence의 철학에 공감하신다면, 지금 바로 연락주세요."
+    callToAction={{
+      text: 'Contact Us',
+      href: '/contact',
+    }}
+    items={[
+      {
+        title: 'Email',
+        description: 'contact@metaintelligence.io',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Location',
+        description: 'Seoul, Republic of Korea',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>

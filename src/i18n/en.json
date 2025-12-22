@@ -39,6 +39,13 @@
     "login": "Log In",
     "signup": "Sign Up"
   },
+  "hero": {
+    "title_part1": "Insight into Essence,",
+    "title_part2": "Design for Value",
+    "subtitle": "MetaIntelligence solves problems facing humanity through deep insight and technology. We transplant practical intelligent solutions into industrial sites based on engineering excellence.",
+    "action_solutions": "Solutions",
+    "action_tech": "Technology"
+  },
   "introductionPage": {
     "title": "About the Company",
     "hero": {
