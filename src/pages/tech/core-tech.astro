@@ -7,11 +7,6 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
-import ko from '~/i18n/ko.json';
-
-const T = I18N?.language === 'ko' ? ko : en;
 
 const metadata = {
   title: 'Core Technologies — MetaIntelligence',
@@ -97,7 +92,7 @@ const metadata = {
       {
         title: 'Flexible Engineering Philosophy',
         description:
-            '개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장 효율적인 방식으로 견고하고 유연한 시스템을 구현합니다.',
+          '개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장 효율적인 방식으로 견고하고 유연한 시스템을 구현합니다.',
         icon: 'tabler:box-model',
       },
     ]}
@@ -143,9 +138,7 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        기술의 가치 실현
-      </h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">기술의 가치 실현</h3>
     </Fragment>
   </Content>
 
@@ -158,11 +151,7 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      MetaIntelligence
-    </Fragment>
-    <Fragment slot="subtitle">
-      세계적 수준의 기술력으로 귀사의 문제를 해결할 준비가 되어 있습니다.
-    </Fragment>
+    <Fragment slot="title"> MetaIntelligence </Fragment>
+    <Fragment slot="subtitle"> 세계적 수준의 기술력으로 귀사의 문제를 해결할 준비가 되어 있습니다. </Fragment>
   </CallToAction>
 </Layout>

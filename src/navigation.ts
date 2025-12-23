@@ -9,42 +9,81 @@ export const headerData = {
     {
       text: resolveI18nPair('nav.company.title') || 'Company',
       links: [
-        { text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values', href: getPermalink('/company/identity') },
-        { text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone', href: getPermalink('/company/mission-history') },
-        { text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture', href: getPermalink('/company/culture') },
+        {
+          text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values',
+          href: getPermalink('/company/identity'),
+        },
+        {
+          text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone',
+          href: getPermalink('/company/mission-history'),
+        },
+        {
+          text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture',
+          href: getPermalink('/company/culture'),
+        },
       ],
     },
     {
       text: resolveI18nPair('nav.technology.title') || 'Technology',
       links: [
-        { text: resolveI18nPair('nav.technology.submenu.philosophy') || 'Tech Philosophy', href: getPermalink('/tech/philosophy') },
-        { text: resolveI18nPair('nav.technology.submenu.core_tech') || 'Core Capabilities', href: getPermalink('/tech/core-tech') },
-        { text: resolveI18nPair('nav.technology.submenu.csaic_team') || 'CSAIC Team', href: getPermalink('/tech/csaic-team') },
+        {
+          text: resolveI18nPair('nav.technology.submenu.philosophy') || 'Tech Philosophy',
+          href: getPermalink('/tech/philosophy'),
+        },
+        {
+          text: resolveI18nPair('nav.technology.submenu.core_tech') || 'Core Capabilities',
+          href: getPermalink('/tech/core-tech'),
+        },
+        {
+          text: resolveI18nPair('nav.technology.submenu.csaic_team') || 'CSAIC Team',
+          href: getPermalink('/tech/csaic-team'),
+        },
       ],
     },
     {
       text: resolveI18nPair('nav.solutions.title') || 'Solutions',
       links: [
-        { text: resolveI18nPair('nav.solutions.submenu.strategy') || 'Business Strategy', href: getPermalink('/solutions/strategy') },
-        { text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)', href: getPermalink('/solutions/mvi') },
-        { text: resolveI18nPair('nav.solutions.submenu.ida') || 'Document AI (IDA)', href: getPermalink('/solutions/ida') },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.strategy') || 'Business Strategy',
+          href: getPermalink('/solutions/strategy'),
+        },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)',
+          href: getPermalink('/solutions/mvi'),
+        },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.ida') || 'Document AI (IDA)',
+          href: getPermalink('/solutions/ida'),
+        },
       ],
     },
     {
       text: resolveI18nPair('nav.resources.title') || 'Resources',
       links: [
-        { text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News', href: getPermalink('corporate', 'category') },
-        { text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies', href: getPermalink('case-studies', 'category') },
-        { text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight', href: getPermalink('tech-insight', 'category') },
-        { text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People', href: getPermalink('culture', 'category') },
+        {
+          text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News',
+          href: getPermalink('corporate', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies',
+          href: getPermalink('case-studies', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight',
+          href: getPermalink('tech-insight', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People',
+          href: getPermalink('culture', 'category'),
+        },
       ],
     },
   ],
   actions: [
-    { 
-      text: resolveI18nPair('header.download') || 'Download', 
-      href: getPermalink('/contact'), 
-      target: '_self' 
+    {
+      text: resolveI18nPair('header.download') || 'Download',
+      href: getPermalink('/contact'),
+      target: '_self',
     },
   ],
 };

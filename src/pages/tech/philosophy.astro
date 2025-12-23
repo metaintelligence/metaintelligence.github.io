@@ -7,11 +7,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
-import ko from '~/i18n/ko.json';
-
-const T = I18N?.language === 'ko' ? ko : en;
 
 const metadata = {
   title: 'Technology Philosophy — MetaIntelligence',
@@ -31,9 +26,7 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      <span class="text-gray-900 dark:text-white highlight">
-        AI·Vision·SW Integrated System
-      </span>
+      <span class="text-gray-900 dark:text-white highlight"> AI·Vision·SW Integrated System </span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -51,7 +44,8 @@ const metadata = {
     isBeforeContent={true}
     classes={{
       // 카드를 깔끔하게 정렬하고 강조
-      panel: 'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-8 rounded-xl h-full flex flex-col',
+      panel:
+        'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-8 rounded-xl h-full flex flex-col',
       icon: 'text-primary bg-blue-50 dark:bg-blue-900/20 p-3 rounded-full mb-4',
     }}
     items={[
@@ -70,7 +64,8 @@ const metadata = {
       {
         // 철학 3: Synergy of Experts
         title: '전문가들의 시너지 (Synergy of Experts)',
-        description: '각 분야 최고 수준의 전문가들로 팀을 구성하며, 이들의 팀워크를 통해 고객에게 가치를 전달하는 시너지를 중시합니다.',
+        description:
+          '각 분야 최고 수준의 전문가들로 팀을 구성하며, 이들의 팀워크를 통해 고객에게 가치를 전달하는 시너지를 중시합니다.',
         icon: 'tabler:users-group', // 팀워크
       },
     ]}
@@ -85,11 +80,7 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      MetaIntelligence
-    </Fragment>
-    <Fragment slot="subtitle">
-      본질에 집중하는 기술로 고객의 문제를 해결합니다.
-    </Fragment>
+    <Fragment slot="title"> MetaIntelligence </Fragment>
+    <Fragment slot="subtitle"> 본질에 집중하는 기술로 고객의 문제를 해결합니다. </Fragment>
   </CallToAction>
 </Layout>

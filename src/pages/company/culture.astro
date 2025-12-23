@@ -8,11 +8,6 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
-import ko from '~/i18n/ko.json';
-
-const T = I18N?.language === 'ko' ? ko : en;
 
 const metadata = {
   title: 'Organizational Culture — MetaIntelligence',
@@ -26,9 +21,7 @@ const metadata = {
 
   <Hero2
     tagline="Organizational Culture"
-    actions={[
-      { variant: 'primary', text: 'Join Us', href: '/contact' },
-    ]}
+    actions={[{ variant: 'primary', text: 'Join Us', href: '/contact' }]}
     image={{
       src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       alt: 'MetaIntelligence Team Culture',
@@ -68,9 +61,7 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Working as One-Team
-      </h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Working as One-Team</h3>
       우리는 단순한 직장 동료가 아닌, 위대한 제품을 함께 만드는 빌더(Builder)들입니다.
     </Fragment>
   </Content>
@@ -82,7 +73,8 @@ const metadata = {
     isBeforeContent={true}
     classes={{
       container: 'max-w-6xl',
-      panel: 'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition',
+      panel:
+        'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition',
     }}
     items={[
       {
@@ -122,11 +114,7 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      Be a Builder
-    </Fragment>
-    <Fragment slot="subtitle">
-      최고의 동료들과 함께, 세상에 없던 가치를 설계하고 싶다면 지금 합류하세요.
-    </Fragment>
+    <Fragment slot="title"> Be a Builder </Fragment>
+    <Fragment slot="subtitle"> 최고의 동료들과 함께, 세상에 없던 가치를 설계하고 싶다면 지금 합류하세요. </Fragment>
   </CallToAction>
 </Layout>

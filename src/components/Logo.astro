@@ -9,10 +9,10 @@ interface Props {
   size?: string;
 }
 
-const { mode = 'horizontal', size = "" } = Astro.props;
+const { mode = 'horizontal', size = '' } = Astro.props;
 
 // 1. Unified Spacing Logic: Use 'gap' for consistent distance
-const spacingClass = mode === 'vertical' ? 'gap-3' : 'gap-4'; 
+const spacingClass = mode === 'vertical' ? 'gap-3' : 'gap-4';
 
 // 2. Determine Logo Size
 const defaultSize = mode === 'vertical' ? 'h-20 w-20' : 'h-14 w-14';
@@ -40,10 +40,7 @@ const textClasses = [
   'text-2xl md:text-xl', // Unified text size for consistency
 ].join(' ');
 
-const wrapperClasses = [
-  'flex items-center justify-center custom-logo-wrapper shrink-0',
-  finalSize,
-].join(' ');
+const wrapperClasses = ['flex items-center justify-center custom-logo-wrapper shrink-0', finalSize].join(' ');
 ---
 
 <span class={containerClasses}>
@@ -67,13 +64,18 @@ const wrapperClasses = [
     if (!svgElement) return;
     const isDarkMode = document.documentElement.classList.contains('dark');
     if (isDarkMode) {
-      svgElement.classList.add('dark'); svgElement.classList.remove('light');
+      svgElement.classList.add('dark');
+      svgElement.classList.remove('light');
     } else {
-      svgElement.classList.add('light'); svgElement.classList.remove('dark');
+      svgElement.classList.add('light');
+      svgElement.classList.remove('dark');
     }
   };
   syncLogoTheme();
   const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
   toggleButtons.forEach((btn) => btn.addEventListener('click', () => setTimeout(syncLogoTheme, 10)));
-  new MutationObserver(syncLogoTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(syncLogoTheme).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
 </script>

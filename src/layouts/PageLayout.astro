@@ -22,10 +22,10 @@ const { metadata } = Astro.props;
   <slot name="header">
     <Header {...headerData} isSticky showRssFeed showToggleTheme />
   </slot>
-  <script type="module">
-    (function() {
+  <script>
+    (function () {
       try {
-        const userLang = (typeof navigator !== 'undefined' && navigator.language) ? navigator.language : undefined;
+        const userLang = typeof navigator !== 'undefined' && navigator.language ? navigator.language : undefined;
         const useKo = userLang ? userLang.toLowerCase().startsWith('ko') : false;
 
         // set document lang attribute for accessibility
@@ -34,11 +34,13 @@ const { metadata } = Astro.props;
         }
 
         const apply = (useKo) => {
-          document.querySelectorAll('[data-lang-en]').forEach(el => {
-            if (useKo) el.classList.add('hidden'); else el.classList.remove('hidden');
+          document.querySelectorAll('[data-lang-en]').forEach((el) => {
+            if (useKo) el.classList.add('hidden');
+            else el.classList.remove('hidden');
           });
-          document.querySelectorAll('[data-lang-ko]').forEach(el => {
-            if (useKo) el.classList.remove('hidden'); else el.classList.add('hidden');
+          document.querySelectorAll('[data-lang-ko]').forEach((el) => {
+            if (useKo) el.classList.remove('hidden');
+            else el.classList.add('hidden');
           });
         };
 
@@ -50,10 +52,10 @@ const { metadata } = Astro.props;
           const obs = new MutationObserver(() => apply(useKo));
           obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
         } catch (e) {
-          // ignore
+          console.log('MutationObserver not supported', e);
         }
       } catch (err) {
-        // fail silently
+        console.log('Error applying language settings', err);
       }
     })();
   </script>
