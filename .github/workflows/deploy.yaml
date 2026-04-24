@@ -1,8 +1,8 @@
 name: Deploy AstroWind to GitHub Pages
 
-on:                              # ✅ Actions 트리거 정의
+on:
   push:
-    branches: [main]             # main 브랜치에 push 시 실행
+    branches: [main]
 
 permissions:
   contents: write
@@ -35,6 +35,15 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+
+      # for WordPress.com gh-pages branch publishing
+      - name: Publish dist to gh-pages branch (for WordPress.com)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
 
   deploy:
     runs-on: ubuntu-latest
