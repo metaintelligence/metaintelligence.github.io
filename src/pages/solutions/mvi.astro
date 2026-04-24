@@ -10,8 +10,6 @@ import { headerData } from '~/navigation';
 import inspectThumbnail from '~/assets/images/mvi/mvi_inspect_thumbnail.png';
 import augmentGoodThumbnail from '~/assets/images/mvi/mvi_augment_gd_thumbnail.png';
 import augmentDefectThumbnail from '~/assets/images/mvi/mvi_augment_defect_thumbnail.png';
-import loadVideo from '~/assets/video/1_load.mp4';
-import updateVideo from '~/assets/video/2_update.mp4';
 import inspectVideo from '~/assets/video/3_inspect.mp4';
 import augmentGoodVideo from '~/assets/video/4_augment_ng_to_gd.mp4';
 import augmentDefectVideo from '~/assets/video/5_augment_gd_to_burr.mp4';
@@ -76,20 +74,6 @@ const pipelineItems = [
 
 const demoItems = [
   {
-    title: '데이터 로드',
-    description: '검사 대상과 기준 데이터를 프로젝트로 불러오는 운용 흐름',
-    video: loadVideo,
-    poster: inspectThumbnail,
-    icon: 'tabler:folder-open',
-  },
-  {
-    title: '데이터 업데이트',
-    description: '현장 피드백을 반영해 데이터셋을 관리하고 검사 조건을 갱신',
-    video: updateVideo,
-    poster: augmentGoodThumbnail,
-    icon: 'tabler:database-edit',
-  },
-  {
     title: '불량 검출',
     description: '학습된 모델로 실제 이미지의 이상 영역과 판정 결과를 확인',
     video: inspectVideo,
@@ -120,12 +104,10 @@ const initialDemo = demoItems[0];
     <Header {...headerData} isSticky showToggleTheme />
   </Fragment>
 
-  <section class="relative md:-mt-[76px] not-prose overflow-hidden bg-white dark:bg-slate-950">
-    <div class="absolute inset-x-0 top-0 h-28 bg-stone-100 dark:bg-slate-900" aria-hidden="true"></div>
+  <section class="relative not-prose overflow-hidden bg-white dark:bg-slate-950">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
       <div
-        class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-center py-12 md:py-20 lg:min-h-[calc(100vh-76px)]"
+        class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-center py-12 md:py-16 lg:min-h-[calc(100vh-88px)]"
       >
         <div>
           <p class="text-sm font-bold tracking-wide uppercase text-emerald-700 dark:text-emerald-300">
@@ -156,14 +138,19 @@ const initialDemo = demoItems[0];
         </div>
 
         <div class="relative">
-          <div class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-slate-950 shadow-xl">
+          <div
+            class="relative overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-slate-950 shadow-xl"
+          >
             <video
-              class="aspect-video w-full object-cover"
+              class="relative z-10 aspect-video w-full object-cover pointer-events-auto"
               src={inspectVideo}
               poster={inspectThumbnail.src}
+              autoplay
+              loop
               muted
               playsinline
               controls
+              data-hero-video
               preload="metadata"
               aria-label="MVI 불량 검출 시연 영상"></video>
             <div class="grid grid-cols-3 border-t border-white/10 bg-slate-900 text-white">
@@ -255,19 +242,19 @@ const initialDemo = demoItems[0];
           <p class="text-sm font-bold tracking-wide uppercase text-emerald-300">Product Demo</p>
           <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight">실제 시연 화면으로 보는 주요 기능</h2>
           <p class="mt-4 text-lg text-slate-300">
-            데이터 로드부터 증강, 검출까지 제품 운용 과정을 영상으로 확인할 수 있습니다.
+            불량 검출과 데이터 증강 중심의 제품 운용 과정을 영상으로 확인할 수 있습니다.
           </p>
         </div>
       </div>
 
-      <div class="mt-10 grid lg:grid-cols-[0.72fr_1.28fr] gap-6 lg:gap-8" data-mvi-demo>
-        <div class="order-2 lg:order-1 grid sm:grid-cols-2 lg:grid-cols-1 gap-3">
+      <div class="relative isolate mt-10 grid lg:grid-cols-[0.72fr_1.28fr] gap-6 lg:gap-8" data-mvi-demo>
+        <div class="relative z-40 order-2 lg:order-1 grid sm:grid-cols-2 lg:grid-cols-1 gap-3 pointer-events-auto">
           {
             demoItems.map((item, index) => (
               <button
                 type="button"
                 class:list={[
-                  'group w-full overflow-hidden rounded-lg border p-0 text-left transition bg-white/[0.04] hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-emerald-300',
+                  'group relative z-40 w-full cursor-pointer select-none overflow-hidden rounded-lg border p-0 text-left transition bg-white/[0.04] hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-emerald-300 pointer-events-auto',
                   index === 0 ? 'border-emerald-300 bg-white/10' : 'border-white/10',
                 ]}
                 data-demo-trigger
@@ -285,8 +272,9 @@ const initialDemo = demoItems[0];
                       src={item.poster.src}
                       alt={`${item.title} 썸네일`}
                       loading="lazy"
+                      draggable="false"
                     />
-                    <span class="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/20">
                       <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-950">
                         <Icon name={item.icon} class="h-5 w-5" />
                       </span>
@@ -302,27 +290,37 @@ const initialDemo = demoItems[0];
           }
         </div>
 
-        <article class="order-1 lg:order-2 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04]">
-          <video
-            class="aspect-video w-full bg-black object-contain"
-            src={initialDemo.video}
-            poster={initialDemo.poster.src}
-            controls
-            playsinline
-            preload="metadata"
-            data-demo-player
-            aria-label={`MVI ${initialDemo.title} 시연 영상`}></video>
+        <article
+          class="relative z-10 order-1 lg:order-2 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04]"
+        >
+          <div class="relative z-20 bg-black pointer-events-auto" data-demo-player-wrap>
+            <video
+              class="relative z-20 aspect-video w-full bg-black object-contain pointer-events-auto"
+              src={initialDemo.video}
+              poster={initialDemo.poster.src}
+              controls
+              playsinline
+              preload="metadata"
+              data-demo-player
+              aria-label={`MVI ${initialDemo.title} 시연 영상`}></video>
+          </div>
           <div class="border-t border-white/10 p-5 md:p-6">
-            <div class="flex items-start gap-4">
-              <div
-                class="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-300 text-zinc-950"
-              >
+            <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-300 text-zinc-950">
                 <Icon name="tabler:player-play" class="h-6 w-6" />
               </div>
-              <div>
+              <div class="min-w-0 flex-1">
                 <h3 class="text-xl font-bold" data-demo-heading>{initialDemo.title}</h3>
                 <p class="mt-2 leading-relaxed text-slate-300" data-demo-copy>{initialDemo.description}</p>
               </div>
+              <button
+                type="button"
+                class="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-emerald-300 px-4 py-3 text-sm font-bold text-zinc-950 transition hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-zinc-950"
+                data-demo-play
+              >
+                <Icon name="tabler:player-play-filled" class="h-5 w-5" />
+                재생
+              </button>
             </div>
           </div>
         </article>
@@ -401,8 +399,56 @@ const initialDemo = demoItems[0];
   </CallToAction>
 
   <script is:inline>
+    const findDemoTriggerFromPoint = (root, clientX, clientY) => {
+      const directTrigger = document.elementFromPoint(clientX, clientY)?.closest?.('[data-demo-trigger]');
+      if (directTrigger && root.contains(directTrigger)) {
+        return directTrigger;
+      }
+
+      return Array.from(root.querySelectorAll('[data-demo-trigger]')).find((trigger) => {
+        const rect = trigger.getBoundingClientRect();
+        return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+      });
+    };
+
+    window.selectMviDemo = (selectedButton) => {
+      const root = selectedButton?.closest?.('[data-mvi-demo]');
+      if (!root) {
+        return;
+      }
+
+      setActiveDemo(root, selectedButton);
+      return false;
+    };
+
+    const initHeroVideo = () => {
+      document.querySelectorAll('[data-hero-video]').forEach((video) => {
+        if (!(video instanceof HTMLVideoElement) || video.dataset.heroReady === 'true') {
+          return;
+        }
+
+        video.dataset.heroReady = 'true';
+        video.muted = true;
+        video.loop = true;
+
+        const playWhenReady = () => {
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+        };
+
+        if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+          playWhenReady();
+        } else {
+          video.addEventListener('canplay', playWhenReady, { once: true });
+        }
+      });
+    };
+
     const setActiveDemo = (root, selectedButton) => {
       const video = root.querySelector('[data-demo-player]');
+      const playButton = root.querySelector('[data-demo-play]');
       const title = root.querySelector('[data-demo-heading]');
       const description = root.querySelector('[data-demo-copy]');
       const buttons = root.querySelectorAll('[data-demo-trigger]');
@@ -434,6 +480,9 @@ const initialDemo = demoItems[0];
         video.load();
       }
 
+      if (playButton) {
+        playButton.classList.remove('hidden');
+      }
       video.setAttribute('aria-label', `MVI ${nextTitle} 시연 영상`);
       if (title) title.textContent = nextTitle;
       if (description) description.textContent = nextDescription;
@@ -446,13 +495,60 @@ const initialDemo = demoItems[0];
         }
 
         root.dataset.demoReady = 'true';
-        root.querySelectorAll('[data-demo-trigger]').forEach((button) => {
-          button.addEventListener('click', () => setActiveDemo(root, button));
-        });
+        const video = root.querySelector('[data-demo-player]');
+        const playButton = root.querySelector('[data-demo-play]');
+
+        if (video instanceof HTMLVideoElement && playButton instanceof HTMLButtonElement) {
+          playButton.addEventListener('click', () => {
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(() => {});
+            }
+          });
+
+          video.addEventListener('play', () => {
+            playButton.classList.add('hidden');
+          });
+
+          video.addEventListener('pause', () => {
+            playButton.classList.remove('hidden');
+          });
+
+          video.addEventListener('ended', () => {
+            playButton.classList.remove('hidden');
+          });
+        }
       });
     };
 
+    if (!window.mviDemoSelectReady) {
+      window.mviDemoSelectReady = true;
+      document.addEventListener(
+        'pointerup',
+        (event) => {
+          const target = event.target;
+          let trigger = target?.closest?.('[data-demo-trigger]');
+          if (!trigger) {
+            const root = target?.closest?.('[data-mvi-demo]');
+            if (root) {
+              trigger = findDemoTriggerFromPoint(root, event.clientX, event.clientY);
+            }
+          }
+
+          if (!trigger) {
+            return;
+          }
+
+          event.preventDefault();
+          window.selectMviDemo(trigger);
+        },
+        true
+      );
+    }
+
     document.addEventListener('astro:page-load', initMviDemo);
+    document.addEventListener('astro:page-load', initHeroVideo);
+    initHeroVideo();
     initMviDemo();
   </script>
 </Layout>
