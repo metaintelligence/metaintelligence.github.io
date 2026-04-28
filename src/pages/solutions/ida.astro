@@ -27,7 +27,7 @@ const summaryStats = [
   },
   {
     value: 'C1·C2·C3',
-    label: '장기 트렌드·모멘텀·최근 가속 평가',
+    label: '시그널 강도 평가',
   },
   {
     value: 'Export',
@@ -147,9 +147,11 @@ const operationItems = [
           <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">
             IDA · Intelligent Document Analyzer
           </p>
-          <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight tracking-tight font-heading dark:text-white">
-            문서 데이터의 흐름을<br class="hidden md:block" />
-            <span class="text-blue-700 dark:text-blue-300">정량 근거로 분석하는 AI</span>
+          <h1
+            class="mt-4 text-[2.25rem] sm:text-5xl xl:text-[3.35rem] font-bold leading-[1.08] tracking-tight font-heading dark:text-white"
+          >
+            문서 데이터를
+            <span class="block text-blue-700 dark:text-blue-300">정량 근거로 분석</span>
           </h1>
           <p class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-muted dark:text-slate-300">
             IDA는 MetaInsight의 제품 경험을 기반으로, 구조화된 문서·레코드 데이터에서 키워드 클러스터와 시계열 시그널을
@@ -178,17 +180,17 @@ const operationItems = [
               loading="eager"
             />
             <div class="grid grid-cols-3 border-t border-white/10 bg-slate-900 text-white">
-              <div class="p-4">
+              <div class="p-3 sm:p-4">
                 <span class="block text-xs uppercase text-blue-200">Input</span>
-                <strong class="text-sm">Document Records</strong>
+                <strong class="text-xs sm:text-sm">Records</strong>
               </div>
-              <div class="p-4 border-x border-white/10">
+              <div class="p-3 sm:p-4 border-x border-white/10">
                 <span class="block text-xs uppercase text-blue-200">Engine</span>
-                <strong class="text-sm">Trend Scoring</strong>
+                <strong class="text-xs sm:text-sm">Scoring</strong>
               </div>
-              <div class="p-4">
+              <div class="p-3 sm:p-4">
                 <span class="block text-xs uppercase text-blue-200">Output</span>
-                <strong class="text-sm">Insights</strong>
+                <strong class="text-xs sm:text-sm">Insights</strong>
               </div>
             </div>
           </div>
@@ -360,20 +362,18 @@ const operationItems = [
           </div>
         </div>
 
-        <figure
-          class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900"
-        >
-          <img
-            src={mobileScreen.src}
-            width={mobileScreen.width}
-            height={mobileScreen.height}
-            alt="MetaInsight 모바일 프로젝트 화면"
-            class="mx-auto max-h-[760px] w-full object-cover object-top"
-            loading="lazy"
-          />
-          <figcaption
-            class="border-t border-stone-200 dark:border-slate-800 p-4 text-sm text-muted dark:text-slate-300"
-          >
+        <figure class="mx-auto w-full max-w-[320px]">
+          <div class="rounded-[2rem] border border-slate-800 bg-slate-950 p-2 shadow-xl shadow-slate-950/20">
+            <img
+              src={mobileScreen.src}
+              width={mobileScreen.width}
+              height={mobileScreen.height}
+              alt="MetaInsight 모바일 프로젝트 화면"
+              class="aspect-[1170/2532] w-full rounded-[1.5rem] object-cover object-top"
+              loading="eager"
+            />
+          </div>
+          <figcaption class="mt-4 text-center text-sm leading-relaxed text-muted dark:text-slate-300">
             모바일 화면에서도 프로젝트 목록과 분석 진입 흐름을 확인할 수 있습니다.
           </figcaption>
         </figure>
