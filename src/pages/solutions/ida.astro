@@ -333,13 +333,13 @@ const operationItems = [
       </div>
 
       <div class="relative isolate mt-10 grid gap-6 lg:grid-cols-[0.72fr_1.28fr]" data-ida-screens>
-        <div class="order-2 grid gap-3 sm:grid-cols-2 lg:order-1 lg:grid-cols-1">
+        <div class="relative z-40 order-2 grid gap-3 sm:grid-cols-2 lg:order-1 lg:grid-cols-1 pointer-events-auto">
           {
             screenItems.map((item, index) => (
               <button
                 type="button"
                 class:list={[
-                  'group w-full overflow-hidden rounded-lg border p-0 text-left transition focus:outline-none focus:ring-2 focus:ring-blue-300',
+                  'group relative z-40 w-full cursor-pointer select-none overflow-hidden rounded-lg border-[1px] p-0 text-left transition focus:outline-none focus:ring-2 focus:ring-blue-300 pointer-events-auto',
                   index === 1 ? 'border-blue-300 bg-white/10' : 'border-white/10 bg-white/[0.04] hover:bg-white/[0.08]',
                 ]}
                 data-ida-screen-trigger
@@ -361,7 +361,7 @@ const operationItems = [
                       loading="lazy"
                       aria-hidden="true"
                     />
-                    <span class="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/20">
                       <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-950">
                         <Icon name={item.icon} class="h-5 w-5" />
                       </span>
@@ -377,7 +377,9 @@ const operationItems = [
           }
         </div>
 
-        <article class="order-1 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] lg:order-2">
+        <article
+          class="relative z-10 order-1 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] lg:order-2"
+        >
           <div class="bg-black">
             <img
               src={initialScreen.image.src}
@@ -470,54 +472,117 @@ const operationItems = [
     </Fragment>
   </CallToAction>
 
-  <script is:inline>
-    const setActiveIdaScreen = (root, selectedButton) => {
-      const image = root.querySelector('[data-ida-screen-image]');
-      const heading = root.querySelector('[data-ida-screen-heading]');
-      const copy = root.querySelector('[data-ida-screen-copy]');
-      const buttons = root.querySelectorAll('[data-ida-screen-trigger]');
+  <script is:inline data-astro-rerun>
+    (() => {
+      const getTrigger = (target) => (target instanceof Element ? target.closest('[data-ida-screen-trigger]') : null);
 
-      if (!(image instanceof HTMLImageElement) || !selectedButton) {
-        return;
-      }
+      const findIdaScreenTriggerFromPoint = (root, clientX, clientY) => {
+        const directTrigger = document.elementFromPoint(clientX, clientY)?.closest?.('[data-ida-screen-trigger]');
+        if (directTrigger && root.contains(directTrigger)) {
+          return directTrigger;
+        }
 
-      buttons.forEach((button) => {
-        const isActive = button === selectedButton;
-        button.setAttribute('data-ida-active', String(isActive));
-        button.setAttribute('aria-pressed', String(isActive));
-        button.classList.toggle('border-blue-300', isActive);
-        button.classList.toggle('bg-white/10', isActive);
-        button.classList.toggle('border-white/10', !isActive);
-        button.classList.toggle('bg-white/[0.04]', !isActive);
-      });
+        return Array.from(root.querySelectorAll('[data-ida-screen-trigger]')).find((trigger) => {
+          const rect = trigger.getBoundingClientRect();
+          return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+        });
+      };
 
-      const nextImage = selectedButton.getAttribute('data-ida-image');
-      const nextAlt = selectedButton.getAttribute('data-ida-alt') || '';
-      const nextTitle = selectedButton.getAttribute('data-ida-title') || '';
-      const nextDescription = selectedButton.getAttribute('data-ida-description') || '';
+      const setActiveIdaScreen = (root, selectedButton) => {
+        const image = root.querySelector('[data-ida-screen-image]');
+        const heading = root.querySelector('[data-ida-screen-heading]');
+        const copy = root.querySelector('[data-ida-screen-copy]');
+        const buttons = root.querySelectorAll('[data-ida-screen-trigger]');
 
-      if (nextImage && image.getAttribute('src') !== nextImage) {
-        image.setAttribute('src', nextImage);
-      }
-      image.setAttribute('alt', nextAlt);
-      if (heading) heading.textContent = nextTitle;
-      if (copy) copy.textContent = nextDescription;
-    };
-
-    const initIdaScreens = () => {
-      document.querySelectorAll('[data-ida-screens]').forEach((root) => {
-        if (root.dataset.idaScreensReady === 'true') {
+        if (!(image instanceof HTMLImageElement) || !selectedButton) {
           return;
         }
 
-        root.dataset.idaScreensReady = 'true';
-        root.querySelectorAll('[data-ida-screen-trigger]').forEach((button) => {
-          button.addEventListener('click', () => setActiveIdaScreen(root, button));
+        buttons.forEach((button) => {
+          const isActive = button === selectedButton;
+          button.setAttribute('data-ida-active', String(isActive));
+          button.setAttribute('aria-pressed', String(isActive));
+          button.classList.toggle('border-blue-300', isActive);
+          button.classList.toggle('bg-white/10', isActive);
+          button.classList.toggle('border-white/10', !isActive);
+          button.classList.toggle('bg-white/[0.04]', !isActive);
         });
-      });
-    };
 
-    document.addEventListener('astro:page-load', initIdaScreens);
-    initIdaScreens();
+        const nextImage = selectedButton.getAttribute('data-ida-image');
+        const nextAlt = selectedButton.getAttribute('data-ida-alt') || '';
+        const nextTitle = selectedButton.getAttribute('data-ida-title') || '';
+        const nextDescription = selectedButton.getAttribute('data-ida-description') || '';
+
+        if (nextImage && image.getAttribute('src') !== nextImage) {
+          image.removeAttribute('srcset');
+          image.setAttribute('src', nextImage);
+        }
+        image.setAttribute('alt', nextAlt);
+        if (heading) heading.textContent = nextTitle;
+        if (copy) copy.textContent = nextDescription;
+      };
+
+      window.selectIdaScreen = (selectedButton) => {
+        const root = selectedButton?.closest?.('[data-ida-screens]');
+        if (!root) {
+          return;
+        }
+
+        setActiveIdaScreen(root, selectedButton);
+      };
+
+      const initIdaScreens = () => {
+        document.querySelectorAll('[data-ida-screens]').forEach((root) => {
+          if (root.dataset.idaScreensReady === 'true') {
+            return;
+          }
+
+          root.dataset.idaScreensReady = 'true';
+        });
+      };
+
+      if (!window.idaScreenSelectReady) {
+        window.idaScreenSelectReady = true;
+
+        document.addEventListener(
+          'click',
+          (event) => {
+            const trigger = getTrigger(event.target);
+            if (!trigger) {
+              return;
+            }
+
+            event.preventDefault();
+            window.selectIdaScreen(trigger);
+          },
+          true
+        );
+
+        document.addEventListener(
+          'pointerup',
+          (event) => {
+            let trigger = getTrigger(event.target);
+            if (!trigger) {
+              const root = event.target instanceof Element ? event.target.closest('[data-ida-screens]') : null;
+              if (root) {
+                trigger = findIdaScreenTriggerFromPoint(root, event.clientX, event.clientY);
+              }
+            }
+
+            if (!trigger) {
+              return;
+            }
+
+            event.preventDefault();
+            window.selectIdaScreen(trigger);
+          },
+          true
+        );
+
+        document.addEventListener('astro:page-load', initIdaScreens);
+      }
+
+      initIdaScreens();
+    })();
   </script>
 </Layout>
