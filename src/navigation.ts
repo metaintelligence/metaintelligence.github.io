@@ -1,5 +1,5 @@
 import { resolveI18nPair } from './utils/i18n';
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 // headerData provides both English and Korean labels so the client
 // can toggle language dynamically. Each `text` value is either a
@@ -83,13 +83,7 @@ export const headerData = {
       ],
     },
   ],
-  actions: [
-    {
-      text: resolveI18nPair('header.download') || 'Download',
-      href: getPermalink('/contact'),
-      target: '_self',
-    },
-  ],
+  actions: [],
 };
 export const footerData = {
   links: [
@@ -146,7 +140,6 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
   footNote: `
