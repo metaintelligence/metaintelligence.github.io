@@ -1,0 +1,399 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
+
+import uploadScreen from '~/assets/images/ida/ida_new_upload.png';
+import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
+import chartsScreen from '~/assets/images/ida/ida_result_charts.png';
+import detailScreen from '~/assets/images/ida/ida_item_detail.png';
+import insightsScreen from '~/assets/images/ida/ida_insights.png';
+import mobileScreen from '~/assets/images/ida/ida_mobile_projects.png';
+
+const metadata = {
+  title: 'IDA 문서 분석 AI 솔루션 — MetaIntelligence',
+  description:
+    'IDA는 MetaInsight 기반의 문서·레코드 분석 AI로, CSV·Excel·Parquet 데이터에서 텍스트 클러스터와 시계열 시그널을 발견하고 정량 근거 기반 인사이트를 생성합니다.',
+};
+
+const summaryStats = [
+  {
+    value: 'CSV / Excel',
+    label: '업로드 기반 분석 시작',
+  },
+  {
+    value: 'C1·C2·C3',
+    label: '장기 트렌드·모멘텀·최근 가속 평가',
+  },
+  {
+    value: 'Export',
+    label: 'Excel·CSV 결과 내보내기',
+  },
+];
+
+const capabilityItems = [
+  {
+    title: '문서·레코드 업로드',
+    description:
+      'CSV, Excel, Parquet 파일을 업로드하고 텍스트, 날짜, 금액, 그룹, 식별자 컬럼을 화면에서 확인하며 분석 조건을 구성합니다.',
+    icon: 'tabler:file-spreadsheet',
+    tone: 'text-blue-700 bg-blue-50 dark:bg-blue-950/50 dark:text-blue-300',
+  },
+  {
+    title: '키워드 클러스터링',
+    description:
+      '비슷한 키워드와 문서 항목을 자동으로 묶고, 각 클러스터가 시간에 따라 어떻게 변화하는지 정량적으로 비교합니다.',
+    icon: 'tabler:category-2',
+    tone: 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/50 dark:text-emerald-300',
+  },
+  {
+    title: '정량 근거 기반 인사이트',
+    description:
+      'C1 장기 트렌드, C2 모멘텀 유지, C3 최근 가속 기준을 바탕으로 등급과 점수를 산출하고 자연어 인사이트를 제공합니다.',
+    icon: 'tabler:report-analytics',
+    tone: 'text-amber-700 bg-amber-50 dark:bg-amber-950/50 dark:text-amber-300',
+  },
+];
+
+const workflowItems = [
+  {
+    label: '01',
+    title: 'Upload',
+    description: '분석할 문서·레코드 데이터를 업로드하고 지원 형식을 확인합니다.',
+  },
+  {
+    label: '02',
+    title: 'Map Columns',
+    description: '텍스트와 날짜 컬럼을 중심으로 분석에 필요한 필드를 매핑합니다.',
+  },
+  {
+    label: '03',
+    title: 'Evaluate',
+    description: '키워드 군집을 만들고 트렌드 강도, 모멘텀, 최근 가속을 평가합니다.',
+  },
+  {
+    label: '04',
+    title: 'Review Insights',
+    description: '요약 지표, 상세 항목, AI 또는 템플릿 기반 인사이트를 검토합니다.',
+  },
+];
+
+const galleryItems = [
+  {
+    title: '분석 생성',
+    description: '파일 업로드에서 컬럼 매핑, 분석 프리셋 선택으로 이어지는 3단계 흐름',
+    image: uploadScreen,
+    alt: 'MetaInsight 새 분석 업로드 화면',
+  },
+  {
+    title: '결과 요약',
+    description: '레코드, 그룹, 감지된 시그널, 전체 클러스터를 한 화면에서 확인',
+    image: overviewScreen,
+    alt: 'MetaInsight 분석 결과 요약 화면',
+  },
+  {
+    title: '분포와 비교',
+    description: '등급 분포, 그룹 비교, Top Signals를 차트로 확인',
+    image: chartsScreen,
+    alt: 'MetaInsight 결과 차트 화면',
+  },
+  {
+    title: '항목 상세',
+    description: '클러스터별 점수, 통과 기준, 레코드 수, 키워드 구성을 상세 검토',
+    image: detailScreen,
+    alt: 'MetaInsight 항목 상세 화면',
+  },
+  {
+    title: '인사이트',
+    description: '분석 결과를 요약하고 주요 클러스터별 근거를 자연어로 정리',
+    image: insightsScreen,
+    alt: 'MetaInsight 인사이트 화면',
+  },
+];
+
+const operationItems = [
+  {
+    title: 'SaaS 운용 구조',
+    description: 'JWT 인증, 프로젝트 단위 관리, 사용량 제한 등 SaaS 제품 운용에 필요한 기본 구조를 갖춥니다.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: '도메인 확장',
+    description:
+      'R&D 과제, 특허, 리테일, 금융 리스크처럼 텍스트와 날짜 축이 있는 데이터로 분석 대상을 확장할 수 있습니다.',
+    icon: 'tabler:database-search',
+  },
+  {
+    title: '반복 탐색',
+    description: '국가, 분야, 기간, 프리셋 등 조건을 조정하며 같은 데이터에서 다른 관점의 시그널을 확인합니다.',
+    icon: 'tabler:refresh-dot',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky showToggleTheme />
+  </Fragment>
+
+  <section class="relative not-prose overflow-hidden bg-white dark:bg-slate-950">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center py-10 md:py-14">
+        <div class="min-w-0">
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">
+            IDA · Intelligent Document Analyzer
+          </p>
+          <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight tracking-tight font-heading dark:text-white">
+            문서 데이터의 흐름을<br class="hidden md:block" />
+            <span class="text-blue-700 dark:text-blue-300">정량 근거로 분석하는 AI</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-muted dark:text-slate-300">
+            IDA는 MetaInsight의 제품 경험을 기반으로, 구조화된 문서·레코드 데이터에서 키워드 클러스터와 시계열 시그널을
+            찾고 분석 결과를 인사이트로 정리하는 문서 분석 AI 솔루션입니다.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-3 gap-3 max-w-2xl">
+            {
+              summaryStats.map((item) => (
+                <div class="rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+                  <strong class="block text-xl text-gray-950 dark:text-white">{item.value}</strong>
+                  <span class="mt-1 block text-sm leading-relaxed text-muted dark:text-slate-300">{item.label}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-slate-950 shadow-xl">
+            <img
+              src={overviewScreen.src}
+              width={overviewScreen.width}
+              height={overviewScreen.height}
+              alt="MetaInsight 분석 결과 요약 대시보드"
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="eager"
+            />
+            <div class="grid grid-cols-3 border-t border-white/10 bg-slate-900 text-white">
+              <div class="p-4">
+                <span class="block text-xs uppercase text-blue-200">Input</span>
+                <strong class="text-sm">Document Records</strong>
+              </div>
+              <div class="p-4 border-x border-white/10">
+                <span class="block text-xs uppercase text-blue-200">Engine</span>
+                <strong class="text-sm">Trend Scoring</strong>
+              </div>
+              <div class="p-4">
+                <span class="block text-xs uppercase text-blue-200">Output</span>
+                <strong class="text-sm">Insights</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-stone-50 dark:bg-slate-900 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">Product Scope</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+          문서·레코드 분석을 위한 핵심 기능
+        </h2>
+        <p class="mt-4 text-lg text-muted dark:text-slate-300">
+          IDA는 텍스트와 날짜 축이 정리된 문서·레코드 데이터를 기준으로 분석을 시작합니다. 업로드, 컬럼 매핑,
+          클러스터링, 정량 평가, 인사이트 생성까지 이어지는 흐름을 하나의 화면 경험으로 제공합니다.
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        {
+          capabilityItems.map((item) => (
+            <article class="rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
+              <div class={`w-12 h-12 rounded-lg flex items-center justify-center ${item.tone}`}>
+                <Icon name={item.icon} class="w-7 h-7" />
+              </div>
+              <h3 class="mt-5 text-xl font-bold dark:text-white">{item.title}</h3>
+              <p class="mt-3 leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white dark:bg-slate-950 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-start">
+        <div>
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">Analysis Workflow</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+            업로드부터 인사이트까지 이어지는 운용 흐름
+          </h2>
+          <p class="mt-4 text-lg text-muted dark:text-slate-300">
+            사용자는 복잡한 코드 없이 분석 파일을 올리고, 자동 감지된 컬럼을 검토한 뒤 프리셋을 선택해 분석을
+            실행합니다. 결과는 요약 지표, 차트, 항목 상세, 자연어 인사이트로 나누어 확인합니다.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            {
+              workflowItems.map((item) => (
+                <div class="rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900 p-5">
+                  <span class="text-xs font-bold tracking-wide text-blue-700 dark:text-blue-300">{item.label}</span>
+                  <h3 class="mt-2 text-xl font-bold dark:text-white">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="grid gap-5">
+          <figure
+            class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+          >
+            <img
+              src={uploadScreen.src}
+              width={uploadScreen.width}
+              height={uploadScreen.height}
+              alt="IDA 새 분석 업로드 단계"
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="lazy"
+            />
+            <figcaption
+              class="border-t border-stone-200 dark:border-slate-800 p-4 text-sm text-muted dark:text-slate-300"
+            >
+              분석 시작 화면: 파일 업로드 후 컬럼 매핑과 분석 프리셋 설정으로 진행합니다.
+            </figcaption>
+          </figure>
+          <figure
+            class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+          >
+            <img
+              src={detailScreen.src}
+              width={detailScreen.width}
+              height={detailScreen.height}
+              alt="IDA 항목 상세 분석 화면"
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="lazy"
+            />
+            <figcaption
+              class="border-t border-stone-200 dark:border-slate-800 p-4 text-sm text-muted dark:text-slate-300"
+            >
+              항목 상세 화면: 클러스터별 점수, 통과 기준, 레이더 차트, 키워드 구성을 검토합니다.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-zinc-950 text-white py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold tracking-wide uppercase text-blue-300">Product Screens</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight">실제 화면으로 확인하는 분석 결과</h2>
+        <p class="mt-4 text-lg text-slate-300">
+          MetaInsight의 실제 운용 화면을 기준으로 분석 생성, 결과 요약, 항목 상세, 인사이트 확인 과정을 정리했습니다.
+          기능을 과장하기보다 현재 제품 흐름이 명확히 보이도록 구성했습니다.
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-5">
+        {
+          galleryItems.map((item, index) => (
+            <article
+              class:list={[
+                'overflow-hidden rounded-lg border border-white/10 bg-white/[0.04]',
+                index === 4 ? 'md:col-span-2' : '',
+              ]}
+            >
+              <img
+                src={item.image.src}
+                width={item.image.width}
+                height={item.image.height}
+                alt={item.alt}
+                class:list={['w-full object-cover object-top', index === 4 ? 'aspect-[16/8]' : 'aspect-[16/10]']}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+              <div class="border-t border-white/10 p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-300">{item.description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white dark:bg-slate-950 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[1fr_0.72fr] gap-10 lg:gap-14 items-center">
+        <div>
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">
+            Operation & Expansion
+          </p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+            분석 엔진을 제품으로 운용하기 위한 기반
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-muted dark:text-slate-300">
+            MetaInsight는 분석 엔진만이 아니라 계정, 프로젝트, 결과 저장, 내보내기, 모바일 대응 화면까지 포함한 제품형
+            구조를 갖추고 있습니다. IDA는 이 기반 위에서 기업 문서·규제·과제 데이터 분석 영역으로 확장됩니다.
+          </p>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-4">
+            {
+              operationItems.map((item) => (
+                <article class="rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900 p-5">
+                  <div class="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 flex items-center justify-center">
+                    <Icon name={item.icon} class="w-6 h-6" />
+                  </div>
+                  <h3 class="mt-4 text-lg font-bold dark:text-white">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+
+        <figure
+          class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900"
+        >
+          <img
+            src={mobileScreen.src}
+            width={mobileScreen.width}
+            height={mobileScreen.height}
+            alt="MetaInsight 모바일 프로젝트 화면"
+            class="mx-auto max-h-[760px] w-full object-cover object-top"
+            loading="lazy"
+          />
+          <figcaption
+            class="border-t border-stone-200 dark:border-slate-800 p-4 text-sm text-muted dark:text-slate-300"
+          >
+            모바일 화면에서도 프로젝트 목록과 분석 진입 흐름을 확인할 수 있습니다.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: '도입 문의',
+        href: '/contact',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  >
+    <Fragment slot="title">문서·레코드 데이터에서 실행 가능한 인사이트를 찾으세요.</Fragment>
+    <Fragment slot="subtitle">
+      IDA는 업로드, 클러스터링, 정량 평가, 인사이트 생성을 하나의 분석 흐름으로 제공합니다.
+    </Fragment>
+  </CallToAction>
+</Layout>
