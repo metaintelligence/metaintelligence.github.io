@@ -47,7 +47,9 @@
     },
     "terms": "이용약관",
     "privacy": "개인정보처리방침",
-    "location": "대구, 대한민국"
+    "location": "대구, 대한민국",
+    "copyright": "© 2026 MetaIntelligence Inc. 모든 권리 보유.",
+    "address": "대구광역시 수성구 알파시티1로35길 13, 4층 401호"
   },
   "home": {
     "notice": "Website Update in Progress",
@@ -131,6 +133,774 @@
         "subtitle": "구성 가능한 트렌드와 리스크 탐색",
         "description": "텍스트, 날짜, 금액, 그룹, 시간 신호를 분석해 도메인별 움직임을 드러냅니다."
       }
+    }
+  },
+  "data": {
+    "company": {
+      "shortDescription": "MetaIntelligence는 도메인 신호 인텔리전스, 제조 비전 검사, 근거 기반 지식 워크플로우를 위한 First-Principle AI 소프트웨어를 만듭니다. 출력이 추적, 검증, 운영될 수 있는 시스템에 집중합니다.",
+      "headquarters": "대구광역시 수성구 알파시티1로35길 13, 4층 401호"
+    },
+    "mainStats": {
+      "founded": "소프트웨어 및 AI 기업으로 설립",
+      "execution": "공공 R&D 분석 과제 연속 수행",
+      "records": "대규모 기록 처리 및 구조화",
+      "patent": "자연 데이터 분석 등록 특허"
+    },
+    "principles": {
+      "first": {
+        "title": "First-Principle AI",
+        "label": "구조를 먼저 모델링",
+        "description": "모델과 자동화 계층을 선택하기 전에 문제의 물리적, 통계적, 운영적 구조부터 파악합니다."
+      },
+      "verification": {
+        "title": "Verification-Driven",
+        "label": "출력을 추적 가능하게 유지",
+        "description": "생성된 인사이트를 원천 데이터, 재현 가능한 계산, 검토 가능한 운영 절차와 연결합니다."
+      },
+      "open": {
+        "title": "Open Architecture",
+        "label": "고객 환경에 맞는 통합",
+        "description": "기존 데이터, 모델, 배포 제약, 여러 LLM 제공자와 통합될 수 있도록 파이프라인을 설계합니다."
+      }
+    },
+    "capabilities": {
+      "multimodal": {
+        "title": "멀티모달 AI",
+        "subtitle": "비전-언어 융합과 물리 기반 모델링",
+        "description": "컴퓨터 비전, 이미지 생성, 문서 이해, 구조화 신호를 산업 AI 워크플로우로 결합합니다."
+      },
+      "knowledge": {
+        "title": "지식 AI",
+        "subtitle": "Agentic AI와 문서 인텔리전스",
+        "description": "기술 문서와 구조화 데이터를 검색 가능한 지식, 근거 기반 요약, 보고서 수준의 인사이트로 전환합니다."
+      },
+      "hpc": {
+        "title": "HPC & 최적화",
+        "subtitle": "하이브리드 컴퓨팅과 대규모 데이터 파이프라인",
+        "description": "대규모 데이터셋, GPU 워크로드, 배포 파이프라인을 실험실 시제품이 아닌 제품의 일부로 설계합니다."
+      },
+      "signal": {
+        "title": "Signal Intelligence",
+        "subtitle": "구성 가능한 트렌드와 리스크 탐색",
+        "description": "텍스트, 날짜, 금액, 그룹, 시간 신호를 분석해 도메인별 움직임을 드러냅니다."
+      }
+    },
+    "solutions": {
+      "mvi": {
+        "domain": "제조 비전 AI",
+        "fullName": "Meta Vision AI",
+        "summary": "정상 데이터 기반 이상 탐지, 표적 데이터 증강, 3-BIN 휴먼 인 더 루프 운영을 결합한 현장 적응형 검사 워크플로우입니다.",
+        "proof": "MVTec AD 실험과 제조 PoC 시나리오를 포함한 이상 탐지 워크플로우에서 검증되었습니다.",
+        "detail": "정상 데이터 학습, 표적 GenAI 증강, 3-BIN 검토, 레거시 친화적 배포를 하나의 현장 워크플로우로 구성합니다."
+      },
+      "metainsight": {
+        "domain": "도메인 범용 신호 분석",
+        "fullName": "Domain Signal Intelligence Platform",
+        "summary": "대규모 도메인 데이터를 수집, 정제, 군집화, 점수화, 보고하는 구성 가능한 플랫폼으로, 출력은 근거와 연결됩니다.",
+        "proof": "반복 수행한 공공 R&D 분석 업무를 기반으로 구축한 뒤, 도메인 구성형 트렌드·인사이트 엔진으로 일반화했습니다.",
+        "detail": "수집, 정제, 벡터화, 군집화, 점수화, 인사이트 생성이 원천 기록과 검토 가능한 근거에 연결됩니다."
+      },
+      "diana": {
+        "domain": "Agentic AI",
+        "fullName": "Domain Intelligence Agent",
+        "summary": "구조화된 도메인 데이터와 문서를 기반으로 질의 계획, 근거 검색, 계산 검증, 초안 출력을 수행하는 에이전트 계층입니다.",
+        "proof": "MetaInsight 파이프라인을 근거 기반의 반복 가능한 지식 업무 자동화로 확장하기 위해 설계되었습니다.",
+        "detail": "구조화된 근거를 인텔리전스 단위, 보고서 초안, 검토 노트, 검증 로그로 전환하는 가이드형 에이전트 계층입니다."
+      }
+    },
+    "collaborationSolutions": {
+      "metainsightMfg": {
+        "domain": "제조 보고 자동화",
+        "description": "MES, 센서, ERP, 검사, 4M 로그를 진단과 보고 워크플로우로 연결하는 제조 분석 확장 방향입니다."
+      },
+      "aeroGimbal": {
+        "domain": "실시간 시각 추적 및 제어",
+        "description": "고속 이동 물체를 추적하고 인식을 짐벌 제어와 연결하는 운영 환경용 비전 AI 개념입니다."
+      }
+    },
+    "trackRecords": {
+      "rnd": {
+        "title": "공공 R&D 분석 과제 반복 수행",
+        "description": "여러 연도에 걸쳐 국내외 R&D 자금, 신흥 연구 주제, 기술 신호를 분석했습니다."
+      },
+      "patent": {
+        "title": "등록 특허 KR 10-2573563",
+        "description": "자연 데이터 분석 시스템 및 방법에 대한 지식재산을 등록해 R&D 인텔리전스 워크플로우의 기반을 마련했습니다."
+      },
+      "prototype": {
+        "title": "MetaInsight 프로토타입 및 워크플로우 시연",
+        "description": "대규모 R&D 분석 파이프라인을 필터링, 군집화, 인사이트 검토, 보고 웹 워크플로우로 확장했습니다."
+      },
+      "vision": {
+        "title": "MicroDIPS 기반 비전 이상 탐지 검증",
+        "description": "정상 데이터 기반 이상 탐지와 데이터 증강 방법을 제조 비전 AI 활용 방향으로 확장했습니다."
+      },
+      "expansion": {
+        "title": "제조, 항공우주, LLM 워크플로우 확장",
+        "description": "MVI, MetaInsight MFG, AeroGimbal-Track, agentic domain intelligence를 중심으로 적용 제품 방향을 개발하고 있습니다."
+      }
+    },
+    "team": {
+      "ceo": {
+        "role": "Founder & CEO",
+        "specialty": "물리 기반 AI와 통합 AI 아키텍처",
+        "summary": "POSTECH 물리학 박사. 머신비전 엔지니어링, CSAIC 연구, 등록 AI 분석 IP 경험을 보유하고 있습니다."
+      },
+      "nlp": {
+        "role": "문서 인텔리전스",
+        "specialty": "언어모델, 평가, 보고서 생성",
+        "summary": "도메인 인텔리전스와 기술 보고를 위한 근거 기반 문서 분석, LLM 평가, 에이전트 워크플로우를 담당합니다."
+      },
+      "software": {
+        "role": "제품 엔지니어링",
+        "specialty": "프레임워크, 그래픽스, SaaS, 배포",
+        "summary": "비전 AI 데모, 분석 인터페이스, 엔터프라이즈 워크플로우를 위한 제품 수준의 소프트웨어 아키텍처를 구축합니다."
+      },
+      "vision": {
+        "role": "모델링 & 검사 AI",
+        "specialty": "결함 모델링과 이상 탐지",
+        "summary": "제조 비전 시나리오를 위한 검사 로직, 합성 데이터 전략, 모델 평가 파이프라인을 개발합니다."
+      },
+      "quality": {
+        "role": "R&D 데이터 운영",
+        "specialty": "데이터 처리와 품질 관리",
+        "summary": "대규모 데이터셋의 수집, 정제, 검증, 구조화 운영을 지원합니다."
+      }
+    },
+    "researchHighlights": {
+      "natural": {
+        "title": "자연 데이터 분석 시스템",
+        "description": "등록 특허 KR 10-2573563은 기술 및 자연 데이터를 구조적으로 해석해 분석하는 방법을 다룹니다."
+      },
+      "physics": {
+        "title": "R&D 과제 데이터 피직스",
+        "description": "NSF, NIH, NTIS, KAKEN, CORDIS 등 글로벌 R&D 기록을 정량적으로 분석하는 접근입니다."
+      },
+      "signal": {
+        "title": "신흥 기술 신호 파이프라인",
+        "description": "군집화, 시간 신호, 정량 지표, LLM 기반 평가를 결합해 신흥 기술 후보를 식별합니다."
+      },
+      "public": {
+        "title": "공개 연구 발표",
+        "description": "연구 활동에는 R&D 자금 분석, 미래 이슈 발견, 관련 발표와 보고 업무가 포함됩니다."
+      }
+    }
+  },
+  "pages": {
+    "about": {
+      "metaTitle": "회사 소개",
+      "metaDescription": "MetaIntelligence Inc. 소개",
+      "eyebrow": "About",
+      "primary": "회사 정체성",
+      "secondary": "주요 실적"
+    },
+    "companyIntro": {
+      "metaTitle": "회사 소개",
+      "metaDescription": "MetaIntelligence Inc.에 대한 간결한 소개",
+      "eyebrow": "Company Introduction",
+      "cta": "회사 정체성 보기"
+    },
+    "companyIdentity": {
+      "metaTitle": "회사 정체성",
+      "metaDescription": "MetaIntelligence의 정체성, 미션, 가치, 운영 원칙.",
+      "eyebrow": "Company",
+      "title": "검증, 배포, 반복 사용을 위해 설계된 AI 제품",
+      "description": "MetaIntelligence Inc.는 제조 비전 검사, 도메인 신호 인텔리전스, 근거 기반 문서 워크플로우를 위한 소프트웨어를 개발합니다. 일반적인 AI 주장보다 추적 가능성과 운영 적합성을 우선합니다.",
+      "missionEyebrow": "Mission",
+      "missionTitle": "신뢰하기 전에 검토할 수 있는 AI 시스템을 만든다",
+      "missionDescription": "산업과 연구 워크플로우에서 유용한 AI 출력은 데이터, 가정, 검토 단계와 연결되어 있어야 합니다. MetaIntelligence는 그 요구를 출발점으로 제품을 설계합니다.",
+      "competenciesEyebrow": "Core Competencies",
+      "competenciesTitle": "서로 보강되는 기술 역량",
+      "nextEyebrow": "Next",
+      "nextTitle": "수행 이력 검토",
+      "nextDescription": "회사는 반복 수행한 작업, 등록 IP, 적용 제품 방향을 통해 설명됩니다.",
+      "nextCta": "연혁"
+    },
+    "culture": {
+      "metaTitle": "운영 원칙",
+      "metaDescription": "집중형 AI 엔지니어링 팀으로서 MetaIntelligence가 일하는 방식.",
+      "eyebrow": "Operating Principles",
+      "title": "검증 가능한 AI를 위한 집중형 엔지니어링 문화",
+      "description": "MetaIntelligence의 문화는 일하는 방식으로 드러납니다. 근거 기반 의사결정, 동작하는 소프트웨어, 명확한 책임, 실제 운영 제약에 대한 존중입니다.",
+      "principles": {
+        "evidence": {
+          "title": "의견보다 근거",
+          "description": "기술 선택은 취향이나 유행이 아니라 원천 데이터, 재현 가능한 출력, 배포 제약으로 판단합니다."
+        },
+        "software": {
+          "title": "동작하는 소프트웨어 우선",
+          "description": "연구 결과는 사용할 수 있는 시스템이 될 때 의미가 있습니다. 프로토타입을 제품 워크플로우와 현장 운영에 가깝게 유지합니다."
+        },
+        "ownership": {
+          "title": "작은 팀, 명확한 책임",
+          "description": "연구, 데이터, 제품, 배포 전반의 책임을 명확히 하여 의사결정이 설명 가능하게 남도록 합니다."
+        },
+        "security": {
+          "title": "보안과 현장 제약 존중",
+          "description": "제조 및 공공 부문 환경에는 네트워크, 데이터, 하드웨어, 검토 제약이 있습니다. 제품 설계는 그 지점에서 시작합니다."
+        }
+      },
+      "standardEyebrow": "Engineering Standard",
+      "standardTitle": "표현 계층만이 아니라 운영 시스템으로 가치를 증명합니다",
+      "standardDescription": "R&D 분석에서는 원천 기록에서 최종 인사이트까지의 경로를 보존합니다. 제조 비전 AI에서는 모델을 피드백, 재학습, 현장 의사결정 절차와 연결합니다."
+    },
+    "missionHistory": {
+      "metaTitle": "연혁",
+      "metaDescription": "MetaIntelligence의 연혁, 회사 이력, 검증된 수행 기록.",
+      "eyebrow": "Milestones",
+      "title": "R&D 분석에서 적용 AI 제품으로",
+      "description": "회사 이력은 공개 가능한 사실을 중심으로 정리합니다. 반복 연구 수행, 등록 IP, 제품 프로토타입, 제조 및 agentic AI로의 전환입니다.",
+      "milestones": {
+        "founded": {
+          "title": "회사 설립",
+          "description": "메타컴퓨팅 주식회사가 계산과학, AI, 데이터 분석을 중심으로 설립되었습니다."
+        },
+        "analytics": {
+          "title": "공공 R&D 분석 업무 시작",
+          "description": "글로벌 R&D 과제 데이터와 데이터 과학 방법에 대한 연구를 통해 R&D 인텔리전스 영역에 진입했습니다."
+        },
+        "patent": {
+          "title": "등록 특허 확보",
+          "description": "자연 데이터 분석 시스템 및 방법에 대한 특허 KR 10-2573563이 등록되었습니다."
+        },
+        "prototype": {
+          "title": "MetaInsight 프로토타입",
+          "description": "R&D 수집, 정제, 분석, 보고서 생성 워크플로우를 웹 기반 프로토타입으로 확장했습니다."
+        },
+        "rename": {
+          "title": "MetaIntelligence로 사명 변경",
+          "description": "대구 수성알파시티를 기반으로 엔터프라이즈 AI 제품 중심의 회사로 재정렬했습니다."
+        },
+        "expansion": {
+          "title": "제조 및 agentic AI 확장",
+          "description": "MVI, MetaInsight MFG, DIANA, 산업용 AI 워크플로우를 중심으로 제품 방향을 확장하고 있습니다."
+        }
+      },
+      "evidenceEyebrow": "Execution Evidence",
+      "evidenceTitle": "반복 가능한 작업으로 뒷받침되는 연혁"
+    },
+    "contact": {
+      "metaTitle": "문의",
+      "metaDescription": "대구 소재 MetaIntelligence Inc. 문의.",
+      "eyebrow": "Contact",
+      "title": "프로젝트 및 협업 문의",
+      "description": "제조 비전 AI, 도메인 신호 인텔리전스, 근거 기반 문서 분석 워크플로우에 대해 MetaIntelligence에 문의할 수 있습니다. 주민등록번호, 집주소 등 불필요한 민감 개인정보는 보내지 말아 주세요.",
+      "labels": {
+        "email": "이메일",
+        "phone": "전화",
+        "fax": "팩스",
+        "headquarters": "본사"
+      },
+      "scopeEyebrow": "Inquiry Scope",
+      "scopeTitle": "가장 효과적으로 응답할 수 있는 영역",
+      "scope": {
+        "mvi": "제조 결함 탐지, 비전 검사 워크플로우, 데이터 증강, 현장 배포.",
+        "metainsight": "도메인 신호 분석, 트렌드 발견, 군집화, 근거 연결 보고.",
+        "diana": "Agentic 문서 인텔리전스, 검색 워크플로우, LLM 평가, 보고 자동화."
+      }
+    },
+    "trackRecord": {
+      "metaTitle": "주요 실적",
+      "metaDescription": "MetaIntelligence의 검증된 공공 R&D 및 산업 협업 수행 이력.",
+      "eyebrow": "Track Record",
+      "title": "공공 R&D 분석에서 적용 AI 검증까지의 근거",
+      "description": "반복 과제, 대규모 데이터 경험, 등록 IP, 적용 산업 방향 등 공개 가능한 수행 신호를 정리합니다. 비공개 고객 정보는 의도적으로 제외합니다.",
+      "stats": {
+        "years": "공공 R&D 분석 과제 반복 수행",
+        "records": "R&D 기록 처리 및 구조화",
+        "patent": "등록 특허",
+        "roadmap": "제품 확장 로드맵"
+      },
+      "governmentEyebrow": "Government R&D",
+      "governmentTitle": "R&D 데이터 분석 반복 수행",
+      "government": {
+        "db": {
+          "title": "R&D 과제 정보 데이터베이스 연구",
+          "description": "글로벌 R&D 과제 데이터 분석 및 활용 연구."
+        },
+        "future": {
+          "title": "미래 이슈 및 신진 연구자 발굴",
+          "description": "초기 신호와 연구 그룹을 식별하기 위한 R&D 자금 분석."
+        },
+        "global": {
+          "title": "글로벌 R&D 자금 데이터 수집 및 분석",
+          "description": "공공 R&D 기록의 대규모 수집, 구조화, 분석."
+        },
+        "construction": {
+          "title": "R&D 분석 데이터베이스 구축",
+          "description": "공공 R&D 정보 분석을 위한 컨소시엄 기반 업무 참여."
+        }
+      },
+      "extensionsEyebrow": "Industry Extensions",
+      "extensionsTitle": "제품 워크플로우로 이동 중인 적용 방향",
+      "collaboration": {
+        "microdips": "AI 기반 실시간 비전 이상 탐지 시스템 방향",
+        "mvi": "디스플레이 및 필름 공정 시나리오를 위한 비전 검사 자동화",
+        "mfg": "제조 데이터 기반 진단 및 보고 자동화 에이전트",
+        "aero": "고속 시각 추적 및 짐벌 제어 통합 개념"
+      }
+    },
+    "research": {
+      "metaTitle": "연구 & IP",
+      "metaDescription": "MetaIntelligence의 연구, 지식재산, 발표 및 보고 하이라이트.",
+      "eyebrow": "Research & IP",
+      "title": "제품 방향을 뒷받침하는 연구 방법과 IP",
+      "description": "MetaIntelligence는 자연 데이터 분석, R&D 데이터 피직스, 신흥 기술 발견, 제조 비전 AI를 검증 중심의 기술 기반으로 연결합니다.",
+      "ip": {
+        "patent": {
+          "title": "등록 특허 KR 10-2573563",
+          "description": "자연 데이터 분석 시스템 및 방법. R&D 및 기술 데이터의 구조적 분석 접근을 뒷받침하는 IP입니다."
+        },
+        "trademark": {
+          "title": "등록 상표 KR 40-1914547",
+          "description": "이전 MetaCom2 시기의 상표 자산으로, 회사 이력과 공개 IP 맥락의 일부로 보유하고 있습니다."
+        },
+        "record": {
+          "title": "적용 연구 이력",
+          "description": "연구 활동은 기술적 맥락으로만 제시하며, 비공개 계약과 민간 파트너 세부 정보는 제외합니다."
+        }
+      },
+      "themesEyebrow": "Research Themes",
+      "themesTitle": "공개 가능한 연구 주제",
+      "publicationsEyebrow": "Publications & Reports",
+      "publicationsTitle": "플랫폼 방향을 뒷받침하는 연구 활동",
+      "publications": {
+        "future": "글로벌 R&D 자금 현황 수집 및 분석 기반 미래 이슈 분석",
+        "pittcon": "R&D 자금 데이터와 미래 이슈 발견에 관한 Pittcon 포스터 발표",
+        "nsf": "NSF 과제 초록 빅데이터 분석과 데이터 피직스 방법론",
+        "reports": "정책 연구 과제를 통해 구축한 공공 R&D 분석 보고"
+      }
+    },
+    "solutions": {
+      "metaTitle": "솔루션",
+      "metaDescription": "MetaInsight, MVI, DIANA 및 선택적 협업 확장으로 구성된 MetaIntelligence 솔루션 포트폴리오.",
+      "eyebrow": "Solutions",
+      "title": "신호, 비전, 근거 기반 인텔리전스를 위한 집중형 포트폴리오",
+      "description": "MetaIntelligence는 세 가지 공개 제품 라인과 소수의 협업 확장 방향을 제시합니다. 각 항목은 필요한 만큼 선택적으로 열어 상세 맥락을 확인할 수 있도록 구성했습니다.",
+      "detailSummary": "상세 범위",
+      "open": "열기",
+      "imageAlt": {
+        "mvi": "MVI 참고 시각 자료",
+        "metainsight": "MetaInsight 참고 시각 자료"
+      },
+      "publicNotes": {
+        "mvi1": "결함 데이터가 부족한 환경을 위한 정상 데이터 기반 이상 탐지.",
+        "mvi2": "제품 상태와 결함 예시를 위한 표적 GenAI 증강.",
+        "mvi3": "현장 적응형 운영을 위한 3-BIN 검토와 사람 피드백 루프.",
+        "metainsight1": "구성 가능한 도메인 데이터셋을 위한 수집, 정제, 군집화, 신호 점수화.",
+        "metainsight2": "불투명한 보고서 생성이 아니라 분석가 검토를 위한 근거 연결 화면.",
+        "metainsight3": "공공 R&D 분석 반복 수행에서 출발해 도메인 신호 엔진으로 일반화.",
+        "diana1": "구조화된 도메인 데이터, 문서, 원천 근거 위의 agentic 계층.",
+        "diana2": "근거 기반 인텔리전스 단위, 보고서, 검토 노트를 위해 설계.",
+        "diana3": "검증 단계를 통해 근거 없는 생성과 수치 오류를 줄입니다."
+      },
+      "dianaFlowLabel": "DIANA Agent Flow",
+      "dianaDiagram": {
+        "plan": {
+          "title": "Plan",
+          "description": "도메인 과업 분해"
+        },
+        "retrieve": {
+          "title": "Retrieve",
+          "description": "근거와 원천 ID"
+        },
+        "check": {
+          "title": "Check",
+          "description": "규칙, 지표, 일관성"
+        },
+        "draft": {
+          "title": "Draft",
+          "description": "검토 가능한 인텔리전스 출력"
+        }
+      },
+      "methodEyebrow": "Common Method",
+      "methodTitle": "근거 기반 검증이 공통 계층입니다",
+      "methodDescription": "같은 원칙이 도메인 신호 분석, 문서 워크플로우, 운영 분석에 적용됩니다. 데이터는 구조화된 근거로 들어오고, 계산은 생성과 분리되며, 출력은 검토 가능한 상태로 남습니다.",
+      "layer": "Layer",
+      "verificationDiagram": {
+        "input": {
+          "title": "Structured Input",
+          "description": "기록, 문서, 날짜, 그룹, 원천 식별자가 근거로 입력됩니다."
+        },
+        "reasoning": {
+          "title": "Separated Reasoning",
+          "description": "점수화, 계산, 검색, 생성은 서로 구분된 단계로 유지됩니다."
+        },
+        "output": {
+          "title": "Reviewable Output",
+          "description": "보고서, 브리프, 노트는 근거 링크와 불확실성 표시를 보존합니다."
+        }
+      },
+      "extensionsEyebrow": "Extensions",
+      "extensionsTitle": "선택적 협업 방향",
+      "extensionsDescription": "세 가지 공개 제품 라인과 구분되는 적용 방향 및 협업 역량입니다."
+    },
+    "mvi": {
+      "metaTitle": "MVI - Meta Vision AI",
+      "metaDescription": "MVI는 one-class 이상 탐지, GenAI 증강, 현장 적응형 검사 워크플로우를 위한 MetaIntelligence의 제조 비전 AI입니다.",
+      "eyebrow": "MVI / Meta Vision AI",
+      "title": "결함 데이터가 부족한 제조 라인을 위한 비전 AI",
+      "description": "MVI는 one-class 이상 탐지, 표적 데이터 증강, 검토 운영을 실제 검사 환경에 맞춰 적응 가능한 워크플로우로 연결합니다.",
+      "badgeSubtitle": "검사 워크플로우",
+      "heroVideoLabel": "MVI 결함 검사 데모",
+      "valueProps": {
+        "ready": {
+          "title": "Ready-to-Run",
+          "description": "정상 생산 이미지에서 시작해 초기 대량 결함 데이터 의존도를 줄입니다."
+        },
+        "expert": {
+          "title": "Expert-Free Operation",
+          "description": "3-BIN 검토, 사람 피드백, 구조화된 재학습을 결합해 운영자가 워크플로우를 계속 개선할 수 있게 합니다."
+        },
+        "adaptive": {
+          "title": "Field-Adaptive",
+          "description": "라인 변화, 조명 변화, 검사 피드백을 제품 워크플로우의 일부로 반영합니다."
+        }
+      },
+      "evidenceEyebrow": "Visual Evidence",
+      "evidenceTitle": "검사 출력은 검토 가능한 근거로 다룹니다",
+      "evidenceDescription": "MVI는 정상 이미지 수집, 부족한 사례 증강, 후보 검사, 불확실 결과의 검토 환류를 포함하는 생산 워크플로우로 구성됩니다.",
+      "evidenceAlt": "MVI 결함 예시와 히트맵 근거",
+      "pipelineEyebrow": "Operating Pipeline",
+      "pipelineTitle": "탐지기를 넘어 생산 피드백 루프로",
+      "pipeline": {
+        "gate": {
+          "title": "Optical and Data Gate",
+          "description": "모델 학습 전에 촬영 조건, 라인 맥락, 데이터 준비 상태를 확인합니다."
+        },
+        "detect": {
+          "title": "One-Class Detection",
+          "description": "정상 데이터 기반 학습으로 이상 후보를 탐지하고 불확실 영역을 표면화합니다."
+        },
+        "augment": {
+          "title": "Targeted Augmentation",
+          "description": "생성 증강으로 부족한 결함 및 제품 상태 예시를 보강합니다."
+        },
+        "operation": {
+          "title": "3-BIN Operation",
+          "description": "정상, 불확실, 결함 사례를 분리하고 피드백을 학습 루프로 연결합니다."
+        }
+      },
+      "demosEyebrow": "Product Demos",
+      "demosTitle": "워크플로우 단계를 선택해 데모를 재생",
+      "demosDescription": "선택한 비디오가 같은 위치에서 갱신되어 페이지를 복잡하게 만들지 않고 각 단계를 검토할 수 있습니다.",
+      "play": "재생",
+      "demos": {
+        "inspect": {
+          "title": "결함 검사",
+          "description": "검사 워크플로우에서 이상 후보, 히트맵 출력, 결함 메타데이터를 검토합니다.",
+          "thumbnailAlt": "결함 검사 썸네일",
+          "videoLabel": "MVI 결함 검사 데모"
+        },
+        "good": {
+          "title": "결함-정상 증강",
+          "description": "부족한 결함 예시를 비교용 정상 상태 학습 이미지로 변환합니다.",
+          "thumbnailAlt": "결함-정상 증강 썸네일",
+          "videoLabel": "MVI 결함-정상 증강 데모"
+        },
+        "defect": {
+          "title": "정상-결함 증강",
+          "description": "정상 이미지에서 표적 결함 유사 예시를 생성해 초기 데이터 공백을 줄입니다.",
+          "thumbnailAlt": "정상-결함 증강 썸네일",
+          "videoLabel": "MVI 정상-결함 증강 데모"
+        }
+      }
+    },
+    "metainsight": {
+      "metaTitle": "MetaInsight - Domain Signal Intelligence Platform",
+      "metaDescription": "MetaInsight는 데이터 정제, 군집화, 트렌드 점수화, 검증된 인사이트 생성을 위한 도메인 범용 신호 인텔리전스 플랫폼입니다.",
+      "eyebrow": "MetaInsight",
+      "title": "대규모 데이터를 검토 가능한 도메인 신호로",
+      "description": "MetaInsight는 시계열 도메인 데이터를 수집·구조화하고, 의미 있는 텍스트 필드를 군집화하며, 트렌드 강도를 평가하고, 생성된 인사이트를 근거와 연결합니다. R&D는 검증된 하나의 도메인일 뿐 플랫폼의 경계가 아닙니다.",
+      "stats": {
+        "records": "처리된 기록",
+        "configValue": "구성",
+        "config": "도메인별 필드",
+        "signalsValue": "신호",
+        "signals": "근거 연결 출력"
+      },
+      "heroAlt": "MetaInsight 결과 개요",
+      "workflowEyebrow": "Workflow",
+      "workflowTitle": "도메인 데이터에서 검증 신호까지",
+      "workflow": {
+        "collect": {
+          "title": "수집·정제",
+          "description": "CSV, Excel, Parquet, 관리형 저장소에서 도메인 기록을 정규화하고 결측 필드를 정리해 분석 가능한 데이터셋으로 준비합니다."
+        },
+        "cluster": {
+          "title": "벡터화·군집화",
+          "description": "구성 가능한 텍스트 필드를 해시, dense, hybrid 벡터화로 의미 그룹으로 전환합니다."
+        },
+        "score": {
+          "title": "신호 점수화",
+          "description": "도메인별 날짜, 금액, 그룹 필드를 사용해 지속 트렌드, 모멘텀, 최근 강도를 평가합니다."
+        },
+        "insights": {
+          "title": "인사이트 생성",
+          "description": "구조화된 결과에서 근거 연결 요약, 내보내기 가능한 표, 검토 가능한 인텔리전스 문장을 생성합니다."
+        }
+      },
+      "screensEyebrow": "Screens",
+      "screensTitle": "근거 중심 화면 투어",
+      "screensDescription": "분석 과업에 맞는 화면을 선택하면 아래 이미지가 같은 위치에서 갱신되어 페이지가 간결하게 유지됩니다.",
+      "screens": {
+        "overview": {
+          "title": "Overview",
+          "description": "전체 결과 집합, 대표 군집, 상위 신호 분포를 검토합니다.",
+          "alt": "MetaInsight 개요 화면"
+        },
+        "charts": {
+          "title": "Charts",
+          "description": "집중형 차트로 순위, 분포 패턴, 그룹 비교를 살펴봅니다.",
+          "alt": "MetaInsight 차트 화면"
+        },
+        "details": {
+          "title": "Details",
+          "description": "군집 수준 인사이트에서 개별 기록과 원천 근거로 이동합니다.",
+          "alt": "MetaInsight 상세 화면"
+        },
+        "insights": {
+          "title": "Insights",
+          "description": "분석 출력을 간결하고 검토 가능한 인텔리전스 문장으로 전환합니다.",
+          "alt": "MetaInsight 인사이트 화면"
+        }
+      },
+      "differentiationEyebrow": "Differentiation",
+      "differentiationTitle": "분석 도구와 최종 보고를 잇는 계층",
+      "differentiation": {
+        "quant": {
+          "title": "정량 근거",
+          "description": "군집 점수, 트렌드, 원천 기록을 통해 신호를 설명합니다."
+        },
+        "repeatable": {
+          "title": "반복 가능한 탐색",
+          "description": "국가, 분야, 기간, 기관 필터를 변경해도 작업을 다시 만들 필요 없이 탐색할 수 있습니다."
+        },
+        "extension": {
+          "title": "도메인 확장",
+          "description": "같은 엔진은 R&D 과제, 특허, 리테일 트렌드, 금융 리스크, 운영 기록에도 적용될 수 있습니다."
+        }
+      }
+    },
+    "diana": {
+      "metaTitle": "DIANA - Domain Intelligence Agent",
+      "metaDescription": "DIANA는 근거 기반 도메인 분석과 지식 워크플로우를 위한 MetaInsight 위의 agentic 인텔리전스 계층입니다.",
+      "eyebrow": "DIANA",
+      "title": "반복 가능한 도메인 분석을 위한 agentic 인텔리전스",
+      "description": "DIANA는 MetaInsight를 분석에서 가이드형 지식 업무로 확장하는 에이전트 계층입니다. 근거 검색, 도메인별 분석 단계 계획, 출력 초안 작성, 검증 맥락 보존을 위해 설계되었습니다.",
+      "architectureLabel": "Technical Architecture",
+      "layers": {
+        "evidence": {
+          "title": "Evidence Layer",
+          "body": "도메인 데이터셋, 문서, 로그, 보고서, 기술 자료를 원천 식별자와 함께 정규화합니다.",
+          "output": "구조화된 근거 기반"
+        },
+        "agent": {
+          "title": "Agent Layer",
+          "body": "계획, 검색, 정량 검증, 초안 작성을 검토 가능한 에이전트 과업으로 분리합니다.",
+          "output": "추적 가능한 분석 경로"
+        },
+        "output": {
+          "title": "Output Layer",
+          "body": "브리프, 검토 노트, 보고서 초안을 연결된 근거와 검증 맥락과 함께 생성합니다.",
+          "output": "재사용 가능한 인텔리전스 단위"
+        }
+      },
+      "agents": {
+        "ingestion": "도메인 기록, 문서, 로그, 보고서, 특허, 기술 자료를 수집하고 구조화합니다.",
+        "analysis": "군집, 트렌드, 정량 지표, 운영 규칙으로부터 도메인 신호를 계산합니다.",
+        "structuring": "정의, 근거, 적용, 리스크, 의사결정을 반복 가능한 템플릿으로 정리합니다.",
+        "crossCheck": "생성된 문장을 원천 데이터베이스와 검색된 근거와 비교합니다.",
+        "preDetection": "수동 검토에서 명확해지기 전에 후보 신호를 표면화합니다.",
+        "guard": "평가 게이트를 통해 근거 없는 생성, 수치 오류, 과도한 확신을 줄입니다."
+      },
+      "agentTitles": {
+        "ingestion": "수집",
+        "analysis": "분석",
+        "structuring": "구조화",
+        "crossCheck": "교차 검증",
+        "preDetection": "사전 탐지",
+        "guard": "가드레일"
+      },
+      "outputEyebrow": "Output",
+      "outputTitle": "분석가가 검토하고 개선할 수 있는 출력",
+      "outputDescription": "DIANA는 자유형 챗봇으로 포지셔닝하지 않습니다. 가치는 검토, 수정, 재사용할 수 있는 근거 기반 인텔리전스 단위를 구조화하는 데 있습니다.",
+      "outputs": {
+        "briefs": "도메인 인텔리전스 브리프",
+        "trend": "정량 트렌드, 리스크, 기회 검토",
+        "crossMap": "기록, 문서, 보고서, 원천 근거 간 교차 매핑",
+        "drafts": "검증 로그가 포함된 보고서 초안"
+      },
+      "verificationEyebrow": "Verification",
+      "verificationTitle": "생성은 근거와 계산에서 분리됩니다",
+      "verificationDescription": "DIANA는 구조화된 근거, 프로그램 보조 계산, 교차 검증, 원천 추적, 신뢰도가 부족할 때의 fallback 동작을 중심으로 설계됩니다.",
+      "gate": "Gate",
+      "verificationSteps": {
+        "input": {
+          "title": "Input Gate",
+          "description": "구조화된 기록, 원천 URI, 분석가 승인 맥락만 입력으로 받습니다."
+        },
+        "calculation": {
+          "title": "Calculation Gate",
+          "description": "정량 점수화와 규칙 검사는 자유형 생성 밖에서 실행합니다."
+        },
+        "retrieval": {
+          "title": "Retrieval Gate",
+          "description": "주장이 초안에 들어가기 전에 지원 기록을 연결합니다."
+        },
+        "crossCheck": {
+          "title": "Cross-Check Gate",
+          "description": "결론을 검색된 근거와 알려진 도메인 규칙과 비교합니다."
+        },
+        "review": {
+          "title": "Review Gate",
+          "description": "가정, 약한 신호, 누락 근거를 분석가가 수정할 수 있도록 노출합니다."
+        },
+        "fallback": {
+          "title": "Fallback Gate",
+          "description": "근거 경로가 불완전하면 보류하거나 불확실성을 표시합니다."
+        }
+      },
+      "positioningEyebrow": "Positioning",
+      "positioningTitle": "MetaInsight 이후의 에이전트 경로",
+      "positioningDescription": "DIANA는 MetaInsight와 같은 검증된 데이터 기반을 확장하는 방향으로 계획되어 있습니다. 도메인 신호 분석, 정책 연구, 리스크 검토, 기술 인텔리전스, 엔터프라이즈 문서 분석 워크플로우를 목표로 합니다."
+    },
+    "strategy": {
+      "metaTitle": "솔루션 전략",
+      "metaDescription": "대표 제품과 협업 확장 전반의 MetaIntelligence 솔루션 전략.",
+      "eyebrow": "Strategy",
+      "title": "검증된 기술 작업을 집중형 제품 라인으로 전환",
+      "description": "MetaIntelligence는 가능한 모든 AI 아이디어를 제품처럼 제시하지 않습니다. 포트폴리오는 명확한 데이터 기반, 운영 워크플로우, 배포 경로가 있는 작업을 중심으로 구성됩니다.",
+      "phases": {
+        "prove": {
+          "title": "반복 작업으로 방법 검증",
+          "description": "공공 R&D 분석 과제를 통해 데이터 정제, 군집화, 신호 분석, 보고 워크플로우의 기반을 검증했습니다."
+        },
+        "convert": {
+          "title": "연구를 제품 라인으로 전환",
+          "description": "MetaInsight와 MVI는 검증된 방법을 일회성 시연이 아닌 반복 가능한 소프트웨어 제품으로 구성합니다."
+        },
+        "extend": {
+          "title": "인접 도메인으로 선택적 확장",
+          "description": "제조 보고 자동화, 실시간 시각 추적, agentic 분석을 집중형 확장 방향으로 제시합니다."
+        }
+      },
+      "portfolioEyebrow": "Portfolio",
+      "portfolioTitle": "공개 솔루션 포트폴리오",
+      "extensionsEyebrow": "Extensions",
+      "extensionsTitle": "의도적으로 선별한 협업 방향",
+      "extensionsDescription": "확장 개념은 대표 제품 라인과 구분되는 기술 방향 및 협업 가능성으로 제시합니다."
+    },
+    "ida": {
+      "metaTitle": "MetaInsight",
+      "metaDescription": "IDA는 도메인 신호 인텔리전스 플랫폼인 MetaInsight로 통합되었습니다.",
+      "eyebrow": "Renamed",
+      "title": "IDA는 이제 MetaInsight로 소개됩니다",
+      "description": "기존 문서 및 연구 데이터 분석 경험은 공개 도메인 신호 인텔리전스 플랫폼 페이지인 MetaInsight로 통합되었습니다.",
+      "cta": "MetaInsight 보기"
+    },
+    "coreTech": {
+      "metaTitle": "기술 역량",
+      "metaDescription": "멀티모달 AI, 지식 AI, HPC, 신호 인텔리전스 전반의 MetaIntelligence 핵심 기술 역량.",
+      "eyebrow": "Core Capabilities",
+      "title": "운영하고 검증할 수 있는 AI 시스템을 위한 역량",
+      "description": "MetaIntelligence는 데이터와 모델링에서 검토, 배포, 반복 운영까지의 전체 경로에 집중합니다. 역량은 의도적으로 실용적입니다. 멀티모달 AI, 지식 AI, 확장 처리, 신호 인텔리전스입니다.",
+      "pipelineEyebrow": "R&D Pipeline",
+      "pipelineTitle": "추적 가능성이 파이프라인에 내장됩니다",
+      "pipelineDescription": "입력이 R&D 데이터베이스, 기술 문서, 검사 이미지 중 무엇이든 시스템은 근거의 출처와 변환 과정을 추적합니다.",
+      "pipeline": {
+        "ingest": "수집",
+        "normalize": "정규화",
+        "vectorize": "벡터화",
+        "cluster": "군집화",
+        "score": "점수화",
+        "report": "보고"
+      },
+      "researchEyebrow": "Research Basis",
+      "researchTitle": "등록 IP와 연구 방법",
+      "researchCta": "연구 & IP"
+    },
+    "philosophy": {
+      "metaTitle": "기술 철학",
+      "metaDescription": "제1원리, 검증, 개방형 아키텍처를 중심으로 한 MetaIntelligence 기술 철학.",
+      "eyebrow": "Technology Philosophy",
+      "title": "신뢰는 주장이 아니라 아키텍처에서 나옵니다",
+      "description": "MetaIntelligence는 문제를 제1원리로 분해하고, 생성 출력을 근거로 제한하며, 고객 환경 안에서 배포될 수 있는 시스템을 설계합니다.",
+      "guardrailsEyebrow": "Guardrails",
+      "guardrailsTitle": "신뢰성은 시스템 동작으로 표현됩니다",
+      "safeguards": {
+        "source": "원천 데이터와 생성 출력 사이의 연결을 명확히 유지합니다.",
+        "calculation": "가능한 경우 재현 가능한 계산과 코드 기반 검사를 우선합니다.",
+        "llm": "자유형 생성만 사용하지 않고 검색, 템플릿, 평가, 검토 단계와 함께 LLM을 사용합니다.",
+        "deployment": "실제 네트워크, 보안, 데이터, 하드웨어 제약을 기준으로 배포를 설계합니다."
+      }
+    },
+    "csaicTeam": {
+      "metaTitle": "CSAIC 팀",
+      "metaDescription": "공개 가능한 기술 역할과 전문성을 중심으로 한 MetaIntelligence CSAIC 팀 소개.",
+      "eyebrow": "CSAIC Team",
+      "title": "계산과학, AI 연구, 제품 엔지니어링을 하나의 팀으로",
+      "description": "CSAIC는 Computational Science & AI Center의 약자로, MetaIntelligence의 연구 및 제품 팀입니다. 공개 프로필은 역할, 전문성, 관련 전문 배경으로 제한합니다.",
+      "systemEyebrow": "Team System",
+      "systemTitle": "책임질 수 있을 만큼 작고, 전체 시스템을 만들 만큼 넓은 팀",
+      "system": {
+        "research": {
+          "title": "Research",
+          "description": "제1원리 모델링, R&D 데이터 분석, 알고리즘 설계"
+        },
+        "product": {
+          "title": "Product",
+          "description": "MVI, MetaInsight, DIANA 제품 워크플로우와 사용자 경험"
+        },
+        "operations": {
+          "title": "Operations",
+          "description": "공공 R&D 산출물, 데이터 품질 관리, 파이프라인 신뢰성"
+        },
+        "verification": {
+          "title": "Verification",
+          "description": "LLM 평가, 원천 데이터 비교, 근거 기반 보고"
+        }
+      }
+    },
+    "notFound": {
+      "metaTitle": "페이지를 찾을 수 없습니다",
+      "sr": "오류",
+      "title": "이 페이지는 사용할 수 없습니다.",
+      "description": "MetaIntelligence 웹사이트가 정리되면서 페이지가 이동되었을 수 있습니다.",
+      "cta": "홈으로 돌아가기"
+    },
+    "terms": {
+      "metaTitle": "이용약관",
+      "updated": "최종 업데이트: 2026년 4월 29일",
+      "intro": "이 웹사이트는 MetaIntelligence Inc.가 회사 소개, 기술 개요, 솔루션 정보, 문의 목적으로 운영합니다.",
+      "contentTitle": "웹사이트 콘텐츠",
+      "content": "이 웹사이트의 정보는 일반적인 정보 제공 목적으로 제공됩니다. 제품 방향, 연구 활동, 솔루션 설명은 사전 고지 없이 업데이트될 수 있습니다.",
+      "ipTitle": "지식재산권",
+      "ip": "별도 표시가 없는 한 이 웹사이트의 회사명, 솔루션명, 텍스트, 이미지, 비디오 및 기타 자료는 MetaIntelligence Inc. 또는 각 권리자에게 귀속됩니다.",
+      "linksTitle": "외부 링크",
+      "links": "이 웹사이트는 필요한 경우 외부 사이트 링크를 포함할 수 있습니다. MetaIntelligence Inc.는 외부 웹사이트의 콘텐츠, 정책, 운영에 대해 책임지지 않습니다.",
+      "prohibitedTitle": "금지 행위",
+      "prohibited": "방문자는 웹사이트를 오용하거나 운영을 방해하거나 무단 접근을 시도하거나 지식재산권을 침해하는 방식으로 자료를 복제할 수 없습니다.",
+      "contactTitle": "문의",
+      "contact": "본 약관에 대한 문의는 아래 연락처로 할 수 있습니다."
+    },
+    "privacy": {
+      "metaTitle": "개인정보처리방침",
+      "updated": "최종 업데이트: 2026년 4월 29일",
+      "intro": "MetaIntelligence Inc.는 회사, 기술, 솔루션 포트폴리오를 소개하기 위해 이 웹사이트를 운영합니다.",
+      "collectTitle": "수집하는 정보",
+      "collect1": "이 웹사이트는 회원 계정이나 결제 기능을 제공하지 않습니다. 방문자가 이메일 또는 전화로 직접 문의하는 경우에만 정보를 받을 수 있습니다.",
+      "collect2": "문의 과정에서 자발적으로 제공되는 정보에는 이름, 회사, 역할, 이메일 주소, 전화번호, 문의 내용이 포함될 수 있습니다.",
+      "sensitiveTitle": "민감 정보",
+      "sensitive": "주민등록번호, 여권번호, 집주소, 금융 계좌 정보, 건강 정보 또는 기타 불필요한 민감 개인정보를 보내지 말아 주세요.",
+      "useTitle": "정보 이용 목적",
+      "use": "문의 정보는 사업, 파트너십, 연구, 제품 관련 요청을 검토하고 응답하기 위한 목적으로만 사용합니다.",
+      "retentionTitle": "보유 기간",
+      "retention": "문의 정보는 커뮤니케이션, 사업 검토, 법적 준수, 기록 관리에 합리적으로 필요한 기간 동안만 보유됩니다.",
+      "thirdPartyTitle": "제3자 서비스",
+      "thirdParty": "웹사이트는 운영에 필요한 호스팅, 분석, 보안 서비스를 사용할 수 있습니다. 이러한 서비스는 IP 주소, 브라우저, 기기, 페이지 접근 시간 등 기술적 접근 데이터를 처리할 수 있습니다.",
+      "contactTitle": "문의",
+      "contact": "개인정보 관련 문의는 아래 연락처로 할 수 있습니다."
     }
   },
   "introductionPage": {

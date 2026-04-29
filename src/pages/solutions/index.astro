@@ -3,15 +3,17 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import { collaborationSolutions, solutions } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
 import metainsightScreen from '~/assets/images/ida/ida_result_overview.png';
 import mviEvidence from '~/assets/images/refs/mvi-defect-evidence.png';
 
+const t = createTranslator();
+
 const metadata = {
-  title: 'Solutions',
-  description:
-    'MetaIntelligence solution portfolio across MetaInsight, MVI, DIANA, and selective collaboration extensions.',
+  title: t('pages.solutions.metaTitle'),
+  description: t('pages.solutions.metaDescription'),
 };
 
 const visuals: Partial<Record<string, typeof metainsightScreen>> = {
@@ -20,48 +22,37 @@ const visuals: Partial<Record<string, typeof metainsightScreen>> = {
 };
 
 const publicNotes: Record<string, string[]> = {
-  MVI: [
-    'Normal-data-based anomaly detection for scarce defect-data environments.',
-    'Targeted GenAI augmentation for product-state and defect examples.',
-    '3-BIN review and human feedback loop for field-adaptive operation.',
-  ],
-  MetaInsight: [
-    'Collection, cleansing, clustering, and signal scoring for configurable domain datasets.',
-    'Evidence-linked screens for analyst review, not opaque report generation.',
-    'Built from repeated public R&D analytics execution, then generalized as a domain signal engine.',
-  ],
-  DIANA: [
-    'Agentic layer on top of structured domain data, documents, and source evidence.',
-    'Designed for source-grounded intelligence units, reports, and review notes.',
-    'Uses verification steps to reduce unsupported generation and numerical errors.',
-  ],
+  MVI: ['mvi1', 'mvi2', 'mvi3'],
+  MetaInsight: ['metainsight1', 'metainsight2', 'metainsight3'],
+  DIANA: ['diana1', 'diana2', 'diana3'],
 };
 
-const dianaDiagram = [
-  ['Plan', 'Domain task breakdown'],
-  ['Retrieve', 'Evidence and source IDs'],
-  ['Check', 'Rules, metrics, and consistency'],
-  ['Draft', 'Reviewable intelligence output'],
-];
-
-const verificationDiagram = [
-  ['Structured Input', 'Records, documents, dates, groups, and source identifiers enter as evidence.'],
-  ['Separated Reasoning', 'Scoring, calculation, retrieval, and generation remain distinct steps.'],
-  ['Reviewable Output', 'Reports, briefs, and notes preserve evidence links and uncertainty markers.'],
-];
+const dianaDiagramKeys = ['plan', 'retrieve', 'check', 'draft'];
+const verificationDiagramKeys = ['input', 'reasoning', 'output'];
+const collaborationKeys = ['metainsightMfg', 'aeroGimbal'];
 ---
 
 <Layout metadata={metadata}>
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-4xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Solutions</p>
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          A focused portfolio for signal, vision, and source-grounded intelligence
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
+          data-i18n-key="pages.solutions.eyebrow"
+        >
+          {t('pages.solutions.eyebrow')}
+        </p>
+        <h1
+          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
+          data-i18n-key="pages.solutions.title"
+        >
+          {t('pages.solutions.title')}
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-          MetaIntelligence presents three public product lines and a small set of collaboration extensions. Each item
-          below opens selectively for deeper context while keeping the page focused.
+        <p
+          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+          data-i18n-key="pages.solutions.description"
+        >
+          {t('pages.solutions.description')}
         </p>
       </div>
     </div>
@@ -74,6 +65,7 @@ const verificationDiagram = [
           solutions.map((solution, index) => {
             const visual = visuals[solution.name];
             const notes = publicNotes[solution.name];
+            const solutionKey = solution.name.toLowerCase();
 
             return (
               <article class="grid overflow-hidden border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 lg:grid-cols-[0.92fr_1.08fr]">
@@ -81,30 +73,50 @@ const verificationDiagram = [
                   <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-cyan-700 dark:bg-slate-900 dark:text-cyan-300">
                     <Icon name={solution.icon} class="h-7 w-7" />
                   </div>
-                  <p class="mt-7 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    {solution.domain}
+                  <p
+                    class="mt-7 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+                    data-i18n-key={`data.solutions.${solutionKey}.domain`}
+                  >
+                    {t(`data.solutions.${solutionKey}.domain`)}
                   </p>
                   <h2 class="mt-2 text-3xl font-bold text-slate-950 dark:text-white">{solution.name}</h2>
-                  <p class="mt-2 text-sm font-medium text-cyan-700 dark:text-cyan-300">{solution.fullName}</p>
-                  <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{solution.summary}</p>
+                  <p
+                    class="mt-2 text-sm font-medium text-cyan-700 dark:text-cyan-300"
+                    data-i18n-key={`data.solutions.${solutionKey}.fullName`}
+                  >
+                    {t(`data.solutions.${solutionKey}.fullName`)}
+                  </p>
+                  <p
+                    class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+                    data-i18n-key={`data.solutions.${solutionKey}.summary`}
+                  >
+                    {t(`data.solutions.${solutionKey}.summary`)}
+                  </p>
 
                   <details class="mt-6 scroll-mt-28 border border-slate-200 dark:border-slate-800">
                     <summary class="cursor-pointer px-5 py-4 text-sm font-bold text-slate-950 marker:text-cyan-700 dark:text-white">
-                      Detailed scope
+                      <span data-i18n-key="pages.solutions.detailSummary">{t('pages.solutions.detailSummary')}</span>
                     </summary>
                     <div class="border-t border-slate-200 px-5 py-5 dark:border-slate-800">
                       <ul class="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                        {notes.map((note) => (
+                        {notes.map((noteKey) => (
                           <li class="flex gap-3">
                             <Icon
                               name="tabler:check"
                               class="mt-0.5 h-5 w-5 shrink-0 text-cyan-700 dark:text-cyan-300"
                             />
-                            <span>{note}</span>
+                            <span data-i18n-key={`pages.solutions.publicNotes.${noteKey}`}>
+                              {t(`pages.solutions.publicNotes.${noteKey}`)}
+                            </span>
                           </li>
                         ))}
                       </ul>
-                      <p class="mt-5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">{solution.proof}</p>
+                      <p
+                        class="mt-5 text-sm leading-relaxed text-slate-500 dark:text-slate-400"
+                        data-i18n-key={`data.solutions.${solutionKey}.proof`}
+                      >
+                        {t(`data.solutions.${solutionKey}.proof`)}
+                      </p>
                     </div>
                   </details>
 
@@ -112,7 +124,7 @@ const verificationDiagram = [
                     href={getPermalink(solution.href)}
                     class="mt-6 inline-flex items-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950"
                   >
-                    Open {solution.name}
+                    <span data-i18n-key="pages.solutions.open">{t('pages.solutions.open')}</span> {solution.name}
                     <Icon name="tabler:arrow-right" class="h-4 w-4" />
                   </a>
                 </div>
@@ -122,18 +134,32 @@ const verificationDiagram = [
                       src={visual.src}
                       width={visual.width}
                       height={visual.height}
-                      alt={`${solution.name} reference visual`}
+                      alt={t(`pages.solutions.imageAlt.${solutionKey}`)}
+                      data-i18n-attrs="alt"
+                      data-i18n-attr-alt={`pages.solutions.imageAlt.${solutionKey}`}
                       class="h-full min-h-[320px] w-full object-contain object-center"
                       loading={index === 0 ? 'eager' : 'lazy'}
                     />
                   ) : (
                     <div class="grid h-full min-h-[320px] content-center gap-3">
-                      <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">DIANA Agent Flow</p>
-                      {dianaDiagram.map(([title, description], stepIndex) => (
+                      <p
+                        class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200"
+                        data-i18n-key="pages.solutions.dianaFlowLabel"
+                      >
+                        {t('pages.solutions.dianaFlowLabel')}
+                      </p>
+                      {dianaDiagramKeys.map((key, stepIndex) => (
                         <article class="border border-white/10 bg-white/[0.04] p-4 text-white">
                           <p class="text-xs font-bold text-cyan-200">{String(stepIndex + 1).padStart(2, '0')}</p>
-                          <h3 class="mt-2 font-bold">{title}</h3>
-                          <p class="mt-1 text-sm leading-relaxed text-slate-300">{description}</p>
+                          <h3 class="mt-2 font-bold" data-i18n-key={`pages.solutions.dianaDiagram.${key}.title`}>
+                            {t(`pages.solutions.dianaDiagram.${key}.title`)}
+                          </h3>
+                          <p
+                            class="mt-1 text-sm leading-relaxed text-slate-300"
+                            data-i18n-key={`pages.solutions.dianaDiagram.${key}.description`}
+                          >
+                            {t(`pages.solutions.dianaDiagram.${key}.description`)}
+                          </p>
                         </article>
                       ))}
                     </div>
@@ -150,24 +176,45 @@ const verificationDiagram = [
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Common Method</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          Source-grounded verification is the shared layer
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
+          data-i18n-key="pages.solutions.methodEyebrow"
+        >
+          {t('pages.solutions.methodEyebrow')}
+        </p>
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
+          data-i18n-key="pages.solutions.methodTitle"
+        >
+          {t('pages.solutions.methodTitle')}
         </h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          The same principle appears in domain signal analytics, document workflows, and operating analytics: data
-          enters as structured evidence, calculations are separated from generation, and outputs remain reviewable.
+        <p
+          class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+          data-i18n-key="pages.solutions.methodDescription"
+        >
+          {t('pages.solutions.methodDescription')}
         </p>
       </div>
       <div class="grid gap-3">
         {
-          verificationDiagram.map(([title, description], index) => (
+          verificationDiagramKeys.map((key, index) => (
             <article class="border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
               <p class="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">
-                Layer {String(index + 1).padStart(2, '0')}
+                <span data-i18n-key="pages.solutions.layer">{t('pages.solutions.layer')}</span>{' '}
+                {String(index + 1).padStart(2, '0')}
               </p>
-              <h3 class="mt-3 text-lg font-bold text-slate-950 dark:text-white">{title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+              <h3
+                class="mt-3 text-lg font-bold text-slate-950 dark:text-white"
+                data-i18n-key={`pages.solutions.verificationDiagram.${key}.title`}
+              >
+                {t(`pages.solutions.verificationDiagram.${key}.title`)}
+              </h3>
+              <p
+                class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`pages.solutions.verificationDiagram.${key}.description`}
+              >
+                {t(`pages.solutions.verificationDiagram.${key}.description`)}
+              </p>
             </article>
           ))
         }
@@ -178,22 +225,42 @@ const verificationDiagram = [
   <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr]">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-200">Extensions</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Selective collaboration directions</h2>
-        <p class="mt-5 leading-relaxed text-slate-300">
-          These are presented as applied directions and collaboration capabilities, separate from the three public
-          product lines.
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-cyan-200"
+          data-i18n-key="pages.solutions.extensionsEyebrow"
+        >
+          {t('pages.solutions.extensionsEyebrow')}
+        </p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl" data-i18n-key="pages.solutions.extensionsTitle">
+          {t('pages.solutions.extensionsTitle')}
+        </h2>
+        <p class="mt-5 leading-relaxed text-slate-300" data-i18n-key="pages.solutions.extensionsDescription">
+          {t('pages.solutions.extensionsDescription')}
         </p>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
         {
-          collaborationSolutions.map((item) => (
-            <article class="border border-white/10 bg-white/[0.03] p-6">
-              <p class="text-sm font-semibold text-cyan-200">{item.domain}</p>
-              <h3 class="mt-2 text-xl font-bold">{item.name}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.description}</p>
-            </article>
-          ))
+          collaborationSolutions.map((item, index) => {
+            const key = collaborationKeys[index];
+
+            return (
+              <article class="border border-white/10 bg-white/[0.03] p-6">
+                <p
+                  class="text-sm font-semibold text-cyan-200"
+                  data-i18n-key={`data.collaborationSolutions.${key}.domain`}
+                >
+                  {t(`data.collaborationSolutions.${key}.domain`)}
+                </p>
+                <h3 class="mt-2 text-xl font-bold">{item.name}</h3>
+                <p
+                  class="mt-3 text-sm leading-relaxed text-slate-300"
+                  data-i18n-key={`data.collaborationSolutions.${key}.description`}
+                >
+                  {t(`data.collaborationSolutions.${key}.description`)}
+                </p>
+              </article>
+            );
+          })
         }
       </div>
     </div>

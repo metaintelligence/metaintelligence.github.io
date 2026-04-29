@@ -3,24 +3,40 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import { team } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
+
+const t = createTranslator();
 
 const metadata = {
-  title: 'CSAIC Team',
-  description: 'MetaIntelligence CSAIC team profiles focused on public technical roles and expertise.',
+  title: t('pages.csaicTeam.metaTitle'),
+  description: t('pages.csaicTeam.metaDescription'),
 };
+
+const teamKeys = ['ceo', 'nlp', 'software', 'vision', 'quality'];
+const systemKeys = ['research', 'product', 'operations', 'verification'];
 ---
 
 <Layout metadata={metadata}>
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-4xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">CSAIC Team</p>
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          Computational science, AI research, and product engineering in one team
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+          data-i18n-key="pages.csaicTeam.eyebrow"
+        >
+          {t('pages.csaicTeam.eyebrow')}
+        </p>
+        <h1
+          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
+          data-i18n-key="pages.csaicTeam.title"
+        >
+          {t('pages.csaicTeam.title')}
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-          CSAIC stands for Computational Science & AI Center, the research and product team behind MetaIntelligence.
-          Public profiles are limited to role, expertise, and relevant professional background.
+        <p
+          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+          data-i18n-key="pages.csaicTeam.description"
+        >
+          {t('pages.csaicTeam.description')}
         </p>
       </div>
     </div>
@@ -29,19 +45,36 @@ const metadata = {
   <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
     <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-3">
       {
-        team.map((member) => (
-          <article class="flex min-h-[310px] flex-col border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
-            <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-blue-700 dark:bg-slate-900 dark:text-blue-300">
-              <Icon name="tabler:user-square-rounded" class="h-7 w-7" />
-            </div>
-            <h2 class="mt-6 text-2xl font-bold text-slate-950 dark:text-white">{member.name}</h2>
-            <p class="mt-1 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
-              {member.role}
-            </p>
-            <p class="mt-4 text-sm font-medium text-slate-500 dark:text-slate-400">{member.specialty}</p>
-            <p class="mt-4 grow leading-relaxed text-slate-600 dark:text-slate-300">{member.summary}</p>
-          </article>
-        ))
+        team.map((member, index) => {
+          const key = teamKeys[index];
+
+          return (
+            <article class="flex min-h-[310px] flex-col border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
+              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-blue-700 dark:bg-slate-900 dark:text-blue-300">
+                <Icon name="tabler:user-square-rounded" class="h-7 w-7" />
+              </div>
+              <h2 class="mt-6 text-2xl font-bold text-slate-950 dark:text-white">{member.name}</h2>
+              <p
+                class="mt-1 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+                data-i18n-key={`data.team.${key}.role`}
+              >
+                {t(`data.team.${key}.role`)}
+              </p>
+              <p
+                class="mt-4 text-sm font-medium text-slate-500 dark:text-slate-400"
+                data-i18n-key={`data.team.${key}.specialty`}
+              >
+                {t(`data.team.${key}.specialty`)}
+              </p>
+              <p
+                class="mt-4 grow leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`data.team.${key}.summary`}
+              >
+                {t(`data.team.${key}.summary`)}
+              </p>
+            </article>
+          );
+        })
       }
     </div>
   </section>
@@ -49,22 +82,35 @@ const metadata = {
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Team System</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          Small enough to stay accountable, broad enough to build full systems
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+          data-i18n-key="pages.csaicTeam.systemEyebrow"
+        >
+          {t('pages.csaicTeam.systemEyebrow')}
+        </p>
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
+          data-i18n-key="pages.csaicTeam.systemTitle"
+        >
+          {t('pages.csaicTeam.systemTitle')}
         </h2>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
         {
-          [
-            ['Research', 'First-principle modeling, R&D data analytics, algorithm design'],
-            ['Product', 'MVI, MetaInsight, and DIANA product workflows and user experience'],
-            ['Operations', 'Public R&D deliverables, data quality management, and pipeline reliability'],
-            ['Verification', 'LLM evaluation, source-data comparison, and grounded reporting'],
-          ].map(([title, description]) => (
+          systemKeys.map((key) => (
             <div class="border border-slate-200 p-5 dark:border-slate-800">
-              <h3 class="font-bold text-slate-950 dark:text-white">{title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+              <h3
+                class="font-bold text-slate-950 dark:text-white"
+                data-i18n-key={`pages.csaicTeam.system.${key}.title`}
+              >
+                {t(`pages.csaicTeam.system.${key}.title`)}
+              </h3>
+              <p
+                class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`pages.csaicTeam.system.${key}.description`}
+              >
+                {t(`pages.csaicTeam.system.${key}.description`)}
+              </p>
             </div>
           ))
         }

@@ -1,8 +1,10 @@
 ---
-import Layout from '~/layouts/Layout.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { createTranslator } from '~/utils/i18n';
 import { getHomePermalink } from '~/utils/permalinks';
 
-const title = 'Page Not Found';
+const t = createTranslator();
+const title = t('pages.notFound.metaTitle');
 ---
 
 <Layout metadata={{ title }}>
@@ -10,14 +12,18 @@ const title = 'Page Not Found';
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
+          <span class="sr-only" data-i18n-key="pages.notFound.sr">{t('pages.notFound.sr')}</span>
           <span class="text-primary">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">This page is not available.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          The page may have moved as the MetaIntelligence website was reorganized.
+        <p class="text-3xl font-semibold md:text-3xl" data-i18n-key="pages.notFound.title">
+          {t('pages.notFound.title')}
         </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to home</a>
+        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400" data-i18n-key="pages.notFound.description">
+          {t('pages.notFound.description')}
+        </p>
+        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">
+          <span data-i18n-key="pages.notFound.cta">{t('pages.notFound.cta')}</span>
+        </a>
       </div>
     </div>
   </section>

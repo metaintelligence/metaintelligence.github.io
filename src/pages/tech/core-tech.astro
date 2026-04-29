@@ -2,30 +2,43 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
-import { capabilities, researchHighlights } from '~/data/site';
+import { capabilities } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
+const t = createTranslator();
+
 const metadata = {
-  title: 'Core Capabilities',
-  description:
-    'MetaIntelligence core technical capabilities across multimodal AI, knowledge AI, HPC, and signal intelligence.',
+  title: t('pages.coreTech.metaTitle'),
+  description: t('pages.coreTech.metaDescription'),
 };
 
-const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Report'];
+const capabilityKeys = ['multimodal', 'knowledge', 'hpc', 'signal'];
+const pipeline = ['ingest', 'normalize', 'vectorize', 'cluster', 'score', 'report'];
+const researchHighlightKeys = ['natural', 'physics', 'signal', 'public'];
 ---
 
 <Layout metadata={metadata}>
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-4xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Core Capabilities</p>
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          Capabilities for AI systems that can be operated and verified
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+          data-i18n-key="pages.coreTech.eyebrow"
+        >
+          {t('pages.coreTech.eyebrow')}
+        </p>
+        <h1
+          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
+          data-i18n-key="pages.coreTech.title"
+        >
+          {t('pages.coreTech.title')}
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-          MetaIntelligence focuses on the full path from data and modeling to review, deployment, and repeatable
-          operation. The capability set is deliberately practical: multimodal AI, knowledge AI, scalable processing, and
-          signal intelligence.
+        <p
+          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+          data-i18n-key="pages.coreTech.description"
+        >
+          {t('pages.coreTech.description')}
         </p>
       </div>
     </div>
@@ -34,14 +47,33 @@ const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Repor
   <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
     <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2">
       {
-        capabilities.map((item) => (
-          <article class="border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
-            <Icon name={item.icon} class="h-9 w-9 text-blue-700 dark:text-blue-300" />
-            <h2 class="mt-6 text-2xl font-bold text-slate-950 dark:text-white">{item.title}</h2>
-            <p class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">{item.subtitle}</p>
-            <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
-          </article>
-        ))
+        capabilities.map((item, index) => {
+          const key = capabilityKeys[index];
+
+          return (
+            <article class="border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
+              <Icon name={item.icon} class="h-9 w-9 text-blue-700 dark:text-blue-300" />
+              <h2
+                class="mt-6 text-2xl font-bold text-slate-950 dark:text-white"
+                data-i18n-key={`data.capabilities.${key}.title`}
+              >
+                {t(`data.capabilities.${key}.title`)}
+              </h2>
+              <p
+                class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400"
+                data-i18n-key={`data.capabilities.${key}.subtitle`}
+              >
+                {t(`data.capabilities.${key}.subtitle`)}
+              </p>
+              <p
+                class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`data.capabilities.${key}.description`}
+              >
+                {t(`data.capabilities.${key}.description`)}
+              </p>
+            </article>
+          );
+        })
       }
     </div>
   </section>
@@ -50,13 +82,23 @@ const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Repor
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
         <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">R&D Pipeline</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-            Traceability is built into the pipeline
+          <p
+            class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+            data-i18n-key="pages.coreTech.pipelineEyebrow"
+          >
+            {t('pages.coreTech.pipelineEyebrow')}
+          </p>
+          <h2
+            class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
+            data-i18n-key="pages.coreTech.pipelineTitle"
+          >
+            {t('pages.coreTech.pipelineTitle')}
           </h2>
-          <p class="mt-5 leading-relaxed text-slate-600 dark:text-slate-300">
-            Whether the input is an R&D database, a technical document, or an inspection image, the system keeps track
-            of where evidence came from and how it was transformed.
+          <p
+            class="mt-5 leading-relaxed text-slate-600 dark:text-slate-300"
+            data-i18n-key="pages.coreTech.pipelineDescription"
+          >
+            {t('pages.coreTech.pipelineDescription')}
           </p>
         </div>
         <div class="grid gap-3 md:grid-cols-3">
@@ -66,7 +108,12 @@ const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Repor
                 <span class="text-xs font-bold text-blue-700 dark:text-blue-300">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <strong class="mt-3 block text-slate-950 dark:text-white">{step}</strong>
+                <strong
+                  class="mt-3 block text-slate-950 dark:text-white"
+                  data-i18n-key={`pages.coreTech.pipeline.${step}`}
+                >
+                  {t(`pages.coreTech.pipeline.${step}`)}
+                </strong>
               </div>
             ))
           }
@@ -78,15 +125,29 @@ const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Repor
   <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-200">Research Basis</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Registered IP and research methods</h2>
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-blue-200"
+          data-i18n-key="pages.coreTech.researchEyebrow"
+        >
+          {t('pages.coreTech.researchEyebrow')}
+        </p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl" data-i18n-key="pages.coreTech.researchTitle">
+          {t('pages.coreTech.researchTitle')}
+        </h2>
       </div>
       <div class="mt-10 grid gap-5 md:grid-cols-2">
         {
-          researchHighlights.map((item) => (
+          researchHighlightKeys.map((key) => (
             <article class="border border-white/10 bg-white/[0.03] p-6">
-              <h3 class="text-xl font-bold">{item.title}</h3>
-              <p class="mt-3 leading-relaxed text-slate-300">{item.description}</p>
+              <h3 class="text-xl font-bold" data-i18n-key={`data.researchHighlights.${key}.title`}>
+                {t(`data.researchHighlights.${key}.title`)}
+              </h3>
+              <p
+                class="mt-3 leading-relaxed text-slate-300"
+                data-i18n-key={`data.researchHighlights.${key}.description`}
+              >
+                {t(`data.researchHighlights.${key}.description`)}
+              </p>
             </article>
           ))
         }
@@ -96,7 +157,7 @@ const pipeline = ['Ingest', 'Normalize', 'Vectorize', 'Cluster', 'Score', 'Repor
           href={getPermalink('/research')}
           class="inline-flex items-center gap-2 bg-white px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-blue-50"
         >
-          Research & IP
+          <span data-i18n-key="pages.coreTech.researchCta">{t('pages.coreTech.researchCta')}</span>
           <Icon name="tabler:arrow-right" class="h-4 w-4" />
         </a>
       </div>

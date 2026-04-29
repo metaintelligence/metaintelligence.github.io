@@ -90,7 +90,7 @@ export const footerData = {
     { text: '개인정보처리방침', href: getPermalink('/privacy'), i18nKey: 'footer.privacy' },
   ],
   footNote: `
-    <span>&copy; 2026 MetaIntelligence Inc. All rights reserved.</span>
-    <span class="block mt-1 text-muted">#401, 4F, 13 Alphacity 1-ro 35-gil, Suseong-gu, Daegu, Republic of Korea</span>
+    <span data-i18n-key="footer.copyright">&copy; 2026 MetaIntelligence Inc. 모든 권리 보유.</span>
+    <span class="block mt-1 text-muted" data-i18n-key="footer.address">대구광역시 수성구 알파시티1로35길 13, 4층 401호</span>
   `,
 };

@@ -47,7 +47,9 @@
     },
     "terms": "Terms",
     "privacy": "Privacy",
-    "location": "Daegu, Republic of Korea"
+    "location": "Daegu, Republic of Korea",
+    "copyright": "© 2026 MetaIntelligence Inc. All rights reserved.",
+    "address": "#401, 4F, 13 Alphacity 1-ro 35-gil, Suseong-gu, Daegu, Republic of Korea"
   },
   "home": {
     "notice": "Website Update in Progress",
@@ -131,6 +133,774 @@
         "subtitle": "Configurable trend and risk discovery",
         "description": "Text fields, dates, amounts, groups, and temporal signals are analyzed to reveal domain-specific momentum."
       }
+    }
+  },
+  "data": {
+    "company": {
+      "shortDescription": "MetaIntelligence builds First-Principle AI software for domain signal intelligence, manufacturing vision inspection, and source-grounded knowledge workflows. The company focuses on systems whose outputs can be traced, tested, and operated in real workflows.",
+      "headquarters": "4F #401, 13 Alphacity 1-ro 35-gil, Suseong-gu, Daegu, Republic of Korea"
+    },
+    "mainStats": {
+      "founded": "Founded as a software and AI company",
+      "execution": "Consecutive public R&D analytics execution",
+      "records": "Large-scale records processed and structured",
+      "patent": "Registered patent for natural data analysis"
+    },
+    "principles": {
+      "first": {
+        "title": "First-Principle AI",
+        "label": "Model the structure first",
+        "description": "We begin with the physical, statistical, or operational structure of a problem before selecting models and automation layers."
+      },
+      "verification": {
+        "title": "Verification-Driven",
+        "label": "Keep outputs traceable",
+        "description": "Generated insights are connected to source data, reproducible calculations, and reviewable operating procedures."
+      },
+      "open": {
+        "title": "Open Architecture",
+        "label": "Fit the customer environment",
+        "description": "Pipelines are designed to integrate with existing data, models, deployment constraints, and multiple LLM providers."
+      }
+    },
+    "capabilities": {
+      "multimodal": {
+        "title": "Multimodal AI",
+        "subtitle": "Vision-language fusion and physics-informed modeling",
+        "description": "Computer vision, image generation, document understanding, and structured signals are combined for industrial AI workflows."
+      },
+      "knowledge": {
+        "title": "Knowledge AI",
+        "subtitle": "Agentic AI and document intelligence",
+        "description": "Technical documents and structured datasets are converted into searchable knowledge, grounded summaries, and report-ready insights."
+      },
+      "hpc": {
+        "title": "HPC & Optimization",
+        "subtitle": "Hybrid computing and large-scale data pipelines",
+        "description": "Large datasets, GPU workloads, and deployment pipelines are engineered as part of the product, not left as lab-only prototypes."
+      },
+      "signal": {
+        "title": "Signal Intelligence",
+        "subtitle": "Configurable trend and risk discovery",
+        "description": "Text fields, dates, amounts, groups, and temporal signals are analyzed to reveal domain-specific momentum."
+      }
+    },
+    "solutions": {
+      "mvi": {
+        "domain": "Manufacturing vision AI",
+        "fullName": "Meta Vision AI",
+        "summary": "A field-adaptive inspection workflow that combines one-class anomaly detection, targeted data augmentation, and 3-BIN human-in-the-loop operation.",
+        "proof": "Validated on anomaly detection workflows including MVTec AD experiments and manufacturing PoC scenarios.",
+        "detail": "Normal-data learning, targeted GenAI augmentation, 3-BIN review, and legacy-friendly deployment are organized as one field workflow."
+      },
+      "metainsight": {
+        "domain": "Domain-agnostic signal analytics",
+        "fullName": "Domain Signal Intelligence Platform",
+        "summary": "A configurable platform for collecting, cleaning, clustering, scoring, and reporting large-scale domain datasets with evidence-linked outputs.",
+        "proof": "Built from repeated public R&D analytics work, then generalized into a domain-configurable trend and insight engine.",
+        "detail": "Collection, cleansing, vectorization, clustering, scoring, and insight generation stay connected to source records and reviewable evidence."
+      },
+      "diana": {
+        "domain": "Agentic AI",
+        "fullName": "Domain Intelligence Agent",
+        "summary": "An agent layer for query planning, evidence retrieval, calculation checks, and draft outputs on top of structured domain data and documents.",
+        "proof": "Designed to extend MetaInsight pipelines into grounded, repeatable knowledge-work automation.",
+        "detail": "A guided agent layer turns structured evidence into intelligence units, draft reports, review notes, and verification logs."
+      }
+    },
+    "collaborationSolutions": {
+      "metainsightMfg": {
+        "domain": "Manufacturing report automation",
+        "description": "A manufacturing analytics extension that connects MES, sensor, ERP, inspection, and 4M logs into diagnosis and reporting workflows."
+      },
+      "aeroGimbal": {
+        "domain": "Real-time visual tracking and control",
+        "description": "A vision AI concept for tracking high-speed moving objects and linking perception to gimbal control in operational environments."
+      }
+    },
+    "trackRecords": {
+      "rnd": {
+        "title": "Repeated public R&D analytics projects",
+        "description": "Analyzed domestic and global R&D funding, emerging research topics, and technology signals across multiple yearly projects."
+      },
+      "patent": {
+        "title": "Registered patent KR 10-2573563",
+        "description": "Registered intellectual property for a natural data analysis system and method, forming a basis for R&D intelligence workflows."
+      },
+      "prototype": {
+        "title": "MetaInsight prototype and workflow demonstrations",
+        "description": "Expanded large-scale R&D analytics pipelines into web-based workflows for filtering, clustering, insight review, and reporting."
+      },
+      "vision": {
+        "title": "MicroDIPS-based vision anomaly detection validation",
+        "description": "Extended normal-data-based anomaly detection and data augmentation methods toward manufacturing vision AI use cases."
+      },
+      "expansion": {
+        "title": "Manufacturing, aerospace, and LLM workflow expansion",
+        "description": "Developing applied product directions around MVI, MetaInsight MFG, AeroGimbal-Track, and agentic domain intelligence."
+      }
+    },
+    "team": {
+      "ceo": {
+        "role": "Founder & CEO",
+        "specialty": "Physics-informed AI and integrated AI architecture",
+        "summary": "Ph.D. in physics from POSTECH. Experience across machine vision engineering, CSAIC research, and registered AI analytics IP."
+      },
+      "nlp": {
+        "role": "Document Intelligence",
+        "specialty": "Language models, evaluation, and report generation",
+        "summary": "Leads grounded document analysis, LLM evaluation, and agent workflows for domain intelligence and technical reporting."
+      },
+      "software": {
+        "role": "Product Engineering",
+        "specialty": "Frameworks, graphics, SaaS, and deployment",
+        "summary": "Builds product-grade software architecture for vision AI demos, analytics interfaces, and enterprise-ready workflows."
+      },
+      "vision": {
+        "role": "Modeling & Inspection AI",
+        "specialty": "Defect modeling and anomaly detection",
+        "summary": "Develops inspection logic, synthetic data strategies, and model evaluation pipelines for manufacturing vision scenarios."
+      },
+      "quality": {
+        "role": "R&D Data Operations",
+        "specialty": "Data processing and quality management",
+        "summary": "Supports collection, cleansing, validation, and structured operation of large-scale datasets."
+      }
+    },
+    "researchHighlights": {
+      "natural": {
+        "title": "Natural data analysis system",
+        "description": "Registered patent KR 10-2573563 covers a method for analyzing technical and natural data through structured interpretation."
+      },
+      "physics": {
+        "title": "R&D grants data physics",
+        "description": "A quantitative approach for analyzing global R&D records such as NSF, NIH, NTIS, KAKEN, and CORDIS datasets."
+      },
+      "signal": {
+        "title": "Emerging technology signal pipeline",
+        "description": "Clustering, temporal signals, quantitative indicators, and LLM-based evaluation are combined to identify emerging technology candidates."
+      },
+      "public": {
+        "title": "Public research presentations",
+        "description": "Research activities include R&D funding analytics, future issue discovery, and related presentation or report work."
+      }
+    }
+  },
+  "pages": {
+    "about": {
+      "metaTitle": "About",
+      "metaDescription": "About MetaIntelligence Inc.",
+      "eyebrow": "About",
+      "primary": "Company Identity",
+      "secondary": "Track Record"
+    },
+    "companyIntro": {
+      "metaTitle": "Company Introduction",
+      "metaDescription": "A concise introduction to MetaIntelligence Inc.",
+      "eyebrow": "Company Introduction",
+      "cta": "Continue to Company Identity"
+    },
+    "companyIdentity": {
+      "metaTitle": "Company Identity",
+      "metaDescription": "MetaIntelligence company identity, mission, values, and operating principles.",
+      "eyebrow": "Company",
+      "title": "AI products designed for verification, deployment, and repeat use",
+      "description": "MetaIntelligence Inc. develops software for manufacturing vision inspection, domain signal intelligence, and source-grounded document workflows. The company prioritizes traceability and operating fit over generic AI claims.",
+      "missionEyebrow": "Mission",
+      "missionTitle": "Build AI systems that can be checked before they are trusted",
+      "missionDescription": "In industrial and research workflows, a useful AI output must remain connected to data, assumptions, and review steps. MetaIntelligence designs products around that requirement from the start.",
+      "competenciesEyebrow": "Core Competencies",
+      "competenciesTitle": "Technical capabilities that reinforce each other",
+      "nextEyebrow": "Next",
+      "nextTitle": "Review the execution record",
+      "nextDescription": "The company is presented through repeated work, registered IP, and applied product directions.",
+      "nextCta": "Milestones"
+    },
+    "culture": {
+      "metaTitle": "Operating Principles",
+      "metaDescription": "How MetaIntelligence works as a focused AI engineering team.",
+      "eyebrow": "Operating Principles",
+      "title": "A focused engineering culture for verifiable AI",
+      "description": "MetaIntelligence presents culture through how the team works: evidence-based decisions, working software, clear ownership, and respect for real operating constraints.",
+      "principles": {
+        "evidence": {
+          "title": "Evidence before opinion",
+          "description": "Technical choices are judged by source data, reproducible outputs, and deployment constraints rather than preference or fashion."
+        },
+        "software": {
+          "title": "Working software first",
+          "description": "Research results matter when they become usable systems. We keep prototypes close to product workflows and field operation."
+        },
+        "ownership": {
+          "title": "Small team, clear ownership",
+          "description": "Responsibilities are kept explicit across research, data, product, and deployment so that decisions remain accountable."
+        },
+        "security": {
+          "title": "Respect for security and field limits",
+          "description": "Manufacturing and public-sector environments come with network, data, hardware, and review constraints. Product design starts there."
+        }
+      },
+      "standardEyebrow": "Engineering Standard",
+      "standardTitle": "We prove value through operating systems, not presentation layers alone",
+      "standardDescription": "In R&D analytics, this means preserving the path from source records to final insight. In manufacturing vision AI, it means connecting models to feedback, retraining, and field decision procedures."
+    },
+    "missionHistory": {
+      "metaTitle": "Milestones",
+      "metaDescription": "MetaIntelligence milestones, company history, and verified execution record.",
+      "eyebrow": "Milestones",
+      "title": "From R&D analytics to applied AI products",
+      "description": "The company history is presented through public-safe facts: repeated research execution, registered IP, product prototypes, and the transition toward manufacturing and agentic AI.",
+      "milestones": {
+        "founded": {
+          "title": "Company founded",
+          "description": "Metacomputing Inc. was founded with a focus on computational science, AI, and data analytics."
+        },
+        "analytics": {
+          "title": "Public R&D analytics work begins",
+          "description": "The team entered R&D intelligence through funded research on global R&D project data and data science methods."
+        },
+        "patent": {
+          "title": "Registered patent secured",
+          "description": "Patent KR 10-2573563 was registered for a natural data analysis system and method."
+        },
+        "prototype": {
+          "title": "MetaInsight prototype",
+          "description": "R&D collection, cleansing, analytics, and report-generation workflows were expanded into a web-based prototype."
+        },
+        "rename": {
+          "title": "Company name changed to MetaIntelligence",
+          "description": "The company repositioned around enterprise AI products from its base in Daegu Suseong Alpha City."
+        },
+        "expansion": {
+          "title": "Manufacturing and agentic AI expansion",
+          "description": "Product directions are expanding around MVI, MetaInsight MFG, DIANA, and applied AI workflows for industry."
+        }
+      },
+      "evidenceEyebrow": "Execution Evidence",
+      "evidenceTitle": "Milestones supported by repeatable work"
+    },
+    "contact": {
+      "metaTitle": "Contact",
+      "metaDescription": "Contact MetaIntelligence Inc. in Daegu, Republic of Korea.",
+      "eyebrow": "Contact",
+      "title": "Project and collaboration inquiries",
+      "description": "Contact MetaIntelligence for manufacturing vision AI, domain signal intelligence, and grounded document-analysis workflows. Please avoid sending resident registration numbers, home addresses, or other unnecessary sensitive personal data.",
+      "labels": {
+        "email": "Email",
+        "phone": "Phone",
+        "fax": "Fax",
+        "headquarters": "Headquarters"
+      },
+      "scopeEyebrow": "Inquiry Scope",
+      "scopeTitle": "Areas where the team can respond most effectively",
+      "scope": {
+        "mvi": "Manufacturing defect detection, vision inspection workflows, data augmentation, and field deployment.",
+        "metainsight": "Domain signal analytics, trend discovery, clustering, and evidence-linked reporting.",
+        "diana": "Agentic document intelligence, retrieval workflows, LLM evaluation, and report automation."
+      }
+    },
+    "trackRecord": {
+      "metaTitle": "Track Record",
+      "metaDescription": "MetaIntelligence verified government R&D and industry collaboration track record.",
+      "eyebrow": "Track Record",
+      "title": "Evidence from public R&D analytics to applied AI validation",
+      "description": "This page summarizes public-safe execution signals: repeated projects, large-scale data experience, registered IP, and applied industry directions. Confidential customer details are intentionally excluded.",
+      "stats": {
+        "years": "Repeated public R&D analytics execution",
+        "records": "R&D records processed and structured",
+        "patent": "Registered patent",
+        "roadmap": "Product expansion roadmap"
+      },
+      "governmentEyebrow": "Government R&D",
+      "governmentTitle": "Repeated work in R&D data analysis",
+      "government": {
+        "db": {
+          "title": "R&D project information database research",
+          "description": "Analysis and application research on global R&D project data."
+        },
+        "future": {
+          "title": "Future issue and emerging researcher discovery",
+          "description": "R&D funding analytics for identifying early signals and research groups."
+        },
+        "global": {
+          "title": "Global R&D funding-data collection and analysis",
+          "description": "Large-scale collection, structuring, and analysis of public R&D records."
+        },
+        "construction": {
+          "title": "R&D analytics database construction",
+          "description": "Participation in consortium-based work for public R&D information analysis."
+        }
+      },
+      "extensionsEyebrow": "Industry Extensions",
+      "extensionsTitle": "Applied directions now moving toward product workflows",
+      "collaboration": {
+        "microdips": "AI-based real-time vision anomaly detection system direction",
+        "mvi": "Vision inspection automation for display and film process scenarios",
+        "mfg": "Manufacturing-data-based diagnosis and report automation agent",
+        "aero": "High-speed visual tracking and gimbal-control integration concept"
+      }
+    },
+    "research": {
+      "metaTitle": "Research & IP",
+      "metaDescription": "MetaIntelligence research, intellectual property, and publication highlights.",
+      "eyebrow": "Research & IP",
+      "title": "Research methods and IP behind the product direction",
+      "description": "MetaIntelligence connects natural data analysis, R&D data physics, emerging technology discovery, and manufacturing vision AI into a verification-driven technical foundation.",
+      "ip": {
+        "patent": {
+          "title": "Registered patent KR 10-2573563",
+          "description": "Natural data analysis system and method. The IP supports the company approach to structured analysis of R&D and technical data."
+        },
+        "trademark": {
+          "title": "Registered trademark KR 40-1914547",
+          "description": "Trademark asset from the earlier MetaCom2 period, retained as part of the company history and public IP context."
+        },
+        "record": {
+          "title": "Applied research record",
+          "description": "Research activity is presented as technical context only; confidential contracts and private partner details are excluded."
+        }
+      },
+      "themesEyebrow": "Research Themes",
+      "themesTitle": "Public-safe research themes",
+      "publicationsEyebrow": "Publications & Reports",
+      "publicationsTitle": "Research activity that supports the platform direction",
+      "publications": {
+        "future": "Future-issue analysis based on collection and analysis of global R&D funding status",
+        "pittcon": "Pittcon poster presentation on R&D funding data and future issue discovery",
+        "nsf": "Big-data analysis of NSF project abstracts and data-physics methodology",
+        "reports": "Public R&D analytics reports built from policy research assignments"
+      }
+    },
+    "solutions": {
+      "metaTitle": "Solutions",
+      "metaDescription": "MetaIntelligence solution portfolio across MetaInsight, MVI, DIANA, and selective collaboration extensions.",
+      "eyebrow": "Solutions",
+      "title": "A focused portfolio for signal, vision, and source-grounded intelligence",
+      "description": "MetaIntelligence presents three public product lines and a small set of collaboration extensions. Each item below opens selectively for deeper context while keeping the page focused.",
+      "detailSummary": "Detailed scope",
+      "open": "Open",
+      "imageAlt": {
+        "mvi": "MVI reference visual",
+        "metainsight": "MetaInsight reference visual"
+      },
+      "publicNotes": {
+        "mvi1": "Normal-data-based anomaly detection for scarce defect-data environments.",
+        "mvi2": "Targeted GenAI augmentation for product-state and defect examples.",
+        "mvi3": "3-BIN review and human feedback loop for field-adaptive operation.",
+        "metainsight1": "Collection, cleansing, clustering, and signal scoring for configurable domain datasets.",
+        "metainsight2": "Evidence-linked screens for analyst review, not opaque report generation.",
+        "metainsight3": "Built from repeated public R&D analytics execution, then generalized as a domain signal engine.",
+        "diana1": "Agentic layer on top of structured domain data, documents, and source evidence.",
+        "diana2": "Designed for source-grounded intelligence units, reports, and review notes.",
+        "diana3": "Uses verification steps to reduce unsupported generation and numerical errors."
+      },
+      "dianaFlowLabel": "DIANA Agent Flow",
+      "dianaDiagram": {
+        "plan": {
+          "title": "Plan",
+          "description": "Domain task breakdown"
+        },
+        "retrieve": {
+          "title": "Retrieve",
+          "description": "Evidence and source IDs"
+        },
+        "check": {
+          "title": "Check",
+          "description": "Rules, metrics, and consistency"
+        },
+        "draft": {
+          "title": "Draft",
+          "description": "Reviewable intelligence output"
+        }
+      },
+      "methodEyebrow": "Common Method",
+      "methodTitle": "Source-grounded verification is the shared layer",
+      "methodDescription": "The same principle appears in domain signal analytics, document workflows, and operating analytics: data enters as structured evidence, calculations are separated from generation, and outputs remain reviewable.",
+      "layer": "Layer",
+      "verificationDiagram": {
+        "input": {
+          "title": "Structured Input",
+          "description": "Records, documents, dates, groups, and source identifiers enter as evidence."
+        },
+        "reasoning": {
+          "title": "Separated Reasoning",
+          "description": "Scoring, calculation, retrieval, and generation remain distinct steps."
+        },
+        "output": {
+          "title": "Reviewable Output",
+          "description": "Reports, briefs, and notes preserve evidence links and uncertainty markers."
+        }
+      },
+      "extensionsEyebrow": "Extensions",
+      "extensionsTitle": "Selective collaboration directions",
+      "extensionsDescription": "These are presented as applied directions and collaboration capabilities, separate from the three public product lines."
+    },
+    "mvi": {
+      "metaTitle": "MVI - Meta Vision AI",
+      "metaDescription": "MVI is MetaIntelligence manufacturing vision AI for one-class anomaly detection, GenAI augmentation, and field-adaptive inspection workflows.",
+      "eyebrow": "MVI / Meta Vision AI",
+      "title": "Vision AI for manufacturing lines where defect data is scarce",
+      "description": "MVI connects one-class anomaly detection, targeted data augmentation, and review operation into a workflow that can be adapted to real inspection environments.",
+      "badgeSubtitle": "inspection workflow",
+      "heroVideoLabel": "MVI defect inspection demo",
+      "valueProps": {
+        "ready": {
+          "title": "Ready-to-Run",
+          "description": "Start from normal production images and reduce the dependency on large initial defect datasets."
+        },
+        "expert": {
+          "title": "Expert-Free Operation",
+          "description": "Combine 3-BIN review, human feedback, and structured retraining so operators can keep improving the workflow."
+        },
+        "adaptive": {
+          "title": "Field-Adaptive",
+          "description": "Account for line changes, lighting shifts, and inspection feedback as part of the product workflow."
+        }
+      },
+      "evidenceEyebrow": "Visual Evidence",
+      "evidenceTitle": "Inspection output is treated as reviewable evidence",
+      "evidenceDescription": "MVI is framed as a production workflow: gather normal images, augment scarce cases, inspect candidates, and route uncertain results back into review.",
+      "evidenceAlt": "MVI defect example and heatmap evidence",
+      "pipelineEyebrow": "Operating Pipeline",
+      "pipelineTitle": "More than a detector: a production feedback loop",
+      "pipeline": {
+        "gate": {
+          "title": "Optical and Data Gate",
+          "description": "Check imaging conditions, line context, and data readiness before model training."
+        },
+        "detect": {
+          "title": "One-Class Detection",
+          "description": "Detect anomaly candidates from normal-data-based learning and surface uncertain regions."
+        },
+        "augment": {
+          "title": "Targeted Augmentation",
+          "description": "Use generative augmentation to enrich scarce defect and product-state examples."
+        },
+        "operation": {
+          "title": "3-BIN Operation",
+          "description": "Separate normal, uncertain, and defect cases while routing feedback into the learning loop."
+        }
+      },
+      "demosEyebrow": "Product Demos",
+      "demosTitle": "Select a workflow step and play the demo",
+      "demosDescription": "The selected video updates in place so each workflow step can be reviewed without crowding the page.",
+      "play": "Play",
+      "demos": {
+        "inspect": {
+          "title": "Defect inspection",
+          "description": "Review anomaly candidates, heatmap output, and defect metadata in the inspection workflow.",
+          "thumbnailAlt": "Defect inspection thumbnail",
+          "videoLabel": "MVI defect inspection demo"
+        },
+        "good": {
+          "title": "Defect-to-good augmentation",
+          "description": "Convert scarce defect examples into additional good-state training images for comparison.",
+          "thumbnailAlt": "Defect-to-good augmentation thumbnail",
+          "videoLabel": "MVI defect-to-good augmentation demo"
+        },
+        "defect": {
+          "title": "Good-to-defect augmentation",
+          "description": "Generate targeted defect-like examples from normal imagery to close the early data gap.",
+          "thumbnailAlt": "Good-to-defect augmentation thumbnail",
+          "videoLabel": "MVI good-to-defect augmentation demo"
+        }
+      }
+    },
+    "metainsight": {
+      "metaTitle": "MetaInsight - Domain Signal Intelligence Platform",
+      "metaDescription": "MetaInsight is a domain-agnostic signal intelligence platform for data cleansing, clustering, trend scoring, and verified insight generation.",
+      "eyebrow": "MetaInsight",
+      "title": "Domain signal intelligence from large datasets to reviewable decisions",
+      "description": "MetaInsight collects and structures time-series domain data, clusters meaningful text fields, evaluates trend strength, and keeps generated insights linked to evidence. R&D is one proven domain, not the boundary of the platform.",
+      "stats": {
+        "records": "Records processed",
+        "configValue": "Config",
+        "config": "Domain-specific fields",
+        "signalsValue": "Signals",
+        "signals": "Evidence-linked output"
+      },
+      "heroAlt": "MetaInsight result overview",
+      "workflowEyebrow": "Workflow",
+      "workflowTitle": "One flow from domain data to validated signal",
+      "workflow": {
+        "collect": {
+          "title": "Collect & Cleanse",
+          "description": "Normalize domain records, resolve missing fields, and prepare analysis-ready datasets from CSV, Excel, Parquet, or managed stores."
+        },
+        "cluster": {
+          "title": "Vectorize & Cluster",
+          "description": "Transform configurable text fields into semantic groups using hash, dense, or hybrid vectorization."
+        },
+        "score": {
+          "title": "Score Signals",
+          "description": "Evaluate sustained trend, momentum, and recent strength using domain-specific dates, amounts, and grouping fields."
+        },
+        "insights": {
+          "title": "Generate Insights",
+          "description": "Create evidence-linked summaries, exportable tables, and review-ready intelligence statements from structured results."
+        }
+      },
+      "screensEyebrow": "Screens",
+      "screensTitle": "A focused screen tour with selectable evidence",
+      "screensDescription": "Select the screen that matches the analysis task. The image below updates in place so the page stays concise.",
+      "screens": {
+        "overview": {
+          "title": "Overview",
+          "description": "Review the total result set, representative clusters, and high-level signal distribution.",
+          "alt": "MetaInsight overview screen"
+        },
+        "charts": {
+          "title": "Charts",
+          "description": "Inspect rankings, distribution patterns, and group comparisons through focused charts.",
+          "alt": "MetaInsight charts screen"
+        },
+        "details": {
+          "title": "Details",
+          "description": "Move from a cluster-level insight back to individual records and source-level evidence.",
+          "alt": "MetaInsight details screen"
+        },
+        "insights": {
+          "title": "Insights",
+          "description": "Convert analysis outputs into concise, reviewable intelligence statements.",
+          "alt": "MetaInsight insights screen"
+        }
+      },
+      "differentiationEyebrow": "Differentiation",
+      "differentiationTitle": "A bridge between analysis tools and final reports",
+      "differentiation": {
+        "quant": {
+          "title": "Quant evidence",
+          "description": "Signals are explained through cluster scores, trends, and source records."
+        },
+        "repeatable": {
+          "title": "Repeatable exploration",
+          "description": "Analysts can change country, field, period, and organization filters without rebuilding work."
+        },
+        "extension": {
+          "title": "Domain extension",
+          "description": "The same engine can support R&D projects, patents, retail trends, financial risks, and operational records."
+        }
+      }
+    },
+    "diana": {
+      "metaTitle": "DIANA - Domain Intelligence Agent",
+      "metaDescription": "DIANA is the agentic intelligence layer on MetaInsight for source-grounded domain analysis and knowledge workflows.",
+      "eyebrow": "DIANA",
+      "title": "Agentic intelligence for repeatable domain analysis",
+      "description": "DIANA is the agent layer that extends MetaInsight from analytics into guided knowledge work. It is designed to retrieve evidence, plan domain-specific analysis steps, draft outputs, and preserve verification context.",
+      "architectureLabel": "Technical Architecture",
+      "layers": {
+        "evidence": {
+          "title": "Evidence Layer",
+          "body": "Domain datasets, documents, logs, reports, and technical materials are normalized with source identifiers.",
+          "output": "Structured evidence base"
+        },
+        "agent": {
+          "title": "Agent Layer",
+          "body": "Planning, retrieval, quantitative checks, and drafting are separated into reviewable agent tasks.",
+          "output": "Traceable analysis path"
+        },
+        "output": {
+          "title": "Output Layer",
+          "body": "Briefs, review notes, and report drafts are produced with linked evidence and verification context.",
+          "output": "Reusable intelligence unit"
+        }
+      },
+      "agents": {
+        "ingestion": "Collect and structure domain records, documents, logs, reports, patents, and technical materials.",
+        "analysis": "Compute domain signals from clusters, trends, quantitative indicators, and operating rules.",
+        "structuring": "Organize definitions, evidence, applications, risks, and decisions into repeatable templates.",
+        "crossCheck": "Compare generated statements with source databases and retrieved evidence.",
+        "preDetection": "Surface candidate signals before they become obvious through manual review.",
+        "guard": "Reduce unsupported generation, numerical errors, and overconfident conclusions through evaluation gates."
+      },
+      "agentTitles": {
+        "ingestion": "Ingestion",
+        "analysis": "Analysis",
+        "structuring": "Structuring",
+        "crossCheck": "Cross-Check",
+        "preDetection": "Pre-Detection",
+        "guard": "Guard"
+      },
+      "outputEyebrow": "Output",
+      "outputTitle": "Outputs analysts can inspect and improve",
+      "outputDescription": "DIANA is not positioned as a free-form chatbot. Its value is in structuring evidence-backed intelligence units that can be reviewed, revised, and reused.",
+      "outputs": {
+        "briefs": "Domain intelligence briefs",
+        "trend": "Quantitative trend, risk, or opportunity review",
+        "crossMap": "Cross-map across records, documents, reports, and source evidence",
+        "drafts": "Draft reports with verification logs"
+      },
+      "verificationEyebrow": "Verification",
+      "verificationTitle": "Generation is separated from evidence and calculation",
+      "verificationDescription": "DIANA is positioned around structured evidence, program-aided calculation, cross-checking, source tracking, and fallback behavior when confidence is insufficient.",
+      "gate": "Gate",
+      "verificationSteps": {
+        "input": {
+          "title": "Input Gate",
+          "description": "Accept only structured records, source URIs, and analyst-approved context."
+        },
+        "calculation": {
+          "title": "Calculation Gate",
+          "description": "Run quantitative scoring and rule checks outside free-form generation."
+        },
+        "retrieval": {
+          "title": "Retrieval Gate",
+          "description": "Attach supporting records before a claim enters the draft."
+        },
+        "crossCheck": {
+          "title": "Cross-Check Gate",
+          "description": "Compare conclusions against retrieved evidence and known domain rules."
+        },
+        "review": {
+          "title": "Review Gate",
+          "description": "Expose assumptions, weak signals, and missing evidence for analyst correction."
+        },
+        "fallback": {
+          "title": "Fallback Gate",
+          "description": "Defer or mark uncertainty when the evidence path is incomplete."
+        }
+      },
+      "positioningEyebrow": "Positioning",
+      "positioningTitle": "The agent path after MetaInsight",
+      "positioningDescription": "DIANA is planned as an extension of the same verified data foundation used by MetaInsight. The roadmap is aimed at domain signal analysis, policy research, risk review, technical intelligence, and enterprise document-analysis workflows."
+    },
+    "strategy": {
+      "metaTitle": "Solution Strategy",
+      "metaDescription": "MetaIntelligence solution strategy across flagship products and collaboration extensions.",
+      "eyebrow": "Strategy",
+      "title": "Turning verified technical work into focused product lines",
+      "description": "MetaIntelligence avoids presenting every possible AI idea as a product. The portfolio is organized around work that has a clear data foundation, operating workflow, and path to deployment.",
+      "phases": {
+        "prove": {
+          "title": "Prove the method through repeated work",
+          "description": "Public R&D analytics projects validated the foundation for data cleansing, clustering, signal analysis, and report workflows."
+        },
+        "convert": {
+          "title": "Convert research into product lines",
+          "description": "MetaInsight and MVI organize the verified methods into repeatable software products rather than one-off demonstrations."
+        },
+        "extend": {
+          "title": "Extend selectively into adjacent domains",
+          "description": "Manufacturing report automation, real-time visual tracking, and agentic analysis are presented as focused extensions."
+        }
+      },
+      "portfolioEyebrow": "Portfolio",
+      "portfolioTitle": "Public solution portfolio",
+      "extensionsEyebrow": "Extensions",
+      "extensionsTitle": "Collaboration directions, kept deliberately selective",
+      "extensionsDescription": "Extension concepts are shown as technical direction and collaboration potential, separate from the flagship product lines."
+    },
+    "ida": {
+      "metaTitle": "MetaInsight",
+      "metaDescription": "IDA has been consolidated into MetaInsight, the domain signal intelligence platform.",
+      "eyebrow": "Renamed",
+      "title": "IDA is now presented as MetaInsight",
+      "description": "The former document and research-data analytics experience has been consolidated into MetaInsight, the public domain signal intelligence platform page.",
+      "cta": "View MetaInsight"
+    },
+    "coreTech": {
+      "metaTitle": "Core Capabilities",
+      "metaDescription": "MetaIntelligence core technical capabilities across multimodal AI, knowledge AI, HPC, and signal intelligence.",
+      "eyebrow": "Core Capabilities",
+      "title": "Capabilities for AI systems that can be operated and verified",
+      "description": "MetaIntelligence focuses on the full path from data and modeling to review, deployment, and repeatable operation. The capability set is deliberately practical: multimodal AI, knowledge AI, scalable processing, and signal intelligence.",
+      "pipelineEyebrow": "R&D Pipeline",
+      "pipelineTitle": "Traceability is built into the pipeline",
+      "pipelineDescription": "Whether the input is an R&D database, a technical document, or an inspection image, the system keeps track of where evidence came from and how it was transformed.",
+      "pipeline": {
+        "ingest": "Ingest",
+        "normalize": "Normalize",
+        "vectorize": "Vectorize",
+        "cluster": "Cluster",
+        "score": "Score",
+        "report": "Report"
+      },
+      "researchEyebrow": "Research Basis",
+      "researchTitle": "Registered IP and research methods",
+      "researchCta": "Research & IP"
+    },
+    "philosophy": {
+      "metaTitle": "Technology Philosophy",
+      "metaDescription": "MetaIntelligence technology philosophy: first principles, verification, and open architecture.",
+      "eyebrow": "Technology Philosophy",
+      "title": "Trust comes from architecture, not from claims",
+      "description": "MetaIntelligence decomposes problems from first principles, constrains generated outputs with evidence, and designs systems that can be deployed inside the customer environment.",
+      "guardrailsEyebrow": "Guardrails",
+      "guardrailsTitle": "Reliability is expressed as system behavior",
+      "safeguards": {
+        "source": "Maintain a clear connection between source data and generated outputs.",
+        "calculation": "Prefer reproducible calculations and code-based checks where possible.",
+        "llm": "Use LLMs with retrieval, templates, evaluation, and review stages instead of free-form generation alone.",
+        "deployment": "Design deployment around real network, security, data, and hardware constraints."
+      }
+    },
+    "csaicTeam": {
+      "metaTitle": "CSAIC Team",
+      "metaDescription": "MetaIntelligence CSAIC team profiles focused on public technical roles and expertise.",
+      "eyebrow": "CSAIC Team",
+      "title": "Computational science, AI research, and product engineering in one team",
+      "description": "CSAIC stands for Computational Science & AI Center, the research and product team behind MetaIntelligence. Public profiles are limited to role, expertise, and relevant professional background.",
+      "systemEyebrow": "Team System",
+      "systemTitle": "Small enough to stay accountable, broad enough to build full systems",
+      "system": {
+        "research": {
+          "title": "Research",
+          "description": "First-principle modeling, R&D data analytics, algorithm design"
+        },
+        "product": {
+          "title": "Product",
+          "description": "MVI, MetaInsight, and DIANA product workflows and user experience"
+        },
+        "operations": {
+          "title": "Operations",
+          "description": "Public R&D deliverables, data quality management, and pipeline reliability"
+        },
+        "verification": {
+          "title": "Verification",
+          "description": "LLM evaluation, source-data comparison, and grounded reporting"
+        }
+      }
+    },
+    "notFound": {
+      "metaTitle": "Page Not Found",
+      "sr": "Error",
+      "title": "This page is not available.",
+      "description": "The page may have moved as the MetaIntelligence website was reorganized.",
+      "cta": "Back to home"
+    },
+    "terms": {
+      "metaTitle": "Terms of Use",
+      "updated": "Last updated: April 29, 2026",
+      "intro": "This website is operated by MetaIntelligence Inc. for company introduction, technology overview, solution information, and contact purposes.",
+      "contentTitle": "Website Content",
+      "content": "The information on this website is provided for general informational purposes. Product direction, research activities, and solution descriptions may be updated without prior notice.",
+      "ipTitle": "Intellectual Property",
+      "ip": "All company names, solution names, text, images, videos, and other materials on this website belong to MetaIntelligence Inc. or their respective rights holders unless otherwise stated.",
+      "linksTitle": "External Links",
+      "links": "This website may include links to external sites when necessary. MetaIntelligence Inc. is not responsible for the content, policies, or operation of external websites.",
+      "prohibitedTitle": "Prohibited Use",
+      "prohibited": "Visitors may not misuse the website, interfere with its operation, attempt unauthorized access, or copy materials in a way that infringes intellectual property rights.",
+      "contactTitle": "Contact",
+      "contact": "For questions about these terms, contact:"
+    },
+    "privacy": {
+      "metaTitle": "Privacy Policy",
+      "updated": "Last updated: April 29, 2026",
+      "intro": "MetaIntelligence Inc. operates this website to introduce the company, its technology, and its solution portfolio.",
+      "collectTitle": "Information We Collect",
+      "collect1": "This website does not provide member accounts or payment functions. We may receive information only when a visitor contacts us directly by email or phone.",
+      "collect2": "Information voluntarily provided through an inquiry may include name, company, role, email address, phone number, and the content of the inquiry.",
+      "sensitiveTitle": "Sensitive Information",
+      "sensitive": "Please do not send resident registration numbers, passport numbers, home addresses, financial account information, health information, or other unnecessary sensitive personal data.",
+      "useTitle": "How We Use Information",
+      "use": "We use inquiry information only to review and respond to business, partnership, research, or product-related requests.",
+      "retentionTitle": "Retention",
+      "retention": "Inquiry information is retained only as long as reasonably necessary for communication, business review, legal compliance, or record management.",
+      "thirdPartyTitle": "Third-Party Services",
+      "thirdParty": "The website may use hosting, analytics, or security services required for operation. These services may process technical access data such as IP address, browser, device, and page access time.",
+      "contactTitle": "Contact",
+      "contact": "For privacy-related questions, contact:"
     }
   },
   "introductionPage": {

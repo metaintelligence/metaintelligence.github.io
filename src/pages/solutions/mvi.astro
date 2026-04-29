@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
+import { createTranslator } from '~/utils/i18n';
 
 import inspectThumbnail from '~/assets/images/mvi/mvi_inspect_thumbnail.png';
 import augmentGoodThumbnail from '~/assets/images/mvi/mvi_augment_gd_thumbnail.png';
@@ -11,64 +12,50 @@ import inspectVideo from '~/assets/video/3_inspect.mp4';
 import augmentGoodVideo from '~/assets/video/4_augment_ng_to_gd.mp4';
 import augmentDefectVideo from '~/assets/video/5_augment_gd_to_burr.mp4';
 
+const t = createTranslator();
+
 const metadata = {
-  title: 'MVI - Meta Vision AI',
-  description:
-    'MVI is MetaIntelligence manufacturing vision AI for one-class anomaly detection, GenAI augmentation, and field-adaptive inspection workflows.',
+  title: t('pages.mvi.metaTitle'),
+  description: t('pages.mvi.metaDescription'),
 };
 
 const valueProps = [
   {
-    title: 'Ready-to-Run',
-    description: 'Start from normal production images and reduce the dependency on large initial defect datasets.',
+    key: 'ready',
     icon: 'tabler:player-play',
   },
   {
-    title: 'Expert-Free Operation',
-    description:
-      'Combine 3-BIN review, human feedback, and structured retraining so operators can keep improving the workflow.',
+    key: 'expert',
     icon: 'tabler:user-check',
   },
   {
-    title: 'Field-Adaptive',
-    description: 'Account for line changes, lighting shifts, and inspection feedback as part of the product workflow.',
+    key: 'adaptive',
     icon: 'tabler:adjustments',
   },
 ];
 
 const pipeline = [
-  ['01', 'Optical and Data Gate', 'Check imaging conditions, line context, and data readiness before model training.'],
-  [
-    '02',
-    'One-Class Detection',
-    'Detect anomaly candidates from normal-data-based learning and surface uncertain regions.',
-  ],
-  ['03', 'Targeted Augmentation', 'Use generative augmentation to enrich scarce defect and product-state examples.'],
-  [
-    '04',
-    '3-BIN Operation',
-    'Separate normal, uncertain, and defect cases while routing feedback into the learning loop.',
-  ],
+  ['01', 'gate'],
+  ['02', 'detect'],
+  ['03', 'augment'],
+  ['04', 'operation'],
 ];
 
 const demos = [
   {
-    title: 'Defect inspection',
-    description: 'Review anomaly candidates, heatmap output, and defect metadata in the inspection workflow.',
+    key: 'inspect',
     video: inspectVideo,
     poster: inspectThumbnail,
     icon: 'tabler:scan-eye',
   },
   {
-    title: 'Defect-to-good augmentation',
-    description: 'Convert scarce defect examples into additional good-state training images for comparison.',
+    key: 'good',
     video: augmentGoodVideo,
     poster: augmentGoodThumbnail,
     icon: 'tabler:sparkles',
   },
   {
-    title: 'Good-to-defect augmentation',
-    description: 'Generate targeted defect-like examples from normal imagery to close the early data gap.',
+    key: 'defect',
     video: augmentDefectVideo,
     poster: augmentDefectThumbnail,
     icon: 'tabler:wand',
@@ -83,21 +70,31 @@ const initialDemo = demos[0];
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
       <div>
         <p class="text-sm font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
-          MVI / Meta Vision AI
+          <span data-i18n-key="pages.mvi.eyebrow">{t('pages.mvi.eyebrow')}</span>
         </p>
-        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          Vision AI for manufacturing lines where defect data is scarce
+        <h1
+          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
+          data-i18n-key="pages.mvi.title"
+        >
+          {t('pages.mvi.title')}
         </h1>
-        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-          MVI connects one-class anomaly detection, targeted data augmentation, and review operation into a workflow
-          that can be adapted to real inspection environments.
+        <p
+          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+          data-i18n-key="pages.mvi.description"
+        >
+          {t('pages.mvi.description')}
         </p>
         <div class="mt-8 grid gap-3 sm:grid-cols-3">
           {
             ['One-Class', 'GenAI', '3-BIN'].map((item) => (
               <div class="border border-slate-200 p-4 dark:border-slate-800">
                 <strong class="block text-slate-950 dark:text-white">{item}</strong>
-                <span class="mt-1 block text-sm text-slate-500 dark:text-slate-400">inspection workflow</span>
+                <span
+                  class="mt-1 block text-sm text-slate-500 dark:text-slate-400"
+                  data-i18n-key="pages.mvi.badgeSubtitle"
+                >
+                  {t('pages.mvi.badgeSubtitle')}
+                </span>
               </div>
             ))
           }
@@ -116,7 +113,9 @@ const initialDemo = demos[0];
           playsinline
           controls
           preload="metadata"
-          aria-label="MVI defect inspection demo"></video>
+          aria-label={t('pages.mvi.heroVideoLabel')}
+          data-i18n-attrs="aria-label"
+          data-i18n-attr-aria-label="pages.mvi.heroVideoLabel"></video>
       </div>
     </div>
   </section>
@@ -128,8 +127,18 @@ const initialDemo = demos[0];
           valueProps.map((item) => (
             <article class="border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
               <Icon name={item.icon} class="h-9 w-9 text-emerald-700 dark:text-emerald-300" />
-              <h2 class="mt-6 text-2xl font-bold text-slate-950 dark:text-white">{item.title}</h2>
-              <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+              <h2
+                class="mt-6 text-2xl font-bold text-slate-950 dark:text-white"
+                data-i18n-key={`pages.mvi.valueProps.${item.key}.title`}
+              >
+                {t(`pages.mvi.valueProps.${item.key}.title`)}
+              </h2>
+              <p
+                class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`pages.mvi.valueProps.${item.key}.description`}
+              >
+                {t(`pages.mvi.valueProps.${item.key}.description`)}
+              </p>
             </article>
           ))
         }
@@ -140,13 +149,23 @@ const initialDemo = demos[0];
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">Visual Evidence</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          Inspection output is treated as reviewable evidence
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300"
+          data-i18n-key="pages.mvi.evidenceEyebrow"
+        >
+          {t('pages.mvi.evidenceEyebrow')}
+        </p>
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
+          data-i18n-key="pages.mvi.evidenceTitle"
+        >
+          {t('pages.mvi.evidenceTitle')}
         </h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          MVI is framed as a production workflow: gather normal images, augment scarce cases, inspect candidates, and
-          route uncertain results back into review.
+        <p
+          class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+          data-i18n-key="pages.mvi.evidenceDescription"
+        >
+          {t('pages.mvi.evidenceDescription')}
         </p>
       </div>
       <figure class="border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
@@ -154,7 +173,9 @@ const initialDemo = demos[0];
           src={mviEvidence.src}
           width={mviEvidence.width}
           height={mviEvidence.height}
-          alt="MVI defect example and heatmap evidence"
+          alt={t('pages.mvi.evidenceAlt')}
+          data-i18n-attrs="alt"
+          data-i18n-attr-alt="pages.mvi.evidenceAlt"
           class="w-full object-cover"
           loading="lazy"
         />
@@ -166,20 +187,30 @@ const initialDemo = demos[0];
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
       <div>
         <p class="text-sm font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
-          Operating Pipeline
+          <span data-i18n-key="pages.mvi.pipelineEyebrow">{t('pages.mvi.pipelineEyebrow')}</span>
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          More than a detector: a production feedback loop
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
+          data-i18n-key="pages.mvi.pipelineTitle"
+        >
+          {t('pages.mvi.pipelineTitle')}
         </h2>
       </div>
       <div class="space-y-4">
         {
-          pipeline.map(([label, title, description]) => (
+          pipeline.map(([label, key]) => (
             <article class="grid gap-4 border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 sm:grid-cols-[80px_1fr]">
               <div class="font-bold text-emerald-700 dark:text-emerald-300">{label}</div>
               <div>
-                <h3 class="font-bold text-slate-950 dark:text-white">{title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+                <h3 class="font-bold text-slate-950 dark:text-white" data-i18n-key={`pages.mvi.pipeline.${key}.title`}>
+                  {t(`pages.mvi.pipeline.${key}.title`)}
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                  data-i18n-key={`pages.mvi.pipeline.${key}.description`}
+                >
+                  {t(`pages.mvi.pipeline.${key}.description`)}
+                </p>
               </div>
             </article>
           ))
@@ -191,10 +222,14 @@ const initialDemo = demos[0];
   <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-emerald-200">Product Demos</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Select a workflow step and play the demo</h2>
-        <p class="mt-5 leading-relaxed text-slate-300">
-          The selected video updates in place so each workflow step can be reviewed without crowding the page.
+        <p class="text-sm font-bold uppercase tracking-wide text-emerald-200" data-i18n-key="pages.mvi.demosEyebrow">
+          {t('pages.mvi.demosEyebrow')}
+        </p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl" data-i18n-key="pages.mvi.demosTitle">
+          {t('pages.mvi.demosTitle')}
+        </h2>
+        <p class="mt-5 leading-relaxed text-slate-300" data-i18n-key="pages.mvi.demosDescription">
+          {t('pages.mvi.demosDescription')}
         </p>
       </div>
 
@@ -209,8 +244,16 @@ const initialDemo = demos[0];
                 data-mvi-demo-button
                 data-video={demo.video}
                 data-poster={demo.poster.src}
-                data-title={demo.title}
-                data-description={demo.description}
+                data-title={t(`pages.mvi.demos.${demo.key}.title`)}
+                data-description={t(`pages.mvi.demos.${demo.key}.description`)}
+                data-video-label={t(`pages.mvi.demos.${demo.key}.videoLabel`)}
+                data-title-key={`pages.mvi.demos.${demo.key}.title`}
+                data-description-key={`pages.mvi.demos.${demo.key}.description`}
+                data-video-label-key={`pages.mvi.demos.${demo.key}.videoLabel`}
+                data-i18n-attrs="data-title,data-description,data-video-label"
+                data-i18n-attr-data-title={`pages.mvi.demos.${demo.key}.title`}
+                data-i18n-attr-data-description={`pages.mvi.demos.${demo.key}.description`}
+                data-i18n-attr-data-video-label={`pages.mvi.demos.${demo.key}.videoLabel`}
               >
                 <span class="grid grid-cols-[96px_1fr] gap-4">
                   <span class="relative block bg-black">
@@ -218,7 +261,9 @@ const initialDemo = demos[0];
                       src={demo.poster.src}
                       width={demo.poster.width}
                       height={demo.poster.height}
-                      alt={`${demo.title} thumbnail`}
+                      alt={t(`pages.mvi.demos.${demo.key}.thumbnailAlt`)}
+                      data-i18n-attrs="alt"
+                      data-i18n-attr-alt={`pages.mvi.demos.${demo.key}.thumbnailAlt`}
                       class="aspect-video h-full w-full object-cover"
                       loading="lazy"
                     />
@@ -227,8 +272,15 @@ const initialDemo = demos[0];
                     </span>
                   </span>
                   <span class="min-w-0">
-                    <span class="block font-bold text-white">{demo.title}</span>
-                    <span class="mt-2 block text-sm leading-relaxed text-slate-300">{demo.description}</span>
+                    <span class="block font-bold text-white" data-i18n-key={`pages.mvi.demos.${demo.key}.title`}>
+                      {t(`pages.mvi.demos.${demo.key}.title`)}
+                    </span>
+                    <span
+                      class="mt-2 block text-sm leading-relaxed text-slate-300"
+                      data-i18n-key={`pages.mvi.demos.${demo.key}.description`}
+                    >
+                      {t(`pages.mvi.demos.${demo.key}.description`)}
+                    </span>
                   </span>
                 </span>
               </button>
@@ -246,7 +298,9 @@ const initialDemo = demos[0];
             controls
             preload="metadata"
             data-mvi-video
-            aria-label={`MVI ${initialDemo.title} demo`}></video>
+            aria-label={t(`pages.mvi.demos.${initialDemo.key}.videoLabel`)}
+            data-i18n-attrs="aria-label"
+            data-i18n-attr-aria-label={`pages.mvi.demos.${initialDemo.key}.videoLabel`}></video>
           <div class="border-t border-white/10 p-5 md:p-6">
             <div class="flex flex-col gap-5 md:flex-row md:items-start">
               <button
@@ -255,11 +309,19 @@ const initialDemo = demos[0];
                 data-mvi-play
               >
                 <Icon name="tabler:player-play-filled" class="h-5 w-5" />
-                Play
+                <span data-i18n-key="pages.mvi.play">{t('pages.mvi.play')}</span>
               </button>
               <div>
-                <h3 class="text-xl font-bold" data-mvi-title>{initialDemo.title}</h3>
-                <p class="mt-2 leading-relaxed text-slate-300" data-mvi-description>{initialDemo.description}</p>
+                <h3 class="text-xl font-bold" data-mvi-title data-i18n-key={`pages.mvi.demos.${initialDemo.key}.title`}>
+                  {t(`pages.mvi.demos.${initialDemo.key}.title`)}
+                </h3>
+                <p
+                  class="mt-2 leading-relaxed text-slate-300"
+                  data-mvi-description
+                  data-i18n-key={`pages.mvi.demos.${initialDemo.key}.description`}
+                >
+                  {t(`pages.mvi.demos.${initialDemo.key}.description`)}
+                </p>
               </div>
             </div>
           </div>
@@ -298,6 +360,7 @@ const initialDemo = demos[0];
           const nextPoster = button.dataset.poster;
           const nextTitle = button.dataset.title || '';
           const nextDescription = button.dataset.description || '';
+          const nextVideoLabel = button.dataset.videoLabel || `MVI ${nextTitle} demo`;
 
           if (nextVideo && video.getAttribute('src') !== nextVideo) {
             video.pause();
@@ -306,9 +369,17 @@ const initialDemo = demos[0];
             video.load();
           }
 
-          video.setAttribute('aria-label', `MVI ${nextTitle} demo`);
-          if (title) title.textContent = nextTitle;
-          if (description) description.textContent = nextDescription;
+          video.setAttribute('aria-label', nextVideoLabel);
+          if (button.dataset.videoLabelKey)
+            video.setAttribute('data-i18n-attr-aria-label', button.dataset.videoLabelKey);
+          if (title) {
+            title.textContent = nextTitle;
+            if (button.dataset.titleKey) title.setAttribute('data-i18n-key', button.dataset.titleKey);
+          }
+          if (description) {
+            description.textContent = nextDescription;
+            if (button.dataset.descriptionKey) description.setAttribute('data-i18n-key', button.dataset.descriptionKey);
+          }
           playVideo(video);
         };
 

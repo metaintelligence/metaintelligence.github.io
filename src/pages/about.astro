@@ -1,36 +1,47 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import { company } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
+const t = createTranslator();
+
 const metadata = {
-  title: 'About',
-  description: 'About MetaIntelligence Inc.',
+  title: t('pages.about.metaTitle'),
+  description: t('pages.about.metaDescription'),
 };
 ---
 
 <Layout metadata={metadata}>
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
-      <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">About</p>
+      <p
+        class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+        data-i18n-key="pages.about.eyebrow"
+      >
+        {t('pages.about.eyebrow')}
+      </p>
       <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
         {company.legalNameEn}
       </h1>
-      <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-        {company.shortDescription}
+      <p
+        class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+        data-i18n-key="data.company.shortDescription"
+      >
+        {t('data.company.shortDescription')}
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a
           href={getPermalink('/company/identity')}
           class="bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
         >
-          Company Identity
+          <span data-i18n-key="pages.about.primary">{t('pages.about.primary')}</span>
         </a>
         <a
           href={getPermalink('/track-record')}
           class="border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-slate-50 dark:border-slate-700 dark:text-white dark:hover:bg-slate-900"
         >
-          Track Record
+          <span data-i18n-key="pages.about.secondary">{t('pages.about.secondary')}</span>
         </a>
       </div>
     </div>

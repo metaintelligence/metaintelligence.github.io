@@ -46,6 +46,22 @@ import { DEFAULT_LOCALE, dictionaries } from '~/utils/i18n';
       }
     });
 
+    document.querySelectorAll('[data-i18n-attrs]').forEach((node) => {
+      const attrs = (node.getAttribute('data-i18n-attrs') || '')
+        .split(',')
+        .map((attr) => attr.trim())
+        .filter(Boolean);
+
+      attrs.forEach((attr) => {
+        const key = node.getAttribute(`data-i18n-attr-${attr}`);
+        const value = key ? getValue(dictionary, key) : undefined;
+
+        if (typeof value === 'string') {
+          node.setAttribute(attr, value);
+        }
+      });
+    });
+
     document.querySelectorAll('[data-lang-option]').forEach((button) => {
       button.setAttribute('aria-pressed', String(button.getAttribute('data-lang-option') === safeLocale));
     });

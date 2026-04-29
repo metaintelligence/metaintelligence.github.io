@@ -1,30 +1,41 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import { company } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
 
+const t = createTranslator();
+
 const metadata = {
-  title: 'Company Introduction',
-  description: 'A concise introduction to MetaIntelligence Inc.',
+  title: t('pages.companyIntro.metaTitle'),
+  description: t('pages.companyIntro.metaDescription'),
 };
 ---
 
 <Layout metadata={metadata}>
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
-      <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Company Introduction</p>
+      <p
+        class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
+        data-i18n-key="pages.companyIntro.eyebrow"
+      >
+        {t('pages.companyIntro.eyebrow')}
+      </p>
       <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
         {company.legalNameEn}
       </h1>
-      <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
-        {company.shortDescription}
+      <p
+        class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
+        data-i18n-key="data.company.shortDescription"
+      >
+        {t('data.company.shortDescription')}
       </p>
       <div class="mt-8">
         <a
           href={getPermalink('/company/identity')}
           class="font-semibold text-blue-700 hover:underline dark:text-blue-300"
         >
-          Continue to Company Identity
+          <span data-i18n-key="pages.companyIntro.cta">{t('pages.companyIntro.cta')}</span>
         </a>
       </div>
     </div>
