@@ -7,8 +7,6 @@ import { getPermalink } from '~/utils/permalinks';
 
 import metainsightScreen from '~/assets/images/ida/ida_result_overview.png';
 import mviEvidence from '~/assets/images/refs/mvi-defect-evidence.png';
-import dianaUnitVisual from '~/assets/images/refs/diana-intelligence-unit.png';
-import verificationVisual from '~/assets/images/refs/verification-six-step.png';
 
 const metadata = {
   title: 'Solutions',
@@ -16,10 +14,9 @@ const metadata = {
     'MetaIntelligence solution portfolio across MetaInsight, MVI, DIANA, and selective collaboration extensions.',
 };
 
-const visuals: Record<string, typeof metainsightScreen> = {
+const visuals: Partial<Record<string, typeof metainsightScreen>> = {
   MVI: mviEvidence,
   MetaInsight: metainsightScreen,
-  DIANA: dianaUnitVisual,
 };
 
 const publicNotes: Record<string, string[]> = {
@@ -29,16 +26,29 @@ const publicNotes: Record<string, string[]> = {
     '3-BIN review and human feedback loop for field-adaptive operation.',
   ],
   MetaInsight: [
-    'Collection, cleansing, clustering, and signal scoring for large R&D datasets.',
+    'Collection, cleansing, clustering, and signal scoring for configurable domain datasets.',
     'Evidence-linked screens for analyst review, not opaque report generation.',
-    'Built from repeated public R&D analytics execution and platformization work.',
+    'Built from repeated public R&D analytics execution, then generalized as a domain signal engine.',
   ],
   DIANA: [
-    'Agentic layer on top of structured R&D and technical document evidence.',
+    'Agentic layer on top of structured domain data, documents, and source evidence.',
     'Designed for source-grounded intelligence units, reports, and review notes.',
     'Uses verification steps to reduce unsupported generation and numerical errors.',
   ],
 };
+
+const dianaDiagram = [
+  ['Plan', 'Domain task breakdown'],
+  ['Retrieve', 'Evidence and source IDs'],
+  ['Check', 'Rules, metrics, and consistency'],
+  ['Draft', 'Reviewable intelligence output'],
+];
+
+const verificationDiagram = [
+  ['Structured Input', 'Records, documents, dates, groups, and source identifiers enter as evidence.'],
+  ['Separated Reasoning', 'Scoring, calculation, retrieval, and generation remain distinct steps.'],
+  ['Reviewable Output', 'Reports, briefs, and notes preserve evidence links and uncertainty markers.'],
+];
 ---
 
 <Layout metadata={metadata}>
@@ -47,7 +57,7 @@ const publicNotes: Record<string, string[]> = {
       <div class="max-w-4xl">
         <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Solutions</p>
         <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          A focused portfolio for R&D, vision, and source-grounded intelligence
+          A focused portfolio for signal, vision, and source-grounded intelligence
         </h1>
         <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
           MetaIntelligence presents three public product lines and a small set of collaboration extensions. Each item
@@ -107,14 +117,27 @@ const publicNotes: Record<string, string[]> = {
                   </a>
                 </div>
                 <div class:list={['bg-slate-950 p-4', index % 2 === 1 ? 'lg:order-1' : '']}>
-                  <img
-                    src={visual.src}
-                    width={visual.width}
-                    height={visual.height}
-                    alt={`${solution.name} reference visual`}
-                    class="h-full min-h-[320px] w-full object-contain object-center"
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                  />
+                  {visual ? (
+                    <img
+                      src={visual.src}
+                      width={visual.width}
+                      height={visual.height}
+                      alt={`${solution.name} reference visual`}
+                      class="h-full min-h-[320px] w-full object-contain object-center"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                    />
+                  ) : (
+                    <div class="grid h-full min-h-[320px] content-center gap-3">
+                      <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">DIANA Agent Flow</p>
+                      {dianaDiagram.map(([title, description], stepIndex) => (
+                        <article class="border border-white/10 bg-white/[0.04] p-4 text-white">
+                          <p class="text-xs font-bold text-cyan-200">{String(stepIndex + 1).padStart(2, '0')}</p>
+                          <h3 class="mt-2 font-bold">{title}</h3>
+                          <p class="mt-1 text-sm leading-relaxed text-slate-300">{description}</p>
+                        </article>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </article>
             );
@@ -132,20 +155,23 @@ const publicNotes: Record<string, string[]> = {
           Source-grounded verification is the shared layer
         </h2>
         <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          The same principle appears in R&D reports, document workflows, and operating analytics: data enters as
-          structured evidence, calculations are separated from generation, and outputs remain reviewable.
+          The same principle appears in domain signal analytics, document workflows, and operating analytics: data
+          enters as structured evidence, calculations are separated from generation, and outputs remain reviewable.
         </p>
       </div>
-      <figure class="border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
-        <img
-          src={verificationVisual.src}
-          width={verificationVisual.width}
-          height={verificationVisual.height}
-          alt="Six-step source-grounded verification visual"
-          class="w-full object-cover"
-          loading="lazy"
-        />
-      </figure>
+      <div class="grid gap-3">
+        {
+          verificationDiagram.map(([title, description], index) => (
+            <article class="border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+              <p class="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">
+                Layer {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-3 text-lg font-bold text-slate-950 dark:text-white">{title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </section>
 

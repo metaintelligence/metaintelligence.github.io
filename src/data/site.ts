@@ -9,13 +9,13 @@ export const company = {
   email: 'choi@metaintelligence.co.kr',
   tagline: 'Insight into Essence, Design for Value',
   shortDescription:
-    'MetaIntelligence builds First-Principle AI software for R&D intelligence, manufacturing vision inspection, and source-grounded document workflows. The company focuses on systems whose outputs can be traced, tested, and operated in real workflows.',
+    'MetaIntelligence builds First-Principle AI software for domain signal intelligence, manufacturing vision inspection, and source-grounded knowledge workflows. The company focuses on systems whose outputs can be traced, tested, and operated in real workflows.',
 };
 
 export const mainStats = [
   { value: '2021', label: 'Founded as a software and AI company' },
   { value: '4 years', label: 'Consecutive public R&D analytics execution' },
-  { value: '6.5M+', label: 'Global R&D records processed and structured' },
+  { value: '6.5M+', label: 'Large-scale records processed and structured' },
   { value: 'KR 10-2573563', label: 'Registered patent for natural data analysis' },
 ];
 
@@ -55,7 +55,7 @@ export const capabilities = [
     title: 'Knowledge AI',
     subtitle: 'Agentic AI and document intelligence',
     description:
-      'Technical documents and R&D datasets are converted into searchable knowledge, grounded summaries, and report-ready insights.',
+      'Technical documents and structured datasets are converted into searchable knowledge, grounded summaries, and report-ready insights.',
     icon: 'tabler:file-analytics',
   },
   {
@@ -66,10 +66,10 @@ export const capabilities = [
     icon: 'tabler:cpu',
   },
   {
-    title: 'R&D Intelligence',
-    subtitle: 'Quant analysis and technology trend discovery',
+    title: 'Signal Intelligence',
+    subtitle: 'Configurable trend and risk discovery',
     description:
-      'Funding records, abstracts, keywords, organizations, and temporal signals are analyzed to reveal emerging technology movements.',
+      'Text fields, dates, amounts, groups, and temporal signals are analyzed to reveal domain-specific momentum.',
     icon: 'tabler:chart-arrows-vertical',
   },
 ];
@@ -89,23 +89,24 @@ export const solutions = [
   },
   {
     name: 'MetaInsight',
-    fullName: 'R&D Intelligence Platform',
+    fullName: 'Domain Signal Intelligence Platform',
     href: '/solutions/metainsight',
-    domain: 'R&D data analytics',
+    domain: 'Domain-agnostic signal analytics',
     summary:
-      'A platform for collecting, cleaning, clustering, scoring, and reporting large-scale R&D datasets with evidence-linked outputs.',
-    proof: 'Built from repeated public R&D analytics work and experience processing multi-million-scale R&D records.',
+      'A configurable platform for collecting, cleaning, clustering, scoring, and reporting large-scale domain datasets with evidence-linked outputs.',
+    proof:
+      'Built from repeated public R&D analytics work, then generalized into a domain-configurable trend and insight engine.',
     icon: 'tabler:database-search',
     detail:
-      'Collection, cleansing, vectorization, clustering, scoring, and report generation stay connected to source records and reviewable evidence.',
+      'Collection, cleansing, vectorization, clustering, scoring, and insight generation stay connected to source records and reviewable evidence.',
   },
   {
     name: 'DIANA',
-    fullName: 'R&D Intelligence Agent',
+    fullName: 'Domain Intelligence Agent',
     href: '/solutions/diana',
     domain: 'Agentic AI',
     summary:
-      'An agent layer for query planning, evidence retrieval, and report drafting on top of structured R&D and technical document data.',
+      'An agent layer for query planning, evidence retrieval, calculation checks, and draft outputs on top of structured domain data and documents.',
     proof: 'Designed to extend MetaInsight pipelines into grounded, repeatable knowledge-work automation.',
     icon: 'tabler:sparkles',
     detail:
@@ -157,7 +158,7 @@ export const trackRecords = [
     year: '2026',
     title: 'Manufacturing, aerospace, and LLM workflow expansion',
     description:
-      'Developing applied product directions around MVI, MetaInsight MFG, AeroGimbal-Track, and agentic R&D intelligence.',
+      'Developing applied product directions around MVI, MetaInsight MFG, AeroGimbal-Track, and agentic domain intelligence.',
   },
 ];
 
@@ -174,7 +175,7 @@ export const team = [
     role: 'Document Intelligence',
     specialty: 'Language models, evaluation, and report generation',
     summary:
-      'Leads grounded document analysis, LLM evaluation, and agent workflows for R&D intelligence and technical reporting.',
+      'Leads grounded document analysis, LLM evaluation, and agent workflows for domain intelligence and technical reporting.',
   },
   {
     name: 'Software Engineering Lead',
@@ -194,7 +195,7 @@ export const team = [
     name: 'Data Quality Researcher',
     role: 'R&D Data Operations',
     specialty: 'Data processing and quality management',
-    summary: 'Supports collection, cleansing, validation, and structured operation of large-scale global R&D datasets.',
+    summary: 'Supports collection, cleansing, validation, and structured operation of large-scale datasets.',
   },
 ];
 

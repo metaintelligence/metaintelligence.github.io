@@ -2,20 +2,37 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
-import Logo from '~/components/Logo.astro';
 import { capabilities, company, mainStats, principles, solutions, trackRecords } from '~/data/site';
 import { getPermalink } from '~/utils/permalinks';
 
 import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
-import coreValuesVisual from '~/assets/images/refs/company-core-values.png';
-import dianaUnitVisual from '~/assets/images/refs/diana-intelligence-unit.png';
 
 const metadata = {
   title: 'MetaIntelligence - Insight into Essence, Design for Value',
   ignoreTitleTemplate: true,
   description:
-    'MetaIntelligence builds First-Principle AI software for R&D intelligence, manufacturing vision inspection, and source-grounded document workflows.',
+    'MetaIntelligence builds First-Principle AI software for domain signal intelligence, manufacturing vision inspection, and source-grounded knowledge workflows.',
 };
+
+const heroMethod = [
+  ['01', 'Structure First', 'Define the domain, data fields, constraints, and operating goal before model selection.'],
+  ['02', 'Signal Engine', 'Cluster records, evaluate momentum, and expose quantitative evidence for review.'],
+  ['03', 'Verified Output', 'Keep insights connected to sources, calculations, and human review loops.'],
+];
+
+const operatingDiagram = [
+  ['Problem Frame', 'Physical, statistical, or operational structure'],
+  ['Evidence Core', 'Source records, metrics, thresholds, and review context'],
+  ['AI Layer', 'Vision models, signal scoring, retrieval, and drafting agents'],
+  ['Operating Fit', 'Deployment constraints, feedback, and repeatable workflow'],
+];
+
+const dianaLoop = [
+  ['Plan', 'Break the request into domain-specific analysis steps.'],
+  ['Retrieve', 'Attach relevant records, documents, and source identifiers.'],
+  ['Check', 'Separate calculations and consistency checks from generation.'],
+  ['Draft', 'Produce reviewable briefs, notes, or report sections.'],
+];
 ---
 
 <Layout metadata={metadata}>
@@ -24,14 +41,7 @@ const metadata = {
       class="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20"
     >
       <div>
-        <div
-          class="inline-flex items-center gap-3 border border-slate-200 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900"
-        >
-          <Logo mode="logo_only" size="h-8 w-8" />
-          <span class="text-sm font-medium text-slate-700 dark:text-slate-200">MetaIntelligence Inc.</span>
-        </div>
-
-        <p class="mt-9 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
           First-Principle AI
         </p>
         <h1
@@ -45,7 +55,7 @@ const metadata = {
         </p>
 
         <div class="mt-8 flex flex-wrap gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">R&D Intelligence</span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Signal Intelligence</span>
           <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Vision AI</span>
           <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Agentic AI</span>
         </div>
@@ -92,15 +102,19 @@ const metadata = {
             ))
           }
         </div>
-        <div class="mt-4 border border-white/10 bg-white p-3">
-          <img
-            src={coreValuesVisual.src}
-            width={coreValuesVisual.width}
-            height={coreValuesVisual.height}
-            alt="MetaIntelligence core values visual"
-            class="aspect-[2.7/1] w-full object-cover object-center"
-            loading="eager"
-          />
+        <div class="mt-4 border border-white/10 bg-white/[0.04] p-4">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Operating Method</p>
+          <div class="mt-4 grid gap-3 md:grid-cols-3">
+            {
+              heroMethod.map(([step, title, description]) => (
+                <article class="border border-white/10 bg-slate-950 p-4 text-white">
+                  <span class="text-2xl font-bold text-cyan-200">{step}</span>
+                  <h3 class="mt-3 font-bold">{title}</h3>
+                  <p class="mt-2 text-xs leading-relaxed text-slate-300">{description}</p>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -127,7 +141,7 @@ const metadata = {
           One company architecture, three public product lines
         </h2>
         <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          The portfolio spans R&D intelligence, vision inspection, and agentic workflows. MVI, MetaInsight, and DIANA
+          The portfolio spans signal intelligence, vision inspection, and agentic workflows. MVI, MetaInsight, and DIANA
           each expose a different workflow built from the same verification-driven engineering base.
         </p>
       </div>
@@ -180,15 +194,21 @@ const metadata = {
           }
         </div>
       </div>
-      <div class="border border-white/10 bg-white p-3">
-        <img
-          src={coreValuesVisual.src}
-          width={coreValuesVisual.width}
-          height={coreValuesVisual.height}
-          alt="MetaIntelligence First Principle, Verification-Driven, Open Architecture visual"
-          class="w-full object-cover"
-          loading="lazy"
-        />
+      <div class="border border-white/10 bg-white/[0.03] p-5">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">System Frame</p>
+        <div class="mt-5 grid gap-3">
+          {
+            operatingDiagram.map(([title, description], index) => (
+              <article class="grid gap-4 border border-white/10 bg-slate-950 p-5 sm:grid-cols-[72px_1fr]">
+                <div class="text-3xl font-bold text-cyan-200">{String(index + 1).padStart(2, '0')}</div>
+                <div>
+                  <h3 class="font-bold text-white">{title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-slate-300">{description}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
@@ -202,8 +222,9 @@ const metadata = {
             From large datasets to inspectable outputs
           </h2>
           <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            The R&D intelligence line combines structured datasets, analysis screens, and evidence-grounded agent
-            output. The same discipline carries into document analysis and technical reporting.
+            MetaInsight works on configurable domain datasets: text fields, dates, amounts, groups, and record IDs are
+            turned into clusters, signal scores, and evidence-grounded outputs. DIANA extends the same foundation into
+            guided document and knowledge workflows.
           </p>
           <a
             href={getPermalink('/solutions/metainsight')}
@@ -226,24 +247,25 @@ const metadata = {
             <figcaption
               class="border-t border-slate-200 p-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-200"
             >
-              MetaInsight analytics screen
+              MetaInsight signal analytics screen
             </figcaption>
           </figure>
-          <figure class="border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950">
-            <img
-              src={dianaUnitVisual.src}
-              width={dianaUnitVisual.width}
-              height={dianaUnitVisual.height}
-              alt="DIANA intelligence unit production recipe visual"
-              class="aspect-[16/10] w-full object-cover object-left"
-              loading="lazy"
-            />
-            <figcaption
-              class="border-t border-slate-200 p-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            >
-              DIANA intelligence unit workflow
-            </figcaption>
-          </figure>
+          <div class="border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
+            <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">DIANA agent loop</p>
+            <div class="mt-4 grid gap-3">
+              {
+                dianaLoop.map(([title, description], index) => (
+                  <article class="border border-slate-200 p-4 dark:border-slate-800">
+                    <p class="text-xs font-bold text-cyan-700 dark:text-cyan-300">
+                      {String(index + 1).padStart(2, '0')}
+                    </p>
+                    <h3 class="mt-2 font-bold text-slate-950 dark:text-white">{title}</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>

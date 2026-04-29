@@ -2,29 +2,57 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
-import dianaUnitVisual from '~/assets/images/refs/diana-intelligence-unit.png';
-import verificationVisual from '~/assets/images/refs/verification-six-step.png';
 
 const metadata = {
-  title: 'DIANA - R&D Intelligence Agent',
+  title: 'DIANA - Domain Intelligence Agent',
   description:
-    'DIANA is the agentic R&D intelligence layer on MetaInsight for source-grounded technology intelligence workflows.',
+    'DIANA is the agentic intelligence layer on MetaInsight for source-grounded domain analysis and knowledge workflows.',
 };
 
 const agents = [
-  ['Ingestion', 'Collect and structure R&D projects, patents, papers, reports, and technical documents.'],
-  ['Analysis', 'Compute technology signals from clusters, trends, quantitative indicators, and domain rules.'],
-  ['Structuring', 'Organize technology definitions, evidence, applications, and risks into repeatable templates.'],
+  ['Ingestion', 'Collect and structure domain records, documents, logs, reports, patents, and technical materials.'],
+  ['Analysis', 'Compute domain signals from clusters, trends, quantitative indicators, and operating rules.'],
+  ['Structuring', 'Organize definitions, evidence, applications, risks, and decisions into repeatable templates.'],
   ['Cross-Check', 'Compare generated statements with source databases and retrieved evidence.'],
-  ['Pre-Detection', 'Surface candidate technology signals before they become obvious through manual review.'],
+  ['Pre-Detection', 'Surface candidate signals before they become obvious through manual review.'],
   ['Guard', 'Reduce unsupported generation, numerical errors, and overconfident conclusions through evaluation gates.'],
 ];
 
 const outputs = [
-  'Technology intelligence briefs',
-  'Quantitative emerging-signal review',
-  'Cross-map across reports, papers, patents, and R&D projects',
+  'Domain intelligence briefs',
+  'Quantitative trend, risk, or opportunity review',
+  'Cross-map across records, documents, reports, and source evidence',
   'Draft reports with verification logs',
+];
+
+const intelligenceLayers = [
+  {
+    step: '01',
+    title: 'Evidence Layer',
+    body: 'Domain datasets, documents, logs, reports, and technical materials are normalized with source identifiers.',
+    output: 'Structured evidence base',
+  },
+  {
+    step: '02',
+    title: 'Agent Layer',
+    body: 'Planning, retrieval, quantitative checks, and drafting are separated into reviewable agent tasks.',
+    output: 'Traceable analysis path',
+  },
+  {
+    step: '03',
+    title: 'Output Layer',
+    body: 'Briefs, review notes, and report drafts are produced with linked evidence and verification context.',
+    output: 'Reusable intelligence unit',
+  },
+];
+
+const verificationSteps = [
+  ['Input Gate', 'Accept only structured records, source URIs, and analyst-approved context.'],
+  ['Calculation Gate', 'Run quantitative scoring and rule checks outside free-form generation.'],
+  ['Retrieval Gate', 'Attach supporting records before a claim enters the draft.'],
+  ['Cross-Check Gate', 'Compare conclusions against retrieved evidence and known domain rules.'],
+  ['Review Gate', 'Expose assumptions, weak signals, and missing evidence for analyst correction.'],
+  ['Fallback Gate', 'Defer or mark uncertainty when the evidence path is incomplete.'],
 ];
 ---
 
@@ -34,23 +62,38 @@ const outputs = [
       <div class="max-w-4xl">
         <p class="text-sm font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">DIANA</p>
         <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
-          Agentic intelligence for repeatable R&D analysis
+          Agentic intelligence for repeatable domain analysis
         </h1>
         <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
           DIANA is the agent layer that extends MetaInsight from analytics into guided knowledge work. It is designed to
-          retrieve evidence, plan analysis steps, draft outputs, and preserve verification context.
+          retrieve evidence, plan domain-specific analysis steps, draft outputs, and preserve verification context.
         </p>
       </div>
-      <figure class="border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
-        <img
-          src={dianaUnitVisual.src}
-          width={dianaUnitVisual.width}
-          height={dianaUnitVisual.height}
-          alt="DIANA intelligence unit production workflow"
-          class="aspect-[16/10] w-full object-cover object-left"
-          loading="eager"
-        />
-      </figure>
+      <div class="border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900">
+        <p class="text-xs font-bold uppercase tracking-[0.18em] text-violet-700 dark:text-violet-300">
+          Technical Architecture
+        </p>
+        <div class="mt-5 grid gap-4">
+          {
+            intelligenceLayers.map((layer) => (
+              <article class="border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+                  <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center bg-violet-700 text-sm font-bold text-white dark:bg-violet-300 dark:text-slate-950">
+                    {layer.step}
+                  </span>
+                  <div>
+                    <h2 class="text-xl font-bold text-slate-950 dark:text-white">{layer.title}</h2>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{layer.body}</p>
+                    <p class="mt-3 border-l-2 border-violet-500 pl-3 text-sm font-semibold text-slate-950 dark:text-white">
+                      {layer.output}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </section>
 
@@ -105,16 +148,19 @@ const outputs = [
           and fallback behavior when confidence is insufficient.
         </p>
       </div>
-      <figure class="border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
-        <img
-          src={verificationVisual.src}
-          width={verificationVisual.width}
-          height={verificationVisual.height}
-          alt="Six-step hallucination defense and verification workflow"
-          class="w-full object-cover"
-          loading="lazy"
-        />
-      </figure>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {
+          verificationSteps.map(([title, description], index) => (
+            <article class="border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
+              <p class="text-xs font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">
+                Gate {String(index + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-3 text-lg font-bold text-slate-950 dark:text-white">{title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </section>
 
@@ -127,7 +173,8 @@ const outputs = [
         </div>
         <p class="text-lg leading-relaxed text-slate-300">
           DIANA is planned as an extension of the same verified data foundation used by MetaInsight. The roadmap is
-          aimed at public R&D, policy research, technical intelligence, and enterprise document-analysis workflows.
+          aimed at domain signal analysis, policy research, risk review, technical intelligence, and enterprise
+          document-analysis workflows.
         </p>
       </div>
     </div>
