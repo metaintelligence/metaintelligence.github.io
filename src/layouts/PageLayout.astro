@@ -18,43 +18,6 @@ const { metadata } = Astro.props;
   <slot name="header">
     <Header {...headerData} isSticky showToggleTheme />
   </slot>
-  <script>
-    (function () {
-      try {
-        const userLang = typeof navigator !== 'undefined' && navigator.language ? navigator.language : undefined;
-        const useKo = userLang ? userLang.toLowerCase().startsWith('ko') : false;
-
-        // set document lang attribute for accessibility
-        if (typeof document !== 'undefined') {
-          document.documentElement.lang = useKo ? 'ko' : 'en';
-        }
-
-        const apply = (useKo) => {
-          document.querySelectorAll('[data-lang-en]').forEach((el) => {
-            if (useKo) el.classList.add('hidden');
-            else el.classList.remove('hidden');
-          });
-          document.querySelectorAll('[data-lang-ko]').forEach((el) => {
-            if (useKo) el.classList.remove('hidden');
-            else el.classList.add('hidden');
-          });
-        };
-
-        // initial
-        if (typeof window !== 'undefined') requestAnimationFrame(() => apply(useKo));
-
-        // observe html class changes (e.g., theme toggles) or future locale toggles
-        try {
-          const obs = new MutationObserver(() => apply(useKo));
-          obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-        } catch (e) {
-          console.log('MutationObserver not supported', e);
-        }
-      } catch (err) {
-        console.log('Error applying language settings', err);
-      }
-    })();
-  </script>
   <main>
     <slot />
   </main>

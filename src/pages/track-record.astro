@@ -1,0 +1,142 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import Layout from '~/layouts/PageLayout.astro';
+import { trackRecords } from '~/data/site';
+
+const metadata = {
+  title: 'Track Record',
+  description: 'MetaIntelligence verified government R&D and industry collaboration track record.',
+};
+
+const governmentRecords = [
+  [
+    '2022',
+    'R&D project information database research',
+    'Analysis and application research on global R&D project data.',
+  ],
+  [
+    '2023',
+    'Future issue and emerging researcher discovery',
+    'R&D funding analytics for identifying early signals and research groups.',
+  ],
+  [
+    '2024',
+    'Global R&D funding-data collection and analysis',
+    'Large-scale collection, structuring, and analysis of public R&D records.',
+  ],
+  [
+    '2025',
+    'R&D analytics database construction',
+    'Participation in consortium-based work for public R&D information analysis.',
+  ],
+];
+
+const collaborationRecords = [
+  ['MicroDIPS', 'AI-based real-time vision anomaly detection system direction'],
+  ['MVI manufacturing PoC', 'Vision inspection automation for display and film process scenarios'],
+  ['MetaInsight MFG', 'Manufacturing-data-based diagnosis and report automation agent'],
+  ['AeroGimbal-Track', 'High-speed visual tracking and gimbal-control integration concept'],
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-4xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Track Record</p>
+        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
+          Evidence from public R&D analytics to applied AI validation
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
+          This page summarizes public-safe execution signals: repeated projects, large-scale data experience, registered
+          IP, and applied industry directions. Confidential customer details are intentionally excluded.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          [
+            ['4 years', 'Repeated public R&D analytics execution'],
+            ['9.96M+', 'R&D records processed and structured'],
+            ['KR 10-2573563', 'Registered patent'],
+            ['2026', 'Product expansion roadmap'],
+          ].map(([value, label]) => (
+            <div class="border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+              <strong class="block text-3xl font-bold text-slate-950 dark:text-white">{value}</strong>
+              <span class="mt-2 block text-sm text-slate-600 dark:text-slate-300">{label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Government R&D</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          Repeated work in R&D data analysis
+        </h2>
+      </div>
+      <div class="space-y-4">
+        {
+          governmentRecords.map(([year, title, description]) => (
+            <article class="grid gap-4 border border-slate-200 p-5 dark:border-slate-800 sm:grid-cols-[90px_1fr]">
+              <div class="font-bold text-blue-700 dark:text-blue-300">{year}</div>
+              <div>
+                <h3 class="font-bold text-slate-950 dark:text-white">{title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-200">Industry Extensions</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+          Applied directions now moving toward product workflows
+        </h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          collaborationRecords.map(([title, description]) => (
+            <article class="border border-white/10 bg-white/[0.03] p-6">
+              <Icon name="tabler:briefcase" class="h-6 w-6 text-blue-200" />
+              <h3 class="mt-5 text-xl font-bold">{title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-300">{description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="space-y-4">
+        {
+          trackRecords.map((item) => (
+            <div class="grid gap-4 border border-slate-200 p-5 dark:border-slate-800 md:grid-cols-[130px_1fr]">
+              <div class="font-bold text-blue-700 dark:text-blue-300">{item.year}</div>
+              <div>
+                <h3 class="font-bold text-slate-950 dark:text-white">{item.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

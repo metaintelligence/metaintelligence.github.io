@@ -3,15 +3,15 @@
     "company": {
       "title": "Company",
       "submenu": {
-        "identity": "Identity & Values",
-        "history": "Mission & Milestone",
-        "culture": "Work Culture"
+        "identity": "Identity",
+        "history": "Milestones",
+        "culture": "Operating Principles"
       }
     },
     "technology": {
       "title": "Technology",
       "submenu": {
-        "philosophy": "Tech Philosophy",
+        "philosophy": "Technology Philosophy",
         "core_tech": "Core Capabilities",
         "csaic_team": "CSAIC Team"
       }
@@ -19,19 +19,10 @@
     "solutions": {
       "title": "Solutions",
       "submenu": {
-        "openmv": "OpenMV",
-        "mvi": "Vision AI (MVI)",
-        "ida": "Document AI (IDA)",
-        "strategy": "Business Strategy"
-      }
-    },
-    "resources": {
-      "title": "Resources",
-      "submenu": {
-        "corporate": "Corporate News",
-        "case_study": "Case Studies",
-        "tech_insight": "Tech Insight",
-        "culture_people": "Culture & People"
+        "mvi": "MVI",
+        "metainsight": "MetaInsight",
+        "diana": "DIANA",
+        "strategy": "Strategy"
       }
     }
   },
@@ -41,30 +32,30 @@
     "signup": "Sign Up"
   },
   "hero": {
-    "title_part1": "Insight into Essence,",
-    "title_part2": "Design for Value",
-    "subtitle": "MetaIntelligence solves problems facing humanity through deep insight and technology. We transplant practical intelligent solutions into industrial sites based on engineering excellence.",
-    "action_solutions": "Solutions",
-    "action_tech": "Technology"
+    "title_part1": "Verification-driven AI",
+    "title_part2": "for manufacturing and R&D intelligence",
+    "subtitle": "MetaIntelligence designs AI systems that turn complex industrial and R&D data into verified decisions, deployable software, and repeatable operating workflows.",
+    "action_solutions": "Explore Solutions",
+    "action_tech": "Core Capabilities"
   },
   "introductionPage": {
-    "title": "About the Company",
+    "title": "Company",
     "hero": {
       "tagline": "MetaIntelligence",
-      "title": "Welcome to MetaIntelligence",
-      "subtitle": "We provide intelligent solutions to help businesses make better decisions."
+      "title": "First-principle AI, built for reliable deployment",
+      "subtitle": "Verification-driven AI for manufacturing, R&D, and data analytics."
     },
     "identity": {
       "title": "Identity",
-      "content": "We are a software development firm that identifies the essence of problems through deep insight and technical expertise, delivering practical value to clients based on engineering excellence."
+      "content": "MetaIntelligence builds software that identifies the structure of hard problems and turns it into reliable AI products."
     },
     "mission": {
       "title": "Mission",
-      "content": "To solve the problems facing humanity through profound insight and technology, ushering in an era where people can focus on what truly matters."
+      "content": "To deliver AI systems whose outputs can be verified, operated, and trusted in real industrial and research environments."
     },
     "slogan": {
       "title": "Slogan",
-      "content": "Insight into Essence, Design for Value"
+      "content": "Redefining trust with First-Principle AI."
     }
   }
 }

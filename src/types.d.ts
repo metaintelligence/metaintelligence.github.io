@@ -141,18 +141,6 @@ export interface Item {
   image?: Image;
 }
 
-export interface Price {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  price?: number | string;
-  period?: string;
-  items?: Array<Item>;
-  callToAction?: CallToAction;
-  hasRibbon?: boolean;
-  ribbonTitle?: string;
-}
-
 export interface Testimonial {
   title?: string;
   testimonial?: string;
@@ -225,10 +213,6 @@ export interface Team extends Omit<Headline, 'classes'>, Widget {
 
 export interface Stats extends Omit<Headline, 'classes'>, Widget {
   stats?: Array<Stat>;
-}
-
-export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {

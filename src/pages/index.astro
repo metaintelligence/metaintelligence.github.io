@@ -1,178 +1,240 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Layout from '~/layouts/PageLayout.astro';
 import Logo from '~/components/Logo.astro';
-import { resolveI18nPair } from '~/utils/i18n';
+import { capabilities, company, mainStats, principles, solutions, trackRecords } from '~/data/site';
+import { getPermalink } from '~/utils/permalinks';
+
+import inspectVideo from '~/assets/video/3_inspect.mp4';
+import inspectPoster from '~/assets/images/mvi/mvi_inspect_thumbnail.png';
+import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
 
 const metadata = {
-  title: 'MetaIntelligence — Insight into Essence, Design for Value',
+  title: 'MetaIntelligence - Verification-driven AI',
   ignoreTitleTemplate: true,
+  description:
+    'MetaIntelligence builds verification-driven AI systems for manufacturing vision inspection, R&D intelligence, and agentic document analysis.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: resolveI18nPair('hero.action_solutions'),
-        href: '/solutions/mvi',
-      },
-      {
-        text: resolveI18nPair('hero.action_tech'),
-        href: '/tech/core-tech',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      <div class="flex flex-col items-center justify-center mb-12">
-        <div class="transform scale-150 transition-transform duration-500">
-          <Logo mode="vertical" size="h-[150px] w-[200px]" />
+  <section class="relative min-h-[calc(100vh-72px)] overflow-hidden bg-slate-950 text-white not-prose">
+    <video
+      class="absolute inset-0 h-full w-full object-cover opacity-42"
+      src={inspectVideo}
+      poster={inspectPoster.src}
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"></video>
+    <div
+      class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.95)_0%,rgba(15,23,42,0.82)_52%,rgba(15,23,42,0.46)_100%)]"
+    >
+    </div>
+
+    <div class="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-4 py-20 sm:px-6 lg:py-24">
+      <div class="max-w-4xl">
+        <div class="mb-8 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 backdrop-blur">
+          <Logo mode="logo_only" size="h-8 w-8" />
+          <span class="text-sm font-medium text-slate-200">MetaIntelligence Inc.</span>
+        </div>
+
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-200">First-Principle AI</p>
+        <h1 class="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+          Verification-driven AI<br class="hidden md:block" />
+          for manufacturing and R&D intelligence
+        </h1>
+        <p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-200 sm:text-xl">
+          {company.shortDescription}
+        </p>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={getPermalink('/solutions/mvi')}
+            class="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-50"
+          >
+            View Solutions
+            <Icon name="tabler:arrow-right" class="h-4 w-4" />
+          </a>
+          <a
+            href={getPermalink('/tech/core-tech')}
+            class="inline-flex items-center justify-center gap-2 border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            Technology Capabilities
+          </a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="flex flex-col items-center justify-center delay-700">
-        <h1 class="text-2xl md:text-sm font-light leading-tighter tracking-widest text-center">
-          {resolveI18nPair('hero.title_part1')}
-          {resolveI18nPair('hero.title_part2')}
-        </h1>
-      </div>
-    </Fragment>
+  <section class="not-prose border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto grid max-w-7xl gap-px px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+      {
+        mainStats.map((item) => (
+          <div class="border-slate-200 py-5 sm:px-5 lg:border-l first:lg:border-l-0 dark:border-slate-800">
+            <strong class="block text-3xl font-bold tracking-tight text-slate-950 dark:text-white">{item.value}</strong>
+            <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
-    <Fragment slot="content">
-      <div
-        class="mx-auto mt-7 max-w-2xl rounded-lg border-[2px] border-amber-500 bg-amber-100 px-6 py-5 text-center shadow-md shadow-amber-900/10 dark:border-amber-300/70 dark:bg-amber-950/40"
-      >
-        <p class="text-base font-bold tracking-wide text-amber-950 dark:text-amber-100">홈페이지 공사중</p>
-        <p class="mt-1 text-sm leading-relaxed text-amber-900/80 dark:text-amber-100/80">
-          현재 홈페이지를 정비하고 있습니다.
+  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Solutions</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          Product lines built from one operating thesis
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          MetaIntelligence connects manufacturing vision AI, R&D data analytics, and agentic document intelligence
+          through the same discipline: source-grounded outputs, measurable workflow value, and deployable software.
         </p>
       </div>
-    </Fragment>
-  </Hero>
 
-  <Note title="Core Values:" description="통찰(Insight) · 유연함(Flexibility) · 실용(Practical)" />
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        {
+          solutions.map((solution) => (
+            <a
+              href={getPermalink(solution.href)}
+              class="group flex min-h-[280px] flex-col border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-slate-200/70 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-blue-500 dark:hover:shadow-none"
+            >
+              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-blue-700 dark:bg-slate-900 dark:text-blue-300">
+                <Icon name={solution.icon} class="h-7 w-7" />
+              </div>
+              <p class="mt-7 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                {solution.domain}
+              </p>
+              <h3 class="mt-2 text-2xl font-bold text-slate-950 dark:text-white">{solution.name}</h3>
+              <p class="mt-3 grow leading-relaxed text-slate-600 dark:text-slate-300">{solution.summary}</p>
+              <p class="mt-5 border-t border-slate-200 pt-4 text-sm leading-relaxed text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                {solution.proof}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-  <Features
-    id="features"
-    tagline="Capabilities"
-    title="World-Class Tech Stack"
-    subtitle="단순한 도구 사용을 넘어, 문제의 본질을 해결하는 자체 알고리즘과 시스템 아키텍처를 설계합니다."
-    items={[
-      {
-        title: 'Multimodal AI',
-        description: 'NLP와 Vision을 결합하여 텍스트와 이미지 데이터를 통합적으로 분석하고 판단합니다.',
-        icon: 'tabler:brain',
-      },
-      {
-        title: 'Physics-Informed Modeling',
-        description: '물리학적 방법론을 AI에 접목하여 데이터가 부족한 환경에서도 강건한 모델을 구축합니다.',
-        icon: 'tabler:atom-2',
-      },
-      {
-        title: 'HPC & Optimization',
-        description: '슈퍼컴퓨팅 운영 경험을 바탕으로 On-device부터 클라우드까지 최고의 성능을 이끌어냅니다.',
-        icon: 'tabler:cpu',
-      },
-      {
-        title: 'Trusted Logic',
-        description: '자연어 의미 기반의 정확한 판단으로 환각 현상을 억제하고 데이터 무결성을 보장합니다.',
-        icon: 'tabler:shield-check',
-      },
-    ]}
-  />
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">MetaInsight Preview</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          From raw R&D records to evidence-linked insight
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          MetaInsight is shaped around the daily work of analysts: clean the dataset, organize technical signals,
+          compare clusters, and generate reviewable outputs without losing the connection to source records.
+        </p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          {
+            ['Cleanse', 'Cluster', 'Report'].map((step, index) => (
+              <div class="border border-slate-200 p-4 dark:border-slate-800">
+                <span class="text-xs font-bold text-blue-700 dark:text-blue-300">0{index + 1}</span>
+                <strong class="mt-2 block text-slate-950 dark:text-white">{step}</strong>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        class="overflow-hidden border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-200 dark:border-slate-800 dark:shadow-none"
+      >
+        <img
+          src={overviewScreen.src}
+          width={overviewScreen.width}
+          height={overviewScreen.height}
+          alt="MetaInsight analytics overview screen"
+          class="aspect-[16/10] w-full object-cover object-top"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
 
-  <Content
-    isReversed
-    tagline="Solutions"
-    title="Meta Vision Intelligence (MVI)"
-    subtitle="제조 공정의 불량률 'Zero'에 도전합니다."
-    items={[
-      {
-        title: '범용 하드웨어 호환성',
-        description: '고가의 전용 장비 없이 범용 카메라만으로도 높은 정확도의 검출 성능을 발휘합니다.',
-      },
-      {
-        title: '실시간 렌더링 최적화',
-        description: '삼성전자 MX 사업부 출신의 그래픽 노하우로 초고속 이미지 처리 및 시각화를 지원합니다.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80',
-      alt: 'MVI Solution Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Smart Factory Evolution</h3>
-      대한민국 5만 개 제조사의 AX(AI 전환)를 완수하는 핵심 파트너가 됩니다.
-    </Fragment>
-  </Content>
+  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-blue-200">Technology Principles</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Reliable systems before louder claims</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-300">
+            The company presents technology through architecture, verification, and field readiness rather than broad AI
+            slogans. Each product direction is evaluated as an operating system, not only a model demo.
+          </p>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          {
+            principles.map((item) => (
+              <article class="border border-white/10 bg-white/[0.03] p-6">
+                <Icon name={item.icon} class="h-8 w-8 text-blue-200" />
+                <p class="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-400">{item.title}</p>
+                <h3 class="mt-2 text-xl font-bold">{item.label}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Steps
-    title="실용적 태도로 증명하는 협업 프로세스"
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">본질 파악</span>',
-        description: '문제의 표면이 아닌 이면의 근본 원인(Root Cause)을 다각도로 분석합니다.',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">유연한 설계</span>',
-        description: '변화하는 비즈니스 환경에 적응 가능한 고품질 소프트웨어 아키텍처를 설계합니다.',
-        icon: 'tabler:layout-2',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">가치 구현</span>',
-        description: '화려한 보고서 대신, 실제로 작동하는 제품(Working Product)으로 실질적 가치를 전달합니다.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Success',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Collaboration Image',
-    }}
-  />
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Capabilities</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          Four capability pillars, one product architecture
+        </h2>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {
+          capabilities.map((item) => (
+            <article class="border border-slate-200 p-6 dark:border-slate-800">
+              <Icon name={item.icon} class="h-8 w-8 text-blue-700 dark:text-blue-300" />
+              <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h3>
+              <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">{item.subtitle}</p>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-  <Stats
-    stats={[
-      { title: '누적 R&D 규모', amount: '10억+' },
-      { title: '목표 AX 도입사', amount: '50K' },
-      { title: '전문 아키텍트 경력', amount: '10년+' },
-      { title: '보유 특허 및 기술', amount: '15+' },
-    ]}
-  />
-
-  <BlogLatestPosts
-    title="Tech & Culture Insights"
-    information="MetaIntelligence의 전문가들이 전하는 최신 AI 트렌드와 기술 철학을 확인해 보세요."
-  />
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-        icon: 'tabler:mail',
-      },
-    ]}
-  >
-    <Fragment slot="title"> AX 2035: 산업 지능의 운영체제 </Fragment>
-    <Fragment slot="subtitle">
-      데이터가 흐르는 모든 산업 현장에 MetaIntelligence의 기술을 이식합니다. <br />
-      지금 바로 귀사의 문제를 본질부터 해결해 보세요.
-    </Fragment>
-  </CallToAction>
+  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Evidence</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+            A track record grounded in repeated execution
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+            Public R&D analytics, registered IP, and applied manufacturing AI work form the base for the current product
+            roadmap.
+          </p>
+        </div>
+        <div class="space-y-4">
+          {
+            trackRecords.slice(0, 4).map((item) => (
+              <article class="grid gap-4 border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 sm:grid-cols-[120px_1fr]">
+                <div class="font-bold text-blue-700 dark:text-blue-300">{item.year}</div>
+                <div>
+                  <h3 class="font-bold text-slate-950 dark:text-white">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

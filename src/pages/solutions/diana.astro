@@ -1,0 +1,98 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'DIANA - R&D Intelligence Agent',
+  description:
+    'DIANA is the agentic R&D intelligence layer on MetaInsight for source-grounded technology intelligence workflows.',
+};
+
+const agents = [
+  ['Ingestion', 'Collect and structure R&D projects, patents, papers, reports, and technical documents.'],
+  ['Analysis', 'Compute technology signals from clusters, trends, quantitative indicators, and domain rules.'],
+  ['Structuring', 'Organize technology definitions, evidence, applications, and risks into repeatable templates.'],
+  ['Cross-Check', 'Compare generated statements with source databases and retrieved evidence.'],
+  ['Pre-Detection', 'Surface candidate technology signals before they become obvious through manual review.'],
+  ['Guard', 'Reduce unsupported generation, numerical errors, and overconfident conclusions through evaluation gates.'],
+];
+
+const outputs = [
+  'Technology intelligence briefs',
+  'Quantitative emerging-signal review',
+  'Cross-map across reports, papers, patents, and R&D projects',
+  'Draft reports with verification logs',
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="max-w-4xl">
+        <p class="text-sm font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">DIANA</p>
+        <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl">
+          Agentic intelligence for repeatable R&D analysis
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl">
+          DIANA is the agent layer that extends MetaInsight from analytics into guided knowledge work. It is designed to
+          retrieve evidence, plan analysis steps, draft outputs, and preserve verification context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        agents.map(([title, description]) => (
+          <article class="border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
+            <Icon name="tabler:hexagon-letter-d" class="h-9 w-9 text-violet-700 dark:text-violet-300" />
+            <h2 class="mt-6 text-xl font-bold text-slate-950 dark:text-white">{title}</h2>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-violet-700 dark:text-violet-300">Output</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+          Outputs analysts can inspect and improve
+        </h2>
+        <p class="mt-5 leading-relaxed text-slate-600 dark:text-slate-300">
+          DIANA is not positioned as a free-form chatbot. Its value is in structuring evidence-backed intelligence units
+          that can be reviewed, revised, and reused.
+        </p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          outputs.map((item) => (
+            <div class="flex gap-4 border border-slate-200 p-5 dark:border-slate-800">
+              <Icon name="tabler:check" class="mt-1 h-5 w-5 shrink-0 text-violet-700 dark:text-violet-300" />
+              <p class="leading-relaxed text-slate-600 dark:text-slate-300">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-wide text-violet-200">Positioning</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">The agent path after MetaInsight</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-300">
+          DIANA is planned as an extension of the same verified data foundation used by MetaInsight. The roadmap is
+          aimed at public R&D, policy research, technical intelligence, and enterprise document-analysis workflows.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
