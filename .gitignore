@@ -22,3 +22,6 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .astro
+
+# Local editor / tooling state
+.claude/
