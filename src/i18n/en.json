@@ -32,10 +32,10 @@
     "signup": "Sign Up"
   },
   "hero": {
-    "title_part1": "Verification-driven AI",
-    "title_part2": "for manufacturing and R&D intelligence",
-    "subtitle": "MetaIntelligence designs AI systems that turn complex industrial and R&D data into verified decisions, deployable software, and repeatable operating workflows.",
-    "action_solutions": "Explore Solutions",
+    "title_part1": "Insight into Essence,",
+    "title_part2": "Design for Value",
+    "subtitle": "MetaIntelligence solves problems facing humanity through deep insight and technology. We transplant practical intelligent solutions into industrial sites based on engineering excellence.",
+    "action_solutions": "View Solutions",
     "action_tech": "Core Capabilities"
   },
   "introductionPage": {
@@ -55,7 +55,7 @@
     },
     "slogan": {
       "title": "Slogan",
-      "content": "Redefining trust with First-Principle AI."
+      "content": "Insight into Essence, Design for Value"
     }
   }
 }

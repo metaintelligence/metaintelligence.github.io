@@ -5,7 +5,7 @@
   viewBox="0 0 700 480" width="700px" height="480px">
   <style>
     /* 1. Default Light Theme Variable Definitions */
-    :root {
+    svg {
       /* Base Color Palette for Light Theme */
       --c-ice: #2BA9D9;
       --c-blue: #2BA9D9;
@@ -25,7 +25,7 @@
 
     /* 2. Automatic System Detection (Web Standard) */
     @media (prefers-color-scheme: dark) {
-      :root {
+      svg {
         --c-ink: #4628f0ff;
         --c-border: #1b282eff;
         --light-opacity: 1;
@@ -50,12 +50,12 @@
     }
 
     /* Styling Classes - NO TRANSFORM MODIFIED */
-    .link { fill: none; stroke-width: var(--link-width); stroke-linecap: round; stroke-linejoin: round; }
-    .border { fill: none; stroke: var(--c-border); stroke-width: var(--border-width); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
-    .border-node { fill: none; stroke: var(--c-border); stroke-width: calc(var(--border-width) * 0.4); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
-    .node { stroke: none; }
-    .lighting-soft { opacity: var(--light-opacity); mix-blend-mode: soft-light; pointer-events: none; }
-    .lighting-shade { opacity: var(--shade-opacity); mix-blend-mode: multiply; pointer-events: none; }
+    svg .link { fill: none; stroke-width: var(--link-width); stroke-linecap: round; stroke-linejoin: round; }
+    svg .border { fill: none; stroke: var(--c-border); stroke-width: var(--border-width); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+    svg .border-node { fill: none; stroke: var(--c-border); stroke-width: calc(var(--border-width) * 0.4); stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+    svg .node { stroke: none; }
+    svg .lighting-soft { opacity: var(--light-opacity); mix-blend-mode: soft-light; pointer-events: none; }
+    svg .lighting-shade { opacity: var(--shade-opacity); mix-blend-mode: multiply; pointer-events: none; }
   </style>
 
   <defs>

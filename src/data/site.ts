@@ -1,22 +1,22 @@
 export const company = {
   name: 'MetaIntelligence',
   legalNameEn: 'MetaIntelligence Inc.',
-  formerName: 'MetaCom2 Inc.',
+  formerName: 'Metacomputing Inc.',
   founded: '2021.12.10',
   headquarters: '4F #401, 13 Alphacity 1-ro 35-gil, Suseong-gu, Daegu, Republic of Korea',
   phone: '053-719-4290',
   fax: '053-719-4291',
   email: 'choi@metaintelligence.co.kr',
-  tagline: 'Verification-driven AI for manufacturing and R&D intelligence.',
+  tagline: 'Insight into Essence, Design for Value',
   shortDescription:
-    'MetaIntelligence builds AI software for manufacturing vision inspection, R&D intelligence, and agentic document analysis. The company focuses on systems whose outputs can be traced, tested, and operated in real workflows.',
+    'MetaIntelligence builds First-Principle AI software for R&D intelligence, manufacturing vision inspection, and source-grounded document workflows. The company focuses on systems whose outputs can be traced, tested, and operated in real workflows.',
 };
 
 export const mainStats = [
-  { value: '4 years', label: 'Consecutive public R&D analytics projects' },
-  { value: '9.96M+', label: 'Global R&D records processed and structured' },
-  { value: '1 patent', label: 'Registered IP for natural data analysis' },
-  { value: '5 members', label: 'Core CSAIC research and product team' },
+  { value: '2021', label: 'Founded as a software and AI company' },
+  { value: '4 years', label: 'Consecutive public R&D analytics execution' },
+  { value: '6.5M+', label: 'Global R&D records processed and structured' },
+  { value: 'KR 10-2573563', label: 'Registered patent for natural data analysis' },
 ];
 
 export const principles = [
@@ -84,6 +84,8 @@ export const solutions = [
       'A field-adaptive inspection workflow that combines one-class anomaly detection, targeted data augmentation, and 3-BIN human-in-the-loop operation.',
     proof: 'Validated on anomaly detection workflows including MVTec AD experiments and manufacturing PoC scenarios.',
     icon: 'tabler:scan-eye',
+    detail:
+      'Normal-data learning, targeted GenAI augmentation, 3-BIN review, and legacy-friendly deployment are organized as one field workflow.',
   },
   {
     name: 'MetaInsight',
@@ -92,8 +94,10 @@ export const solutions = [
     domain: 'R&D data analytics',
     summary:
       'A platform for collecting, cleaning, clustering, scoring, and reporting large-scale R&D datasets with evidence-linked outputs.',
-    proof: 'Built from repeated public R&D analytics work and experience processing more than 9.96M R&D records.',
+    proof: 'Built from repeated public R&D analytics work and experience processing multi-million-scale R&D records.',
     icon: 'tabler:database-search',
+    detail:
+      'Collection, cleansing, vectorization, clustering, scoring, and report generation stay connected to source records and reviewable evidence.',
   },
   {
     name: 'DIANA',
@@ -104,6 +108,8 @@ export const solutions = [
       'An agent layer for query planning, evidence retrieval, and report drafting on top of structured R&D and technical document data.',
     proof: 'Designed to extend MetaInsight pipelines into grounded, repeatable knowledge-work automation.',
     icon: 'tabler:sparkles',
+    detail:
+      'A guided agent layer turns structured evidence into intelligence units, draft reports, review notes, and verification logs.',
   },
 ];
 
@@ -157,7 +163,7 @@ export const trackRecords = [
 
 export const team = [
   {
-    name: 'Sung-Hwan Choi',
+    name: 'Seongsoo Choi',
     role: 'Founder & CEO',
     specialty: 'Physics-informed AI and integrated AI architecture',
     summary:

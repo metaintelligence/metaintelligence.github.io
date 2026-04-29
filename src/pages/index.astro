@@ -6,76 +6,112 @@ import Logo from '~/components/Logo.astro';
 import { capabilities, company, mainStats, principles, solutions, trackRecords } from '~/data/site';
 import { getPermalink } from '~/utils/permalinks';
 
-import inspectVideo from '~/assets/video/3_inspect.mp4';
-import inspectPoster from '~/assets/images/mvi/mvi_inspect_thumbnail.png';
 import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
+import coreValuesVisual from '~/assets/images/refs/company-core-values.png';
+import dianaUnitVisual from '~/assets/images/refs/diana-intelligence-unit.png';
 
 const metadata = {
-  title: 'MetaIntelligence - Verification-driven AI',
+  title: 'MetaIntelligence - Insight into Essence, Design for Value',
   ignoreTitleTemplate: true,
   description:
-    'MetaIntelligence builds verification-driven AI systems for manufacturing vision inspection, R&D intelligence, and agentic document analysis.',
+    'MetaIntelligence builds First-Principle AI software for R&D intelligence, manufacturing vision inspection, and source-grounded document workflows.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <section class="relative min-h-[calc(100vh-72px)] overflow-hidden bg-slate-950 text-white not-prose">
-    <video
-      class="absolute inset-0 h-full w-full object-cover opacity-42"
-      src={inspectVideo}
-      poster={inspectPoster.src}
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      aria-hidden="true"></video>
+  <section class="not-prose overflow-hidden bg-white dark:bg-slate-950">
     <div
-      class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.95)_0%,rgba(15,23,42,0.82)_52%,rgba(15,23,42,0.46)_100%)]"
+      class="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20"
     >
-    </div>
-
-    <div class="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-4 py-20 sm:px-6 lg:py-24">
-      <div class="max-w-4xl">
-        <div class="mb-8 inline-flex items-center gap-3 border border-white/15 bg-white/5 px-4 py-2 backdrop-blur">
+      <div>
+        <div
+          class="inline-flex items-center gap-3 border border-slate-200 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900"
+        >
           <Logo mode="logo_only" size="h-8 w-8" />
-          <span class="text-sm font-medium text-slate-200">MetaIntelligence Inc.</span>
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-200">MetaIntelligence Inc.</span>
         </div>
 
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue-200">First-Principle AI</p>
-        <h1 class="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-          Verification-driven AI<br class="hidden md:block" />
-          for manufacturing and R&D intelligence
+        <p class="mt-9 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
+          First-Principle AI
+        </p>
+        <h1
+          class="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl"
+        >
+          Insight into Essence,<br class="hidden md:block" />
+          Design for Value
         </h1>
-        <p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-200 sm:text-xl">
+        <p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl">
           {company.shortDescription}
         </p>
 
+        <div class="mt-8 flex flex-wrap gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">R&D Intelligence</span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Vision AI</span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Agentic AI</span>
+        </div>
+
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
           <a
-            href={getPermalink('/solutions/mvi')}
-            class="inline-flex items-center justify-center gap-2 bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-blue-50"
+            href={getPermalink('/solutions')}
+            class="inline-flex items-center justify-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-50"
           >
             View Solutions
             <Icon name="tabler:arrow-right" class="h-4 w-4" />
           </a>
           <a
             href={getPermalink('/tech/core-tech')}
-            class="inline-flex items-center justify-center gap-2 border border-white/25 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            class="inline-flex items-center justify-center gap-2 border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-slate-700 dark:text-white dark:hover:border-cyan-300 dark:hover:text-cyan-200"
           >
             Technology Capabilities
           </a>
         </div>
       </div>
+
+      <div
+        class="border border-slate-200 bg-slate-950 p-4 shadow-2xl shadow-slate-200/70 dark:border-slate-800 dark:shadow-none"
+      >
+        <div class="grid gap-3 md:grid-cols-3">
+          {
+            solutions.map((solution) => (
+              <a
+                href={getPermalink(solution.href)}
+                class="group min-h-[220px] border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
+              >
+                <Icon name={solution.icon} class="h-8 w-8 text-cyan-200" />
+                <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-400">{solution.domain}</p>
+                <h2 class="mt-2 text-2xl font-bold">{solution.name}</h2>
+                <p class="mt-3 text-sm leading-relaxed text-slate-300">{solution.fullName}</p>
+                <span class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
+                  Open
+                  <Icon
+                    name="tabler:arrow-up-right"
+                    class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </span>
+              </a>
+            ))
+          }
+        </div>
+        <div class="mt-4 border border-white/10 bg-white p-3">
+          <img
+            src={coreValuesVisual.src}
+            width={coreValuesVisual.width}
+            height={coreValuesVisual.height}
+            alt="MetaIntelligence core values visual"
+            class="aspect-[2.7/1] w-full object-cover object-center"
+            loading="eager"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="not-prose border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+  <section class="not-prose border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
     <div class="mx-auto grid max-w-7xl gap-px px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
       {
         mainStats.map((item) => (
-          <div class="border-slate-200 py-5 sm:px-5 lg:border-l first:lg:border-l-0 dark:border-slate-800">
-            <strong class="block text-3xl font-bold tracking-tight text-slate-950 dark:text-white">{item.value}</strong>
+          <div class="border-slate-200 bg-slate-50 py-5 sm:px-5 lg:border-l first:lg:border-l-0 dark:border-slate-800 dark:bg-slate-900">
+            <strong class="block text-2xl font-bold tracking-tight text-slate-950 dark:text-white">{item.value}</strong>
             <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.label}</span>
           </div>
         ))
@@ -83,16 +119,16 @@ const metadata = {
     </div>
   </section>
 
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Solutions</p>
+        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Solutions</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          Product lines built from one operating thesis
+          One company architecture, three public product lines
         </h2>
         <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          MetaIntelligence connects manufacturing vision AI, R&D data analytics, and agentic document intelligence
-          through the same discipline: source-grounded outputs, measurable workflow value, and deployable software.
+          The portfolio spans R&D intelligence, vision inspection, and agentic workflows. MVI, MetaInsight, and DIANA
+          each expose a different workflow built from the same verification-driven engineering base.
         </p>
       </div>
 
@@ -101,19 +137,21 @@ const metadata = {
           solutions.map((solution) => (
             <a
               href={getPermalink(solution.href)}
-              class="group flex min-h-[280px] flex-col border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-slate-200/70 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-blue-500 dark:hover:shadow-none"
+              class="group flex min-h-[330px] flex-col border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl hover:shadow-slate-200/70 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-cyan-500 dark:hover:shadow-none"
             >
-              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-blue-700 dark:bg-slate-900 dark:text-blue-300">
+              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-cyan-700 dark:bg-slate-900 dark:text-cyan-300">
                 <Icon name={solution.icon} class="h-7 w-7" />
               </div>
               <p class="mt-7 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 {solution.domain}
               </p>
               <h3 class="mt-2 text-2xl font-bold text-slate-950 dark:text-white">{solution.name}</h3>
-              <p class="mt-3 grow leading-relaxed text-slate-600 dark:text-slate-300">{solution.summary}</p>
-              <p class="mt-5 border-t border-slate-200 pt-4 text-sm leading-relaxed text-slate-500 dark:border-slate-800 dark:text-slate-400">
-                {solution.proof}
-              </p>
+              <p class="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{solution.summary}</p>
+              <p class="mt-4 grow text-sm leading-relaxed text-slate-500 dark:text-slate-400">{solution.detail}</p>
+              <span class="mt-6 inline-flex items-center gap-2 border-t border-slate-200 pt-4 text-sm font-semibold text-cyan-700 dark:border-slate-800 dark:text-cyan-300">
+                Learn more
+                <Icon name="tabler:arrow-right" class="h-4 w-4 transition group-hover:translate-x-1" />
+              </span>
             </a>
           ))
         }
@@ -121,65 +159,91 @@ const metadata = {
     </div>
   </section>
 
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">MetaInsight Preview</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          From raw R&D records to evidence-linked insight
-        </h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          MetaInsight is shaped around the daily work of analysts: clean the dataset, organize technical signals,
-          compare clusters, and generate reviewable outputs without losing the connection to source records.
+        <p class="text-sm font-bold uppercase tracking-wide text-cyan-200">Operating Principles</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">A restrained operating frame for AI systems</h2>
+        <p class="mt-5 text-lg leading-relaxed text-slate-300">
+          Public copy now follows the company source material: first-principle modeling, verification before trust, and
+          architecture that fits the customer environment.
         </p>
-        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+        <div class="mt-8 space-y-3">
           {
-            ['Cleanse', 'Cluster', 'Report'].map((step, index) => (
-              <div class="border border-slate-200 p-4 dark:border-slate-800">
-                <span class="text-xs font-bold text-blue-700 dark:text-blue-300">0{index + 1}</span>
-                <strong class="mt-2 block text-slate-950 dark:text-white">{step}</strong>
-              </div>
+            principles.map((item) => (
+              <article class="border border-white/10 bg-white/[0.03] p-5">
+                <Icon name={item.icon} class="h-6 w-6 text-cyan-200" />
+                <h3 class="mt-3 font-bold">{item.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-300">{item.description}</p>
+              </article>
             ))
           }
         </div>
       </div>
-      <div
-        class="overflow-hidden border border-slate-200 bg-slate-950 shadow-2xl shadow-slate-200 dark:border-slate-800 dark:shadow-none"
-      >
+      <div class="border border-white/10 bg-white p-3">
         <img
-          src={overviewScreen.src}
-          width={overviewScreen.width}
-          height={overviewScreen.height}
-          alt="MetaInsight analytics overview screen"
-          class="aspect-[16/10] w-full object-cover object-top"
+          src={coreValuesVisual.src}
+          width={coreValuesVisual.width}
+          height={coreValuesVisual.height}
+          alt="MetaIntelligence First Principle, Verification-Driven, Open Architecture visual"
+          class="w-full object-cover"
           loading="lazy"
         />
       </div>
     </div>
   </section>
 
-  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
+  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <div class="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-blue-200">Technology Principles</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Reliable systems before louder claims</h2>
-          <p class="mt-5 text-lg leading-relaxed text-slate-300">
-            The company presents technology through architecture, verification, and field readiness rather than broad AI
-            slogans. Each product direction is evaluated as an operating system, not only a model demo.
+          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Evidence Workflow</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
+            From large datasets to inspectable outputs
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+            The R&D intelligence line combines structured datasets, analysis screens, and evidence-grounded agent
+            output. The same discipline carries into document analysis and technical reporting.
           </p>
+          <a
+            href={getPermalink('/solutions/metainsight')}
+            class="mt-8 inline-flex items-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950"
+          >
+            Explore MetaInsight
+            <Icon name="tabler:arrow-right" class="h-4 w-4" />
+          </a>
         </div>
-        <div class="grid gap-4 md:grid-cols-3">
-          {
-            principles.map((item) => (
-              <article class="border border-white/10 bg-white/[0.03] p-6">
-                <Icon name={item.icon} class="h-8 w-8 text-blue-200" />
-                <p class="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-400">{item.title}</p>
-                <h3 class="mt-2 text-xl font-bold">{item.label}</h3>
-                <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.description}</p>
-              </article>
-            ))
-          }
+        <div class="grid gap-5 md:grid-cols-2">
+          <figure class="border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950">
+            <img
+              src={overviewScreen.src}
+              width={overviewScreen.width}
+              height={overviewScreen.height}
+              alt="MetaInsight analytics overview screen"
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="lazy"
+            />
+            <figcaption
+              class="border-t border-slate-200 p-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-200"
+            >
+              MetaInsight analytics screen
+            </figcaption>
+          </figure>
+          <figure class="border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950">
+            <img
+              src={dianaUnitVisual.src}
+              width={dianaUnitVisual.width}
+              height={dianaUnitVisual.height}
+              alt="DIANA intelligence unit production recipe visual"
+              class="aspect-[16/10] w-full object-cover object-left"
+              loading="lazy"
+            />
+            <figcaption
+              class="border-t border-slate-200 p-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-200"
+            >
+              DIANA intelligence unit workflow
+            </figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -188,7 +252,7 @@ const metadata = {
   <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Capabilities</p>
+        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Capabilities</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
           Four capability pillars, one product architecture
         </h2>
@@ -197,7 +261,7 @@ const metadata = {
         {
           capabilities.map((item) => (
             <article class="border border-slate-200 p-6 dark:border-slate-800">
-              <Icon name={item.icon} class="h-8 w-8 text-blue-700 dark:text-blue-300" />
+              <Icon name={item.icon} class="h-8 w-8 text-cyan-700 dark:text-cyan-300" />
               <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h3>
               <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">{item.subtitle}</p>
               <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
@@ -212,20 +276,19 @@ const metadata = {
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">Evidence</p>
+          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Evidence</p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
             A track record grounded in repeated execution
           </h2>
           <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            Public R&D analytics, registered IP, and applied manufacturing AI work form the base for the current product
-            roadmap.
+            Public R&D analytics, registered IP, and applied product work form the base for the current portfolio.
           </p>
         </div>
         <div class="space-y-4">
           {
             trackRecords.slice(0, 4).map((item) => (
               <article class="grid gap-4 border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 sm:grid-cols-[120px_1fr]">
-                <div class="font-bold text-blue-700 dark:text-blue-300">{item.year}</div>
+                <div class="font-bold text-cyan-700 dark:text-cyan-300">{item.year}</div>
                 <div>
                   <h3 class="font-bold text-slate-950 dark:text-white">{item.title}</h3>
                   <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>

@@ -14,6 +14,7 @@ export const headerData = {
     {
       text: 'Solutions',
       links: [
+        { text: 'Overview', href: getPermalink('/solutions') },
         { text: 'MVI', href: getPermalink('/solutions/mvi') },
         { text: 'MetaInsight', href: getPermalink('/solutions/metainsight') },
         { text: 'DIANA', href: getPermalink('/solutions/diana') },
@@ -39,6 +40,7 @@ export const footerData = {
     {
       title: 'Solutions',
       links: [
+        { text: 'Overview', href: getPermalink('/solutions') },
         { text: 'MVI', href: getPermalink('/solutions/mvi') },
         { text: 'MetaInsight', href: getPermalink('/solutions/metainsight') },
         { text: 'DIANA', href: getPermalink('/solutions/diana') },

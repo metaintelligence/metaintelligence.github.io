@@ -11,7 +11,7 @@ metadata:
   title:
     default: MetaIntelligence
     template: '%s | MetaIntelligence'
-  description: 'MetaIntelligence designs verification-driven AI systems for manufacturing vision inspection, R&D intelligence, and agentic document analysis.'
+  description: 'MetaIntelligence builds First-Principle AI software for R&D intelligence, manufacturing vision inspection, and source-grounded document workflows.'
   robots:
     index: true
     follow: true
