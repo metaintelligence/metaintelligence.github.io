@@ -1,38 +1,588 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import { createTranslator } from '~/utils/i18n';
-import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
-const t = createTranslator();
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
+
+import uploadScreen from '~/assets/images/ida/ida_new_upload.png';
+import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
+import chartsScreen from '~/assets/images/ida/ida_result_charts.png';
+import detailScreen from '~/assets/images/ida/ida_item_detail.png';
+import insightsScreen from '~/assets/images/ida/ida_insights.png';
+import mobileScreen from '~/assets/images/ida/ida_mobile_projects.png';
 
 const metadata = {
-  title: t('pages.ida.metaTitle'),
-  description: t('pages.ida.metaDescription'),
-  robots: { index: false, follow: true },
+  title: 'IDA 문서 분석 AI 솔루션 — MetaIntelligence',
+  description:
+    'IDA는 MetaInsight 기반의 문서·레코드 분석 AI로, CSV·Excel·Parquet 데이터에서 텍스트 클러스터와 시계열 시그널을 발견하고 정량 근거 기반 인사이트를 생성합니다.',
 };
+
+const summaryStats = [
+  {
+    value: 'CSV / Excel',
+    label: '업로드 기반 분석 시작',
+  },
+  {
+    value: 'C1·C2·C3',
+    label: '시그널 강도 평가',
+  },
+  {
+    value: 'Export',
+    label: 'Excel·CSV 결과 내보내기',
+  },
+];
+
+const capabilityItems = [
+  {
+    title: '문서·레코드 업로드',
+    description:
+      'CSV, Excel, Parquet 파일을 업로드하고 텍스트, 날짜, 금액, 그룹, 식별자 컬럼을 화면에서 확인하며 분석 조건을 구성합니다.',
+    icon: 'tabler:file-spreadsheet',
+    tone: 'text-blue-700 bg-blue-50 dark:bg-blue-950/50 dark:text-blue-300',
+  },
+  {
+    title: '키워드 클러스터링',
+    description:
+      '비슷한 키워드와 문서 항목을 자동으로 묶고, 각 클러스터가 시간에 따라 어떻게 변화하는지 정량적으로 비교합니다.',
+    icon: 'tabler:category-2',
+    tone: 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/50 dark:text-emerald-300',
+  },
+  {
+    title: '정량 근거 기반 인사이트',
+    description:
+      'C1 장기 트렌드, C2 모멘텀 유지, C3 최근 가속 기준을 바탕으로 등급과 점수를 산출하고 자연어 인사이트를 제공합니다.',
+    icon: 'tabler:report-analytics',
+    tone: 'text-amber-700 bg-amber-50 dark:bg-amber-950/50 dark:text-amber-300',
+  },
+];
+
+const workflowItems = [
+  {
+    label: '01',
+    title: 'Upload',
+    description: '분석할 문서·레코드 데이터를 업로드하고 지원 형식을 확인합니다.',
+  },
+  {
+    label: '02',
+    title: 'Map Columns',
+    description: '텍스트와 날짜 컬럼을 중심으로 분석에 필요한 필드를 매핑합니다.',
+  },
+  {
+    label: '03',
+    title: 'Evaluate',
+    description: '키워드 군집을 만들고 트렌드 강도, 모멘텀, 최근 가속을 평가합니다.',
+  },
+  {
+    label: '04',
+    title: 'Review Insights',
+    description: '요약 지표, 상세 항목, AI 또는 템플릿 기반 인사이트를 검토합니다.',
+  },
+];
+
+const signalCriteria = [
+  {
+    title: 'C1',
+    label: '장기 트렌드',
+    description: '시간이 지나며 꾸준히 증가하는 클러스터인지 확인합니다.',
+  },
+  {
+    title: 'C2',
+    label: '모멘텀 유지',
+    description: '최근 구간의 활동이 기준선보다 높은 상태를 유지하는지 봅니다.',
+  },
+  {
+    title: 'C3',
+    label: '최근 가속',
+    description: '현재 시점에 가까워질수록 격차가 더 커지는지 평가합니다.',
+  },
+];
+
+const screenItems = [
+  {
+    title: '분석 생성',
+    description: '파일 업로드에서 컬럼 매핑, 분석 프리셋 선택으로 이어지는 3단계 흐름',
+    image: uploadScreen,
+    alt: 'MetaInsight 새 분석 업로드 화면',
+    icon: 'tabler:upload',
+  },
+  {
+    title: '결과 요약',
+    description: '레코드, 그룹, 감지된 시그널, 전체 클러스터를 한 화면에서 확인',
+    image: overviewScreen,
+    alt: 'MetaInsight 분석 결과 요약 화면',
+    icon: 'tabler:layout-dashboard',
+  },
+  {
+    title: '분포와 비교',
+    description: '등급 분포, 그룹 비교, Top Signals를 차트로 확인',
+    image: chartsScreen,
+    alt: 'MetaInsight 결과 차트 화면',
+    icon: 'tabler:chart-donut',
+  },
+  {
+    title: '항목 상세',
+    description: '클러스터별 점수, 통과 기준, 레코드 수, 키워드 구성을 상세 검토',
+    image: detailScreen,
+    alt: 'MetaInsight 항목 상세 화면',
+    icon: 'tabler:list-details',
+  },
+  {
+    title: '인사이트',
+    description: '분석 결과를 요약하고 주요 클러스터별 근거를 자연어로 정리',
+    image: insightsScreen,
+    alt: 'MetaInsight 인사이트 화면',
+    icon: 'tabler:sparkles',
+  },
+];
+
+const initialScreen = screenItems[1];
+
+const operationItems = [
+  {
+    title: 'SaaS 운용 구조',
+    description: 'JWT 인증, 프로젝트 단위 관리, 사용량 제한 등 SaaS 제품 운용에 필요한 기본 구조를 갖춥니다.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: '도메인 확장',
+    description:
+      'R&D 과제, 특허, 리테일, 금융 리스크처럼 텍스트와 날짜 축이 있는 데이터로 분석 대상을 확장할 수 있습니다.',
+    icon: 'tabler:database-search',
+  },
+  {
+    title: '반복 탐색',
+    description: '국가, 분야, 기간, 프리셋 등 조건을 조정하며 같은 데이터에서 다른 관점의 시그널을 확인합니다.',
+    icon: 'tabler:refresh-dot',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6">
-      <p
-        class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-        data-i18n-key="pages.ida.eyebrow"
-      >
-        {t('pages.ida.eyebrow')}
-      </p>
-      <h1 class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white" data-i18n-key="pages.ida.title">
-        {t('pages.ida.title')}
-      </h1>
-      <p class="mt-6 leading-relaxed text-slate-600 dark:text-slate-300" data-i18n-key="pages.ida.description">
-        {t('pages.ida.description')}
-      </p>
-      <a
-        href={getPermalink('/solutions/metainsight')}
-        class="mt-8 inline-flex bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
-      >
-        <span data-i18n-key="pages.ida.cta">{t('pages.ida.cta')}</span>
-      </a>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky showToggleTheme />
+  </Fragment>
+
+  <section class="relative not-prose overflow-hidden bg-white dark:bg-slate-950">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center py-10 md:py-14">
+        <div class="min-w-0">
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">
+            IDA · Intelligent Document Analyzer
+          </p>
+          <h1
+            class="mt-4 text-[2.25rem] sm:text-5xl xl:text-[3.35rem] font-bold leading-[1.08] tracking-tight font-heading dark:text-white"
+          >
+            문서 데이터를
+            <span class="block text-blue-700 dark:text-blue-300">정량 근거로 분석</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-muted dark:text-slate-300">
+            IDA는 MetaInsight의 제품 경험을 기반으로, 구조화된 문서·레코드 데이터에서 키워드 클러스터와 시계열 시그널을
+            찾고 분석 결과를 인사이트로 정리하는 문서 분석 AI 솔루션입니다.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-3 gap-3 max-w-2xl">
+            {
+              summaryStats.map((item) => (
+                <div class="rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
+                  <strong class="block text-xl text-gray-950 dark:text-white">{item.value}</strong>
+                  <span class="mt-1 block text-sm leading-relaxed text-muted dark:text-slate-300">{item.label}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="overflow-hidden rounded-lg border border-stone-200 dark:border-slate-800 bg-slate-950 shadow-xl">
+            <img
+              src={overviewScreen.src}
+              width={overviewScreen.width}
+              height={overviewScreen.height}
+              alt="MetaInsight 분석 결과 요약 대시보드"
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="eager"
+            />
+            <div class="grid grid-cols-3 border-t border-white/10 bg-slate-900 text-white">
+              <div class="p-3 sm:p-4">
+                <span class="block text-xs uppercase text-blue-200">Input</span>
+                <strong class="text-xs sm:text-sm">Records</strong>
+              </div>
+              <div class="p-3 sm:p-4 border-x border-white/10">
+                <span class="block text-xs uppercase text-blue-200">Engine</span>
+                <strong class="text-xs sm:text-sm">Scoring</strong>
+              </div>
+              <div class="p-3 sm:p-4">
+                <span class="block text-xs uppercase text-blue-200">Output</span>
+                <strong class="text-xs sm:text-sm">Insights</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="not-prose bg-stone-50 dark:bg-slate-900 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">Product Scope</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+          문서·레코드 분석을 위한 핵심 기능
+        </h2>
+        <p class="mt-4 text-lg text-muted dark:text-slate-300">
+          IDA는 텍스트와 날짜 축이 정리된 문서·레코드 데이터를 기준으로 분석을 시작합니다. 업로드, 컬럼 매핑,
+          클러스터링, 정량 평가, 인사이트 생성까지 이어지는 흐름을 하나의 화면 경험으로 제공합니다.
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-5">
+        {
+          capabilityItems.map((item) => (
+            <article class="rounded-lg border border-stone-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-6">
+              <div class={`w-12 h-12 rounded-lg flex items-center justify-center ${item.tone}`}>
+                <Icon name={item.icon} class="w-7 h-7" />
+              </div>
+              <h3 class="mt-5 text-xl font-bold dark:text-white">{item.title}</h3>
+              <p class="mt-3 leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white dark:bg-slate-950 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-start">
+        <div>
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">Analysis Workflow</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+            업로드부터 인사이트까지 이어지는 운용 흐름
+          </h2>
+          <p class="mt-4 text-lg text-muted dark:text-slate-300">
+            사용자는 복잡한 코드 없이 분석 파일을 올리고, 자동 감지된 컬럼을 검토한 뒤 프리셋을 선택해 분석을
+            실행합니다. 결과는 요약 지표, 차트, 항목 상세, 자연어 인사이트로 나누어 확인합니다.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            {
+              workflowItems.map((item) => (
+                <div class="rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900 p-5">
+                  <span class="text-xs font-bold tracking-wide text-blue-700 dark:text-blue-300">{item.label}</span>
+                  <h3 class="mt-2 text-xl font-bold dark:text-white">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900 p-6">
+          <div class="flex items-start gap-4 border-b border-stone-200 dark:border-slate-800 pb-6">
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300"
+            >
+              <Icon name="tabler:binary-tree-2" class="h-7 w-7" />
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold tracking-tight dark:text-white">정량 평가 엔진</h3>
+              <p class="mt-2 leading-relaxed text-muted dark:text-slate-300">
+                단순 키워드 빈도보다 중요한 것은 지속성, 현재성, 변화 속도입니다. IDA는 각 클러스터를 독립 기준으로
+                평가해 설명 가능한 점수와 등급으로 정리합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid gap-3">
+            {
+              signalCriteria.map((item) => (
+                <div class="grid grid-cols-[64px_1fr] gap-4 rounded-lg border border-stone-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+                  <div class="flex h-14 w-14 items-center justify-center rounded-lg bg-blue-700 text-lg font-bold text-white">
+                    {item.title}
+                  </div>
+                  <div>
+                    <h4 class="font-bold dark:text-white">{item.label}</h4>
+                    <p class="mt-1 text-sm leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+
+          <div
+            class="mt-6 rounded-lg bg-white p-4 text-sm leading-relaxed text-muted dark:bg-slate-950 dark:text-slate-300"
+          >
+            결과 화면에서는 이 기준을 통과한 수, 종합 점수, 관련 키워드, 레코드 수를 함께 보여주어 분석자가 근거를
+            추적할 수 있게 합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-zinc-950 text-white py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold tracking-wide uppercase text-blue-300">Product Screens</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight">선택해서 보는 실제 화면</h2>
+        <p class="mt-4 text-lg text-slate-300">
+          의사결정에 필요한 장면을 선별했습니다. 왼쪽에서 관심 기능을 선택하면 오른쪽에서 실제 화면과 핵심 의미를 바로
+          확인할 수 있습니다.
+        </p>
+      </div>
+
+      <div class="relative isolate mt-10 grid gap-6 lg:grid-cols-[0.72fr_1.28fr]" data-ida-screens>
+        <div class="relative z-40 order-2 grid gap-3 sm:grid-cols-2 lg:order-1 lg:grid-cols-1 pointer-events-auto">
+          {
+            screenItems.map((item, index) => (
+              <button
+                type="button"
+                class:list={[
+                  'group relative z-40 w-full cursor-pointer select-none overflow-hidden rounded-lg border-[1px] p-0 text-left transition focus:outline-none focus:ring-2 focus:ring-blue-300 pointer-events-auto',
+                  index === 1 ? 'border-blue-300 bg-white/10' : 'border-white/10 bg-white/[0.04] hover:bg-white/[0.08]',
+                ]}
+                data-ida-screen-trigger
+                data-ida-active={index === 1 ? 'true' : 'false'}
+                data-ida-image={item.image.src}
+                data-ida-alt={item.alt}
+                data-ida-title={item.title}
+                data-ida-description={item.description}
+                aria-pressed={index === 1 ? 'true' : 'false'}
+              >
+                <span class="grid min-h-[84px] grid-cols-[96px_1fr]">
+                  <span class="relative block bg-black">
+                    <img
+                      src={item.image.src}
+                      width={item.image.width}
+                      height={item.image.height}
+                      alt=""
+                      class="h-full w-full object-cover object-top opacity-80 transition group-hover:opacity-100"
+                      loading="lazy"
+                      aria-hidden="true"
+                    />
+                    <span class="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/20">
+                      <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-950">
+                        <Icon name={item.icon} class="h-5 w-5" />
+                      </span>
+                    </span>
+                  </span>
+                  <span class="flex flex-col justify-center p-4">
+                    <span class="text-sm font-bold text-white">{item.title}</span>
+                    <span class="mt-1 text-xs leading-relaxed text-slate-300">{item.description}</span>
+                  </span>
+                </span>
+              </button>
+            ))
+          }
+        </div>
+
+        <article
+          class="relative z-10 order-1 overflow-hidden rounded-lg border border-white/10 bg-white/[0.04] lg:order-2"
+        >
+          <div class="bg-black">
+            <img
+              src={initialScreen.image.src}
+              width={initialScreen.image.width}
+              height={initialScreen.image.height}
+              alt={initialScreen.alt}
+              class="aspect-[16/10] w-full object-cover object-top"
+              loading="eager"
+              data-ida-screen-image
+            />
+          </div>
+          <div class="border-t border-white/10 p-5 md:p-6">
+            <div class="flex flex-col gap-4 md:flex-row md:items-start">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-300 text-zinc-950">
+                <Icon name={initialScreen.icon} class="h-6 w-6" data-ida-screen-icon />
+              </div>
+              <div class="min-w-0">
+                <h3 class="text-xl font-bold" data-ida-screen-heading>{initialScreen.title}</h3>
+                <p class="mt-2 leading-relaxed text-slate-300" data-ida-screen-copy>{initialScreen.description}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="not-prose bg-white dark:bg-slate-950 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-[1fr_0.72fr] gap-10 lg:gap-14 items-center">
+        <div>
+          <p class="text-sm font-bold tracking-wide uppercase text-blue-700 dark:text-blue-300">
+            Operation & Expansion
+          </p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight dark:text-white">
+            분석 엔진을 제품으로 운용하기 위한 기반
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-muted dark:text-slate-300">
+            MetaInsight는 분석 엔진만이 아니라 계정, 프로젝트, 결과 저장, 내보내기, 모바일 대응 화면까지 포함한 제품형
+            구조를 갖추고 있습니다. IDA는 이 기반 위에서 기업 문서·규제·과제 데이터 분석 영역으로 확장됩니다.
+          </p>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-4">
+            {
+              operationItems.map((item) => (
+                <article class="rounded-lg border border-stone-200 dark:border-slate-800 bg-stone-50 dark:bg-slate-900 p-5">
+                  <div class="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 flex items-center justify-center">
+                    <Icon name={item.icon} class="w-6 h-6" />
+                  </div>
+                  <h3 class="mt-4 text-lg font-bold dark:text-white">{item.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-muted dark:text-slate-300">{item.description}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+
+        <figure class="mx-auto w-full max-w-[320px]">
+          <div class="rounded-[2rem] border border-slate-800 bg-slate-950 p-2 shadow-xl shadow-slate-950/20">
+            <img
+              src={mobileScreen.src}
+              width={mobileScreen.width}
+              height={mobileScreen.height}
+              alt="MetaInsight 모바일 프로젝트 화면"
+              class="aspect-[1170/2532] w-full rounded-[1.5rem] object-cover object-top"
+              loading="eager"
+            />
+          </div>
+          <figcaption class="mt-4 text-center text-sm leading-relaxed text-muted dark:text-slate-300">
+            모바일 화면에서도 프로젝트 목록과 분석 진입 흐름을 확인할 수 있습니다.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: '도입 문의',
+        href: '/contact',
+        icon: 'tabler:message-circle',
+      },
+    ]}
+  >
+    <Fragment slot="title">문서·레코드에서 실행 가능한 인사이트를 찾으세요.</Fragment>
+    <Fragment slot="subtitle">
+      IDA는 업로드, 클러스터링, 정량 평가, 인사이트 생성을 하나의 분석 흐름으로 제공합니다.
+    </Fragment>
+  </CallToAction>
+
+  <script is:inline data-astro-rerun>
+    (() => {
+      const getTrigger = (target) => (target instanceof Element ? target.closest('[data-ida-screen-trigger]') : null);
+
+      const findIdaScreenTriggerFromPoint = (root, clientX, clientY) => {
+        const directTrigger = document.elementFromPoint(clientX, clientY)?.closest?.('[data-ida-screen-trigger]');
+        if (directTrigger && root.contains(directTrigger)) {
+          return directTrigger;
+        }
+
+        return Array.from(root.querySelectorAll('[data-ida-screen-trigger]')).find((trigger) => {
+          const rect = trigger.getBoundingClientRect();
+          return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+        });
+      };
+
+      const setActiveIdaScreen = (root, selectedButton) => {
+        const image = root.querySelector('[data-ida-screen-image]');
+        const heading = root.querySelector('[data-ida-screen-heading]');
+        const copy = root.querySelector('[data-ida-screen-copy]');
+        const buttons = root.querySelectorAll('[data-ida-screen-trigger]');
+
+        if (!(image instanceof HTMLImageElement) || !selectedButton) {
+          return;
+        }
+
+        buttons.forEach((button) => {
+          const isActive = button === selectedButton;
+          button.setAttribute('data-ida-active', String(isActive));
+          button.setAttribute('aria-pressed', String(isActive));
+          button.classList.toggle('border-blue-300', isActive);
+          button.classList.toggle('bg-white/10', isActive);
+          button.classList.toggle('border-white/10', !isActive);
+          button.classList.toggle('bg-white/[0.04]', !isActive);
+        });
+
+        const nextImage = selectedButton.getAttribute('data-ida-image');
+        const nextAlt = selectedButton.getAttribute('data-ida-alt') || '';
+        const nextTitle = selectedButton.getAttribute('data-ida-title') || '';
+        const nextDescription = selectedButton.getAttribute('data-ida-description') || '';
+
+        if (nextImage && image.getAttribute('src') !== nextImage) {
+          image.removeAttribute('srcset');
+          image.setAttribute('src', nextImage);
+        }
+        image.setAttribute('alt', nextAlt);
+        if (heading) heading.textContent = nextTitle;
+        if (copy) copy.textContent = nextDescription;
+      };
+
+      window.selectIdaScreen = (selectedButton) => {
+        const root = selectedButton?.closest?.('[data-ida-screens]');
+        if (!root) {
+          return;
+        }
+
+        setActiveIdaScreen(root, selectedButton);
+      };
+
+      const initIdaScreens = () => {
+        document.querySelectorAll('[data-ida-screens]').forEach((root) => {
+          if (root.dataset.idaScreensReady === 'true') {
+            return;
+          }
+
+          root.dataset.idaScreensReady = 'true';
+        });
+      };
+
+      if (!window.idaScreenSelectReady) {
+        window.idaScreenSelectReady = true;
+
+        document.addEventListener(
+          'click',
+          (event) => {
+            const trigger = getTrigger(event.target);
+            if (!trigger) {
+              return;
+            }
+
+            event.preventDefault();
+            window.selectIdaScreen(trigger);
+          },
+          true
+        );
+
+        document.addEventListener(
+          'pointerup',
+          (event) => {
+            let trigger = getTrigger(event.target);
+            if (!trigger) {
+              const root = event.target instanceof Element ? event.target.closest('[data-ida-screens]') : null;
+              if (root) {
+                trigger = findIdaScreenTriggerFromPoint(root, event.clientX, event.clientY);
+              }
+            }
+
+            if (!trigger) {
+              return;
+            }
+
+            event.preventDefault();
+            window.selectIdaScreen(trigger);
+          },
+          true
+        );
+
+        document.addEventListener('astro:page-load', initIdaScreens);
+      }
+
+      initIdaScreens();
+    })();
+  </script>
 </Layout>

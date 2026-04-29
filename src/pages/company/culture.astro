@@ -1,122 +1,120 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import Layout from '~/layouts/PageLayout.astro';
-import { createTranslator } from '~/utils/i18n';
 
-const t = createTranslator();
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
 
 const metadata = {
-  title: t('pages.culture.metaTitle'),
-  description: t('pages.culture.metaDescription'),
+  title: 'Organizational Culture — MetaIntelligence',
 };
-
-const operatingPrinciples = [
-  {
-    title: 'Evidence before opinion',
-    description:
-      'Technical choices are judged by source data, reproducible outputs, and deployment constraints rather than preference or fashion.',
-    icon: 'tabler:clipboard-check',
-  },
-  {
-    title: 'Working software first',
-    description:
-      'Research results matter when they become usable systems. We keep prototypes close to product workflows and field operation.',
-    icon: 'tabler:tool',
-  },
-  {
-    title: 'Small team, clear ownership',
-    description:
-      'Responsibilities are kept explicit across research, data, product, and deployment so that decisions remain accountable.',
-    icon: 'tabler:users-group',
-  },
-  {
-    title: 'Respect for security and field limits',
-    description:
-      'Manufacturing and public-sector environments come with network, data, hardware, and review constraints. Product design starts there.',
-    icon: 'tabler:lock-check',
-  },
-];
-
-const operatingPrincipleKeys = ['evidence', 'software', 'ownership', 'security'];
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-4xl">
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.culture.eyebrow"
-        >
-          {t('pages.culture.eyebrow')}
-        </p>
-        <h1
-          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
-          data-i18n-key="pages.culture.title"
-        >
-          {t('pages.culture.title')}
-        </h1>
-        <p
-          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
-          data-i18n-key="pages.culture.description"
-        >
-          {t('pages.culture.description')}
-        </p>
-      </div>
-    </div>
-  </section>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
 
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 md:grid-cols-2">
+  <Hero2
+    tagline="Organizational Culture"
+    actions={[{ variant: 'primary', text: 'Join Us', href: '/contact' }]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'MetaIntelligence Team Culture',
+    }}
+  >
+    <Fragment slot="title">
+      Pro-Team of <span class="text-accent dark:text-white highlight">Builders</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="block text-xl font-medium text-gray-700 dark:text-slate-300 mb-2">
+        "우리는 관리하지 않습니다. 몰입할 환경을 지원합니다."
+      </span>
+      각 분야 정점의 전문가들이 서로를 깊이 신뢰하며, 형식적 절차 대신 본질적 문제 해결에 집중하는 문화를 지향합니다.
+    </Fragment>
+  </Hero2>
+
+  <Content
+    isReversed
+    items={[
       {
-        operatingPrinciples.map((item, index) => {
-          const key = operatingPrincipleKeys[index];
+        title: '신뢰 기반의 자율성',
+        description:
+          '불필요한 보고와 관리 비용을 제거합니다. 우리는 동료의 역량을 믿고, 각자가 최고의 성과를 낼 수 있는 방식으 로 일합니다.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: '본질적 문제 해결',
+        description:
+          '형식보다는 실질적 가치 창출에 집중합니다. 우리는 "왜(Why)"에 대해 치열하게 고민하고, 기술적 통찰로 해답을 찾아냅니다.',
+        icon: 'tabler:search',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Collaboration Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Working as One-Team</h3>
+      우리는 단순한 직장 동료가 아닌, 위대한 제품을 함께 만드는 빌더(Builder)들입니다.
+    </Fragment>
+  </Content>
 
-          return (
-            <article class="border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
-              <Icon name={item.icon} class="h-9 w-9 text-blue-700 dark:text-blue-300" />
-              <h2
-                class="mt-6 text-2xl font-bold text-slate-950 dark:text-white"
-                data-i18n-key={`pages.culture.principles.${key}.title`}
-              >
-                {t(`pages.culture.principles.${key}.title`)}
-              </h2>
-              <p
-                class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300"
-                data-i18n-key={`pages.culture.principles.${key}.description`}
-              >
-                {t(`pages.culture.principles.${key}.description`)}
-              </p>
-            </article>
-          );
-        })
-      }
-    </div>
-  </section>
+  <Features3
+    title="Our Core Principles"
+    subtitle="MetaIntelligence가 일하는 4가지 방식"
+    columns={2}
+    isBeforeContent={true}
+    classes={{
+      container: 'max-w-6xl',
+      panel:
+        'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm hover:shadow-md transition',
+    }}
+    items={[
+      {
+        title: '합리적 의사 결정 (Rational Decision Making)',
+        description:
+          '직관보다 데이터와 논리(Evidence)를 존중합니다. 치열하게 논의하되, 결정된 사항은 원팀(One-Team)이 되어 강력하게 실행합니다.',
+        icon: 'tabler:gavel',
+      },
+      {
+        title: '실용적 태도 (Practical Attitude)',
+        description:
+          '이론은 구현되었을 때 완성됩니다. 화려한 보고서보다 실제 코드로 동작하는 제품(Working Product)으로 스스로를 증명합니다.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: '자율과 책임 (Autonomy & Responsibility)',
+        description:
+          '프로는 스스로 증명합니다. 형식에 얽매이지 않고, 각자가 도메인의 최고 책임자(DRI)로서 목표를 설정하고 결과를 만들어냅니다.',
+        icon: 'tabler:user-check',
+      },
+      {
+        title: '지속적인 성장 (Sustainable Growth)',
+        description:
+          '개인의 성장이 곧 회사의 자산입니다. 최신 논문 연구, 기술 세미나 등 구성원이 업계 최고 전문가로 성장하도록 전폭 지원합니다.',
+        icon: 'tabler:plant',
+      },
+    ]}
+  />
 
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="border border-slate-200 p-8 dark:border-slate-800 md:p-10">
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.culture.standardEyebrow"
-        >
-          {t('pages.culture.standardEyebrow')}
-        </p>
-        <h2
-          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white"
-          data-i18n-key="pages.culture.standardTitle"
-        >
-          {t('pages.culture.standardTitle')}
-        </h2>
-        <p
-          class="mt-4 max-w-4xl leading-relaxed text-slate-600 dark:text-slate-300"
-          data-i18n-key="pages.culture.standardDescription"
-        >
-          {t('pages.culture.standardDescription')}
-        </p>
-      </div>
-    </div>
-  </section>
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join the Team',
+        href: '/contact', // 혹은 채용 페이지 링크
+        icon: 'tabler:briefcase',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Be a Builder </Fragment>
+    <Fragment slot="subtitle"> 최고의 동료들과 함께, 세상에 없던 가치를 설계하고 싶다면 지금 합류하세요. </Fragment>
+  </CallToAction>
 </Layout>

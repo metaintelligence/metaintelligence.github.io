@@ -1,51 +1,24 @@
-import en from '~/i18n/en.json';
-import ko from '~/i18n/ko.json';
+/* All source code comments are in English */
+import koData from '~/i18n/ko.json';
+import enData from '~/i18n/en.json';
 
-export const DEFAULT_LOCALE = 'ko';
+/**
+ * Resolves a translation string.
+ * If locale is not provided, it falls back to 'ko'.
+ */
+export const resolveI18nPair = (key: string, locale?: string): string => {
+  // 1. Determine the effective locale (default to 'ko' if undefined)
+  const lang = locale || 'ko';
+  const data = lang === 'en' ? enData : koData;
 
-export const SUPPORTED_LOCALES = [
-  { code: 'ko', label: '한국어', shortLabel: 'KR', textDirection: 'ltr' },
-  { code: 'en', label: 'English', shortLabel: 'EN', textDirection: 'ltr' },
-] as const;
+  // 2. Navigate through the JSON object
+  const result = key.split('.').reduce((obj, i) => obj?.[i], data);
 
-export type Locale = (typeof SUPPORTED_LOCALES)[number]['code'];
-export type Dictionary = typeof ko;
-
-export const dictionaries: Record<Locale, Dictionary> = {
-  ko,
-  en,
-};
-
-export const isLocale = (value: string | undefined): value is Locale =>
-  Boolean(value && SUPPORTED_LOCALES.some((locale) => locale.code === value));
-
-export const normalizeLocale = (value?: string): Locale => (isLocale(value) ? value : DEFAULT_LOCALE);
-
-const resolvePath = (source: unknown, key: string): unknown =>
-  key.split('.').reduce<unknown>((current, part) => {
-    if (current && typeof current === 'object' && part in current) {
-      return (current as Record<string, unknown>)[part];
-    }
-
-    return undefined;
-  }, source);
-
-export const translate = (key: string, locale: string = DEFAULT_LOCALE): string => {
-  const safeLocale = normalizeLocale(locale);
-  const localized = resolvePath(dictionaries[safeLocale], key);
-
-  if (typeof localized === 'string') {
-    return localized;
+  // 3. Handle object results (e.g. {en: "...", ko: "..."})
+  // and return the correct string for the current language
+  if (typeof result === 'object' && result !== null) {
+    return result[lang] || result['en'] || key;
   }
 
-  const fallback = resolvePath(dictionaries[DEFAULT_LOCALE], key) ?? resolvePath(dictionaries.en, key);
-
-  return typeof fallback === 'string' ? fallback : key;
+  return (result as string) || key;
 };
-
-export const createTranslator =
-  (locale: string = DEFAULT_LOCALE) =>
-  (key: string): string =>
-    translate(key, locale);
-
-export const resolveI18nPair = translate;

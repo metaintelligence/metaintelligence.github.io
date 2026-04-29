@@ -1,161 +1,108 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import Layout from '~/layouts/PageLayout.astro';
-import { company, trackRecords } from '~/data/site';
-import { createTranslator } from '~/utils/i18n';
 
-const t = createTranslator();
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Steps from '~/components/widgets/Steps.astro'; // 타임라인용 위젯
+import Features3 from '~/components/widgets/Features3.astro'; // 미션 강조용 위젯
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import { headerData } from '~/navigation';
+import { I18N } from 'metaintelligence:config';
+import en from '~/i18n/en.json';
+import ko from '~/i18n/ko.json';
+
+// 1. 언어 설정
+const T = I18N?.language === 'ko' ? ko : en;
 
 const metadata = {
-  title: t('pages.missionHistory.metaTitle'),
-  description: t('pages.missionHistory.metaDescription'),
+  title: 'Mission & History — MetaIntelligence',
 };
 
-const milestones = [
+// 2. 연혁 데이터 (임시 하드코딩)
+// 나중에 i18n 파일로 옮기기 쉽도록 객체 배열 형태로 정리했습니다.
+const historyItems = [
   {
-    date: '2021.12',
-    title: 'Company founded',
-    description: `${company.formerName} was founded with a focus on computational science, AI, and data analytics.`,
+    title: '2025. 12. 01',
+    description: `<strong>MetaIntelligence 사명 변경</strong><br/>
+    Metacomputing에서 MetaIntelligence로 사명을 변경하고, AI 기술 전문 기업으로서 새로운 도약을 선포했습니다.`,
+    icon: 'tabler:refresh',
   },
   {
-    date: '2022.10',
-    title: 'Public R&D analytics work begins',
-    description:
-      'The team entered R&D intelligence through funded research on global R&D project data and data science methods.',
+    title: '2025. 10. 10',
+    description: `<strong>본사 확장 이전 (대구 알파시티)</strong><br/>
+    대구 수성구 알파시티(Alpha City)로 사무실을 이전하여, SW 융합 클러스터의 중심에서 R&D 역량을 강화하고 있습니다.`,
+    icon: 'tabler:building-skyscraper',
   },
   {
-    date: '2023.08',
-    title: 'Registered patent secured',
-    description: 'Patent KR 10-2573563 was registered for a natural data analysis system and method.',
+    title: '2022. 02',
+    description: `<strong>Metaverse Alliance 가입</strong><br/>
+    차세대 디지털 생태계 확장을 위해 메타버스 얼라이언스에 가입, 산업 간 협력 네트워크를 구축했습니다.`,
+    icon: 'tabler:users-group',
   },
   {
-    date: '2024.07',
-    title: 'MetaInsight prototype',
-    description:
-      'R&D collection, cleansing, analytics, and report-generation workflows were expanded into a web-based prototype.',
-  },
-  {
-    date: '2025.11',
-    title: 'Company name changed to MetaIntelligence',
-    description: 'The company repositioned around enterprise AI products from its base in Daegu Suseong Alpha City.',
-  },
-  {
-    date: '2026',
-    title: 'Manufacturing and agentic AI expansion',
-    description:
-      'Product directions are expanding around MVI, MetaInsight MFG, DIANA, and applied AI workflows for industry.',
+    title: '2021. 12. 10',
+    description: `<strong>Metacomputing 설립</strong><br/>
+    경기도 수원 동탄에서 Metacomputing(메타컴퓨팅)으로 첫 발을 내디뎠습니다.`,
+    icon: 'tabler:rocket',
   },
 ];
-
-const milestoneKeys = ['founded', 'analytics', 'patent', 'prototype', 'rename', 'expansion'];
-const trackRecordKeys = ['rnd', 'patent', 'prototype', 'vision', 'expansion'];
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-4xl">
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.missionHistory.eyebrow"
-        >
-          {t('pages.missionHistory.eyebrow')}
-        </p>
-        <h1
-          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
-          data-i18n-key="pages.missionHistory.title"
-        >
-          {t('pages.missionHistory.title')}
-        </h1>
-        <p
-          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
-          data-i18n-key="pages.missionHistory.description"
-        >
-          {t('pages.missionHistory.description')}
-        </p>
-      </div>
-    </div>
-  </section>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
 
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6">
-      <div class="relative border-l border-slate-300 pl-6 dark:border-slate-700 md:pl-10">
-        {
-          milestones.map((item, index) => {
-            const key = milestoneKeys[index];
+  <Hero2
+    tagline="Our Journey"
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Mission and History Hero',
+    }}
+  >
+    <Fragment slot="title"> Mission & History </Fragment>
+    <Fragment slot="subtitle"> 우리가 걸어온 길과 앞으로 나아갈 방향을 소개합니다. </Fragment>
+  </Hero2>
 
-            return (
-              <article class="relative mb-10 last:mb-0">
-                <div class="absolute -left-[31px] top-1 flex h-10 w-10 items-center justify-center border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-950 md:-left-[61px]">
-                  <Icon name="tabler:point-filled" class="h-4 w-4 text-blue-700 dark:text-blue-300" />
-                </div>
-                <div class="grid gap-3 md:grid-cols-[140px_1fr]">
-                  <div class="font-bold text-blue-700 dark:text-blue-300">{item.date}</div>
-                  <div>
-                    <h2
-                      class="text-2xl font-bold text-slate-950 dark:text-white"
-                      data-i18n-key={`pages.missionHistory.milestones.${key}.title`}
-                    >
-                      {t(`pages.missionHistory.milestones.${key}.title`)}
-                    </h2>
-                    <p
-                      class="mt-3 leading-relaxed text-slate-600 dark:text-slate-300"
-                      data-i18n-key={`pages.missionHistory.milestones.${key}.description`}
-                    >
-                      {t(`pages.missionHistory.milestones.${key}.description`)}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            );
-          })
-        }
-      </div>
-    </div>
-  </section>
+  <Features3
+    title="Our Mission"
+    subtitle="MetaIntelligence가 존재하는 이유"
+    columns={1}
+    classes={{
+      container: 'max-w-4xl',
+      panel: 'bg-blue-50 dark:bg-slate-800 border-none shadow-lg p-8 rounded-2xl text-center', // 강조 스타일
+    }}
+    items={[
+      {
+        title: T.introductionPage.mission.title, // 기존 i18n 데이터 활용
+        description: T.introductionPage.mission.content,
+        icon: 'tabler:flag',
+      },
+    ]}
+  />
 
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.missionHistory.evidenceEyebrow"
-        >
-          {t('pages.missionHistory.evidenceEyebrow')}
-        </p>
-        <h2
-          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
-          data-i18n-key="pages.missionHistory.evidenceTitle"
-        >
-          {t('pages.missionHistory.evidenceTitle')}
-        </h2>
-      </div>
-      <div class="mt-10 grid gap-5 md:grid-cols-2">
-        {
-          trackRecords.map((item, index) => {
-            const key = trackRecordKeys[index];
+  <Steps
+    id="history"
+    title="History"
+    subtitle="끊임없는 도전과 혁신의 기록"
+    items={historyItems}
+    image={{
+      src: 'https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      alt: 'History Timeline Image',
+    }}
+  />
 
-            return (
-              <article class="border border-slate-200 p-6 dark:border-slate-800">
-                <p class="text-sm font-bold text-blue-700 dark:text-blue-300">{item.year}</p>
-                <h3
-                  class="mt-2 text-xl font-bold text-slate-950 dark:text-white"
-                  data-i18n-key={`data.trackRecords.${key}.title`}
-                >
-                  {t(`data.trackRecords.${key}.title`)}
-                </h3>
-                <p
-                  class="mt-3 leading-relaxed text-slate-600 dark:text-slate-300"
-                  data-i18n-key={`data.trackRecords.${key}.description`}
-                >
-                  {t(`data.trackRecords.${key}.description`)}
-                </p>
-              </article>
-            );
-          })
-        }
-      </div>
-    </div>
-  </section>
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title"> MetaIntelligence </Fragment>
+    <Fragment slot="subtitle"> 함께 더 큰 미래를 만들어갈 파트너를 기다립니다. </Fragment>
+  </CallToAction>
 </Layout>

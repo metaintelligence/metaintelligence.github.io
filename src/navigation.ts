@@ -1,96 +1,155 @@
-import { getPermalink } from './utils/permalinks';
+import { resolveI18nPair } from './utils/i18n';
+import { getPermalink, getAsset } from './utils/permalinks';
 
+// headerData provides both English and Korean labels so the client
+// can toggle language dynamically. Each `text` value is either a
+// string or an object: { en: string, ko: string }.
 export const headerData = {
   links: [
     {
-      text: '회사',
-      i18nKey: 'nav.company.title',
+      text: resolveI18nPair('nav.company.title') || 'Company',
       links: [
-        { text: '정체성', href: getPermalink('/company/identity'), i18nKey: 'nav.company.submenu.identity' },
-        { text: '연혁', href: getPermalink('/company/mission-history'), i18nKey: 'nav.company.submenu.history' },
-        { text: 'CSAIC 팀', href: getPermalink('/tech/csaic-team'), i18nKey: 'nav.company.submenu.csaicTeam' },
-        { text: '운영 원칙', href: getPermalink('/company/culture'), i18nKey: 'nav.company.submenu.culture' },
-      ],
-    },
-    {
-      text: '솔루션',
-      i18nKey: 'nav.solutions.title',
-      links: [
-        { text: '전체 보기', href: getPermalink('/solutions'), i18nKey: 'nav.solutions.submenu.overview' },
-        { text: 'MVI', href: getPermalink('/solutions/mvi'), i18nKey: 'nav.solutions.submenu.mvi' },
         {
-          text: 'MetaInsight',
-          href: getPermalink('/solutions/metainsight'),
-          i18nKey: 'nav.solutions.submenu.metainsight',
+          text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values',
+          href: getPermalink('/company/identity'),
         },
-        { text: 'DIANA', href: getPermalink('/solutions/diana'), i18nKey: 'nav.solutions.submenu.diana' },
-        { text: '전략', href: getPermalink('/solutions/strategy'), i18nKey: 'nav.solutions.submenu.strategy' },
+        {
+          text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone',
+          href: getPermalink('/company/mission-history'),
+        },
+        {
+          text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture',
+          href: getPermalink('/company/culture'),
+        },
       ],
     },
     {
-      text: '기술',
-      i18nKey: 'nav.technology.title',
+      text: resolveI18nPair('nav.technology.title') || 'Technology',
       links: [
-        { text: '기술 역량', href: getPermalink('/tech/core-tech'), i18nKey: 'nav.technology.submenu.coreTech' },
-        { text: '기술 철학', href: getPermalink('/tech/philosophy'), i18nKey: 'nav.technology.submenu.philosophy' },
-        { text: '연구 & IP', href: getPermalink('/research'), i18nKey: 'nav.technology.submenu.research' },
+        {
+          text: resolveI18nPair('nav.technology.submenu.philosophy') || 'Tech Philosophy',
+          href: getPermalink('/tech/philosophy'),
+        },
+        {
+          text: resolveI18nPair('nav.technology.submenu.core_tech') || 'Core Capabilities',
+          href: getPermalink('/tech/core-tech'),
+        },
+        {
+          text: resolveI18nPair('nav.technology.submenu.csaic_team') || 'CSAIC Team',
+          href: getPermalink('/tech/csaic-team'),
+        },
       ],
     },
-    { text: '주요 실적', href: getPermalink('/track-record'), i18nKey: 'nav.trackRecord' },
-    { text: '문의', href: getPermalink('/contact'), i18nKey: 'nav.contact' },
+    {
+      text: resolveI18nPair('nav.solutions.title') || 'Solutions',
+      links: [
+        {
+          text: resolveI18nPair('nav.solutions.submenu.strategy') || 'Business Strategy',
+          href: getPermalink('/solutions/strategy'),
+        },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.openmv') || 'OpenMV',
+          href: getPermalink('/solutions/openmv'),
+        },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)',
+          href: getPermalink('/solutions/mvi'),
+        },
+        {
+          text: resolveI18nPair('nav.solutions.submenu.ida') || 'Document AI (IDA)',
+          href: getPermalink('/solutions/ida'),
+        },
+      ],
+    },
+    {
+      text: resolveI18nPair('nav.resources.title') || 'Resources',
+      links: [
+        {
+          text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News',
+          href: getPermalink('corporate', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies',
+          href: getPermalink('case-studies', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight',
+          href: getPermalink('tech-insight', 'category'),
+        },
+        {
+          text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People',
+          href: getPermalink('culture', 'category'),
+        },
+      ],
+    },
   ],
-  actions: [],
+  actions: [
+    {
+      text: resolveI18nPair('header.download') || 'Download',
+      href: getPermalink('/contact'),
+      target: '_self',
+    },
+  ],
 };
-
 export const footerData = {
   links: [
     {
-      title: '솔루션',
-      i18nKey: 'footer.sections.solutions',
+      title: 'Product',
       links: [
-        { text: '전체 보기', href: getPermalink('/solutions'), i18nKey: 'nav.solutions.submenu.overview' },
-        { text: 'MVI', href: getPermalink('/solutions/mvi'), i18nKey: 'nav.solutions.submenu.mvi' },
-        {
-          text: 'MetaInsight',
-          href: getPermalink('/solutions/metainsight'),
-          i18nKey: 'nav.solutions.submenu.metainsight',
-        },
-        { text: 'DIANA', href: getPermalink('/solutions/diana'), i18nKey: 'nav.solutions.submenu.diana' },
+        { text: 'Features', href: '#' },
+        { text: 'Security', href: '#' },
+        { text: 'Team', href: '#' },
+        { text: 'Enterprise', href: '#' },
+        { text: 'Customer stories', href: '#' },
+        { text: 'Pricing', href: '#' },
+        { text: 'Resources', href: '#' },
       ],
     },
     {
-      title: '회사',
-      i18nKey: 'footer.sections.company',
+      title: 'Platform',
       links: [
-        { text: '정체성', href: getPermalink('/company/identity'), i18nKey: 'nav.company.submenu.identity' },
-        { text: '연혁', href: getPermalink('/company/mission-history'), i18nKey: 'nav.company.submenu.history' },
-        { text: '주요 실적', href: getPermalink('/track-record'), i18nKey: 'nav.trackRecord' },
+        { text: 'Developer API', href: '#' },
+        { text: 'Partners', href: '#' },
+        { text: 'Atom', href: '#' },
+        { text: 'Electron', href: '#' },
+        { text: 'AstroWind Desktop', href: '#' },
       ],
     },
     {
-      title: '기술',
-      i18nKey: 'footer.sections.technology',
+      title: 'Support',
       links: [
-        { text: '기술 역량', href: getPermalink('/tech/core-tech'), i18nKey: 'nav.technology.submenu.coreTech' },
-        { text: '연구 & IP', href: getPermalink('/research'), i18nKey: 'nav.technology.submenu.research' },
+        { text: 'Docs', href: '#' },
+        { text: 'Community Forum', href: '#' },
+        { text: 'Professional Services', href: '#' },
+        { text: 'Skills', href: '#' },
+        { text: 'Status', href: '#' },
       ],
     },
     {
-      title: '문의',
-      i18nKey: 'footer.sections.contact',
+      title: 'Company',
       links: [
-        { text: 'choi@metaintelligence.co.kr', href: 'mailto:choi@metaintelligence.co.kr' },
-        { text: '053-719-4290', href: 'tel:+82537194290' },
-        { text: '대구, 대한민국', href: getPermalink('/contact'), i18nKey: 'footer.location' },
+        { text: 'About', href: '#' },
+        { text: 'Blog', href: '#' },
+        { text: 'Careers', href: '#' },
+        { text: 'Press', href: '#' },
+        { text: 'Inclusion', href: '#' },
+        { text: 'Social Impact', href: '#' },
+        { text: 'Shop', href: '#' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: '이용약관', href: getPermalink('/terms'), i18nKey: 'footer.terms' },
-    { text: '개인정보처리방침', href: getPermalink('/privacy'), i18nKey: 'footer.privacy' },
+    { text: 'Terms', href: getPermalink('/terms') },
+    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+  ],
+  socialLinks: [
+    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
   footNote: `
-    <span data-i18n-key="footer.copyright">&copy; 2026 MetaIntelligence Inc. 모든 권리 보유.</span>
-    <span class="block mt-1 text-muted" data-i18n-key="footer.address">대구광역시 수성구 알파시티1로35길 13, 4층 401호</span>
+    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
   `,
 };

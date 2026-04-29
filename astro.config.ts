@@ -23,8 +23,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
-  site: 'https://metaintelligence.co.kr',
-  base: '/',
+  site: 'https://metaintelligence.github.io',
+  base: '/metaintelligence',
 
   integrations: [
     tailwind({

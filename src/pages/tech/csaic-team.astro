@@ -1,120 +1,390 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import Layout from '~/layouts/PageLayout.astro';
-import { team } from '~/data/site';
-import { createTranslator } from '~/utils/i18n';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
-const t = createTranslator();
+import { headerData } from '~/navigation';
 
 const metadata = {
-  title: t('pages.csaicTeam.metaTitle'),
-  description: t('pages.csaicTeam.metaDescription'),
+  title: 'CSAIC Team — MetaIntelligence',
 };
 
-const teamKeys = ['ceo', 'nlp', 'software', 'vision', 'quality'];
-const systemKeys = ['research', 'product', 'operations', 'verification'];
+// 공통 스타일 정의 (여백 및 크기 조정)
+const styles = {
+  sectionHeader: 'flex items-center mb-6', // 섹션 헤더와 본문 사이 간격 확대
+  iconWrapper:
+    'flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 mr-4 shrink-0', // 아이콘 배경 크기 확대 및 오른쪽 여백(mr-4) 추가
+  sectionTitle: 'text-2xl font-bold text-gray-900 dark:text-white ml-2', // 제목 폰트 크기 확대 및 왼쪽 여백(ml-2) 추가
+  careerItem: 'mb-6', // 경력 항목 간 간격 확대
+  careerTitle: 'font-bold text-gray-900 dark:text-white text-lg block mb-2', // 경력 제목 크기 확대 및 하단 여백 추가
+  careerDetailList: 'list-disc list-outside ml-6 space-y-2 text-muted dark:text-slate-400 text-base leading-relaxed', // 리스트 여백 및 줄간격 확대
+  competencyList: 'space-y-6', // 역량 항목 간 간격 확대
+  competencyItem: 'text-muted dark:text-slate-400 text-base leading-relaxed', // 역량 본문 폰트 크기 및 줄간격 확대
+  competencyTitle: 'font-bold text-gray-900 dark:text-white block mb-1 text-lg', // 역량 제목 크기 확대 및 하단 여백 추가
+};
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-4xl">
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.csaicTeam.eyebrow"
-        >
-          {t('pages.csaicTeam.eyebrow')}
-        </p>
-        <h1
-          class="mt-4 text-4xl font-bold tracking-tight text-slate-950 dark:text-white md:text-6xl"
-          data-i18n-key="pages.csaicTeam.title"
-        >
-          {t('pages.csaicTeam.title')}
-        </h1>
-        <p
-          class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl"
-          data-i18n-key="pages.csaicTeam.description"
-        >
-          {t('pages.csaicTeam.description')}
-        </p>
-      </div>
-    </div>
-  </section>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
 
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-3">
-      {
-        team.map((member, index) => {
-          const key = teamKeys[index];
+  <Hero2
+    tagline="CSAIC Team"
+    title="Experts in <br><span class='text-accent dark:text-white highlight'>AI, Physics, and Engineering</span>"
+    subtitle="각 분야 정점의 전문가들이 모여, 본질을 꿰뚫는 AI 기술을 만듭니다.<br>MetaIntelligence의 핵심 브레인, CSAIC 팀을 소개합니다."
+    image={{
+      src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
+      alt: 'CSAIC Team',
+    }}
+  />
 
-          return (
-            <article class="flex min-h-[310px] flex-col border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-950">
-              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-blue-700 dark:bg-slate-900 dark:text-blue-300">
-                <Icon name="tabler:user-square-rounded" class="h-7 w-7" />
+  <div class="bg-blue-50 dark:bg-slate-900/50 py-12 md:py-24">
+    <Content
+      isReversed
+      image={{
+        src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // CEO 사진 교체 필요
+        alt: 'Dr. Seongsoo Choi',
+      }}
+    >
+      <Fragment slot="content">
+        <div class="mb-10 border-b border-gray-200 dark:border-gray-700 pb-8">
+          <span class="text-sm font-bold tracking-widest text-primary uppercase mb-3 block">CEO & Founder</span>
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
+            최성수 박사 <span class="text-2xl font-normal text-muted ml-2">(Ph.D. Seongsoo Choi)</span>
+          </h2>
+          <p class="text-xl text-muted dark:text-slate-400 font-medium mb-6">
+            Ph.D. in Physics · Integrated AI Solution Architect
+          </p>
+          <div class="prose dark:prose-invert max-w-none text-base text-muted leading-relaxed">
+            <p>
+              자연어(NLP)와 비전(Vision)을 융합하는 <strong>통합 AI 솔루션 아키텍트</strong>입니다. 물리학 기반 문제
+              해결 역량과 <strong>슈퍼컴퓨팅(HPC)</strong> 전문성을 바탕으로, 텍스트·이미지 데이터를 아우르는 고성능 AI 엔진을
+              설계합니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
+          <div>
+            <div class={styles.sectionHeader}>
+              <div class={styles.iconWrapper}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+                    x="3"
+                    y="7"
+                    width="18"
+                    height="13"
+                    rx="2"></rect><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path></svg
+                >
               </div>
-              <h2 class="mt-6 text-2xl font-bold text-slate-950 dark:text-white">{member.name}</h2>
-              <p
-                class="mt-1 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-                data-i18n-key={`data.team.${key}.role`}
-              >
-                {t(`data.team.${key}.role`)}
-              </p>
-              <p
-                class="mt-4 text-sm font-medium text-slate-500 dark:text-slate-400"
-                data-i18n-key={`data.team.${key}.specialty`}
-              >
-                {t(`data.team.${key}.specialty`)}
-              </p>
-              <p
-                class="mt-4 grow leading-relaxed text-slate-600 dark:text-slate-300"
-                data-i18n-key={`data.team.${key}.summary`}
-              >
-                {t(`data.team.${key}.summary`)}
-              </p>
-            </article>
-          );
-        })
-      }
-    </div>
-  </section>
-
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
-      <div>
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300"
-          data-i18n-key="pages.csaicTeam.systemEyebrow"
-        >
-          {t('pages.csaicTeam.systemEyebrow')}
-        </p>
-        <h2
-          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl"
-          data-i18n-key="pages.csaicTeam.systemTitle"
-        >
-          {t('pages.csaicTeam.systemTitle')}
-        </h2>
-      </div>
-      <div class="grid gap-4 md:grid-cols-2">
-        {
-          systemKeys.map((key) => (
-            <div class="border border-slate-200 p-5 dark:border-slate-800">
-              <h3
-                class="font-bold text-slate-950 dark:text-white"
-                data-i18n-key={`pages.csaicTeam.system.${key}.title`}
-              >
-                {t(`pages.csaicTeam.system.${key}.title`)}
-              </h3>
-              <p
-                class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
-                data-i18n-key={`pages.csaicTeam.system.${key}.description`}
-              >
-                {t(`pages.csaicTeam.system.${key}.description`)}
-              </p>
+              <h3 class={styles.sectionTitle}>Major Career</h3>
             </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+
+            <ul class="list-none">
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>주식회사 메타인텔리전스 대표이사 (2022.01 ~ 현재)</span>
+                <ul class={styles.careerDetailList}>
+                  <li>자연어/비전 통합 AI 솔루션 총괄 및 아키텍처 설계</li>
+                  <li>특허 기반 R&D(과기정통부 10억 규모) 수주 및 총괄</li>
+                  <li>기업·공공기관 난제 해결을 위한 수리 모델링 및 AI 자문</li>
+                </ul>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>한국연구재단(NRF) 전문가/연구책임자 (2021.04 ~ 현재)</span>
+                <ul class={styles.careerDetailList}>
+                  <li>국가 R&D 방향성 수립 연구용역 및 정책 리포트 집필</li>
+                </ul>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>에프원소프트(주) 수석연구원(AI Master)</span>
+                <ul class={styles.careerDetailList}>
+                  <li>Multimodal AI 연구 및 HPC 최적화 파이프라인 구축</li>
+                </ul>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>삼성디스플레이(주) Staff Software Engineer</span>
+                <ul class={styles.careerDetailList}>
+                  <li>위상수학(Topology) 융합 AI 기반 공정 불량 검출 자동화</li>
+                </ul>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>UNIST / NRF Global Ph.D. Fellowship</span>
+                <ul class={styles.careerDetailList}>
+                  <li>초거대 슈퍼컴퓨팅 운영 및 계산과학/양자다체이론 연구</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class={styles.sectionHeader}>
+              <div class={styles.iconWrapper}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"></path><path
+                    d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"></path><line
+                    x1="9.7"
+                    y1="17"
+                    x2="14.3"
+                    y2="17"></line></svg
+                >
+              </div>
+              <h3 class={styles.sectionTitle}>Key Competencies</h3>
+            </div>
+
+            <ul class={styles.competencyList}>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>Integrated AI & Patent Tech</span>
+                자연어/비전 융합 통합 솔루션 아키텍처 설계 및 원천 특허 고도화
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>Physics-Informed AI</span>
+                물리/수학(Quantum, Topology) 기반 가설 수립 및 모델 설계
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>Strategic R&D Management</span>
+                기획부터 성과 확산까지 전 주기 R&D 관리 및 문제 해결
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Fragment>
+    </Content>
+  </div>
+
+  <div class="py-12 md:py-24">
+    <Content
+      image={{
+        src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // 사진 교체 필요
+        alt: 'Dr. Mina Cheon',
+      }}
+    >
+      <Fragment slot="content">
+        <div class="mb-10 border-b border-gray-200 dark:border-gray-700 pb-8">
+          <span class="text-sm font-bold tracking-widest text-purple-600 dark:text-purple-400 uppercase mb-3 block"
+            >Co-Founder / AI Director</span
+          >
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">천민아 박사</h2>
+          <p class="text-xl text-muted font-medium">AI(NLP) Ph.D. · LLM Specialist</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
+          <div>
+            <div class={styles.sectionHeader}>
+              <div
+                class={`${styles.iconWrapper} text-purple-600 bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+                    x="3"
+                    y="7"
+                    width="18"
+                    height="13"
+                    rx="2"></rect><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path></svg
+                >
+              </div>
+              <h3 class={styles.sectionTitle}>Major Career</h3>
+            </div>
+            <ul class="list-none">
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>주식회사 메타인텔리전스 CSAIC (2024.01 ~ 현재)</span>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>게임물관리위원회 이의신청자문위원회 위원</span>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>한국해양대학교 박사후 연구원 (데이터 1-cycle 검증)</span>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>자연어 처리 기반 지적재산권(발명가) 다수 보유</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class={styles.sectionHeader}>
+              <div
+                class={`${styles.iconWrapper} text-purple-600 bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"></path><path
+                    d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"></path><line
+                    x1="9.7"
+                    y1="17"
+                    x2="14.3"
+                    y2="17"></line></svg
+                >
+              </div>
+              <h3 class={styles.sectionTitle}>Core Skills</h3>
+            </div>
+            <ul class={styles.competencyList}>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>NLP Pipeline Design</span>
+                기술문서 정보 구조화 및 핵심 정보 추출 파이프라인 설계
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>LLM Evaluation</span>
+                LLM 품질 평가 체계 설계 및 정량 지표 전환
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>R&D Analysis</span>
+                텍스트 분석 결과의 정량적 데이터화 및 연구 활용
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Fragment>
+    </Content>
+  </div>
+
+  <div class="py-12 md:py-24 bg-gray-50 dark:bg-slate-800/50">
+    <Content
+      isReversed
+      image={{
+        src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // 사진 교체 필요
+        alt: 'Director Woohyun Kim',
+      }}
+    >
+      <Fragment slot="content">
+        <div class="mb-10 border-b border-gray-200 dark:border-gray-700 pb-8">
+          <span class="text-sm font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3 block"
+            >Director of SW Engineering</span
+          >
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">김우현 이사</h2>
+          <p class="text-xl text-muted font-medium">Samsung Electronics MX Div. 10y · Framework/Graphics Specialist</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
+          <div>
+            <div class={styles.sectionHeader}>
+              <div class={styles.iconWrapper}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+                    x="3"
+                    y="7"
+                    width="18"
+                    height="13"
+                    rx="2"></rect><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path></svg
+                >
+              </div>
+              <h3 class={styles.sectionTitle}>Major Career</h3>
+            </div>
+            <ul class="list-none">
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>삼성전자 MX사업부 (10년)</span>
+                <ul class={styles.careerDetailList}>
+                  <li>Samsung Galaxy - ARM Mali GPU Driver Management</li>
+                  <li><strong>Android Watch Face Format (WFF) Standard</strong> Creator & Architect</li>
+                  <li>Samsung Android (Watchface Studio, AI Effect, Internal Graphic solutions)</li>
+                  <li>Samsung GoodLock, Wonderland App 개발</li>
+                </ul>
+              </li>
+              <li class={styles.careerItem}>
+                <span class={styles.careerTitle}>Graphic Rendering 기술 A급 특허 보유</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class={styles.sectionHeader}>
+              <div class={styles.iconWrapper}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                    d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"></path><path
+                    d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"></path><line
+                    x1="9.7"
+                    y1="17"
+                    x2="14.3"
+                    y2="17"></line></svg
+                >
+              </div>
+              <h3 class={styles.sectionTitle}>Core Skills</h3>
+            </div>
+            <ul class={styles.competencyList}>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>Global-Scale Productization & UX</span>
+                구글 오픈소스 표준화 및 글로벌 제조사 프레임워크 탑재, 500만+ 다운로드 앱 개발 경험을 보유하고 있습니다.
+                단순한 기능 구현을 넘어, 사용자 친화적인 UI/UX를 중시하며 글로벌 서비스 수준의 완성도를 지향합니다.
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>GPU & Rendering Optimization</span>
+                글로벌 플래그십 모바일 디바이스의 그래픽스 및 프레임워크를 함께 개발하고 최적화했던 경험을 바탕으로, 고성능
+                AI 모델을 포함하는 당사 소프트웨어를 가볍고 빠르게 구동시킵니다.
+              </li>
+              <li class={styles.competencyItem}>
+                <span class={styles.competencyTitle}>Flexible Engineering Philosophy</span>
+                개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장 효율적인
+                방식으로 견고하고 유연한 시스템을 구현합니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Fragment>
+    </Content>
+  </div>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact CSAIC',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to Innovate? </Fragment>
+    <Fragment slot="subtitle"> 최고의 전문가들과 함께 귀사의 비즈니스 난제를 해결하세요. </Fragment>
+  </CallToAction>
 </Layout>

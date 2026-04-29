@@ -1,10 +1,8 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import { createTranslator } from '~/utils/i18n';
+import Layout from '~/layouts/Layout.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 
-const t = createTranslator();
-const title = t('pages.notFound.metaTitle');
+const title = `Error 404`;
 ---
 
 <Layout metadata={{ title }}>
@@ -12,18 +10,14 @@ const title = t('pages.notFound.metaTitle');
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only" data-i18n-key="pages.notFound.sr">{t('pages.notFound.sr')}</span>
+          <span class="sr-only">Error</span>
           <span class="text-primary">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl" data-i18n-key="pages.notFound.title">
-          {t('pages.notFound.title')}
+        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
+        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
+          But dont worry, you can find plenty of other things on our homepage.
         </p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400" data-i18n-key="pages.notFound.description">
-          {t('pages.notFound.description')}
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">
-          <span data-i18n-key="pages.notFound.cta">{t('pages.notFound.cta')}</span>
-        </a>
+        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
       </div>
     </div>
   </section>

@@ -1,250 +1,167 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 import Layout from '~/layouts/PageLayout.astro';
-import { capabilities, mainStats, solutions } from '~/data/site';
-import { createTranslator } from '~/utils/i18n';
-import { getPermalink } from '~/utils/permalinks';
 
-const t = createTranslator();
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Logo from '~/components/Logo.astro';
+import { resolveI18nPair } from '~/utils/i18n';
 
 const metadata = {
-  title: 'MetaIntelligence - Insight into Essence, Design for Value',
+  title: 'MetaIntelligence — Insight into Essence, Design for Value',
   ignoreTitleTemplate: true,
-  description: t('site.description'),
 };
-
-const heroMethodKeys = ['structure', 'analyze', 'verify'];
-const mainStatKeys = ['founded', 'execution', 'records', 'patent'];
-const capabilityKeys = ['multimodal', 'knowledge', 'hpc', 'signal'];
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose bg-white dark:bg-slate-950">
-    <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
-      <div
-        class="flex items-center gap-3 border border-cyan-200 bg-cyan-50 px-4 py-3 text-sm font-bold text-cyan-950 shadow-sm shadow-cyan-950/5 dark:border-cyan-900/70 dark:bg-cyan-950/45 dark:text-cyan-100"
-      >
-        <span class="h-2.5 w-2.5 shrink-0 bg-cyan-600 dark:bg-cyan-300"></span>
-        <span class="uppercase tracking-[0.16em]" data-i18n-key="home.notice">{t('home.notice')}</span>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: resolveI18nPair('hero.action_solutions'),
+        href: '/solutions/mvi',
+      },
+      {
+        text: resolveI18nPair('hero.action_tech'),
+        href: '/tech/core-tech',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <div class="flex flex-col items-center justify-center mb-12">
+        <div class="transform scale-150 transition-transform duration-500">
+          <Logo mode="vertical" size="h-[150px] w-[200px]" />
+        </div>
       </div>
-    </div>
 
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-      <div>
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300"
-          data-i18n-key="home.hero.eyebrow"
-        >
-          {t('home.hero.eyebrow')}
-        </p>
-        <h1
-          class="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl"
-        >
-          <span data-i18n-key="home.hero.titleLine1">{t('home.hero.titleLine1')}</span><br class="hidden md:block" />
-          <span data-i18n-key="home.hero.titleLine2">{t('home.hero.titleLine2')}</span>
+      <div class="flex flex-col items-center justify-center delay-700">
+        <h1 class="text-2xl md:text-sm font-light leading-tighter tracking-widest text-center">
+          {resolveI18nPair('hero.title_part1')}
+          {resolveI18nPair('hero.title_part2')}
         </h1>
-        <p
-          class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl"
-          data-i18n-key="home.hero.description"
-        >
-          {t('home.hero.description')}
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.signal">
-            {t('home.chips.signal')}
-          </span>
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.vision">
-            {t('home.chips.vision')}
-          </span>
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.agentic">
-            {t('home.chips.agentic')}
-          </span>
-        </div>
-
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={getPermalink('/solutions')}
-            class="inline-flex items-center justify-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-50"
-          >
-            <span data-i18n-key="home.actions.solutions">{t('home.actions.solutions')}</span>
-            <Icon name="tabler:arrow-right" class="h-4 w-4" />
-          </a>
-          <a
-            href={getPermalink('/tech/core-tech')}
-            class="inline-flex items-center justify-center gap-2 border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-slate-700 dark:text-white dark:hover:border-cyan-300 dark:hover:text-cyan-200"
-          >
-            <span data-i18n-key="home.actions.technology">{t('home.actions.technology')}</span>
-          </a>
-        </div>
       </div>
+    </Fragment>
+  </Hero>
 
-      <div
-        class="border border-slate-200 bg-slate-950 p-4 shadow-xl shadow-slate-200/70 dark:border-slate-800 dark:shadow-none"
-      >
-        <div class="grid gap-3 md:grid-cols-3">
-          {
-            solutions.map((solution) => {
-              const solutionKey = solution.name.toLowerCase();
+  <Note title="Core Values:" description="통찰(Insight) · 유연함(Flexibility) · 실용(Practical)" />
 
-              return (
-                <a
-                  href={getPermalink(solution.href)}
-                  class="group border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
-                >
-                  <Icon name={solution.icon} class="h-7 w-7 text-cyan-200" />
-                  <p
-                    class="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-400"
-                    data-i18n-key={`home.solutions.${solutionKey}.domain`}
-                  >
-                    {t(`home.solutions.${solutionKey}.domain`)}
-                  </p>
-                  <h2 class="mt-2 text-2xl font-bold">{solution.name}</h2>
-                  <p
-                    class="mt-3 text-sm leading-relaxed text-slate-300"
-                    data-i18n-key={`home.solutions.${solutionKey}.fullName`}
-                  >
-                    {t(`home.solutions.${solutionKey}.fullName`)}
-                  </p>
-                  <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
-                    <span data-i18n-key="home.solutions.open">{t('home.solutions.open')}</span>
-                    <Icon
-                      name="tabler:arrow-up-right"
-                      class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </span>
-                </a>
-              );
-            })
-          }
-        </div>
+  <Features
+    id="features"
+    tagline="Capabilities"
+    title="World-Class Tech Stack"
+    subtitle="단순한 도구 사용을 넘어, 문제의 본질을 해결하는 자체 알고리즘과 시스템 아키텍처를 설계합니다."
+    items={[
+      {
+        title: 'Multimodal AI',
+        description: 'NLP와 Vision을 결합하여 텍스트와 이미지 데이터를 통합적으로 분석하고 판단합니다.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Physics-Informed Modeling',
+        description: '물리학적 방법론을 AI에 접목하여 데이터가 부족한 환경에서도 강건한 모델을 구축합니다.',
+        icon: 'tabler:atom-2',
+      },
+      {
+        title: 'HPC & Optimization',
+        description: '슈퍼컴퓨팅 운영 경험을 바탕으로 On-device부터 클라우드까지 최고의 성능을 이끌어냅니다.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Trusted Logic',
+        description: '자연어 의미 기반의 정확한 판단으로 환각 현상을 억제하고 데이터 무결성을 보장합니다.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
 
-        <div class="mt-4 border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200" data-i18n-key="home.method.label">
-            {t('home.method.label')}
-          </p>
-          <div class="mt-4 grid gap-3 md:grid-cols-3">
-            {
-              heroMethodKeys.map((methodKey, index) => (
-                <article class="border border-white/10 bg-slate-950 p-4 text-white">
-                  <span class="text-xl font-bold text-cyan-200">{String(index + 1).padStart(2, '0')}</span>
-                  <h3 class="mt-2 font-bold" data-i18n-key={`home.method.${methodKey}.title`}>
-                    {t(`home.method.${methodKey}.title`)}
-                  </h3>
-                  <p
-                    class="mt-2 text-xs leading-relaxed text-slate-300"
-                    data-i18n-key={`home.method.${methodKey}.description`}
-                  >
-                    {t(`home.method.${methodKey}.description`)}
-                  </p>
-                </article>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Content
+    isReversed
+    tagline="Solutions"
+    title="Meta Vision Intelligence (MVI)"
+    subtitle="제조 공정의 불량률 'Zero'에 도전합니다."
+    items={[
+      {
+        title: '범용 하드웨어 호환성',
+        description: '고가의 전용 장비 없이 범용 카메라만으로도 높은 정확도의 검출 성능을 발휘합니다.',
+      },
+      {
+        title: '실시간 렌더링 최적화',
+        description: '삼성전자 MX 사업부 출신의 그래픽 노하우로 초고속 이미지 처리 및 시각화를 지원합니다.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80',
+      alt: 'MVI Solution Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Smart Factory Evolution</h3>
+      대한민국 5만 개 제조사의 AX(AI 전환)를 완수하는 핵심 파트너가 됩니다.
+    </Fragment>
+  </Content>
 
-  <section class="not-prose border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
-    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-      <div>
-        <p
-          class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
-          data-i18n-key="home.glance.eyebrow"
-        >
-          {t('home.glance.eyebrow')}
-        </p>
-        <h2
-          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white"
-          data-i18n-key="home.glance.title"
-        >
-          {t('home.glance.title')}
-        </h2>
-        <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300" data-i18n-key="home.glance.description">
-          {t('home.glance.description')}
-        </p>
-      </div>
-      <div
-        class="grid gap-px border border-slate-200 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 sm:grid-cols-2 lg:grid-cols-4"
-      >
-        {
-          mainStats.map((item, index) => (
-            <div class="bg-slate-50 p-5 dark:bg-slate-900">
-              <strong class="block text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
-                {item.value}
-              </strong>
-              <span
-                class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300"
-                data-i18n-key={`home.stats.${mainStatKeys[index]}`}
-              >
-                {t(`home.stats.${mainStatKeys[index]}`)}
-              </span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <Steps
+    title="실용적 태도로 증명하는 협업 프로세스"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">본질 파악</span>',
+        description: '문제의 표면이 아닌 이면의 근본 원인(Root Cause)을 다각도로 분석합니다.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">유연한 설계</span>',
+        description: '변화하는 비즈니스 환경에 적응 가능한 고품질 소프트웨어 아키텍처를 설계합니다.',
+        icon: 'tabler:layout-2',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">가치 구현</span>',
+        description: '화려한 보고서 대신, 실제로 작동하는 제품(Working Product)으로 실질적 가치를 전달합니다.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Success',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Collaboration Image',
+    }}
+  />
 
-  <section class="not-prose bg-white py-12 dark:bg-slate-950 md:py-16">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <div class="max-w-2xl">
-          <p
-            class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
-            data-i18n-key="home.capabilities.eyebrow"
-          >
-            {t('home.capabilities.eyebrow')}
-          </p>
-          <h2
-            class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white"
-            data-i18n-key="home.capabilities.title"
-          >
-            {t('home.capabilities.title')}
-          </h2>
-        </div>
-        <a
-          href={getPermalink('/tech/core-tech')}
-          class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300"
-        >
-          <span data-i18n-key="home.capabilities.details">{t('home.capabilities.details')}</span>
-          <Icon name="tabler:arrow-right" class="h-4 w-4" />
-        </a>
-      </div>
+  <Stats
+    stats={[
+      { title: '누적 R&D 규모', amount: '10억+' },
+      { title: '목표 AX 도입사', amount: '50K' },
+      { title: '전문 아키텍트 경력', amount: '10년+' },
+      { title: '보유 특허 및 기술', amount: '15+' },
+    ]}
+  />
 
-      <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {
-          capabilities.map((item, index) => {
-            const capabilityKey = capabilityKeys[index];
+  <BlogLatestPosts
+    title="Tech & Culture Insights"
+    information="MetaIntelligence의 전문가들이 전하는 최신 AI 트렌드와 기술 철학을 확인해 보세요."
+  />
 
-            return (
-              <article class="border border-slate-200 p-5 dark:border-slate-800">
-                <Icon name={item.icon} class="h-7 w-7 text-cyan-700 dark:text-cyan-300" />
-                <h3
-                  class="mt-4 text-lg font-bold text-slate-950 dark:text-white"
-                  data-i18n-key={`home.capabilities.${capabilityKey}.title`}
-                >
-                  {t(`home.capabilities.${capabilityKey}.title`)}
-                </h3>
-                <p
-                  class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-                  data-i18n-key={`home.capabilities.${capabilityKey}.subtitle`}
-                >
-                  {t(`home.capabilities.${capabilityKey}.subtitle`)}
-                </p>
-                <p
-                  class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
-                  data-i18n-key={`home.capabilities.${capabilityKey}.description`}
-                >
-                  {t(`home.capabilities.${capabilityKey}.description`)}
-                </p>
-              </article>
-            );
-          })
-        }
-      </div>
-    </div>
-  </section>
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Us',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title"> AX 2035: 산업 지능의 운영체제 </Fragment>
+    <Fragment slot="subtitle">
+      데이터가 흐르는 모든 산업 현장에 MetaIntelligence의 기술을 이식합니다. <br />
+      지금 바로 귀사의 문제를 본질부터 해결해 보세요.
+    </Fragment>
+  </CallToAction>
 </Layout>
