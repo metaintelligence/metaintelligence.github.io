@@ -1,42 +1,137 @@
 {
+  "site": {
+    "description": "MetaIntelligence identifies the structure of hard problems and turns it into verifiable First-Principle AI software."
+  },
+  "language": {
+    "label": "Language",
+    "ko": "한국어",
+    "en": "English"
+  },
   "nav": {
     "company": {
       "title": "Company",
       "submenu": {
         "identity": "Identity",
         "history": "Milestones",
+        "csaicTeam": "CSAIC Team",
         "culture": "Operating Principles"
-      }
-    },
-    "technology": {
-      "title": "Technology",
-      "submenu": {
-        "philosophy": "Technology Philosophy",
-        "core_tech": "Core Capabilities",
-        "csaic_team": "CSAIC Team"
       }
     },
     "solutions": {
       "title": "Solutions",
       "submenu": {
+        "overview": "Overview",
         "mvi": "MVI",
         "metainsight": "MetaInsight",
         "diana": "DIANA",
         "strategy": "Strategy"
       }
+    },
+    "technology": {
+      "title": "Technology",
+      "submenu": {
+        "coreTech": "Core Capabilities",
+        "philosophy": "Technology Philosophy",
+        "research": "Research & IP"
+      }
+    },
+    "trackRecord": "Track Record",
+    "contact": "Contact"
+  },
+  "footer": {
+    "sections": {
+      "solutions": "Solutions",
+      "company": "Company",
+      "technology": "Technology",
+      "contact": "Contact"
+    },
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "location": "Daegu, Republic of Korea"
+  },
+  "home": {
+    "notice": "Website Update in Progress",
+    "hero": {
+      "eyebrow": "FIRST-PRINCIPLE AI",
+      "titleLine1": "Insight into Essence,",
+      "titleLine2": "Design for Value",
+      "description": "MetaIntelligence identifies the structure of hard problems and turns it into verifiable AI software. Manufacturing vision inspection, document and knowledge analysis, and decision support are designed from one engineering principle."
+    },
+    "chips": {
+      "signal": "Signal Intelligence",
+      "vision": "Vision AI",
+      "agentic": "Agentic AI"
+    },
+    "actions": {
+      "solutions": "View Solutions",
+      "technology": "Technology Capabilities"
+    },
+    "solutions": {
+      "open": "Open",
+      "mvi": {
+        "domain": "Manufacturing vision AI",
+        "fullName": "Meta Vision AI"
+      },
+      "metainsight": {
+        "domain": "Knowledge workflow AI",
+        "fullName": "Source-grounded document intelligence"
+      },
+      "diana": {
+        "domain": "Decision intelligence",
+        "fullName": "Domain Intelligence Agent"
+      }
+    },
+    "method": {
+      "label": "Method",
+      "structure": {
+        "title": "Structure",
+        "description": "Frame the domain, data, and operating constraints."
+      },
+      "analyze": {
+        "title": "Analyze",
+        "description": "Cluster records, score signals, and retrieve evidence."
+      },
+      "verify": {
+        "title": "Verify",
+        "description": "Keep outputs tied to sources, checks, and review loops."
+      }
+    },
+    "glance": {
+      "eyebrow": "At a Glance",
+      "title": "Focused AI systems with reviewable outputs",
+      "description": "The homepage presents the core direction and entry points compactly, with detailed material available in each solution and technology page."
+    },
+    "stats": {
+      "founded": "Founded as a software and AI company",
+      "execution": "Consecutive public R&D analytics execution",
+      "records": "Large-scale records processed and structured",
+      "patent": "Registered patent for natural data analysis"
+    },
+    "capabilities": {
+      "eyebrow": "Capabilities",
+      "title": "One engineering base, four capability areas",
+      "details": "View details",
+      "multimodal": {
+        "title": "Multimodal AI",
+        "subtitle": "Vision-language fusion and physics-informed modeling",
+        "description": "Computer vision, image generation, document understanding, and structured signals are combined for industrial AI workflows."
+      },
+      "knowledge": {
+        "title": "Knowledge AI",
+        "subtitle": "Agentic AI and document intelligence",
+        "description": "Technical documents and structured datasets are converted into searchable knowledge, grounded summaries, and report-ready insights."
+      },
+      "hpc": {
+        "title": "HPC & Optimization",
+        "subtitle": "Hybrid computing and large-scale data pipelines",
+        "description": "Large datasets, GPU workloads, and deployment pipelines are engineered as part of the product, not left as lab-only prototypes."
+      },
+      "signal": {
+        "title": "Signal Intelligence",
+        "subtitle": "Configurable trend and risk discovery",
+        "description": "Text fields, dates, amounts, groups, and temporal signals are analyzed to reveal domain-specific momentum."
+      }
     }
-  },
-  "header": {
-    "download": "Download",
-    "login": "Log In",
-    "signup": "Sign Up"
-  },
-  "hero": {
-    "title_part1": "Insight into Essence,",
-    "title_part2": "Design for Value",
-    "subtitle": "MetaIntelligence solves problems facing humanity through deep insight and technology. We transplant practical intelligent solutions into industrial sites based on engineering excellence.",
-    "action_solutions": "View Solutions",
-    "action_tech": "Core Capabilities"
   },
   "introductionPage": {
     "title": "Company",

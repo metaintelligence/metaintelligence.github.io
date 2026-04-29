@@ -1,61 +1,156 @@
 {
+  "site": {
+    "description": "MetaIntelligence는 문제의 구조를 먼저 밝히고, 현장에서 검증 가능한 First-Principle AI 소프트웨어로 전환합니다."
+  },
+  "language": {
+    "label": "언어",
+    "ko": "한국어",
+    "en": "English"
+  },
   "nav": {
     "company": {
-      "title": "Company",
+      "title": "회사",
       "submenu": {
-        "identity": "Identity",
-        "history": "Milestones",
-        "culture": "Operating Principles"
-      }
-    },
-    "technology": {
-      "title": "Technology",
-      "submenu": {
-        "philosophy": "Technology Philosophy",
-        "core_tech": "Core Capabilities",
-        "csaic_team": "CSAIC Team"
+        "identity": "정체성",
+        "history": "연혁",
+        "csaicTeam": "CSAIC 팀",
+        "culture": "운영 원칙"
       }
     },
     "solutions": {
-      "title": "Solutions",
+      "title": "솔루션",
       "submenu": {
+        "overview": "전체 보기",
         "mvi": "MVI",
         "metainsight": "MetaInsight",
         "diana": "DIANA",
-        "strategy": "Strategy"
+        "strategy": "전략"
+      }
+    },
+    "technology": {
+      "title": "기술",
+      "submenu": {
+        "coreTech": "기술 역량",
+        "philosophy": "기술 철학",
+        "research": "연구 & IP"
+      }
+    },
+    "trackRecord": "주요 실적",
+    "contact": "문의"
+  },
+  "footer": {
+    "sections": {
+      "solutions": "솔루션",
+      "company": "회사",
+      "technology": "기술",
+      "contact": "문의"
+    },
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "location": "대구, 대한민국"
+  },
+  "home": {
+    "notice": "Website Update in Progress",
+    "hero": {
+      "eyebrow": "FIRST-PRINCIPLE AI",
+      "titleLine1": "Insight into Essence,",
+      "titleLine2": "Design for Value",
+      "description": "MetaIntelligence는 문제의 구조를 먼저 밝히고, 검증 가능한 AI 소프트웨어로 전환합니다. 제조 비전 검사, 문서·지식 분석, 의사결정 지원을 하나의 엔지니어링 원칙으로 설계합니다."
+    },
+    "chips": {
+      "signal": "Signal Intelligence",
+      "vision": "Vision AI",
+      "agentic": "Agentic AI"
+    },
+    "actions": {
+      "solutions": "솔루션 보기",
+      "technology": "기술 역량"
+    },
+    "solutions": {
+      "open": "자세히 보기",
+      "mvi": {
+        "domain": "제조 비전 AI",
+        "fullName": "Meta Vision AI"
+      },
+      "metainsight": {
+        "domain": "문서·지식 분석 AI",
+        "fullName": "근거 기반 문서·지식 워크플로우"
+      },
+      "diana": {
+        "domain": "의사결정 인텔리전스",
+        "fullName": "Domain Intelligence Agent"
+      }
+    },
+    "method": {
+      "label": "Method",
+      "structure": {
+        "title": "구조화",
+        "description": "도메인, 데이터, 운영 제약을 먼저 정리합니다."
+      },
+      "analyze": {
+        "title": "분석",
+        "description": "기록을 군집화하고, 신호를 점수화하며, 근거를 검색합니다."
+      },
+      "verify": {
+        "title": "검증",
+        "description": "출력을 출처, 계산, 검토 흐름에 연결합니다."
+      }
+    },
+    "glance": {
+      "eyebrow": "At a Glance",
+      "title": "검토 가능한 출력으로 이어지는 집중형 AI 시스템",
+      "description": "메인 페이지는 핵심 방향과 진입점을 압축해 보여주고, 상세 정보는 각 솔루션과 기술 페이지에서 확인할 수 있도록 정리합니다."
+    },
+    "stats": {
+      "founded": "소프트웨어 및 AI 기업으로 설립",
+      "execution": "공공 R&D 분석 과제 연속 수행",
+      "records": "대규모 기록 처리 및 구조화",
+      "patent": "자연 데이터 분석 등록 특허"
+    },
+    "capabilities": {
+      "eyebrow": "Capabilities",
+      "title": "하나의 엔지니어링 기반, 네 가지 기술 역량",
+      "details": "자세히 보기",
+      "multimodal": {
+        "title": "멀티모달 AI",
+        "subtitle": "비전-언어 융합과 물리 기반 모델링",
+        "description": "컴퓨터 비전, 이미지 생성, 문서 이해, 구조화 신호를 산업 AI 워크플로우로 결합합니다."
+      },
+      "knowledge": {
+        "title": "지식 AI",
+        "subtitle": "Agentic AI와 문서 인텔리전스",
+        "description": "기술 문서와 구조화 데이터를 검색 가능한 지식, 근거 기반 요약, 보고서 수준의 인사이트로 전환합니다."
+      },
+      "hpc": {
+        "title": "HPC & 최적화",
+        "subtitle": "하이브리드 컴퓨팅과 대규모 데이터 파이프라인",
+        "description": "대규모 데이터셋, GPU 워크로드, 배포 파이프라인을 제품의 일부로 설계합니다."
+      },
+      "signal": {
+        "title": "Signal Intelligence",
+        "subtitle": "구성 가능한 트렌드와 리스크 탐색",
+        "description": "텍스트, 날짜, 금액, 그룹, 시간 신호를 분석해 도메인별 움직임을 드러냅니다."
       }
     }
   },
-  "header": {
-    "download": "Download",
-    "login": "Log In",
-    "signup": "Sign Up"
-  },
-  "hero": {
-    "title_part1": "본질을 통찰하고,",
-    "title_part2": "가치를 설계하다",
-    "subtitle": "MetaIntelligence는 깊은 통찰과 기술력을 통해 인류가 마주한 문제를 해결합니다. 공학적 완성도를 바탕으로 산업 현장에 실질적인 지능형 솔루션을 이식합니다.",
-    "action_solutions": "솔루션 보기",
-    "action_tech": "Core Capabilities"
-  },
   "introductionPage": {
-    "title": "Company",
+    "title": "회사",
     "hero": {
       "tagline": "MetaIntelligence",
-      "title": "First-principle AI, built for reliable deployment",
-      "subtitle": "Verification-driven AI for manufacturing, signal intelligence, and data analytics."
+      "title": "신뢰 가능한 배포를 위한 First-Principle AI",
+      "subtitle": "제조, 신호 분석, 데이터 분석을 위한 검증 중심 AI입니다."
     },
     "identity": {
-      "title": "Identity",
-      "content": "MetaIntelligence builds software that identifies the structure of hard problems and turns it into reliable AI products."
+      "title": "정체성",
+      "content": "MetaIntelligence는 어려운 문제의 구조를 파악하고 이를 신뢰 가능한 AI 제품으로 전환하는 소프트웨어를 만듭니다."
     },
     "mission": {
-      "title": "Mission",
-      "content": "To deliver AI systems whose outputs can be verified, operated, and trusted in real industrial and research environments."
+      "title": "미션",
+      "content": "실제 산업과 연구 환경에서 검증하고 운영하며 신뢰할 수 있는 AI 시스템을 제공합니다."
     },
     "slogan": {
-      "title": "Slogan",
-      "content": "본질을 통찰하고, 가치를 설계하다"
+      "title": "슬로건",
+      "content": "Insight into Essence, Design for Value"
     }
   }
 }

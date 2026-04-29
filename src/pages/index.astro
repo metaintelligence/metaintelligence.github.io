@@ -2,21 +2,21 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
-import { capabilities, company, mainStats, solutions } from '~/data/site';
+import { capabilities, mainStats, solutions } from '~/data/site';
+import { createTranslator } from '~/utils/i18n';
 import { getPermalink } from '~/utils/permalinks';
+
+const t = createTranslator();
 
 const metadata = {
   title: 'MetaIntelligence - Insight into Essence, Design for Value',
   ignoreTitleTemplate: true,
-  description:
-    'MetaIntelligence builds First-Principle AI software for domain signal intelligence, manufacturing vision inspection, and source-grounded knowledge workflows.',
+  description: t('site.description'),
 };
 
-const heroMethod = [
-  ['01', 'Structure', 'Frame the domain, data, and operating constraints.'],
-  ['02', 'Analyze', 'Cluster records, score signals, and retrieve evidence.'],
-  ['03', 'Verify', 'Keep outputs tied to sources, checks, and review loops.'],
-];
+const heroMethodKeys = ['structure', 'analyze', 'verify'];
+const mainStatKeys = ['founded', 'execution', 'records', 'patent'];
+const capabilityKeys = ['multimodal', 'knowledge', 'hpc', 'signal'];
 ---
 
 <Layout metadata={metadata}>
@@ -26,29 +26,41 @@ const heroMethod = [
         class="flex items-center gap-3 border border-cyan-200 bg-cyan-50 px-4 py-3 text-sm font-bold text-cyan-950 shadow-sm shadow-cyan-950/5 dark:border-cyan-900/70 dark:bg-cyan-950/45 dark:text-cyan-100"
       >
         <span class="h-2.5 w-2.5 shrink-0 bg-cyan-600 dark:bg-cyan-300"></span>
-        <span class="uppercase tracking-[0.16em]">Website Update in Progress</span>
+        <span class="uppercase tracking-[0.16em]" data-i18n-key="home.notice">{t('home.notice')}</span>
       </div>
     </div>
 
     <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
-          First-Principle AI
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300"
+          data-i18n-key="home.hero.eyebrow"
+        >
+          {t('home.hero.eyebrow')}
         </p>
         <h1
           class="mt-5 max-w-5xl text-4xl font-bold leading-tight tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl"
         >
-          Insight into Essence,<br class="hidden md:block" />
-          Design for Value
+          <span data-i18n-key="home.hero.titleLine1">{t('home.hero.titleLine1')}</span><br class="hidden md:block" />
+          <span data-i18n-key="home.hero.titleLine2">{t('home.hero.titleLine2')}</span>
         </h1>
-        <p class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl">
-          {company.shortDescription}
+        <p
+          class="mt-7 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300 sm:text-xl"
+          data-i18n-key="home.hero.description"
+        >
+          {t('home.hero.description')}
         </p>
 
         <div class="mt-8 flex flex-wrap gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Signal Intelligence</span>
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Vision AI</span>
-          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800">Agentic AI</span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.signal">
+            {t('home.chips.signal')}
+          </span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.vision">
+            {t('home.chips.vision')}
+          </span>
+          <span class="border border-slate-200 px-3 py-2 dark:border-slate-800" data-i18n-key="home.chips.agentic">
+            {t('home.chips.agentic')}
+          </span>
         </div>
 
         <div class="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -56,14 +68,14 @@ const heroMethod = [
             href={getPermalink('/solutions')}
             class="inline-flex items-center justify-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-cyan-50"
           >
-            View Solutions
+            <span data-i18n-key="home.actions.solutions">{t('home.actions.solutions')}</span>
             <Icon name="tabler:arrow-right" class="h-4 w-4" />
           </a>
           <a
             href={getPermalink('/tech/core-tech')}
             class="inline-flex items-center justify-center gap-2 border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:border-cyan-500 hover:text-cyan-700 dark:border-slate-700 dark:text-white dark:hover:border-cyan-300 dark:hover:text-cyan-200"
           >
-            Technology Capabilities
+            <span data-i18n-key="home.actions.technology">{t('home.actions.technology')}</span>
           </a>
         </div>
       </div>
@@ -73,36 +85,59 @@ const heroMethod = [
       >
         <div class="grid gap-3 md:grid-cols-3">
           {
-            solutions.map((solution) => (
-              <a
-                href={getPermalink(solution.href)}
-                class="group border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
-              >
-                <Icon name={solution.icon} class="h-7 w-7 text-cyan-200" />
-                <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-400">{solution.domain}</p>
-                <h2 class="mt-2 text-2xl font-bold">{solution.name}</h2>
-                <p class="mt-3 text-sm leading-relaxed text-slate-300">{solution.fullName}</p>
-                <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
-                  Open
-                  <Icon
-                    name="tabler:arrow-up-right"
-                    class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </span>
-              </a>
-            ))
+            solutions.map((solution) => {
+              const solutionKey = solution.name.toLowerCase();
+
+              return (
+                <a
+                  href={getPermalink(solution.href)}
+                  class="group border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
+                >
+                  <Icon name={solution.icon} class="h-7 w-7 text-cyan-200" />
+                  <p
+                    class="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-400"
+                    data-i18n-key={`home.solutions.${solutionKey}.domain`}
+                  >
+                    {t(`home.solutions.${solutionKey}.domain`)}
+                  </p>
+                  <h2 class="mt-2 text-2xl font-bold">{solution.name}</h2>
+                  <p
+                    class="mt-3 text-sm leading-relaxed text-slate-300"
+                    data-i18n-key={`home.solutions.${solutionKey}.fullName`}
+                  >
+                    {t(`home.solutions.${solutionKey}.fullName`)}
+                  </p>
+                  <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
+                    <span data-i18n-key="home.solutions.open">{t('home.solutions.open')}</span>
+                    <Icon
+                      name="tabler:arrow-up-right"
+                      class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </span>
+                </a>
+              );
+            })
           }
         </div>
 
         <div class="mt-4 border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Method</p>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200" data-i18n-key="home.method.label">
+            {t('home.method.label')}
+          </p>
           <div class="mt-4 grid gap-3 md:grid-cols-3">
             {
-              heroMethod.map(([step, title, description]) => (
+              heroMethodKeys.map((methodKey, index) => (
                 <article class="border border-white/10 bg-slate-950 p-4 text-white">
-                  <span class="text-xl font-bold text-cyan-200">{step}</span>
-                  <h3 class="mt-2 font-bold">{title}</h3>
-                  <p class="mt-2 text-xs leading-relaxed text-slate-300">{description}</p>
+                  <span class="text-xl font-bold text-cyan-200">{String(index + 1).padStart(2, '0')}</span>
+                  <h3 class="mt-2 font-bold" data-i18n-key={`home.method.${methodKey}.title`}>
+                    {t(`home.method.${methodKey}.title`)}
+                  </h3>
+                  <p
+                    class="mt-2 text-xs leading-relaxed text-slate-300"
+                    data-i18n-key={`home.method.${methodKey}.description`}
+                  >
+                    {t(`home.method.${methodKey}.description`)}
+                  </p>
                 </article>
               ))
             }
@@ -115,25 +150,37 @@ const heroMethod = [
   <section class="not-prose border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
     <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
       <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">At a Glance</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
-          Focused AI systems with reviewable outputs
+        <p
+          class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
+          data-i18n-key="home.glance.eyebrow"
+        >
+          {t('home.glance.eyebrow')}
+        </p>
+        <h2
+          class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white"
+          data-i18n-key="home.glance.title"
+        >
+          {t('home.glance.title')}
         </h2>
-        <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
-          The homepage now points to the detailed pages instead of repeating them. Core facts and capability areas are
-          kept compact.
+        <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300" data-i18n-key="home.glance.description">
+          {t('home.glance.description')}
         </p>
       </div>
       <div
         class="grid gap-px border border-slate-200 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 sm:grid-cols-2 lg:grid-cols-4"
       >
         {
-          mainStats.map((item) => (
+          mainStats.map((item, index) => (
             <div class="bg-slate-50 p-5 dark:bg-slate-900">
               <strong class="block text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
                 {item.value}
               </strong>
-              <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.label}</span>
+              <span
+                class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                data-i18n-key={`home.stats.${mainStatKeys[index]}`}
+              >
+                {t(`home.stats.${mainStatKeys[index]}`)}
+              </span>
             </div>
           ))
         }
@@ -145,30 +192,57 @@ const heroMethod = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div class="max-w-2xl">
-          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Capabilities</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
-            One engineering base, four capability areas
+          <p
+            class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300"
+            data-i18n-key="home.capabilities.eyebrow"
+          >
+            {t('home.capabilities.eyebrow')}
+          </p>
+          <h2
+            class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white"
+            data-i18n-key="home.capabilities.title"
+          >
+            {t('home.capabilities.title')}
           </h2>
         </div>
         <a
           href={getPermalink('/tech/core-tech')}
           class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300"
         >
-          View details
+          <span data-i18n-key="home.capabilities.details">{t('home.capabilities.details')}</span>
           <Icon name="tabler:arrow-right" class="h-4 w-4" />
         </a>
       </div>
 
       <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {
-          capabilities.map((item) => (
-            <article class="border border-slate-200 p-5 dark:border-slate-800">
-              <Icon name={item.icon} class="h-7 w-7 text-cyan-700 dark:text-cyan-300" />
-              <h3 class="mt-4 text-lg font-bold text-slate-950 dark:text-white">{item.title}</h3>
-              <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">{item.subtitle}</p>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
-            </article>
-          ))
+          capabilities.map((item, index) => {
+            const capabilityKey = capabilityKeys[index];
+
+            return (
+              <article class="border border-slate-200 p-5 dark:border-slate-800">
+                <Icon name={item.icon} class="h-7 w-7 text-cyan-700 dark:text-cyan-300" />
+                <h3
+                  class="mt-4 text-lg font-bold text-slate-950 dark:text-white"
+                  data-i18n-key={`home.capabilities.${capabilityKey}.title`}
+                >
+                  {t(`home.capabilities.${capabilityKey}.title`)}
+                </h3>
+                <p
+                  class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400"
+                  data-i18n-key={`home.capabilities.${capabilityKey}.subtitle`}
+                >
+                  {t(`home.capabilities.${capabilityKey}.subtitle`)}
+                </p>
+                <p
+                  class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+                  data-i18n-key={`home.capabilities.${capabilityKey}.description`}
+                >
+                  {t(`home.capabilities.${capabilityKey}.description`)}
+                </p>
+              </article>
+            );
+          })
         }
       </div>
     </div>

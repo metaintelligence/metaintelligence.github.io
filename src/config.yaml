@@ -11,7 +11,7 @@ metadata:
   title:
     default: MetaIntelligence
     template: '%s | MetaIntelligence'
-  description: 'MetaIntelligence builds First-Principle AI software for domain signal intelligence, manufacturing vision inspection, and source-grounded knowledge workflows.'
+  description: 'MetaIntelligence는 문제의 구조를 먼저 밝히고, 현장에서 검증 가능한 First-Principle AI 소프트웨어로 전환합니다.'
   robots:
     index: true
     follow: true
@@ -28,7 +28,7 @@ metadata:
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: ko
   textDirection: ltr
 
 apps:
