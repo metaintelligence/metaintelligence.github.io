@@ -2,10 +2,8 @@
 import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
-import { capabilities, company, mainStats, principles, solutions, trackRecords } from '~/data/site';
+import { capabilities, company, mainStats, solutions } from '~/data/site';
 import { getPermalink } from '~/utils/permalinks';
-
-import overviewScreen from '~/assets/images/ida/ida_result_overview.png';
 
 const metadata = {
   title: 'MetaIntelligence - Insight into Essence, Design for Value',
@@ -15,28 +13,14 @@ const metadata = {
 };
 
 const heroMethod = [
-  ['01', 'Structure First', 'Define the domain, data fields, constraints, and operating goal before model selection.'],
-  ['02', 'Signal Engine', 'Cluster records, evaluate momentum, and expose quantitative evidence for review.'],
-  ['03', 'Verified Output', 'Keep insights connected to sources, calculations, and human review loops.'],
-];
-
-const operatingDiagram = [
-  ['Problem Frame', 'Physical, statistical, or operational structure'],
-  ['Evidence Core', 'Source records, metrics, thresholds, and review context'],
-  ['AI Layer', 'Vision models, signal scoring, retrieval, and drafting agents'],
-  ['Operating Fit', 'Deployment constraints, feedback, and repeatable workflow'],
-];
-
-const dianaLoop = [
-  ['Plan', 'Break the request into domain-specific analysis steps.'],
-  ['Retrieve', 'Attach relevant records, documents, and source identifiers.'],
-  ['Check', 'Separate calculations and consistency checks from generation.'],
-  ['Draft', 'Produce reviewable briefs, notes, or report sections.'],
+  ['01', 'Structure', 'Frame the domain, data, and operating constraints.'],
+  ['02', 'Analyze', 'Cluster records, score signals, and retrieve evidence.'],
+  ['03', 'Verify', 'Keep outputs tied to sources, checks, and review loops.'],
 ];
 ---
 
 <Layout metadata={metadata}>
-  <section class="not-prose overflow-hidden bg-white dark:bg-slate-950">
+  <section class="not-prose bg-white dark:bg-slate-950">
     <div class="mx-auto max-w-7xl px-4 pt-4 sm:px-6">
       <div
         class="flex items-center gap-3 border border-cyan-200 bg-cyan-50 px-4 py-3 text-sm font-bold text-cyan-950 shadow-sm shadow-cyan-950/5 dark:border-cyan-900/70 dark:bg-cyan-950/45 dark:text-cyan-100"
@@ -46,9 +30,7 @@ const dianaLoop = [
       </div>
     </div>
 
-    <div
-      class="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-20"
-    >
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
           First-Principle AI
@@ -87,20 +69,20 @@ const dianaLoop = [
       </div>
 
       <div
-        class="border border-slate-200 bg-slate-950 p-4 shadow-2xl shadow-slate-200/70 dark:border-slate-800 dark:shadow-none"
+        class="border border-slate-200 bg-slate-950 p-4 shadow-xl shadow-slate-200/70 dark:border-slate-800 dark:shadow-none"
       >
         <div class="grid gap-3 md:grid-cols-3">
           {
             solutions.map((solution) => (
               <a
                 href={getPermalink(solution.href)}
-                class="group min-h-[220px] border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
+                class="group border border-white/10 bg-white/[0.04] p-5 text-white transition hover:border-cyan-300 hover:bg-white/[0.08]"
               >
-                <Icon name={solution.icon} class="h-8 w-8 text-cyan-200" />
-                <p class="mt-6 text-xs font-semibold uppercase tracking-wide text-slate-400">{solution.domain}</p>
+                <Icon name={solution.icon} class="h-7 w-7 text-cyan-200" />
+                <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-slate-400">{solution.domain}</p>
                 <h2 class="mt-2 text-2xl font-bold">{solution.name}</h2>
                 <p class="mt-3 text-sm leading-relaxed text-slate-300">{solution.fullName}</p>
-                <span class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
+                <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
                   Open
                   <Icon
                     name="tabler:arrow-up-right"
@@ -111,14 +93,15 @@ const dianaLoop = [
             ))
           }
         </div>
+
         <div class="mt-4 border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Operating Method</p>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">Method</p>
           <div class="mt-4 grid gap-3 md:grid-cols-3">
             {
               heroMethod.map(([step, title, description]) => (
                 <article class="border border-white/10 bg-slate-950 p-4 text-white">
-                  <span class="text-2xl font-bold text-cyan-200">{step}</span>
-                  <h3 class="mt-3 font-bold">{title}</h3>
+                  <span class="text-xl font-bold text-cyan-200">{step}</span>
+                  <h3 class="mt-2 font-bold">{title}</h3>
                   <p class="mt-2 text-xs leading-relaxed text-slate-300">{description}</p>
                 </article>
               ))
@@ -130,204 +113,63 @@ const dianaLoop = [
   </section>
 
   <section class="not-prose border-y border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
-    <div class="mx-auto grid max-w-7xl gap-px px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-      {
-        mainStats.map((item) => (
-          <div class="border-slate-200 bg-slate-50 py-5 sm:px-5 lg:border-l first:lg:border-l-0 dark:border-slate-800 dark:bg-slate-900">
-            <strong class="block text-2xl font-bold tracking-tight text-slate-950 dark:text-white">{item.value}</strong>
-            <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.label}</span>
-          </div>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Solutions</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          One company architecture, three public product lines
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">At a Glance</p>
+        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
+          Focused AI systems with reviewable outputs
         </h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          The portfolio spans signal intelligence, vision inspection, and agentic workflows. MVI, MetaInsight, and DIANA
-          each expose a different workflow built from the same verification-driven engineering base.
+        <p class="mt-4 leading-relaxed text-slate-600 dark:text-slate-300">
+          The homepage now points to the detailed pages instead of repeating them. Core facts and capability areas are
+          kept compact.
         </p>
       </div>
-
-      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+      <div
+        class="grid gap-px border border-slate-200 bg-slate-200 dark:border-slate-800 dark:bg-slate-800 sm:grid-cols-2 lg:grid-cols-4"
+      >
         {
-          solutions.map((solution) => (
-            <a
-              href={getPermalink(solution.href)}
-              class="group flex min-h-[330px] flex-col border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl hover:shadow-slate-200/70 dark:border-slate-800 dark:bg-slate-950 dark:hover:border-cyan-500 dark:hover:shadow-none"
-            >
-              <div class="flex h-12 w-12 items-center justify-center bg-slate-100 text-cyan-700 dark:bg-slate-900 dark:text-cyan-300">
-                <Icon name={solution.icon} class="h-7 w-7" />
-              </div>
-              <p class="mt-7 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                {solution.domain}
-              </p>
-              <h3 class="mt-2 text-2xl font-bold text-slate-950 dark:text-white">{solution.name}</h3>
-              <p class="mt-3 leading-relaxed text-slate-600 dark:text-slate-300">{solution.summary}</p>
-              <p class="mt-4 grow text-sm leading-relaxed text-slate-500 dark:text-slate-400">{solution.detail}</p>
-              <span class="mt-6 inline-flex items-center gap-2 border-t border-slate-200 pt-4 text-sm font-semibold text-cyan-700 dark:border-slate-800 dark:text-cyan-300">
-                Learn more
-                <Icon name="tabler:arrow-right" class="h-4 w-4 transition group-hover:translate-x-1" />
-              </span>
-            </a>
+          mainStats.map((item) => (
+            <div class="bg-slate-50 p-5 dark:bg-slate-900">
+              <strong class="block text-2xl font-bold tracking-tight text-slate-950 dark:text-white">
+                {item.value}
+              </strong>
+              <span class="mt-2 block text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.label}</span>
+            </div>
           ))
         }
       </div>
     </div>
   </section>
 
-  <section class="not-prose bg-slate-950 py-16 text-white md:py-24">
-    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
-      <div>
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-200">Operating Principles</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">A restrained operating frame for AI systems</h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-300">
-          Public copy now follows the company source material: first-principle modeling, verification before trust, and
-          architecture that fits the customer environment.
-        </p>
-        <div class="mt-8 space-y-3">
-          {
-            principles.map((item) => (
-              <article class="border border-white/10 bg-white/[0.03] p-5">
-                <Icon name={item.icon} class="h-6 w-6 text-cyan-200" />
-                <h3 class="mt-3 font-bold">{item.title}</h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-300">{item.description}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-      <div class="border border-white/10 bg-white/[0.03] p-5">
-        <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">System Frame</p>
-        <div class="mt-5 grid gap-3">
-          {
-            operatingDiagram.map(([title, description], index) => (
-              <article class="grid gap-4 border border-white/10 bg-slate-950 p-5 sm:grid-cols-[72px_1fr]">
-                <div class="text-3xl font-bold text-cyan-200">{String(index + 1).padStart(2, '0')}</div>
-                <div>
-                  <h3 class="font-bold text-white">{title}</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-slate-300">{description}</p>
-                </div>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
+  <section class="not-prose bg-white py-12 dark:bg-slate-950 md:py-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Evidence Workflow</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-            From large datasets to inspectable outputs
+      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div class="max-w-2xl">
+          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Capabilities</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
+            One engineering base, four capability areas
           </h2>
-          <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            MetaInsight works on configurable domain datasets: text fields, dates, amounts, groups, and record IDs are
-            turned into clusters, signal scores, and evidence-grounded outputs. DIANA extends the same foundation into
-            guided document and knowledge workflows.
-          </p>
-          <a
-            href={getPermalink('/solutions/metainsight')}
-            class="mt-8 inline-flex items-center gap-2 bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950"
-          >
-            Explore MetaInsight
-            <Icon name="tabler:arrow-right" class="h-4 w-4" />
-          </a>
         </div>
-        <div class="grid gap-5 md:grid-cols-2">
-          <figure class="border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-950">
-            <img
-              src={overviewScreen.src}
-              width={overviewScreen.width}
-              height={overviewScreen.height}
-              alt="MetaInsight analytics overview screen"
-              class="aspect-[16/10] w-full object-cover object-top"
-              loading="lazy"
-            />
-            <figcaption
-              class="border-t border-slate-200 p-4 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:text-slate-200"
-            >
-              MetaInsight signal analytics screen
-            </figcaption>
-          </figure>
-          <div class="border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
-            <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">DIANA agent loop</p>
-            <div class="mt-4 grid gap-3">
-              {
-                dianaLoop.map(([title, description], index) => (
-                  <article class="border border-slate-200 p-4 dark:border-slate-800">
-                    <p class="text-xs font-bold text-cyan-700 dark:text-cyan-300">
-                      {String(index + 1).padStart(2, '0')}
-                    </p>
-                    <h3 class="mt-2 font-bold text-slate-950 dark:text-white">{title}</h3>
-                    <p class="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{description}</p>
-                  </article>
-                ))
-              }
-            </div>
-          </div>
-        </div>
+        <a
+          href={getPermalink('/tech/core-tech')}
+          class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300"
+        >
+          View details
+          <Icon name="tabler:arrow-right" class="h-4 w-4" />
+        </a>
       </div>
-    </div>
-  </section>
 
-  <section class="not-prose bg-white py-16 dark:bg-slate-950 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="max-w-3xl">
-        <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Capabilities</p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-          Four capability pillars, one product architecture
-        </h2>
-      </div>
-      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {
           capabilities.map((item) => (
-            <article class="border border-slate-200 p-6 dark:border-slate-800">
-              <Icon name={item.icon} class="h-8 w-8 text-cyan-700 dark:text-cyan-300" />
-              <h3 class="mt-5 text-xl font-bold text-slate-950 dark:text-white">{item.title}</h3>
+            <article class="border border-slate-200 p-5 dark:border-slate-800">
+              <Icon name={item.icon} class="h-7 w-7 text-cyan-700 dark:text-cyan-300" />
+              <h3 class="mt-4 text-lg font-bold text-slate-950 dark:text-white">{item.title}</h3>
               <p class="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">{item.subtitle}</p>
-              <p class="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
             </article>
           ))
         }
-      </div>
-    </div>
-  </section>
-
-  <section class="not-prose bg-slate-50 py-16 dark:bg-slate-900 md:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <p class="text-sm font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">Evidence</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-5xl">
-            A track record grounded in repeated execution
-          </h2>
-          <p class="mt-5 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-            Public R&D analytics, registered IP, and applied product work form the base for the current portfolio.
-          </p>
-        </div>
-        <div class="space-y-4">
-          {
-            trackRecords.slice(0, 4).map((item) => (
-              <article class="grid gap-4 border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950 sm:grid-cols-[120px_1fr]">
-                <div class="font-bold text-cyan-700 dark:text-cyan-300">{item.year}</div>
-                <div>
-                  <h3 class="font-bold text-slate-950 dark:text-white">{item.title}</h3>
-                  <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{item.description}</p>
-                </div>
-              </article>
-            ))
-          }
-        </div>
       </div>
     </div>
   </section>
