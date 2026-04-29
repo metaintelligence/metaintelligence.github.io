@@ -1,0 +1,47 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Tech Insight — MetaIntelligence',
+  description: 'AI · Vision · HPC를 둘러싼 기술 이야기. MetaIntelligence 엔지니어들이 직접 기록합니다.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero2
+    tagline="Insights"
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Tech Insight',
+    }}
+  >
+    <Fragment slot="title">Tech Insight</Fragment>
+    <Fragment slot="subtitle">
+      Multimodal AI, Physics-Informed Modeling, On-device Optimization — 기술의 표면 너머 본질을 짚는 엔지니어링
+      에세이를 전합니다. 프로덕션에서 검증된 경험만을 기록합니다.
+    </Fragment>
+  </Hero2>
+
+  <BlogLatestPosts
+    title="기술 블로그"
+    information="문제의 본질을 어떻게 분해하고, 어떤 트레이드오프 위에서 결정을 내렸는지 솔직하게 공유합니다."
+    category="tech-insight"
+    count={6}
+    emptyMessage="첫 번째 기술 글을 다듬고 있습니다. 출시되는 대로 이곳에서 가장 먼저 만나보실 수 있습니다."
+  />
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: '기술 문의', href: '/contact', icon: 'tabler:mail' },
+    ]}
+  >
+    <Fragment slot="title">함께 풀어볼 문제가 있으신가요?</Fragment>
+    <Fragment slot="subtitle">
+      벤치마크에 갇히지 않은, 실제 운영 환경에서 작동하는 기술을 함께 만들어 갑니다.
+    </Fragment>
+  </CallToAction>
+</Layout>

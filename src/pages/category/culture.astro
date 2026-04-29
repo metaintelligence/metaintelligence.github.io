@@ -1,0 +1,47 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Culture & People — MetaIntelligence',
+  description: 'MetaIntelligence는 어떻게 일하는가. 사람과 문화에 대한 솔직한 기록.',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero2
+    tagline="Insights"
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Culture and People',
+    }}
+  >
+    <Fragment slot="title">Culture & People</Fragment>
+    <Fragment slot="subtitle">
+      통찰 · 유연함 · 실용. 세 가지 핵심 가치 위에서 우리는 어떻게 일하고, 어떻게 성장하는가. 동료들의 시선과 일상
+      이야기를 담습니다.
+    </Fragment>
+  </Hero2>
+
+  <BlogLatestPosts
+    title="우리의 이야기"
+    information="입사기, 협업 방식, 프로젝트 회고 등 사람 중심의 기록을 전해드립니다."
+    category="culture"
+    count={6}
+    emptyMessage="동료들의 첫 번째 이야기를 정리하고 있습니다. 곧 이 자리에서 만나보실 수 있습니다."
+  />
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: '함께 일하기', href: '/contact', icon: 'tabler:users' },
+    ]}
+  >
+    <Fragment slot="title">같은 본질을 보는 동료를 찾습니다</Fragment>
+    <Fragment slot="subtitle">
+      가장 단단한 엔지니어링과 가장 따뜻한 협업이 만나는 곳. 채용 정보를 곧 업데이트합니다.
+    </Fragment>
+  </CallToAction>
+</Layout>

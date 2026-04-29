@@ -166,11 +166,18 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 };
 
 /** */
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
+export const findLatestPosts = async ({
+  count,
+  category,
+}: {
+  count?: number;
+  category?: string;
+} = {}): Promise<Array<Post>> => {
   const _count = count || 4;
   const posts = await fetchPosts();
+  const filtered = category ? posts.filter((p) => p.category?.slug === category) : posts;
 
-  return posts ? posts.slice(0, _count) : [];
+  return filtered ? filtered.slice(0, _count) : [];
 };
 
 /** */
