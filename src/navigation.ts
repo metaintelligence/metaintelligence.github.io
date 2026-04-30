@@ -85,58 +85,55 @@ export const headerData = {
   ],
   actions: [],
 };
+// Footer sitemap mirrors the header navigation structure with English-only
+// labels. The header swaps between ko/en via the i18n toggle, but the footer
+// stays in English to match common corporate-site conventions. To switch to
+// a contact-centric footer later, replace this array; the Footer component
+// itself can be reused without changes.
+const footerSitemap: Array<{ title: string; links: Array<{ text: string; href: string }> }> = [
+  {
+    title: 'Company',
+    links: [
+      { text: 'Identity & Values', href: getPermalink('/company/identity') },
+      { text: 'Mission & Milestone', href: getPermalink('/company/mission-history') },
+      { text: 'Work Culture', href: getPermalink('/company/culture') },
+    ],
+  },
+  {
+    title: 'Technology',
+    links: [
+      { text: 'Tech Philosophy', href: getPermalink('/tech/philosophy') },
+      { text: 'Core Capabilities', href: getPermalink('/tech/core-tech') },
+      { text: 'CSAIC Team', href: getPermalink('/tech/csaic-team') },
+    ],
+  },
+  {
+    title: 'Solutions',
+    links: [
+      { text: 'Business Strategy', href: getPermalink('/solutions/strategy') },
+      { text: 'OpenMV', href: getPermalink('/solutions/openmv') },
+      { text: 'Vision AI (MVI)', href: getPermalink('/solutions/mvi') },
+      { text: 'Document AI (IDA)', href: getPermalink('/solutions/ida') },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { text: 'Corporate News', href: getPermalink('corporate', 'category') },
+      { text: 'Case Studies', href: getPermalink('case-studies', 'category') },
+      { text: 'Tech Insight', href: getPermalink('tech-insight', 'category') },
+      { text: 'Culture & People', href: getPermalink('culture', 'category') },
+    ],
+  },
+];
+
 export const footerData = {
-  links: [
-    {
-      title: 'Product',
-      links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
-      ],
-    },
-    {
-      title: 'Platform',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
-      ],
-    },
-  ],
+  links: footerSitemap,
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
-  // 공식 채널 정비 후 다시 노출 예정. 필요할 때 아래 항목들을 socialLinks 배열로 옮기면 됩니다.
+  // Re-enable once official social channels are finalized; move desired entries into the socialLinks array.
   socialLinks: [
     // { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     // { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
