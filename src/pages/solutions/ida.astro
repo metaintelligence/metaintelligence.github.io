@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 
@@ -455,22 +454,6 @@ const operationItems = [
       </div>
     </div>
   </section>
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: '도입 문의',
-        href: '/contact',
-        icon: 'tabler:message-circle',
-      },
-    ]}
-  >
-    <Fragment slot="title">문서·레코드에서 실행 가능한 인사이트를 찾으세요.</Fragment>
-    <Fragment slot="subtitle">
-      IDA는 업로드, 클러스터링, 정량 평가, 인사이트 생성을 하나의 분석 흐름으로 제공합니다.
-    </Fragment>
-  </CallToAction>
 
   <script is:inline data-astro-rerun>
     (() => {

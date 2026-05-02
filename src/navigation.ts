@@ -61,27 +61,27 @@ export const headerData = {
         },
       ],
     },
-    {
-      text: resolveI18nPair('nav.resources.title') || 'Resources',
-      links: [
-        {
-          text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News',
-          href: getPermalink('corporate', 'category'),
-        },
-        {
-          text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies',
-          href: getPermalink('case-studies', 'category'),
-        },
-        {
-          text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight',
-          href: getPermalink('tech-insight', 'category'),
-        },
-        {
-          text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People',
-          href: getPermalink('culture', 'category'),
-        },
-      ],
-    },
+    // {
+    //   text: resolveI18nPair('nav.resources.title') || 'Resources',
+    //   links: [
+    //     {
+    //       text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News',
+    //       href: getPermalink('corporate', 'category'),
+    //     },
+    //     {
+    //       text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies',
+    //       href: getPermalink('case-studies', 'category'),
+    //     },
+    //     {
+    //       text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight',
+    //       href: getPermalink('tech-insight', 'category'),
+    //     },
+    //     {
+    //       text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People',
+    //       href: getPermalink('culture', 'category'),
+    //     },
+    //   ],
+    // },
   ],
   actions: [],
 };
@@ -116,15 +116,15 @@ const footerSitemap: Array<{ title: string; links: Array<{ text: string; href: s
       { text: 'Document AI (IDA)', href: getPermalink('/solutions/ida') },
     ],
   },
-  {
-    title: 'Resources',
-    links: [
-      { text: 'Corporate News', href: getPermalink('corporate', 'category') },
-      { text: 'Case Studies', href: getPermalink('case-studies', 'category') },
-      { text: 'Tech Insight', href: getPermalink('tech-insight', 'category') },
-      { text: 'Culture & People', href: getPermalink('culture', 'category') },
-    ],
-  },
+  // {
+  //   title: 'Resources',
+  //   links: [
+  //     { text: 'Corporate News', href: getPermalink('corporate', 'category') },
+  //     { text: 'Case Studies', href: getPermalink('case-studies', 'category') },
+  //     { text: 'Tech Insight', href: getPermalink('tech-insight', 'category') },
+  //     { text: 'Culture & People', href: getPermalink('culture', 'category') },
+  //   ],
+  // },
 ];
 
 export const footerData = {
@@ -140,7 +140,7 @@ export const footerData = {
     // { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     // { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
-  footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
-  `,
+  // footNote: `
+  //   Made by <a class="text-blue-600 underline dark:text-muted" href="https://github.com/arthelokyo"> Arthelokyo</a> · All rights reserved.
+  // `,
 };

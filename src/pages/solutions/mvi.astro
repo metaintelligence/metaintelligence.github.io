@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 
@@ -381,22 +380,6 @@ const initialDemo = demoItems[0];
       </div>
     </div>
   </section>
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: '도입 문의',
-        href: '/contact',
-        icon: 'tabler:message-circle',
-      },
-    ]}
-  >
-    <Fragment slot="title">제조 현장의 데이터 부족 문제를 MVI로 해결하세요.</Fragment>
-    <Fragment slot="subtitle">
-      소량 양품 데이터 기반 학습, GenAI 증강, 불량 유형 분류를 하나의 운용 흐름으로 제공합니다.
-    </Fragment>
-  </CallToAction>
 
   <script is:inline>
     const findDemoTriggerFromPoint = (root, clientX, clientY) => {

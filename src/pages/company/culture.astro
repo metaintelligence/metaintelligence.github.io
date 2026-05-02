@@ -5,7 +5,6 @@ import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 
@@ -104,17 +103,4 @@ const metadata = {
     ]}
   />
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Join the Team',
-        href: '/contact', // 혹은 채용 페이지 링크
-        icon: 'tabler:briefcase',
-      },
-    ]}
-  >
-    <Fragment slot="title"> Be a Builder </Fragment>
-    <Fragment slot="subtitle"> 최고의 동료들과 함께, 세상에 없던 가치를 설계하고 싶다면 지금 합류하세요. </Fragment>
-  </CallToAction>
 </Layout>
