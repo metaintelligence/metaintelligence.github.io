@@ -6,7 +6,6 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 
@@ -139,16 +138,4 @@ const metadata = {
     ]}
   />
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Partner with Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="title"> Join the AX 2035 Journey </Fragment>
-    <Fragment slot="subtitle"> MetaIntelligence와 함께 산업 지능화의 미래를 앞당기세요. </Fragment>
-  </CallToAction>
 </Layout>

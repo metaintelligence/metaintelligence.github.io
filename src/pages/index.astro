@@ -8,7 +8,6 @@ import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import Logo from '~/components/Logo.astro';
 import { getPermalink } from '~/utils/permalinks';
 import { resolveI18nPair } from '~/utils/i18n';
@@ -152,20 +151,4 @@ const metadata = {
     linkUrl={getPermalink('tech-insight', 'category')}
   />
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-        icon: 'tabler:mail',
-      },
-    ]}
-  >
-    <Fragment slot="title"> AX 2035: 산업 지능의 운영체제 </Fragment>
-    <Fragment slot="subtitle">
-      데이터가 흐르는 모든 산업 현장에 MetaIntelligence의 기술을 이식합니다. <br />
-      지금 바로 귀사의 문제를 본질부터 해결해 보세요.
-    </Fragment>
-  </CallToAction>
 </Layout>

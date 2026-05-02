@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -130,25 +129,4 @@ const metadata = {
     ]}
   />
 
-  <Steps2
-    id="contact"
-    title="함께 미래를 설계하세요"
-    subtitle="MetaIntelligence의 철학에 공감하신다면, 지금 바로 연락주세요."
-    callToAction={{
-      text: 'Contact Us',
-      href: '/contact',
-    }}
-    items={[
-      {
-        title: 'Email',
-        description: 'contact@metaintelligence.io',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: 'Seoul, Republic of Korea',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
 </Layout>

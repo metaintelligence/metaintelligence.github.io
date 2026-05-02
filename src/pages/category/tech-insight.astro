@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Tech Insight — MetaIntelligence',
@@ -34,10 +33,4 @@ const metadata = {
     emptyMessage="첫 번째 기술 글을 다듬고 있습니다. 출시되는 대로 이곳에서 가장 먼저 만나보실 수 있습니다."
   />
 
-  <CallToAction actions={[{ variant: 'primary', text: '기술 문의', href: '/contact', icon: 'tabler:mail' }]}>
-    <Fragment slot="title">함께 풀어볼 문제가 있으신가요?</Fragment>
-    <Fragment slot="subtitle">
-      벤치마크에 갇히지 않은, 실제 운영 환경에서 작동하는 기술을 함께 만들어 갑니다.
-    </Fragment>
-  </CallToAction>
 </Layout>

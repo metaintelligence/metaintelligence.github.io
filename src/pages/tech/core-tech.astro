@@ -4,7 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 
@@ -142,16 +141,4 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="title"> MetaIntelligence </Fragment>
-    <Fragment slot="subtitle"> 세계적 수준의 기술력으로 귀사의 문제를 해결할 준비가 되어 있습니다. </Fragment>
-  </CallToAction>
 </Layout>

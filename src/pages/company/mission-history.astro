@@ -5,7 +5,6 @@ import Header from '~/components/widgets/Header.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Steps from '~/components/widgets/Steps.astro'; // 타임라인용 위젯
 import Features3 from '~/components/widgets/Features3.astro'; // 미션 강조용 위젯
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import { headerData } from '~/navigation';
 import { I18N } from 'metaintelligence:config';
@@ -93,16 +92,4 @@ const historyItems = [
     }}
   />
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Contact Us',
-        href: '/contact',
-      },
-    ]}
-  >
-    <Fragment slot="title"> MetaIntelligence </Fragment>
-    <Fragment slot="subtitle"> 함께 더 큰 미래를 만들어갈 파트너를 기다립니다. </Fragment>
-  </CallToAction>
 </Layout>
