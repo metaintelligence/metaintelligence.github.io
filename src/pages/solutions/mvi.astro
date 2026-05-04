@@ -180,9 +180,7 @@ const initialDemo = demoItems[0];
               type="button"
               class:list={[
                 'group relative z-40 w-full cursor-pointer select-none overflow-hidden rounded-md border p-0 text-left transition bg-white dark:bg-slate-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary pointer-events-auto',
-                index === 0
-                  ? 'border-primary ring-1 ring-primary'
-                  : 'border-gray-200 dark:border-slate-700',
+                index === 0 ? 'border-primary ring-1 ring-primary' : 'border-gray-200 dark:border-slate-700',
               ]}
               data-demo-trigger
               data-demo-active={index === 0 ? 'true' : 'false'}
@@ -238,7 +236,9 @@ const initialDemo = demoItems[0];
             </div>
             <div class="min-w-0 flex-1">
               <h3 class="text-xl font-bold text-heading dark:text-white" data-demo-heading>{initialDemo.title}</h3>
-              <p class="mt-2 leading-relaxed text-muted dark:text-slate-400" data-demo-copy>{initialDemo.description}</p>
+              <p class="mt-2 leading-relaxed text-muted dark:text-slate-400" data-demo-copy>
+                {initialDemo.description}
+              </p>
             </div>
             <button
               type="button"
@@ -288,8 +288,8 @@ const initialDemo = demoItems[0];
     <Fragment slot="content">
       <p class="text-lg leading-relaxed text-muted dark:text-slate-400">
         MVI는 대화형 UI를 통해 증강, 학습, 검출, 분류 과정의 튜닝과 조율을 AI 에이전트가 대신 처리하는 방향으로
-        고도화됩니다. 운용자는 전문 파라미터를 직접 다루기보다 “검출 민감도를 높여줘”, “이 유형을 별도 불량군으로 묶어줘”
-        같은 자연어 요청으로 검사 품질을 개선할 수 있습니다.
+        고도화됩니다. 운용자는 전문 파라미터를 직접 다루기보다 “검출 민감도를 높여줘”, “이 유형을 별도 불량군으로
+        묶어줘” 같은 자연어 요청으로 검사 품질을 개선할 수 있습니다.
       </p>
     </Fragment>
   </Content>
