@@ -44,15 +44,38 @@ const styles = {
     <Content
       isReversed
       image={{
-        src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // CEO 사진 교체 필요
-        alt: 'Dr. Seongsoo Choi',
+        src: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        alt: '물리 · 우주 추상 이미지',
       }}
     >
       <Fragment slot="content">
         <div class="mb-10 border-b border-gray-200 dark:border-gray-700 pb-8">
           <span class="text-sm font-bold tracking-widest text-primary uppercase mb-3 block">CEO & Founder</span>
           <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
-            최성수 박사 <span class="text-2xl font-normal text-muted ml-2">(Ph.D. Seongsoo Choi)</span>
+            <a
+              href="https://seongsoochoi.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-baseline gap-2 hover:text-primary dark:hover:text-blue-400 transition-colors"
+            >
+              최성수 박사
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 self-center opacity-60"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+                <path d="M10 14l10 -10"></path>
+                <path d="M15 4l5 0l0 5"></path>
+              </svg>
+            </a>
+            <span class="text-2xl font-normal text-muted ml-2">(Ph.D. Seongsoo Choi)</span>
           </h2>
           <p class="text-xl text-muted dark:text-slate-400 font-medium mb-6">
             Ph.D. in Physics · Integrated AI Solution Architect
@@ -173,8 +196,8 @@ const styles = {
   <div class="py-12 md:py-24">
     <Content
       image={{
-        src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // 사진 교체 필요
-        alt: 'Dr. Mina Cheon',
+        src: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        alt: '언어 · NLP 추상 이미지',
       }}
     >
       <Fragment slot="content">
@@ -182,7 +205,31 @@ const styles = {
           <span class="text-sm font-bold tracking-widest text-purple-600 dark:text-purple-400 uppercase mb-3 block"
             >Co-Founder / AI Director</span
           >
-          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">천민아 박사</h2>
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
+            <a
+              href="https://minahcheon.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-baseline gap-2 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            >
+              천민아 박사
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 self-center opacity-60"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+                <path d="M10 14l10 -10"></path>
+                <path d="M15 4l5 0l0 5"></path>
+              </svg>
+            </a>
+          </h2>
           <p class="text-xl text-muted font-medium">AI(NLP) Ph.D. · LLM Specialist</p>
         </div>
 
@@ -276,8 +323,8 @@ const styles = {
     <Content
       isReversed
       image={{
-        src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', // 사진 교체 필요
-        alt: 'Director Woohyun Kim',
+        src: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        alt: '그래픽스 · 3D 렌더 추상 이미지',
       }}
     >
       <Fragment slot="content">
@@ -285,7 +332,31 @@ const styles = {
           <span class="text-sm font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase mb-3 block"
             >Director of SW Engineering</span
           >
-          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">김우현 이사</h2>
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
+            <a
+              href="https://artrointel.github.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-baseline gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              김우현 이사
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 self-center opacity-60"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path>
+                <path d="M10 14l10 -10"></path>
+                <path d="M15 4l5 0l0 5"></path>
+              </svg>
+            </a>
+          </h2>
           <p class="text-xl text-muted font-medium">Samsung Electronics MX Div. 10y · Framework/Graphics Specialist</p>
         </div>
 
