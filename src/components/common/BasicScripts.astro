@@ -81,7 +81,7 @@ import { UI } from 'metaintelligence:config';
       const next = current === 'ko' ? 'en' : 'ko';
       try {
         localStorage.setItem('lang', next);
-      } catch (e) {
+      } catch {
         // storage may be unavailable (private mode); selection still applies for this view
       }
       html.lang = next;
@@ -188,7 +188,7 @@ import { UI } from 'metaintelligence:config';
           const nav = typeof navigator !== 'undefined' && navigator.language ? navigator.language.toLowerCase() : '';
           lang = nav.startsWith('ko') ? 'ko' : 'en';
         }
-      } catch (err) {
+      } catch {
         // localStorage may be unavailable
       }
     }
