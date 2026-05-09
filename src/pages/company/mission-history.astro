@@ -7,42 +7,58 @@ import Steps from '~/components/widgets/Steps.astro'; // 타임라인용 위젯
 import Features3 from '~/components/widgets/Features3.astro'; // 미션 강조용 위젯
 
 import { headerData } from '~/navigation';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
 import ko from '~/i18n/ko.json';
+import { i18nPairHtml } from '~/utils/i18n';
 
-// 1. 언어 설정
-const T = I18N?.language === 'ko' ? ko : en;
+const koPage = ko.introductionPage;
 
 const metadata = {
   title: 'Mission & History — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 
 // 2. 연혁 데이터 (임시 하드코딩)
 // 나중에 i18n 파일로 옮기기 쉽도록 객체 배열 형태로 정리했습니다.
 const historyItems = [
   {
     title: '2025. 12. 01',
-    description: `<strong>MetaIntelligence 사명 변경</strong><br/>
+    description: bi(
+      `<strong>MetaIntelligence 사명 변경</strong><br/>
     Metacomputing에서 MetaIntelligence로 사명을 변경하고, AI 기술 전문 기업으로서 새로운 도약을 선포했습니다.`,
+      `<strong>MetaIntelligence Rebranding</strong><br/>
+    Rebranded from Metacomputing to MetaIntelligence and declared a new leap as an AI technology-focused company.`
+    ),
     icon: 'tabler:refresh',
   },
   {
     title: '2025. 10. 10',
-    description: `<strong>본사 확장 이전 (대구 알파시티)</strong><br/>
+    description: bi(
+      `<strong>본사 확장 이전 (대구 알파시티)</strong><br/>
     대구 수성구 알파시티(Alpha City)로 사무실을 이전하여, SW 융합 클러스터의 중심에서 R&D 역량을 강화하고 있습니다.`,
+      `<strong>Headquarters Relocation (Daegu Alpha City)</strong><br/>
+    Moved our office to Alpha City in Suseong-gu, Daegu, strengthening R&D capabilities at the heart of the software convergence cluster.`
+    ),
     icon: 'tabler:building-skyscraper',
   },
   {
     title: '2022. 02',
-    description: `<strong>Metaverse Alliance 가입</strong><br/>
+    description: bi(
+      `<strong>Metaverse Alliance 가입</strong><br/>
     차세대 디지털 생태계 확장을 위해 메타버스 얼라이언스에 가입, 산업 간 협력 네트워크를 구축했습니다.`,
+      `<strong>Joined the Metaverse Alliance</strong><br/>
+    Joined the Metaverse Alliance to expand the next-generation digital ecosystem and build cross-industry collaboration networks.`
+    ),
     icon: 'tabler:users-group',
   },
   {
     title: '2021. 12. 10',
-    description: `<strong>Metacomputing 설립</strong><br/>
+    description: bi(
+      `<strong>Metacomputing 설립</strong><br/>
     경기도 수원 동탄에서 Metacomputing(메타컴퓨팅)으로 첫 발을 내디뎠습니다.`,
+      `<strong>Metacomputing Founded</strong><br/>
+    Took our first steps as Metacomputing in Dongtan, Suwon, Gyeonggi-do.`
+    ),
     icon: 'tabler:rocket',
   },
 ];
@@ -50,7 +66,7 @@ const historyItems = [
 
 <Layout metadata={metadata}>
   <Fragment slot="header">
-    <Header {...headerData} isSticky showToggleTheme />
+    <Header {...headerData} isSticky showToggleTheme showToggleLanguage />
   </Fragment>
 
   <Hero2
@@ -61,12 +77,15 @@ const historyItems = [
     }}
   >
     <Fragment slot="title"> Mission & History </Fragment>
-    <Fragment slot="subtitle"> 우리가 걸어온 길과 앞으로 나아갈 방향을 소개합니다. </Fragment>
+    <Fragment slot="subtitle">
+      <span data-lang-ko>우리가 걸어온 길과 앞으로 나아갈 방향을 소개합니다.</span>
+      <span data-lang-en>The path we have walked and the direction we are heading.</span>
+    </Fragment>
   </Hero2>
 
   <Features3
     title="Our Mission"
-    subtitle="MetaIntelligence가 존재하는 이유"
+    subtitle={bi('MetaIntelligence가 존재하는 이유', 'Why MetaIntelligence exists')}
     columns={1}
     classes={{
       container: 'max-w-4xl',
@@ -74,8 +93,8 @@ const historyItems = [
     }}
     items={[
       {
-        title: T.introductionPage.mission.title, // 기존 i18n 데이터 활용
-        description: T.introductionPage.mission.content,
+        title: koPage.mission.title,
+        description: i18nPairHtml('introductionPage.mission.content'),
         icon: 'tabler:flag',
       },
     ]}
@@ -84,7 +103,7 @@ const historyItems = [
   <Steps
     id="history"
     title="History"
-    subtitle="끊임없는 도전과 혁신의 기록"
+    subtitle={bi('끊임없는 도전과 혁신의 기록', 'A record of relentless challenge and innovation')}
     items={historyItems}
     image={{
       src: 'https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',

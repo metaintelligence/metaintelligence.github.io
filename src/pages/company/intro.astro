@@ -8,20 +8,23 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Stats from '~/components/widgets/Stats.astro';
 
 import { headerData } from '~/navigation';
-import { I18N } from 'metaintelligence:config';
-import en from '~/i18n/en.json';
 import ko from '~/i18n/ko.json';
+import en from '~/i18n/en.json';
+import { i18nPairHtml } from '~/utils/i18n';
 
-const T = I18N?.language === 'ko' ? ko : en;
+const koPage = ko.introductionPage;
+const enPage = en.introductionPage;
 
 const metadata = {
-  title: T.introductionPage.title || 'Identity & Values — MetaIntelligence',
+  title: koPage.title || 'Identity & Values — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 ---
 
 <Layout metadata={metadata}>
   <Fragment slot="header">
-    <Header {...headerData} isSticky showToggleTheme />
+    <Header {...headerData} isSticky showToggleTheme showToggleLanguage />
   </Fragment>
 
   <Hero2
@@ -33,33 +36,41 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      {T.introductionPage.hero.title}
+      <span data-lang-ko>{koPage.hero.title}</span>
+      <span data-lang-en>{enPage.hero.title}</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      MetaIntelligence는 단순한 기술 구현을 넘어, 인류가 마주한 복잡한 문제의 <strong>본질을 통찰</strong>하고 실질적인
-      <strong>가치를 설계</strong>합니다. 공학적 완성도를 바탕으로 산업 현장에 지능형 솔루션을 이식하는 것이 우리의
-      사명입니다.
+      <span data-lang-ko
+        >MetaIntelligence는 단순한 기술 구현을 넘어, 인류가 마주한 복잡한 문제의 <strong>본질을 통찰</strong>하고
+        실질적인 <strong>가치를 설계</strong>합니다. 공학적 완성도를 바탕으로 산업 현장에 지능형 솔루션을 이식하는 것이
+        우리의 사명입니다.</span
+      >
+      <span data-lang-en
+        >Beyond mere implementation, MetaIntelligence sees through the <strong>essence</strong> of the complex problems facing
+        humanity and <strong>designs tangible value</strong>. Our mission is to bring intelligent solutions into
+        industrial sites, grounded in engineering excellence.</span
+      >
     </Fragment>
   </Hero2>
 
   <Features2
     title="Our Core Identity"
-    subtitle="우리가 추구하는 가치와 존재의 이유"
+    subtitle={bi('우리가 추구하는 가치와 존재의 이유', 'The values we pursue and our reason for being')}
     items={[
       {
-        title: T.introductionPage.identity.title,
-        description: T.introductionPage.identity.content,
+        title: koPage.identity.title,
+        description: i18nPairHtml('introductionPage.identity.content'),
         icon: 'tabler:fingerprint',
       },
       {
-        title: T.introductionPage.mission.title,
-        description: T.introductionPage.mission.content,
+        title: koPage.mission.title,
+        description: i18nPairHtml('introductionPage.mission.content'),
         icon: 'tabler:rocket',
       },
       {
-        title: T.introductionPage.slogan.title,
-        description: T.introductionPage.slogan.content,
+        title: koPage.slogan.title,
+        description: i18nPairHtml('introductionPage.slogan.content'),
         icon: 'tabler:bulb',
       },
     ]}
@@ -71,14 +82,18 @@ const metadata = {
     title="Insight into Essence"
     items={[
       {
-        title: '문제의 이면을 봅니다',
-        description:
+        title: bi('문제의 이면을 봅니다', 'Looking beyond the surface'),
+        description: bi(
           '우리는 데이터의 나열에서 멈추지 않습니다. 현상 뒤에 숨겨진 근본 원인(Root Cause)을 다각도로 분석하여 해결의 실마리를 찾습니다.',
+          'We do not stop at listing data. We analyze the root cause hidden beneath every phenomenon from multiple angles to uncover the path to a real solution.'
+        ),
       },
       {
-        title: '물리학 기반 모델링',
-        description:
+        title: bi('물리학 기반 모델링', 'Physics-Informed Modeling'),
+        description: bi(
           '데이터가 부족한 극한의 환경에서도 물리 법칙과 AI를 결합한 Physics-Informed Modeling을 통해 정교한 통찰을 제공합니다.',
+          'Even in extreme environments where data is scarce, we deliver precise insight through Physics-Informed Modeling that combines physical laws with AI.'
+        ),
       },
     ]}
     image={{
@@ -87,8 +102,12 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">본질을 꿰뚫는 분석력</h3>
-      복잡한 수식과 데이터 속에서 가장 명확한 해답을 이끌어냅니다.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span data-lang-ko>본질을 꿰뚫는 분석력</span>
+        <span data-lang-en>Analytics that pierce through the essence</span>
+      </h3>
+      <span data-lang-ko>복잡한 수식과 데이터 속에서 가장 명확한 해답을 이끌어냅니다.</span>
+      <span data-lang-en>We draw the clearest answers from complex equations and data.</span>
     </Fragment>
   </Content>
 
@@ -98,12 +117,18 @@ const metadata = {
     title="Design for Value"
     items={[
       {
-        title: '실용적 솔루션 공급',
-        description: '화려한 기술보다는 실제 현장에서 작동하고 생산성을 높이는 실용성을 우선합니다.',
+        title: bi('실용적 솔루션 공급', 'Practical solutions'),
+        description: bi(
+          '화려한 기술보다는 실제 현장에서 작동하고 생산성을 높이는 실용성을 우선합니다.',
+          'We prioritize practicality that actually works on the ground and lifts productivity, over flashy technology.'
+        ),
       },
       {
-        title: '유연한 아키텍처',
-        description: '변화하는 비즈니스 요구사항에 기민하게 대응할 수 있는 고품질 소프트웨어 설계를 지향합니다.',
+        title: bi('유연한 아키텍처', 'Flexible architecture'),
+        description: bi(
+          '변화하는 비즈니스 요구사항에 기민하게 대응할 수 있는 고품질 소프트웨어 설계를 지향합니다.',
+          'We pursue high-quality software design that responds nimbly to evolving business requirements.'
+        ),
       },
     ]}
     image={{
@@ -112,8 +137,12 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">지속 가능한 가치 창출</h3>
-      고객의 비즈니스 성장을 최우선으로 고려한 지능형 시스템을 설계합니다.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span data-lang-ko>지속 가능한 가치 창출</span>
+        <span data-lang-en>Creating sustainable value</span>
+      </h3>
+      <span data-lang-ko>고객의 비즈니스 성장을 최우선으로 고려한 지능형 시스템을 설계합니다.</span>
+      <span data-lang-en>We design intelligent systems with our clients' business growth as the top priority.</span>
     </Fragment>
   </Content>
 

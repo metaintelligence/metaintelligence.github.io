@@ -10,12 +10,17 @@ import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Logo from '~/components/Logo.astro';
 // import { getPermalink } from '~/utils/permalinks';
-import { resolveI18nPair } from '~/utils/i18n';
+import { i18nPair, i18nPairHtml } from '~/utils/i18n';
+
+const heroTitlePart1 = i18nPair('hero.title_part1');
+const heroTitlePart2 = i18nPair('hero.title_part2');
 
 const metadata = {
   title: 'MetaIntelligence — Insight into Essence, Design for Value',
   ignoreTitleTemplate: true,
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 ---
 
 <Layout metadata={metadata}>
@@ -23,11 +28,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: resolveI18nPair('hero.action_solutions'),
+        text: i18nPairHtml('hero.action_solutions'),
         href: '/solutions/mvi',
       },
       {
-        text: resolveI18nPair('hero.action_tech'),
+        text: i18nPairHtml('hero.action_tech'),
         href: '/tech/core-tech',
       },
     ]}
@@ -41,39 +46,57 @@ const metadata = {
 
       <div class="flex flex-col items-center justify-center delay-700">
         <h1 class="text-2xl md:text-sm font-light leading-tighter tracking-widest text-center">
-          {resolveI18nPair('hero.title_part1')}
-          {resolveI18nPair('hero.title_part2')}
+          <span data-lang-ko>{heroTitlePart1.ko} {heroTitlePart2.ko}</span>
+          <span data-lang-en>{heroTitlePart1.en} {heroTitlePart2.en}</span>
         </h1>
       </div>
     </Fragment>
   </Hero>
 
-  <Note title="Core Values:" description="통찰(Insight) · 유연함(Flexibility) · 실용(Practical)" />
+  <Note
+    title="Core Values:"
+    description={bi('통찰(Insight) · 유연함(Flexibility) · 실용(Practical)', 'Insight · Flexibility · Practical')}
+  />
 
   <Features
     id="features"
     tagline="Capabilities"
     title="World-Class Tech Stack"
-    subtitle="단순한 도구 사용을 넘어, 문제의 본질을 해결하는 자체 알고리즘과 시스템 아키텍처를 설계합니다."
+    subtitle={bi(
+      '단순한 도구 사용을 넘어, 문제의 본질을 해결하는 자체 알고리즘과 시스템 아키텍처를 설계합니다.',
+      'Beyond mere tool usage, we design proprietary algorithms and system architectures that solve the essence of problems.'
+    )}
     items={[
       {
         title: 'Multimodal AI',
-        description: 'NLP와 Vision을 결합하여 텍스트와 이미지 데이터를 통합적으로 분석하고 판단합니다.',
+        description: bi(
+          'NLP와 Vision을 결합하여 텍스트와 이미지 데이터를 통합적으로 분석하고 판단합니다.',
+          'Combining NLP and Vision to analyze and reason over text and image data in an integrated way.'
+        ),
         icon: 'tabler:brain',
       },
       {
         title: 'Physics-Informed Modeling',
-        description: '물리학적 방법론을 AI에 접목하여 데이터가 부족한 환경에서도 강건한 모델을 구축합니다.',
+        description: bi(
+          '물리학적 방법론을 AI에 접목하여 데이터가 부족한 환경에서도 강건한 모델을 구축합니다.',
+          'Grafting physics methodology onto AI to build robust models even in data-scarce environments.'
+        ),
         icon: 'tabler:atom-2',
       },
       {
         title: 'HPC & Optimization',
-        description: '슈퍼컴퓨팅 운영 경험을 바탕으로 On-device부터 클라우드까지 최고의 성능을 이끌어냅니다.',
+        description: bi(
+          '슈퍼컴퓨팅 운영 경험을 바탕으로 On-device부터 클라우드까지 최고의 성능을 이끌어냅니다.',
+          'Drawing on supercomputing operations experience to deliver peak performance from on-device to the cloud.'
+        ),
         icon: 'tabler:cpu',
       },
       {
         title: 'Trusted Logic',
-        description: '자연어 의미 기반의 정확한 판단으로 환각 현상을 억제하고 데이터 무결성을 보장합니다.',
+        description: bi(
+          '자연어 의미 기반의 정확한 판단으로 환각 현상을 억제하고 데이터 무결성을 보장합니다.',
+          'Suppressing hallucination and guaranteeing data integrity through precise reasoning grounded in natural-language semantics.'
+        ),
         icon: 'tabler:shield-check',
       },
     ]}
@@ -83,15 +106,24 @@ const metadata = {
     isReversed
     tagline="Solutions"
     title="Meta Vision Intelligence (MVI)"
-    subtitle="제조 공정의 불량률 'Zero'에 도전합니다."
+    subtitle={bi(
+      "제조 공정의 불량률 'Zero'에 도전합니다.",
+      "Aiming for a 'zero' defect rate in manufacturing processes."
+    )}
     items={[
       {
-        title: '범용 하드웨어 호환성',
-        description: '고가의 전용 장비 없이 범용 카메라만으로도 높은 정확도의 검출 성능을 발휘합니다.',
+        title: bi('범용 하드웨어 호환성', 'General-purpose hardware compatibility'),
+        description: bi(
+          '고가의 전용 장비 없이 범용 카메라만으로도 높은 정확도의 검출 성능을 발휘합니다.',
+          'Achieves high-accuracy detection using only general-purpose cameras, with no need for expensive dedicated equipment.'
+        ),
       },
       {
-        title: '실시간 렌더링 최적화',
-        description: '삼성전자 MX 사업부 출신의 그래픽 노하우로 초고속 이미지 처리 및 시각화를 지원합니다.',
+        title: bi('실시간 렌더링 최적화', 'Real-time rendering optimization'),
+        description: bi(
+          '삼성전자 MX 사업부 출신의 그래픽 노하우로 초고속 이미지 처리 및 시각화를 지원합니다.',
+          'Powered by graphics know-how from the Samsung Electronics MX division, supports ultra-fast image processing and visualization.'
+        ),
       },
     ]}
     image={{
@@ -101,26 +133,45 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Smart Factory Evolution</h3>
-      대한민국 5만 개 제조사의 AX(AI 전환)를 완수하는 핵심 파트너가 됩니다.
+      <span data-lang-ko>대한민국 5만 개 제조사의 AX(AI 전환)를 완수하는 핵심 파트너가 됩니다.</span>
+      <span data-lang-en>The core partner driving AX (AI Transformation) for 50,000 manufacturers in Korea.</span>
     </Fragment>
   </Content>
 
   <Steps
-    title="실용적 태도로 증명하는 협업 프로세스"
+    title={bi('실용적 태도로 증명하는 협업 프로세스', 'A collaboration process proven through a practical attitude')}
     items={[
       {
-        title: 'Step 1: <span class="font-medium">본질 파악</span>',
-        description: '문제의 표면이 아닌 이면의 근본 원인(Root Cause)을 다각도로 분석합니다.',
+        title: bi(
+          'Step 1: <span class="font-medium">본질 파악</span>',
+          'Step 1: <span class="font-medium">Grasp the essence</span>'
+        ),
+        description: bi(
+          '문제의 표면이 아닌 이면의 근본 원인(Root Cause)을 다각도로 분석합니다.',
+          'We analyze the underlying root cause from multiple angles, not the surface of the problem.'
+        ),
         icon: 'tabler:search',
       },
       {
-        title: 'Step 2: <span class="font-medium">유연한 설계</span>',
-        description: '변화하는 비즈니스 환경에 적응 가능한 고품질 소프트웨어 아키텍처를 설계합니다.',
+        title: bi(
+          'Step 2: <span class="font-medium">유연한 설계</span>',
+          'Step 2: <span class="font-medium">Flexible design</span>'
+        ),
+        description: bi(
+          '변화하는 비즈니스 환경에 적응 가능한 고품질 소프트웨어 아키텍처를 설계합니다.',
+          'We design high-quality software architecture that adapts to changing business environments.'
+        ),
         icon: 'tabler:layout-2',
       },
       {
-        title: 'Step 3: <span class="font-medium">가치 구현</span>',
-        description: '화려한 보고서 대신, 실제로 작동하는 제품(Working Product)으로 실질적 가치를 전달합니다.',
+        title: bi(
+          'Step 3: <span class="font-medium">가치 구현</span>',
+          'Step 3: <span class="font-medium">Deliver value</span>'
+        ),
+        description: bi(
+          '화려한 보고서 대신, 실제로 작동하는 제품(Working Product)으로 실질적 가치를 전달합니다.',
+          'Instead of flashy reports, we deliver real value through Working Products that actually run.'
+        ),
         icon: 'tabler:rocket',
       },
       {
@@ -136,10 +187,10 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: '누적 R&D 규모', amount: '10억+' },
-      { title: '목표 AX 도입사', amount: '50K' },
-      { title: '전문 아키텍트 경력', amount: '10년+' },
-      { title: '보유 특허 및 기술', amount: '15+' },
+      { title: bi('누적 R&D 규모', 'Cumulative R&D Scale'), amount: bi('10억+', '1B+ KRW') },
+      { title: bi('목표 AX 도입사', 'AX Adoption Target'), amount: '50K' },
+      { title: bi('전문 아키텍트 경력', 'Architect Experience'), amount: bi('10년+', '10y+') },
+      { title: bi('보유 특허 및 기술', 'Patents & Technologies'), amount: '15+' },
     ]}
   />
 

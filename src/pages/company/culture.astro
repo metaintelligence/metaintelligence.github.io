@@ -11,11 +11,13 @@ import { headerData } from '~/navigation';
 const metadata = {
   title: 'Organizational Culture — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 ---
 
 <Layout metadata={metadata}>
   <Fragment slot="header">
-    <Header {...headerData} isSticky showToggleTheme />
+    <Header {...headerData} isSticky showToggleTheme showToggleLanguage />
   </Fragment>
 
   <Hero2
@@ -31,9 +33,16 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="block text-xl font-medium text-gray-700 dark:text-slate-300 mb-2">
-        "우리는 관리하지 않습니다. 몰입할 환경을 지원합니다."
+        <span data-lang-ko>"우리는 관리하지 않습니다. 몰입할 환경을 지원합니다."</span>
+        <span data-lang-en>"We do not manage. We support an environment for deep focus."</span>
       </span>
-      각 분야 정점의 전문가들이 서로를 깊이 신뢰하며, 형식적 절차 대신 본질적 문제 해결에 집중하는 문화를 지향합니다.
+      <span data-lang-ko
+        >각 분야 정점의 전문가들이 서로를 깊이 신뢰하며, 형식적 절차 대신 본질적 문제 해결에 집중하는 문화를 지향합니다.</span
+      >
+      <span data-lang-en
+        >Top experts in each field deeply trust one another and pursue a culture that focuses on solving essential
+        problems rather than following formal procedures.</span
+      >
     </Fragment>
   </Hero2>
 
@@ -41,15 +50,19 @@ const metadata = {
     isReversed
     items={[
       {
-        title: '신뢰 기반의 자율성',
-        description:
-          '불필요한 보고와 관리 비용을 제거합니다. 우리는 동료의 역량을 믿고, 각자가 최고의 성과를 낼 수 있는 방식으 로 일합니다.',
+        title: bi('신뢰 기반의 자율성', 'Trust-Based Autonomy'),
+        description: bi(
+          '불필요한 보고와 관리 비용을 제거합니다. 우리는 동료의 역량을 믿고, 각자가 최고의 성과를 낼 수 있는 방식으로 일합니다.',
+          'We remove unnecessary reporting and management overhead. We trust our colleagues and let each person work in the way that produces their best results.'
+        ),
         icon: 'tabler:heart-handshake',
       },
       {
-        title: '본질적 문제 해결',
-        description:
+        title: bi('본질적 문제 해결', 'Solving Essential Problems'),
+        description: bi(
           '형식보다는 실질적 가치 창출에 집중합니다. 우리는 "왜(Why)"에 대해 치열하게 고민하고, 기술적 통찰로 해답을 찾아냅니다.',
+          'We focus on creating real value over formality. We rigorously question "Why" and find answers through technical insight.'
+        ),
         icon: 'tabler:search',
       },
     ]}
@@ -60,13 +73,14 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Working as One-Team</h3>
-      우리는 단순한 직장 동료가 아닌, 위대한 제품을 함께 만드는 빌더(Builder)들입니다.
+      <span data-lang-ko>우리는 단순한 직장 동료가 아닌, 위대한 제품을 함께 만드는 빌더(Builder)들입니다.</span>
+      <span data-lang-en>We are not mere coworkers but Builders crafting great products together.</span>
     </Fragment>
   </Content>
 
   <Features3
     title="Our Core Principles"
-    subtitle="MetaIntelligence가 일하는 4가지 방식"
+    subtitle={bi('MetaIntelligence가 일하는 4가지 방식', 'Four ways MetaIntelligence works')}
     columns={2}
     isBeforeContent={true}
     classes={{
@@ -76,27 +90,35 @@ const metadata = {
     }}
     items={[
       {
-        title: '합리적 의사 결정 (Rational Decision Making)',
-        description:
+        title: bi('합리적 의사 결정 (Rational Decision Making)', 'Rational Decision Making'),
+        description: bi(
           '직관보다 데이터와 논리(Evidence)를 존중합니다. 치열하게 논의하되, 결정된 사항은 원팀(One-Team)이 되어 강력하게 실행합니다.',
+          'We respect data and evidence over intuition. We debate fiercely, but once decided, execute as One-Team with full force.'
+        ),
         icon: 'tabler:gavel',
       },
       {
-        title: '실용적 태도 (Practical Attitude)',
-        description:
+        title: bi('실용적 태도 (Practical Attitude)', 'Practical Attitude'),
+        description: bi(
           '이론은 구현되었을 때 완성됩니다. 화려한 보고서보다 실제 코드로 동작하는 제품(Working Product)으로 스스로를 증명합니다.',
+          'Theory is complete only when implemented. We prove ourselves through Working Products in actual code, not through flashy reports.'
+        ),
         icon: 'tabler:tool',
       },
       {
-        title: '자율과 책임 (Autonomy & Responsibility)',
-        description:
+        title: bi('자율과 책임 (Autonomy & Responsibility)', 'Autonomy & Responsibility'),
+        description: bi(
           '프로는 스스로 증명합니다. 형식에 얽매이지 않고, 각자가 도메인의 최고 책임자(DRI)로서 목표를 설정하고 결과를 만들어냅니다.',
+          'Professionals prove themselves. Free from formality, each person sets goals and delivers results as the Directly Responsible Individual (DRI) for their domain.'
+        ),
         icon: 'tabler:user-check',
       },
       {
-        title: '지속적인 성장 (Sustainable Growth)',
-        description:
+        title: bi('지속적인 성장 (Sustainable Growth)', 'Sustainable Growth'),
+        description: bi(
           '개인의 성장이 곧 회사의 자산입니다. 최신 논문 연구, 기술 세미나 등 구성원이 업계 최고 전문가로 성장하도록 전폭 지원합니다.',
+          "Individual growth is the company's asset. We fully support members in becoming top experts in the industry through latest research, technical seminars, and more."
+        ),
         icon: 'tabler:plant',
       },
     ]}
