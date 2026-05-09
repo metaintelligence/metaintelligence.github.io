@@ -22,3 +22,23 @@ export const resolveI18nPair = (key: string, locale?: string): string => {
 
   return (result as string) || key;
 };
+
+/**
+ * Returns both Korean and English values for the given key, so callers
+ * can render both in the page and let the client-side language toggle
+ * decide which one to show.
+ */
+export const i18nPair = (key: string): { ko: string; en: string } => ({
+  ko: resolveI18nPair(key, 'ko'),
+  en: resolveI18nPair(key, 'en'),
+});
+
+/**
+ * Returns an HTML string with both Korean and English wrapped in
+ * `[data-lang-ko]` / `[data-lang-en]` spans. Convenient for widgets that
+ * render their text/label fields via `set:html`.
+ */
+export const i18nPairHtml = (key: string): string => {
+  const { ko, en } = i18nPair(key);
+  return `<span data-lang-ko>${ko}</span><span data-lang-en>${en}</span>`;
+};
