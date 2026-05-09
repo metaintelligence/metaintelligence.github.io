@@ -1,0 +1,33 @@
+---
+// Inline head script: pick the initial language based on (1) localStorage
+// preference, then (2) navigator.language. Adds a `lang-ko` / `lang-en`
+// class on <html> so the global CSS rule below can hide the opposite
+// language synchronously, before body content paints (no FOUC).
+---
+
+<script is:inline>
+  (function () {
+    try {
+      const stored = localStorage.getItem('lang');
+      let lang = stored === 'ko' || stored === 'en' ? stored : null;
+      if (!lang) {
+        const nav = typeof navigator !== 'undefined' && navigator.language ? navigator.language.toLowerCase() : '';
+        lang = nav.startsWith('ko') ? 'ko' : 'en';
+      }
+      document.documentElement.lang = lang;
+      document.documentElement.classList.remove('lang-ko', 'lang-en');
+      document.documentElement.classList.add('lang-' + lang);
+    } catch (e) {
+      document.documentElement.classList.add('lang-en');
+    }
+  })();
+</script>
+
+<style is:global>
+  html.lang-ko [data-lang-en] {
+    display: none !important;
+  }
+  html.lang-en [data-lang-ko] {
+    display: none !important;
+  }
+</style>

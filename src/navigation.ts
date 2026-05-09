@@ -1,4 +1,4 @@
-import { resolveI18nPair } from './utils/i18n';
+import { i18nPair } from './utils/i18n';
 import { getPermalink } from './utils/permalinks';
 
 // headerData provides both English and Korean labels so the client
@@ -7,77 +7,77 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: resolveI18nPair('nav.company.title') || 'Company',
+      text: i18nPair('nav.company.title'),
       links: [
         {
-          text: resolveI18nPair('nav.company.submenu.identity') || 'Identity & Values',
+          text: i18nPair('nav.company.submenu.identity'),
           href: getPermalink('/company/identity'),
         },
         {
-          text: resolveI18nPair('nav.company.submenu.history') || 'Mission & Milestone',
+          text: i18nPair('nav.company.submenu.history'),
           href: getPermalink('/company/mission-history'),
         },
         {
-          text: resolveI18nPair('nav.company.submenu.culture') || 'Work Culture',
+          text: i18nPair('nav.company.submenu.culture'),
           href: getPermalink('/company/culture'),
         },
       ],
     },
     {
-      text: resolveI18nPair('nav.technology.title') || 'Technology',
+      text: i18nPair('nav.technology.title'),
       links: [
         {
-          text: resolveI18nPair('nav.technology.submenu.philosophy') || 'Tech Philosophy',
+          text: i18nPair('nav.technology.submenu.philosophy'),
           href: getPermalink('/tech/philosophy'),
         },
         {
-          text: resolveI18nPair('nav.technology.submenu.core_tech') || 'Core Capabilities',
+          text: i18nPair('nav.technology.submenu.core_tech'),
           href: getPermalink('/tech/core-tech'),
         },
         {
-          text: resolveI18nPair('nav.technology.submenu.csaic_team') || 'CSAIC Team',
+          text: i18nPair('nav.technology.submenu.csaic_team'),
           href: getPermalink('/tech/csaic-team'),
         },
       ],
     },
     {
-      text: resolveI18nPair('nav.solutions.title') || 'Solutions',
+      text: i18nPair('nav.solutions.title'),
       links: [
         {
-          text: resolveI18nPair('nav.solutions.submenu.strategy') || 'Business Strategy',
+          text: i18nPair('nav.solutions.submenu.strategy'),
           href: getPermalink('/solutions/strategy'),
         },
         {
-          text: resolveI18nPair('nav.solutions.submenu.openmv') || 'OpenMV',
+          text: i18nPair('nav.solutions.submenu.openmv'),
           href: getPermalink('/solutions/openmv'),
         },
         {
-          text: resolveI18nPair('nav.solutions.submenu.mvi') || 'Vision AI (MVI)',
+          text: i18nPair('nav.solutions.submenu.mvi'),
           href: getPermalink('/solutions/mvi'),
         },
         {
-          text: resolveI18nPair('nav.solutions.submenu.ida') || 'Document AI (IDA)',
+          text: i18nPair('nav.solutions.submenu.ida'),
           href: getPermalink('/solutions/ida'),
         },
       ],
     },
     // {
-    //   text: resolveI18nPair('nav.resources.title') || 'Resources',
+    //   text: i18nPair('nav.resources.title'),
     //   links: [
     //     {
-    //       text: resolveI18nPair('nav.resources.submenu.corporate') || 'Corporate News',
+    //       text: i18nPair('nav.resources.submenu.corporate'),
     //       href: getPermalink('corporate', 'category'),
     //     },
     //     {
-    //       text: resolveI18nPair('nav.resources.submenu.case_study') || 'Case Studies',
+    //       text: i18nPair('nav.resources.submenu.case_study'),
     //       href: getPermalink('case-studies', 'category'),
     //     },
     //     {
-    //       text: resolveI18nPair('nav.resources.submenu.tech_insight') || 'Tech Insight',
+    //       text: i18nPair('nav.resources.submenu.tech_insight'),
     //       href: getPermalink('tech-insight', 'category'),
     //     },
     //     {
-    //       text: resolveI18nPair('nav.resources.submenu.culture_people') || 'Culture & People',
+    //       text: i18nPair('nav.resources.submenu.culture_people'),
     //       href: getPermalink('culture', 'category'),
     //     },
     //   ],
