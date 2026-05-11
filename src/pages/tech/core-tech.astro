@@ -10,6 +10,8 @@ import { headerData } from '~/navigation';
 const metadata = {
   title: 'Core Technologies — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 ---
 
 <Layout metadata={metadata}>
@@ -30,7 +32,12 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="block text-xl text-muted dark:text-slate-400">
-        MetaIntelligence는 세계적 수준의 전문 인재들로 구성된 팀의 협업을 바탕으로 소프트웨어를 개발합니다.
+        <span data-lang-ko
+          >MetaIntelligence는 세계적 수준의 전문 인재들로 구성된 팀의 협업을 바탕으로 소프트웨어를 개발합니다.</span
+        >
+        <span data-lang-en
+          >MetaIntelligence builds software through the collaboration of a team of world-class experts.</span
+        >
       </span>
     </Fragment>
   </Hero2>
@@ -38,24 +45,33 @@ const metadata = {
   <Content
     isReversed
     title="Multimodal AI & Physics-Informed Modeling"
-    subtitle="텍스트와 이미지를 융합하고, 물리학적 방법론으로 난제를 해결합니다. 단순한 오픈소스 모델 튜닝을 넘어, 문제의 본질을 파악하는 수리적 모델링과 자체 알고리즘을 설계합니다."
+    subtitle={bi(
+      '텍스트와 이미지를 융합하고, 물리학적 방법론으로 난제를 해결합니다. 단순한 오픈소스 모델 튜닝을 넘어, 문제의 본질을 파악하는 수리적 모델링과 자체 알고리즘을 설계합니다.',
+      'We fuse text and images and apply methods from physics to crack hard problems. Beyond tuning open-source models, we design the mathematical modeling and proprietary algorithms that get at the essence of each problem.'
+    )}
     items={[
       {
-        title: 'Advanced NLP & Vision 융합',
-        description:
+        title: bi('Advanced NLP & Vision 융합', 'Advanced NLP & Vision Fusion'),
+        description: bi(
           '텍스트(NLP)와 시각 정보(Vision)를 결합한 하이브리드 모델 아키텍처를 설계하여, 제조 불량 검출부터 문서 분석까지 복합적인 문제를 해결합니다.',
+          'Hybrid model architectures that fuse text (NLP) and vision tackle compound problems — from manufacturing defect detection to document analysis.'
+        ),
         icon: 'tabler:eye',
       },
       {
         title: 'Physics-Informed AI',
-        description:
+        description: bi(
           '물리학(위상수학, 양자다체이론) 기반의 가설 수립 및 검증 방법론을 AI에 적용하여, 데이터가 부족하거나 복잡한 환경에서도 강건한(Robust) 모델을 만듭니다.',
+          'We bring hypothesis-building and verification methods from physics — topology, quantum many-body theory — into AI to build robust models, even where data is scarce or the environment is complex.'
+        ),
         icon: 'tabler:atom',
       },
       {
         title: 'Trusted Logic & Verification',
-        description:
+        description: bi(
           '자연어 의미 기반의 정확한 판단이 필요한 영역(법률, 심의, 교육)에서 환각(Hallucination)을 억제하고 데이터 무결성을 검증하는 1-Cycle 파이프라인을 보유하고 있습니다.',
+          'In domains that demand precise semantic judgment — law, regulatory review, education — our 1-Cycle pipeline suppresses hallucination and verifies data integrity.'
+        ),
         icon: 'tabler:shield-check',
       },
     ]}
@@ -66,7 +82,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        본질적 문제 해결을 위한<br />융합 모델링
+        <span data-lang-ko>본질적 문제 해결을 위한<br />융합 모델링</span>
+        <span data-lang-en>Fusion modeling that<br />gets to the heart of the problem</span>
       </h3>
     </Fragment>
   </Content>
@@ -74,24 +91,33 @@ const metadata = {
   <Content
     isAfterContent
     title="Efficient Optimization Engineering"
-    subtitle="Embedded System의 On-device로부터 시작하여 슈퍼컴퓨팅까지 최고의 성능을 이끌어냅니다. 무거운 AI 모델을 가볍고 빠르게 구동시키는 최적화 기술은 우리의 핵심 경쟁력입니다."
+    subtitle={bi(
+      'Embedded System의 On-device로부터 시작하여 슈퍼컴퓨팅까지 최고의 성능을 이끌어냅니다. 무거운 AI 모델을 가볍고 빠르게 구동시키는 최적화 기술은 우리의 핵심 경쟁력입니다.',
+      'From on-device embedded systems up to supercomputing, we pull the best performance out of every layer. The optimization that makes heavy AI models run light and fast is one of our core strengths.'
+    )}
     items={[
       {
         title: 'HPC (High-Performance Computing)',
-        description:
+        description: bi(
           '초거대 슈퍼컴퓨터 운영 및 대규모 데이터 처리 경험을 바탕으로, AI 학습 및 추론 속도를 비약적으로 개선합니다.',
+          'Backed by hands-on experience operating large supercomputers and processing data at scale, we deliver step-change improvements in AI training and inference speed.'
+        ),
         icon: 'tabler:server',
       },
       {
         title: 'GPU & Rendering Optimization',
-        description:
+        description: bi(
           '글로벌 플래그십 모바일 디바이스의 그래픽스 및 프레임워크를 함께 개발하고 최적화했던 경험을 바탕으로, 고성능 AI 모델을 포함하는 당사 소프트웨어를 가볍고 빠르게 구동시킵니다.',
+          'Drawing on experience co-developing and optimizing the graphics stack and frameworks on global flagship mobile devices, we make our high-performance-AI software run light and fast.'
+        ),
         icon: 'tabler:cpu',
       },
       {
         title: 'Flexible Engineering Philosophy',
-        description:
+        description: bi(
           '개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장 효율적인 방식으로 견고하고 유연한 시스템을 구현합니다.',
+          'No platform or language barriers. We put generality and scalability first, and choose whichever approach is most efficient for the situation — to build robust, flexible systems.'
+        ),
         icon: 'tabler:box-model',
       },
     ]}
@@ -102,7 +128,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        임베디드 환경에서 슈퍼컴퓨터까지<br />극한의 최적화와 유연성
+        <span data-lang-ko>임베디드 환경에서 슈퍼컴퓨터까지<br />극한의 최적화와 유연성</span>
+        <span data-lang-en>From embedded systems to supercomputers,<br />extreme optimization and flexibility</span>
       </h3>
     </Fragment>
   </Content>
@@ -110,24 +137,33 @@ const metadata = {
   <Content
     isReversed
     title="Commercial-Grade Productization"
-    subtitle="기술을 넘어, 사용자가 신뢰할 수 있는 '제품'을 만듭니다. 글로벌 서비스를 개발한 경험을 토대로 완성하는 소프트웨어를 보장합니다."
+    subtitle={bi(
+      "기술을 넘어, 사용자가 신뢰할 수 있는 '제품'을 만듭니다. 글로벌 서비스를 개발한 경험을 토대로 완성하는 소프트웨어를 보장합니다.",
+      'Beyond technology, we build products users can trust. Software that ships, grounded in experience building global-scale services.'
+    )}
     items={[
       {
         title: 'Patent-Based R&D',
-        description:
+        description: bi(
           '자연어 처리 및 비전 AI 분야의 등록 특허와 원천 기술을 보유하고 있으며, 이를 바탕으로 기술 장벽을 구축합니다.',
+          'We hold registered patents and original technology in NLP and vision AI — and build defensible technical moats on that foundation.'
+        ),
         icon: 'tabler:certificate',
       },
       {
         title: 'Global-Scale Productization & UX',
-        description:
+        description: bi(
           '구글 오픈소스 표준화 및 글로벌 제조사 프레임워크 탑재, 500만+ 다운로드 앱 개발 및 경험을 보유하고 있습니다. 단순한 기능 구현을 넘어, 사용자 친화적인 UI/UX를 중시하며 글로벌 서비스 수준의 완성도를 지향합니다.',
+          "We've contributed to Google open-source standards, shipped frameworks on global OEM devices, and built apps with 5M+ downloads. Beyond getting features working, we put weight on user-friendly UI/UX and aim for global-service polish."
+        ),
         icon: 'tabler:world',
       },
       {
         title: 'Tech-to-Business',
-        description:
+        description: bi(
           '국가 R&D 과제(누적 10억 원 규모) 및 대기업 난제 해결 프로젝트를 수행하며, 기술을 비즈니스 성과로 연결하는 실행력을 입증했습니다.',
+          "We've delivered national R&D programs (cumulatively ~₩1B) and tackled hard problems for major enterprises — proving we can translate technology into business outcomes."
+        ),
         icon: 'tabler:briefcase',
       },
     ]}
@@ -137,7 +173,10 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">기술의 가치 실현</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span data-lang-ko>기술의 가치 실현</span>
+        <span data-lang-en>Turning technology into value</span>
+      </h3>
     </Fragment>
   </Content>
 </Layout>

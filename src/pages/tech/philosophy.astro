@@ -11,6 +11,8 @@ import { headerData } from '~/navigation';
 const metadata = {
   title: 'Technology Philosophy — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 ---
 
 <Layout metadata={metadata}>
@@ -31,42 +33,54 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="block text-xl font-normal text-muted dark:text-slate-400">
-        MetaIntelligence는 문제의 본질을 탐구하고 연구하며, <br class="hidden md:inline" />
-        AI·Vision·SW 통합적 시스템을 통하여 해결하는 기술 기업입니다.
+        <span data-lang-ko
+          >MetaIntelligence는 문제의 본질을 탐구하고 연구하며, <br class="hidden md:inline" />
+          AI·Vision·SW 통합적 시스템을 통하여 해결하는 기술 기업입니다.</span
+        >
+        <span data-lang-en
+          >MetaIntelligence is a technology company that explores and researches the essence of problems, <br
+            class="hidden md:inline"
+          />
+          and solves them through an integrated AI·Vision·SW system.</span
+        >
       </span>
     </Fragment>
   </Hero2>
 
   <Features3
     title="Core Philosophy"
-    subtitle="MetaIntelligence가 기술을 대하는 태도"
+    subtitle={bi('MetaIntelligence가 기술을 대하는 태도', 'How MetaIntelligence approaches technology')}
     columns={3}
     isBeforeContent={true}
     classes={{
-      // 카드를 깔끔하게 정렬하고 강조
       panel:
         'bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 p-8 rounded-xl h-full flex flex-col',
       icon: 'text-primary bg-blue-50 dark:bg-blue-900/20 p-3 rounded-full mb-4',
     }}
     items={[
       {
-        // 철학 1: Essence over Trend
-        title: '본질에 기반한 기술 수용 (Essence over Trend)',
-        description: '최신 기술, 개발 트렌드, 연구 흐름을 빠르게 습득하며, 실용적 가치를 기준으로 개발에 적용합니다.',
-        icon: 'tabler:filter', // 본질을 걸러내는 이미지
+        title: bi('본질에 기반한 기술 수용 (Essence over Trend)', 'Essence over Trend'),
+        description: bi(
+          '최신 기술, 개발 트렌드, 연구 흐름을 빠르게 습득하며, 실용적 가치를 기준으로 개발에 적용합니다.',
+          'We absorb the latest technologies, development trends, and research currents quickly — and apply them based on practical value.'
+        ),
+        icon: 'tabler:filter',
       },
       {
-        // 철학 2: Robust Agility
-        title: '변화를 이기는 유연함 (Robust Agility)',
-        description: '실제 변화하는 환경에도 적응하는 유연한 소프트웨어 설계를 통해 실용적인 가치를 전달합니다.',
-        icon: 'tabler:topology-star-3', // 유연한 연결 구조
+        title: bi('변화를 이기는 유연함 (Robust Agility)', 'Robust Agility'),
+        description: bi(
+          '실제 변화하는 환경에도 적응하는 유연한 소프트웨어 설계를 통해 실용적인 가치를 전달합니다.',
+          'We deliver practical value through flexible software design that adapts to a real, shifting environment.'
+        ),
+        icon: 'tabler:topology-star-3',
       },
       {
-        // 철학 3: Synergy of Experts
-        title: '전문가들의 시너지 (Synergy of Experts)',
-        description:
+        title: bi('전문가들의 시너지 (Synergy of Experts)', 'Synergy of Experts'),
+        description: bi(
           '각 분야 최고 수준의 전문가들로 팀을 구성하며, 이들의 팀워크를 통해 고객에게 가치를 전달하는 시너지를 중시합니다.',
-        icon: 'tabler:users-group', // 팀워크
+          'We build teams from top experts in each field, and put weight on the synergy their teamwork delivers to clients.'
+        ),
+        icon: 'tabler:users-group',
       },
     ]}
   />
