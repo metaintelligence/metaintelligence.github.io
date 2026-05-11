@@ -6,8 +6,12 @@ import Features2 from '~/components/widgets/Features2.astro';
 import { headerData } from '~/navigation';
 
 const metadata = {
-  title: 'OpenMV 사업 제안서',
+  title: 'OpenMV Business Proposal',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
+// Use when the bilingual content contains block-level HTML (<ul>, <p>, etc.); span auto-closes before block children.
+const biBlock = (k: string, e: string) => `<div data-lang-ko>${k}</div><div data-lang-en>${e}</div>`;
 ---
 
 <Layout metadata={metadata}>
@@ -27,12 +31,21 @@ const metadata = {
             >
               OpenMV<br />
               <span class="text-blue-600 dark:text-blue-400 text-3xl md:text-4xl block mt-2 leading-snug">
-                차세대 제조 혁신을 위한<br />개방형 비전-MES<br />상호운용 표준
+                <span data-lang-ko>차세대 제조 혁신을 위한<br />개방형 비전-MES<br />상호운용 표준</span>
+                <span data-lang-en
+                  >An Open Interoperability Standard<br />for Vision &amp; MES<br />in Next-Gen Manufacturing</span
+                >
               </span>
             </h1>
             <p class="text-xl text-muted dark:text-slate-300 max-w-lg">
-              대한민국 제조 산업의 막힌 혈관을 뚫어주는<br />
-              <strong>디지털 인프라 표준화 사업</strong>
+              <span data-lang-ko
+                >대한민국 제조 산업의 막힌 혈관을 뚫어주는<br />
+                <strong>디지털 인프라 표준화 사업</strong></span
+              >
+              <span data-lang-en
+                >Unclogging the arteries of Korean manufacturing through a<br />
+                <strong>digital infrastructure standardization initiative.</strong></span
+              >
             </p>
           </div>
 
@@ -59,11 +72,18 @@ const metadata = {
                       d="M3 13a20 20 0 0 0 18 0"></path></svg
                   >
                 </div>
-                1.1. 사업 명 (가칭)
+                <span data-lang-ko>1.1. 사업 명 (가칭)</span>
+                <span data-lang-en>1.1. Project Name (working title)</span>
               </h3>
               <p class="text-gray-700 dark:text-slate-300 text-sm md:text-base leading-relaxed pl-11">
                 <strong>OpenMV (Open Manufacturing Vision Interface):</strong><br />
-                이기종 제조 시스템 간 초연결을 위한 비전 데이터 표준 프로토콜 및 고속 I/O 라이브러리 개발 사업
+                <span data-lang-ko
+                  >이기종 제조 시스템 간 초연결을 위한 비전 데이터 표준 프로토콜 및 고속 I/O 라이브러리 개발 사업</span
+                >
+                <span data-lang-en
+                  >Developing a standard vision-data protocol and a high-speed I/O library for hyper-connectivity across
+                  heterogeneous manufacturing systems.</span
+                >
               </p>
             </div>
 
@@ -86,17 +106,30 @@ const metadata = {
                     ></path></svg
                   >
                 </div>
-                1.2. 추진 배경
+                <span data-lang-ko>1.2. 추진 배경</span>
+                <span data-lang-en>1.2. Background</span>
               </h3>
               <ul
                 class="list-disc list-outside ml-4 pl-7 space-y-2 text-gray-700 dark:text-slate-300 text-sm md:text-base marker:text-blue-500"
               >
                 <li>
-                  <strong>제조 현장의 '데이터 바벨탑' 현상:</strong> 핵심 품질 검사 도구인 '비전 SW'와 생산 관리의 두뇌인
-                  'MES' 간 상호운용성 부재.
+                  <span data-lang-ko
+                    ><strong>제조 현장의 '데이터 바벨탑' 현상:</strong> 핵심 품질 검사 도구인 '비전 SW'와 생산 관리의 두뇌인
+                    'MES' 간 상호운용성 부재.</span
+                  >
+                  <span data-lang-en
+                    ><strong>The "Tower of Babel" of factory data:</strong> there is no interoperability between Vision SW
+                    — the core quality inspection tool — and MES, the brain of production management.</span
+                  >
                 </li>
                 <li>
-                  <strong>국가적 비효율 심화:</strong> 장비 도입 시 커스터마이징(SI) 비용 과다 및 리소스 낭비 초래.
+                  <span data-lang-ko
+                    ><strong>국가적 비효율 심화:</strong> 장비 도입 시 커스터마이징(SI) 비용 과다 및 리소스 낭비 초래.</span
+                  >
+                  <span data-lang-en
+                    ><strong>Compounding national inefficiency:</strong> every new piece of equipment racks up excessive
+                    SI customization costs and wastes resources.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -121,18 +154,31 @@ const metadata = {
                       d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path></svg
                   >
                 </div>
-                1.3. 사업 목표
+                <span data-lang-ko>1.3. 사업 목표</span>
+                <span data-lang-en>1.3. Project Goals</span>
               </h3>
               <ul
                 class="list-disc list-outside ml-4 pl-7 space-y-2 text-gray-700 dark:text-slate-300 text-sm md:text-base marker:text-green-500"
               >
                 <li>
-                  <strong>"선언하면 연결된다":</strong> 복잡한 코딩 없이 라이브러리 호출만으로 즉시 연동되는 표준 프로토콜
-                  및 SDK 개발.
+                  <span data-lang-ko
+                    ><strong>"선언하면 연결된다":</strong> 복잡한 코딩 없이 라이브러리 호출만으로 즉시 연동되는 표준 프로토콜
+                    및 SDK 개발.</span
+                  >
+                  <span data-lang-en
+                    ><strong>"Declare it, and it connects":</strong> build a standard protocol and SDK that integrates instantly
+                    through a library call — no complex coding required.</span
+                  >
                 </li>
                 <li>
-                  <strong>K-Standard의 글로벌화:</strong> 국내 실증 표준 확립을 통한 글로벌 제조 데이터 인터페이스 주도권
-                  확보.
+                  <span data-lang-ko
+                    ><strong>K-Standard의 글로벌화:</strong> 국내 실증 표준 확립을 통한 글로벌 제조 데이터 인터페이스 주도권
+                    확보.</span
+                  >
+                  <span data-lang-en
+                    ><strong>Taking the K-Standard global:</strong> establish a domestically proven standard and lead the
+                    global manufacturing data interface.</span
+                  >
                 </li>
               </ul>
             </div>
@@ -145,8 +191,14 @@ const metadata = {
   <div class="py-16 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-2">2. 현황 및 문제점 (WHY)</h2>
-        <p class="text-xl text-muted">파편화된 제조 소프트웨어 생태계의 한계</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-2">
+          <span data-lang-ko>2. 현황 및 문제점 (WHY)</span>
+          <span data-lang-en>2. Status &amp; Pain Points (WHY)</span>
+        </h2>
+        <p class="text-xl text-muted">
+          <span data-lang-ko>파편화된 제조 소프트웨어 생태계의 한계</span>
+          <span data-lang-en>The limits of a fragmented manufacturing software ecosystem</span>
+        </p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -166,9 +218,18 @@ const metadata = {
               ></path></svg
             >
           </div>
-          <h3 class="text-lg font-bold mb-2">비표준화된 연동 방식</h3>
+          <h3 class="text-lg font-bold mb-2">
+            <span data-lang-ko>비표준화된 연동 방식</span>
+            <span data-lang-en>Non-standardized integration</span>
+          </h3>
           <p class="text-muted text-sm">
-            비전 SW 개발사별 CSV, TXT, Socket, PLC Memory Map 등 표준화되지 않은 방식의 개별적 사용 만연.
+            <span data-lang-ko
+              >비전 SW 개발사별 CSV, TXT, Socket, PLC Memory Map 등 표준화되지 않은 방식의 개별적 사용 만연.</span
+            >
+            <span data-lang-en
+              >Each Vision SW vendor uses its own ad-hoc method — CSV, TXT, Socket, PLC Memory Map — with no shared
+              standard.</span
+            >
           </p>
         </div>
         <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-slate-800 rounded-lg shadow-sm">
@@ -186,9 +247,16 @@ const metadata = {
                 d="M18.7 6.8l-3.2 5.3"></path><path d="M9 11l-3 3"></path></svg
             >
           </div>
-          <h3 class="text-lg font-bold mb-2">데이터 통합 불가</h3>
+          <h3 class="text-lg font-bold mb-2">
+            <span data-lang-ko>데이터 통합 불가</span>
+            <span data-lang-en>No data integration</span>
+          </h3>
           <p class="text-muted text-sm">
-            기 도입된 타사 MES 시스템과의 통합 운용 한계 및 라인 증설 시 연동 비용 중복 발생.
+            <span data-lang-ko>기 도입된 타사 MES 시스템과의 통합 운용 한계 및 라인 증설 시 연동 비용 중복 발생.</span>
+            <span data-lang-en
+              >Existing third-party MES systems are hard to integrate, and every line expansion duplicates integration
+              costs.</span
+            >
           </p>
         </div>
         <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-slate-800 rounded-lg shadow-sm">
@@ -207,31 +275,50 @@ const metadata = {
                 d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path></svg
             >
           </div>
-          <h3 class="text-lg font-bold mb-2">데이터의 사장 (Data Silo)</h3>
+          <h3 class="text-lg font-bold mb-2">
+            <span data-lang-ko>데이터의 사장 (Data Silo)</span>
+            <span data-lang-en>Buried data (Data Silo)</span>
+          </h3>
           <p class="text-muted text-sm">
-            단순 OK/NG 판정 외 AI 재학습에 필수적인 고부가가치 데이터의 미전송 및 사장(死藏).
+            <span data-lang-ko>단순 OK/NG 판정 외 AI 재학습에 필수적인 고부가가치 데이터의 미전송 및 사장(死藏).</span>
+            <span data-lang-en
+              >Beyond simple OK/NG verdicts, the high-value data essential for AI retraining never makes it out — and
+              ends up buried.</span
+            >
           </p>
         </div>
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <h3 class="text-xl font-bold mb-4 text-center">기존 표준화 시도의 한계와 차별점</h3>
+        <h3 class="text-xl font-bold mb-4 text-center">
+          <span data-lang-ko>기존 표준화 시도의 한계와 차별점</span>
+          <span data-lang-en>How OpenMV differs from prior standardization attempts</span>
+        </h3>
         <p class="mb-8 text-center text-muted">
-          기존 글로벌 표준(OPC UA 등)은 '제어(Control)' 중심의 무거운 표준으로, 대용량 이미지와 AI 메타데이터를 포함하는
-          현대적 비전 시스템 적용에 한계 상존.
+          <span data-lang-ko
+            >기존 글로벌 표준(OPC UA 등)은 '제어(Control)' 중심의 무거운 표준으로, 대용량 이미지와 AI 메타데이터를
+            포함하는 현대적 비전 시스템 적용에 한계 상존.</span
+          >
+          <span data-lang-en
+            >Existing global standards (e.g., OPC UA) are heavyweight, control-centric specs — a poor fit for modern
+            vision systems that handle large images and AI metadata.</span
+          >
         </p>
 
         <div class="overflow-x-auto rounded-lg shadow border border-gray-200 dark:border-gray-700">
           <table class="w-full text-sm text-left border-collapse">
             <thead class="bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-white">
               <tr>
-                <th class="p-4 border-b border-gray-200 dark:border-gray-700 w-1/6">구분</th>
+                <th class="p-4 border-b border-gray-200 dark:border-gray-700 w-1/6">
+                  <span data-lang-ko>구분</span>
+                  <span data-lang-en>Category</span>
+                </th>
                 <th class="p-4 border-b border-gray-200 dark:border-gray-700 w-5/12 text-gray-500"
-                  >OPC UA / IPC-CFX (기존)</th
+                  >OPC UA / IPC-CFX (<span data-lang-ko>기존</span><span data-lang-en>existing</span>)</th
                 >
                 <th
                   class="p-4 border-b border-gray-200 dark:border-gray-700 w-5/12 text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-900/10"
-                  >OpenMV (제안 기술)</th
+                  >OpenMV (<span data-lang-ko>제안 기술</span><span data-lang-en>proposed</span>)</th
                 >
               </tr>
             </thead>
@@ -239,42 +326,70 @@ const metadata = {
               <tr>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 font-semibold bg-gray-50 dark:bg-slate-800/50"
-                  >목적</td
                 >
-                <td class="p-4 border-b border-gray-100 dark:border-gray-700">설비 제어 및 상태 모니터링</td>
+                  <span data-lang-ko>목적</span>
+                  <span data-lang-en>Purpose</span>
+                </td>
+                <td class="p-4 border-b border-gray-100 dark:border-gray-700">
+                  <span data-lang-ko>설비 제어 및 상태 모니터링</span>
+                  <span data-lang-en>Equipment control and status monitoring</span>
+                </td>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 bg-blue-50/50 dark:bg-blue-900/10 font-semibold"
-                  >비전 검사 데이터(Rule-based + AI)의 포괄적 처리</td
                 >
+                  <span data-lang-ko>비전 검사 데이터(Rule-based + AI)의 포괄적 처리</span>
+                  <span data-lang-en>End-to-end handling of vision inspection data (rule-based + AI)</span>
+                </td>
               </tr>
               <tr>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 font-semibold bg-gray-50 dark:bg-slate-800/50"
-                  >방식</td
                 >
-                <td class="p-4 border-b border-gray-100 dark:border-gray-700">복잡한 노드 구조 및 인증 절차</td>
+                  <span data-lang-ko>방식</span>
+                  <span data-lang-en>Approach</span>
+                </td>
+                <td class="p-4 border-b border-gray-100 dark:border-gray-700">
+                  <span data-lang-ko>복잡한 노드 구조 및 인증 절차</span>
+                  <span data-lang-en>Complex node structures and certification flows</span>
+                </td>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 bg-blue-50/50 dark:bg-blue-900/10 font-semibold"
-                  >실용적인 스키마(Schema) & 라이브러리(SDK)</td
                 >
+                  <span data-lang-ko>실용적인 스키마(Schema) & 라이브러리(SDK)</span>
+                  <span data-lang-en>Pragmatic schema and SDK</span>
+                </td>
               </tr>
               <tr>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 font-semibold bg-gray-50 dark:bg-slate-800/50"
-                  >난이도</td
                 >
-                <td class="p-4 border-b border-gray-100 dark:border-gray-700">도입에 수개월 소요 (높은 진입장벽)</td>
+                  <span data-lang-ko>난이도</span>
+                  <span data-lang-en>Adoption</span>
+                </td>
+                <td class="p-4 border-b border-gray-100 dark:border-gray-700">
+                  <span data-lang-ko>도입에 수개월 소요 (높은 진입장벽)</span>
+                  <span data-lang-en>Takes months to roll out (high entry barrier)</span>
+                </td>
                 <td
                   class="p-4 border-b border-gray-100 dark:border-gray-700 bg-blue-50/50 dark:bg-blue-900/10 font-semibold"
-                  >코드 몇 줄로 즉시 적용 (Plug & Play)</td
                 >
+                  <span data-lang-ko>코드 몇 줄로 즉시 적용 (Plug & Play)</span>
+                  <span data-lang-en>A few lines of code, instantly applied (Plug &amp; Play)</span>
+                </td>
               </tr>
               <tr>
-                <td class="p-4 font-semibold bg-gray-50 dark:bg-slate-800/50">접근법</td>
-                <td class="p-4">Top-Down (스펙 정의 후 구현 강요)</td>
-                <td class="p-4 bg-blue-50/50 dark:bg-blue-900/10 font-semibold"
-                  >Bottom-Up (SDK 배포를 통한 실용적 확산)</td
-                >
+                <td class="p-4 font-semibold bg-gray-50 dark:bg-slate-800/50">
+                  <span data-lang-ko>접근법</span>
+                  <span data-lang-en>Philosophy</span>
+                </td>
+                <td class="p-4">
+                  <span data-lang-ko>Top-Down (스펙 정의 후 구현 강요)</span>
+                  <span data-lang-en>Top-down: define a spec, then force implementation</span>
+                </td>
+                <td class="p-4 bg-blue-50/50 dark:bg-blue-900/10 font-semibold">
+                  <span data-lang-ko>Bottom-Up (SDK 배포를 통한 실용적 확산)</span>
+                  <span data-lang-en>Bottom-up: ship an SDK and let pragmatic adoption spread</span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -286,50 +401,96 @@ const metadata = {
   <div class="bg-gray-50 dark:bg-slate-900 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4">3. 사업 내용 및 기술적 접근 (WHAT)</h2>
-        <p class="text-xl text-muted">복잡성의 추상화 (Black-box SDK Strategy)</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <span data-lang-ko>3. 사업 내용 및 기술적 접근 (WHAT)</span>
+          <span data-lang-en>3. Scope &amp; Technical Approach (WHAT)</span>
+        </h2>
+        <p class="text-xl text-muted">
+          <span data-lang-ko>복잡성의 추상화 (Black-box SDK Strategy)</span>
+          <span data-lang-en>Abstracting away complexity (a black-box SDK strategy)</span>
+        </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <h3 class="text-xl font-bold mb-4">핵심 전략</h3>
+          <h3 class="text-xl font-bold mb-4">
+            <span data-lang-ko>핵심 전략</span>
+            <span data-lang-en>Core strategy</span>
+          </h3>
           <p class="mb-6 text-muted">
-            통신 프로토콜의 복잡한 내부 구조(패킷 순서, 바이너리 변환, 에러 핸들링 등)를 개발자가 인지할 필요 없는 <strong
-              >완벽하게 추상화된 SDK(Black-box) 형태 제공.</strong
-            ><br /><br />
-            - <strong>개념:</strong> 개발자는 "데이터 전송" 행위에만 집중하며, 구체적인 전송 로직은 표준 라이브러리가 전담
-            처리.<br />
-            - <strong>지향점:</strong> USB 장치 연결 시 드라이버가 자동 통신하듯, SW 레벨에서의 <strong
-              >Plug & Play 구현.</strong
+            <span data-lang-ko
+              >통신 프로토콜의 복잡한 내부 구조(패킷 순서, 바이너리 변환, 에러 핸들링 등)를 개발자가 인지할 필요 없는
+              <strong>완벽하게 추상화된 SDK(Black-box) 형태 제공.</strong><br /><br />
+              - <strong>개념:</strong> 개발자는 "데이터 전송" 행위에만 집중하며, 구체적인 전송 로직은 표준 라이브러리가 전담
+              처리.<br />
+              - <strong>지향점:</strong> USB 장치 연결 시 드라이버가 자동 통신하듯, SW 레벨에서의
+              <strong>Plug & Play 구현.</strong></span
+            >
+            <span data-lang-en
+              >Hide the gritty internals of the wire protocol — packet ordering, binary encoding, error handling —
+              behind a <strong>fully abstracted, black-box SDK.</strong><br /><br />
+              - <strong>Concept:</strong> developers focus solely on "sending data"; the standard library handles the transport
+              logic.<br />
+              - <strong>Goal:</strong> the way a USB driver auto-negotiates when you plug in a device, but at the software
+              layer — <strong>true Plug &amp; Play.</strong></span
             >
           </p>
 
-          <h3 class="text-xl font-bold mb-4">개발 범위</h3>
+          <h3 class="text-xl font-bold mb-4">
+            <span data-lang-ko>개발 범위</span>
+            <span data-lang-en>Scope of development</span>
+          </h3>
           <div class="space-y-4">
             <div class="p-4 bg-white dark:bg-slate-800 rounded shadow-sm">
-              <strong class="block mb-2 text-primary">A. 표준 데이터 스키마 (OpenMV Schema)</strong>
+              <strong class="block mb-2 text-primary"
+                >A. <span data-lang-ko>표준 데이터 스키마</span><span data-lang-en>Standard Data Schema</span> (OpenMV Schema)</strong
+              >
               <p class="text-sm text-muted">
-                제조 데이터 구조를 정의한 XSD 및 JSON Schema 명세 동시 제공. 전통적 수치/텍스트 기반 검사 결과뿐만
-                아니라, 최신 AI 모델의 벡터, 히트맵, 추론 신뢰도 등 모든 검사 유형 수용 구조 설계.
+                <span data-lang-ko
+                  >제조 데이터 구조를 정의한 XSD 및 JSON Schema 명세 동시 제공. 전통적 수치/텍스트 기반 검사 결과뿐만
+                  아니라, 최신 AI 모델의 벡터, 히트맵, 추론 신뢰도 등 모든 검사 유형 수용 구조 설계.</span
+                >
+                <span data-lang-en
+                  >We ship both XSD and JSON Schema specs that define the manufacturing data structure — accommodating
+                  not only traditional numeric/text inspection results, but also vectors, heatmaps, and inference
+                  confidence scores from modern AI models.</span
+                >
               </p>
             </div>
             <div class="p-4 bg-white dark:bg-slate-800 rounded shadow-sm">
-              <strong class="block mb-2 text-primary">B. 표준 I/O SDK (Reader/Writer Library)</strong>
+              <strong class="block mb-2 text-primary"
+                >B. <span data-lang-ko>표준 I/O SDK</span><span data-lang-en>Standard I/O SDK</span> (Reader/Writer Library)</strong
+              >
               <p class="text-sm text-muted">
-                Vision Side (Writer) 및 MES Side (Reader) 라이브러리 제공. SW 실용주의(Pragmatism) 기반의 선언형 API
-                설계를 통한 개발 생산성 극대화.
+                <span data-lang-ko
+                  >Vision Side (Writer) 및 MES Side (Reader) 라이브러리 제공. SW 실용주의(Pragmatism) 기반의 선언형 API
+                  설계를 통한 개발 생산성 극대화.</span
+                >
+                <span data-lang-en
+                  >Writer libraries for the vision side and Reader libraries for the MES side, with a declarative API
+                  grounded in software pragmatism — maximizing developer productivity.</span
+                >
               </p>
             </div>
           </div>
         </div>
 
         <div>
-          <h3 class="text-xl font-bold mb-4">기술 도입 전후 비교 (Code Level Simulation)</h3>
+          <h3 class="text-xl font-bold mb-4">
+            <span data-lang-ko>기술 도입 전후 비교 (Code Level Simulation)</span>
+            <span data-lang-en>Before / after, at the code level</span>
+          </h3>
 
           <div class="mb-6">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-sm font-bold text-red-500">[AS-IS: 기존 개발 방식]</span>
-              <span class="text-xs text-muted">복잡하고 오류 발생 가능성 높음</span>
+              <span class="text-sm font-bold text-red-500">
+                <span data-lang-ko>[AS-IS: 기존 개발 방식]</span>
+                <span data-lang-en>[AS-IS: today's approach]</span>
+              </span>
+              <span class="text-xs text-muted">
+                <span data-lang-ko>복잡하고 오류 발생 가능성 높음</span>
+                <span data-lang-en>Complex and error-prone</span>
+              </span>
             </div>
             <pre
               class="bg-gray-800 text-gray-300 p-4 rounded text-xs overflow-x-auto font-mono leading-relaxed"><code>{`// Example: Manual Socket Implementation (Complex & Error-prone)
@@ -346,8 +507,14 @@ client.Send(data);
 
           <div>
             <div class="flex items-center justify-between mb-2">
-              <span class="text-sm font-bold text-green-500">[TO-BE: OpenMV 적용 방식]</span>
-              <span class="text-xs text-muted">단순하고 강력함 (Simple & Robust)</span>
+              <span class="text-sm font-bold text-green-500">
+                <span data-lang-ko>[TO-BE: OpenMV 적용 방식]</span>
+                <span data-lang-en>[TO-BE: with OpenMV]</span>
+              </span>
+              <span class="text-xs text-muted">
+                <span data-lang-ko>단순하고 강력함 (Simple & Robust)</span>
+                <span data-lang-en>Simple &amp; robust</span>
+              </span>
             </div>
             <pre
               class="bg-gray-800 text-blue-300 p-4 rounded text-xs overflow-x-auto font-mono leading-relaxed"><code>{`// Example: Using OpenMV SDK (Simple & Robust)
@@ -368,32 +535,50 @@ OpenMV.Writer.Send(inspectionData);`}</code></pre>
   </div>
 
   <Features2
-    title="4. 추진 전략 및 실현 가능성 (HOW)"
-    subtitle="검증된 역량과 실용주의 철학"
+    title={bi('4. 추진 전략 및 실현 가능성 (HOW)', '4. Execution Strategy &amp; Feasibility (HOW)')}
+    subtitle={bi('검증된 역량과 실용주의 철학', 'Proven capability, backed by a pragmatic philosophy')}
     columns={3}
     items={[
       {
-        title: '수행 책임자 역량',
-        description: `
+        title: bi('수행 책임자 역량', 'Lead Engineer Track Record'),
+        description: bi(
+          `
           본 과제 책임자는 <strong>구글(Google) 안드로이드 'WFF (Watch Face Format)'의 핵심 아키텍처 단독 설계(Sole Architect)</strong> 및 구현 이력 보유.<br><br>
           단순 참여가 아닌, <strong>XSD 선언 구조부터 검증 로직까지의 전체 코어 시스템</strong> 독자 개발 경험을 바탕으로, 제조 산업 프로토콜의 기술적 완성도 보장.
         `,
+          `
+          The project lead was the <strong>sole architect</strong> behind the core architecture of Google Android's <strong>WFF (Watch Face Format)</strong> — not just a contributor, but the single designer and implementer.<br><br>
+          That experience — building the entire core, from the XSD declarations down to the validation logic — is what guarantees the technical depth of this manufacturing protocol.
+        `
+        ),
         icon: 'tabler:user-star',
       },
       {
-        title: '생산성 혁신 유인책',
-        description: `
+        title: bi('생산성 혁신 유인책', 'Productivity Incentive'),
+        description: bi(
+          `
           비전/MES 개발사의 통신 모듈 직접 개발 불필요. 사업단 배포 <strong>검증된 표준 라이브러리</strong> 활용을 통한 즉각적 개발 착수 지원.<br><br>
           반복적인 I/O 코드 개발 업무 제거 및 핵심 알고리즘 개발 집중을 통한 <strong>SW 생산성 비약적 증대.</strong>
         `,
+          `
+          Vision and MES vendors no longer need to build their own communication modules. The <strong>vetted standard library</strong> distributed by the project lets them start building immediately.<br><br>
+          By eliminating the grind of repetitive I/O code and freeing teams to focus on the core algorithms, this delivers a <strong>step-change in software productivity.</strong>
+        `
+        ),
         icon: 'tabler:rocket',
       },
       {
-        title: '실증 및 확산 전략',
-        description: `
+        title: bi('실증 및 확산 전략', 'Pilot &amp; Adoption Strategy'),
+        description: bi(
+          `
           <strong>즉시 가동 가능한 Testbed 확보:</strong> 기 보유 제조 네트워크(MES/비전 기업, 실제 라인) 활용, 개발 즉시 알파/베타 테스트 수행.<br><br>
           <strong>Open Source 전략:</strong> 개발된 SDK의 GitHub 등 오픈소스 공개를 통한 진입 장벽 제거 및 자발적 확산 유도.
         `,
+          `
+          <strong>A live testbed, ready on day one:</strong> we tap our existing network of MES vendors, vision companies, and real production lines to run alpha/beta tests as soon as the code is built.<br><br>
+          <strong>Open-source distribution:</strong> we release the SDK on GitHub and other open channels to drop the entry barrier and let adoption spread on its own.
+        `
+        ),
         icon: 'tabler:world',
       },
     ]}
@@ -401,26 +586,42 @@ OpenMV.Writer.Send(inspectionData);`}</code></pre>
 
   <Content
     isReversed
-    title="5. 기대 효과 (Impact)"
+    title={bi('5. 기대 효과 (Impact)', '5. Expected Impact')}
     items={[
       {
-        title: '국가 제조 산업 및 제조 기업 경쟁력 강화',
-        description: `
+        title: bi('국가 제조 산업 및 제조 기업 경쟁력 강화', 'Stronger national manufacturing competitiveness'),
+        description: biBlock(
+          `
           <ul class="list-disc ml-4">
             <li><strong>제조 기업(수요처)의 통합 관리 실현:</strong> 표준 도입을 통한 특정 비전/MES 업체 종속(Vendor Lock-in) 탈피 및 비전 도구-MES 선택의 유연성 확보 및 즉시 통합(Integration) 환경 구현.</li>
             <li><strong>스마트팩토리 고도화 가속:</strong> 전사적 품질 데이터 일원화 관리를 통한 국가 제조 산업 전체 품질 수준의 상향 평준화.</li>
           </ul>
         `,
+          `
+          <ul class="list-disc ml-4">
+            <li><strong>Unified management for manufacturers (the buy side):</strong> a shared standard breaks vendor lock-in to any single Vision/MES company, gives buyers flexibility in tool selection, and makes integration immediate.</li>
+            <li><strong>Accelerated smart-factory maturity:</strong> consolidating quality data company-wide raises the overall quality bar across national manufacturing.</li>
+          </ul>
+        `
+        ),
         icon: 'tabler:chart-arrows-vertical',
       },
       {
-        title: 'SW 기업 상생 및 글로벌 진출',
-        description: `
+        title: bi('SW 기업 상생 및 글로벌 진출', 'Software vendor partnerships and global reach'),
+        description: biBlock(
+          `
           <ul class="list-disc ml-4">
             <li><strong>비전 SW 기업:</strong> '연동' 이슈 해소 및 '검출 알고리즘' 개발 집중 환경 조성, "International OpenMV Compliant" 인증을 통한 해외 수출 신뢰성 확보.</li>
             <li><strong>MES 기업:</strong> 다양한 비전 장비의 손쉬운 플러그인(Plug-in) 지원을 통한 플랫폼 확장성 증대.</li>
           </ul>
         `,
+          `
+          <ul class="list-disc ml-4">
+            <li><strong>Vision SW companies:</strong> integration headaches go away, freeing teams to focus on detection algorithms. "International OpenMV Compliant" certification then becomes a credibility lever for export.</li>
+            <li><strong>MES companies:</strong> easy plug-in support for a wide range of vision equipment expands platform reach.</li>
+          </ul>
+        `
+        ),
         icon: 'tabler:globe',
       },
     ]}
@@ -431,7 +632,7 @@ OpenMV.Writer.Send(inspectionData);`}</code></pre>
   />
 
   <Content
-    title="6. 결론"
+    title={bi('6. 결론', '6. Conclusion')}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       alt: 'Future of Manufacturing',
@@ -446,15 +647,28 @@ OpenMV.Writer.Send(inspectionData);`}</code></pre>
     <Fragment slot="content">
       <div class="text-lg text-muted dark:text-slate-400 text-left">
         <p class="mb-6">
-          본 사업은 단순 기술 개발 과제를 넘어, 대한민국 제조 산업의 막힌 혈관(Data Flow)을 뚫어주는 <strong
-            >디지털 인프라 표준화 사업</strong
-          >입니다.
+          <span data-lang-ko
+            >본 사업은 단순 기술 개발 과제를 넘어, 대한민국 제조 산업의 막힌 혈관(Data Flow)을 뚫어주는
+            <strong>디지털 인프라 표준화 사업</strong>입니다.</span
+          >
+          <span data-lang-en
+            >This is more than a technology development project — it's a
+            <strong>digital infrastructure standardization initiative</strong> that unclogs the data flow of Korean manufacturing.</span
+          >
         </p>
         <p>
-          과거 하드웨어의 표준화가 산업 혁명을 이끌었다면, AI 시대에는 <strong>데이터 프로토콜의 표준화</strong>가 산업
-          패권을 결정합니다. 글로벌 표준(WFF) 아키텍트로서의 성공 경험과 실용주의 철학을 바탕으로, <strong
-            >한국형 제조 표준(OpenMV)</strong
-          >의 글로벌 제조 산업 표준(Global Standard) 도약 실현하겠습니다.
+          <span data-lang-ko
+            >과거 하드웨어의 표준화가 산업 혁명을 이끌었다면, AI 시대에는 <strong>데이터 프로토콜의 표준화</strong>가
+            산업 패권을 결정합니다. 글로벌 표준(WFF) 아키텍트로서의 성공 경험과 실용주의 철학을 바탕으로,
+            <strong>한국형 제조 표준(OpenMV)</strong>의 글로벌 제조 산업 표준(Global Standard) 도약 실현하겠습니다.</span
+          >
+          <span data-lang-en
+            >Hardware standards drove past industrial revolutions; in the AI era, <strong
+              >data-protocol standards</strong
+            > decide who wins the industry. Drawing on the success of a global standard architect (WFF) and a pragmatic philosophy,
+            we'll take the <strong>Korean manufacturing standard (OpenMV)</strong> and turn it into a global manufacturing
+            standard.</span
+          >
         </p>
       </div>
     </Fragment>
