@@ -20,45 +20,62 @@ import insightsScreen from '~/assets/images/ida/ida_insights.png';
 import mobileScreen from '~/assets/images/ida/ida_mobile_projects.png';
 
 const metadata = {
-  title: 'IDA 문서 분석 AI 솔루션 — MetaIntelligence',
+  title: 'IDA — Intelligent Document Analyzer',
   description:
-    'IDA는 MetaInsight 기반의 문서·레코드 분석 AI로, CSV·Excel·Parquet 데이터에서 텍스트 클러스터와 시계열 시그널을 발견하고 정량 근거 기반 인사이트를 생성합니다.',
+    'IDA is a document and record analytics AI built on MetaInsight. It surfaces keyword clusters and time-series signals in CSV/Excel/Parquet data and produces evidence-backed insights.',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
 
 const screenItems = [
   {
-    title: '분석 생성',
-    description: '파일 업로드에서 컬럼 매핑, 분석 프리셋 선택으로 이어지는 3단계 흐름',
+    titleKo: '분석 생성',
+    titleEn: 'New Analysis',
+    descriptionKo: '파일 업로드에서 컬럼 매핑, 분석 프리셋 선택으로 이어지는 3단계 흐름',
+    descriptionEn: 'The three-step flow: file upload, column mapping, and analysis preset selection.',
     image: uploadScreen,
-    alt: 'MetaInsight 새 분석 업로드 화면',
+    altKo: 'MetaInsight 새 분석 업로드 화면',
+    altEn: 'MetaInsight new-analysis upload screen',
     icon: 'tabler:upload',
   },
   {
-    title: '결과 요약',
-    description: '레코드, 그룹, 감지된 시그널, 전체 클러스터를 한 화면에서 확인',
+    titleKo: '결과 요약',
+    titleEn: 'Results Overview',
+    descriptionKo: '레코드, 그룹, 감지된 시그널, 전체 클러스터를 한 화면에서 확인',
+    descriptionEn: 'See records, groups, detected signals, and all clusters in one view.',
     image: overviewScreen,
-    alt: 'MetaInsight 분석 결과 요약 화면',
+    altKo: 'MetaInsight 분석 결과 요약 화면',
+    altEn: 'MetaInsight analysis results overview',
     icon: 'tabler:layout-dashboard',
   },
   {
-    title: '분포와 비교',
-    description: '등급 분포, 그룹 비교, Top Signals를 차트로 확인',
+    titleKo: '분포와 비교',
+    titleEn: 'Distribution &amp; Comparison',
+    descriptionKo: '등급 분포, 그룹 비교, Top Signals를 차트로 확인',
+    descriptionEn: 'Visualize grade distribution, group comparisons, and top signals as charts.',
     image: chartsScreen,
-    alt: 'MetaInsight 결과 차트 화면',
+    altKo: 'MetaInsight 결과 차트 화면',
+    altEn: 'MetaInsight results chart view',
     icon: 'tabler:chart-donut',
   },
   {
-    title: '항목 상세',
-    description: '클러스터별 점수, 통과 기준, 레코드 수, 키워드 구성을 상세 검토',
+    titleKo: '항목 상세',
+    titleEn: 'Cluster Detail',
+    descriptionKo: '클러스터별 점수, 통과 기준, 레코드 수, 키워드 구성을 상세 검토',
+    descriptionEn: 'Inspect per-cluster scores, pass criteria, record counts, and keyword composition.',
     image: detailScreen,
-    alt: 'MetaInsight 항목 상세 화면',
+    altKo: 'MetaInsight 항목 상세 화면',
+    altEn: 'MetaInsight item detail view',
     icon: 'tabler:list-details',
   },
   {
-    title: '인사이트',
-    description: '분석 결과를 요약하고 주요 클러스터별 근거를 자연어로 정리',
+    titleKo: '인사이트',
+    titleEn: 'Insights',
+    descriptionKo: '분석 결과를 요약하고 주요 클러스터별 근거를 자연어로 정리',
+    descriptionEn: 'Summarize the analysis and lay out per-cluster evidence in natural language.',
     image: insightsScreen,
-    alt: 'MetaInsight 인사이트 화면',
+    altKo: 'MetaInsight 인사이트 화면',
+    altEn: 'MetaInsight insights view',
     icon: 'tabler:sparkles',
   },
 ];
@@ -73,13 +90,25 @@ const initialScreen = screenItems[1];
 
   <Hero2 tagline="IDA · Intelligent Document Analyzer">
     <Fragment slot="title">
-      문서 데이터를<br />
-      <span class="text-accent">정량 근거로 분석</span>
+      <span data-lang-ko
+        >문서 데이터를<br />
+        <span class="text-accent">정량 근거로 분석</span></span
+      >
+      <span data-lang-en
+        >Document data,<br />
+        <span class="text-accent">analyzed with quantitative evidence</span></span
+      >
     </Fragment>
 
     <Fragment slot="subtitle">
-      IDA는 MetaInsight의 제품 경험을 기반으로, 구조화된 문서·레코드 데이터에서 키워드 클러스터와 시계열 시그널을 찾고
-      분석 결과를 인사이트로 정리하는 문서 분석 AI 솔루션입니다.
+      <span data-lang-ko
+        >IDA는 MetaInsight의 제품 경험을 기반으로, 구조화된 문서·레코드 데이터에서 키워드 클러스터와 시계열 시그널을
+        찾고 분석 결과를 인사이트로 정리하는 문서 분석 AI 솔루션입니다.</span
+      >
+      <span data-lang-en
+        >Built on the MetaInsight product experience, IDA is a document analytics AI that finds keyword clusters and
+        time-series signals in structured document and record data, and packages the results as insights.</span
+      >
     </Fragment>
 
     <Fragment slot="image">
@@ -88,7 +117,7 @@ const initialScreen = screenItems[1];
           src={overviewScreen.src}
           width={overviewScreen.width}
           height={overviewScreen.height}
-          alt="MetaInsight 분석 결과 요약 대시보드"
+          alt="MetaInsight analysis results dashboard"
           class="aspect-[16/10] w-full object-cover object-top"
           loading="eager"
         />
@@ -112,27 +141,36 @@ const initialScreen = screenItems[1];
 
   <Features3
     tagline="Product Scope"
-    title="문서·레코드 분석을 위한 핵심 기능"
-    subtitle="IDA는 텍스트와 날짜 축이 정리된 문서·레코드 데이터를 기준으로 분석을 시작합니다. 업로드, 컬럼 매핑, 클러스터링, 정량 평가, 인사이트 생성까지 이어지는 흐름을 하나의 화면 경험으로 제공합니다."
+    title={bi('문서·레코드 분석을 위한 핵심 기능', 'Core features for document and record analysis')}
+    subtitle={bi(
+      'IDA는 텍스트와 날짜 축이 정리된 문서·레코드 데이터를 기준으로 분석을 시작합니다. 업로드, 컬럼 매핑, 클러스터링, 정량 평가, 인사이트 생성까지 이어지는 흐름을 하나의 화면 경험으로 제공합니다.',
+      'IDA starts from document and record data that has a text axis and a date axis. Upload, column mapping, clustering, quantitative evaluation, and insight generation are all delivered as a single, unified screen experience.'
+    )}
     columns={3}
     isDark
     items={[
       {
-        title: '문서·레코드 업로드',
-        description:
+        title: bi('문서·레코드 업로드', 'Upload documents and records'),
+        description: bi(
           'CSV, Excel, Parquet 파일을 업로드하고 텍스트, 날짜, 금액, 그룹, 식별자 컬럼을 화면에서 확인하며 분석 조건을 구성합니다.',
+          'Upload CSV, Excel, or Parquet files, review the detected text/date/amount/group/identifier columns on screen, and configure the analysis.'
+        ),
         icon: 'tabler:file-spreadsheet',
       },
       {
-        title: '키워드 클러스터링',
-        description:
+        title: bi('키워드 클러스터링', 'Keyword clustering'),
+        description: bi(
           '비슷한 키워드와 문서 항목을 자동으로 묶고, 각 클러스터가 시간에 따라 어떻게 변화하는지 정량적으로 비교합니다.',
+          'Group related keywords and document items automatically, then compare how each cluster shifts over time — quantitatively.'
+        ),
         icon: 'tabler:category-2',
       },
       {
-        title: '정량 근거 기반 인사이트',
-        description:
+        title: bi('정량 근거 기반 인사이트', 'Evidence-backed insights'),
+        description: bi(
           'C1 장기 트렌드, C2 모멘텀 유지, C3 최근 가속 기준을 바탕으로 등급과 점수를 산출하고 자연어 인사이트를 제공합니다.',
+          'Compute grades and scores from three criteria — C1 long-term trend, C2 momentum, C3 recent acceleration — and deliver natural-language insights.'
+        ),
         icon: 'tabler:report-analytics',
       },
     ]}
@@ -140,27 +178,42 @@ const initialScreen = screenItems[1];
 
   <Steps
     tagline="Analysis Workflow"
-    title="업로드부터 인사이트까지 이어지는 운용 흐름"
-    subtitle="사용자는 복잡한 코드 없이 분석 파일을 올리고, 자동 감지된 컬럼을 검토한 뒤 프리셋을 선택해 분석을 실행합니다. 결과는 요약 지표, 차트, 항목 상세, 자연어 인사이트로 나누어 확인합니다."
+    title={bi('업로드부터 인사이트까지 이어지는 운용 흐름', 'A flow that runs from upload to insight')}
+    subtitle={bi(
+      '사용자는 복잡한 코드 없이 분석 파일을 올리고, 자동 감지된 컬럼을 검토한 뒤 프리셋을 선택해 분석을 실행합니다. 결과는 요약 지표, 차트, 항목 상세, 자연어 인사이트로 나누어 확인합니다.',
+      'Users upload a file with no code, review the auto-detected columns, pick a preset, and run the analysis. Results show up as summary metrics, charts, item detail, and natural-language insights.'
+    )}
     items={[
       {
         title: 'Upload',
-        description: '분석할 문서·레코드 데이터를 업로드하고 지원 형식을 확인합니다.',
+        description: bi(
+          '분석할 문서·레코드 데이터를 업로드하고 지원 형식을 확인합니다.',
+          'Upload the documents or records to analyze and verify the supported file format.'
+        ),
         icon: 'tabler:upload',
       },
       {
         title: 'Map Columns',
-        description: '텍스트와 날짜 컬럼을 중심으로 분석에 필요한 필드를 매핑합니다.',
+        description: bi(
+          '텍스트와 날짜 컬럼을 중심으로 분석에 필요한 필드를 매핑합니다.',
+          'Map the fields the analysis needs, anchored on the text and date columns.'
+        ),
         icon: 'tabler:columns',
       },
       {
         title: 'Evaluate',
-        description: '키워드 군집을 만들고 트렌드 강도, 모멘텀, 최근 가속을 평가합니다.',
+        description: bi(
+          '키워드 군집을 만들고 트렌드 강도, 모멘텀, 최근 가속을 평가합니다.',
+          'Build keyword clusters and score them on trend strength, momentum, and recent acceleration.'
+        ),
         icon: 'tabler:wave-sine',
       },
       {
         title: 'Review Insights',
-        description: '요약 지표, 상세 항목, AI 또는 템플릿 기반 인사이트를 검토합니다.',
+        description: bi(
+          '요약 지표, 상세 항목, AI 또는 템플릿 기반 인사이트를 검토합니다.',
+          'Review summary metrics, item detail, and AI- or template-based insights.'
+        ),
         icon: 'tabler:report-analytics',
       },
     ]}
@@ -168,23 +221,35 @@ const initialScreen = screenItems[1];
 
   <Features2
     tagline="Signal Criteria"
-    title="정량 평가 엔진의 세 가지 기준"
-    subtitle="단순 키워드 빈도보다 중요한 것은 지속성, 현재성, 변화 속도입니다. IDA는 각 클러스터를 독립 기준으로 평가해 설명 가능한 점수와 등급으로 정리합니다."
+    title={bi('정량 평가 엔진의 세 가지 기준', 'Three criteria behind the quantitative scoring engine')}
+    subtitle={bi(
+      '단순 키워드 빈도보다 중요한 것은 지속성, 현재성, 변화 속도입니다. IDA는 각 클러스터를 독립 기준으로 평가해 설명 가능한 점수와 등급으로 정리합니다.',
+      'Persistence, recency, and rate of change matter more than raw keyword frequency. IDA evaluates each cluster against these independent criteria and turns them into explainable scores and grades.'
+    )}
     columns={3}
     items={[
       {
-        title: 'C1 — 장기 트렌드',
-        description: '시간이 지나며 꾸준히 증가하는 클러스터인지 확인합니다.',
+        title: bi('C1 — 장기 트렌드', 'C1 — Long-term trend'),
+        description: bi(
+          '시간이 지나며 꾸준히 증가하는 클러스터인지 확인합니다.',
+          'Does this cluster grow steadily over time?'
+        ),
         icon: 'tabler:trending-up',
       },
       {
-        title: 'C2 — 모멘텀 유지',
-        description: '최근 구간의 활동이 기준선보다 높은 상태를 유지하는지 봅니다.',
+        title: bi('C2 — 모멘텀 유지', 'C2 — Momentum'),
+        description: bi(
+          '최근 구간의 활동이 기준선보다 높은 상태를 유지하는지 봅니다.',
+          'Is recent activity holding above the baseline?'
+        ),
         icon: 'tabler:activity',
       },
       {
-        title: 'C3 — 최근 가속',
-        description: '현재 시점에 가까워질수록 격차가 더 커지는지 평가합니다.',
+        title: bi('C3 — 최근 가속', 'C3 — Recent acceleration'),
+        description: bi(
+          '현재 시점에 가까워질수록 격차가 더 커지는지 평가합니다.',
+          'Is the gap widening as we approach the present?'
+        ),
         icon: 'tabler:rocket',
       },
     ]}
@@ -193,8 +258,11 @@ const initialScreen = screenItems[1];
   <WidgetWrapper isDark containerClass="max-w-7xl mx-auto">
     <Headline
       tagline="Product Screens"
-      title="선택해서 보는 실제 화면"
-      subtitle="의사결정에 필요한 장면을 선별했습니다. 왼쪽에서 관심 기능을 선택하면 오른쪽에서 실제 화면과 핵심 의미를 바로 확인할 수 있습니다."
+      title={bi('선택해서 보는 실제 화면', 'Pick a screen, see it live')}
+      subtitle={bi(
+        '의사결정에 필요한 장면을 선별했습니다. 왼쪽에서 관심 기능을 선택하면 오른쪽에서 실제 화면과 핵심 의미를 바로 확인할 수 있습니다.',
+        'These are the views that matter for decisions. Pick a capability on the left and the real screen — plus what it actually means — shows up on the right.'
+      )}
       classes={{
         container: 'text-center md:text-left rtl:md:text-right max-w-3xl',
         title: 'text-3xl md:text-4xl font-bold tracking-tight',
@@ -215,9 +283,12 @@ const initialScreen = screenItems[1];
               data-ida-screen-trigger
               data-ida-active={index === 1 ? 'true' : 'false'}
               data-ida-image={item.image.src}
-              data-ida-alt={item.alt}
-              data-ida-title={item.title}
-              data-ida-description={item.description}
+              data-ida-alt-ko={item.altKo}
+              data-ida-alt-en={item.altEn}
+              data-ida-title-ko={item.titleKo}
+              data-ida-title-en={item.titleEn}
+              data-ida-description-ko={item.descriptionKo}
+              data-ida-description-en={item.descriptionEn}
               aria-pressed={index === 1 ? 'true' : 'false'}
             >
               <span class="grid min-h-[84px] grid-cols-[96px_1fr]">
@@ -238,8 +309,14 @@ const initialScreen = screenItems[1];
                   </span>
                 </span>
                 <span class="flex flex-col justify-center p-4">
-                  <span class="text-sm font-bold text-heading dark:text-white">{item.title}</span>
-                  <span class="mt-1 text-xs leading-relaxed text-muted dark:text-slate-400">{item.description}</span>
+                  <span class="text-sm font-bold text-heading dark:text-white">
+                    <span data-lang-ko>{item.titleKo}</span>
+                    <span data-lang-en set:html={item.titleEn} />
+                  </span>
+                  <span class="mt-1 text-xs leading-relaxed text-muted dark:text-slate-400">
+                    <span data-lang-ko>{item.descriptionKo}</span>
+                    <span data-lang-en>{item.descriptionEn}</span>
+                  </span>
                 </span>
               </span>
             </button>
@@ -255,7 +332,7 @@ const initialScreen = screenItems[1];
             src={initialScreen.image.src}
             width={initialScreen.image.width}
             height={initialScreen.image.height}
-            alt={initialScreen.alt}
+            alt={initialScreen.altEn}
             class="aspect-[16/10] w-full object-cover object-top"
             loading="eager"
             data-ida-screen-image
@@ -268,10 +345,12 @@ const initialScreen = screenItems[1];
             </div>
             <div class="min-w-0">
               <h3 class="text-xl font-bold text-heading dark:text-white" data-ida-screen-heading>
-                {initialScreen.title}
+                <span data-lang-ko>{initialScreen.titleKo}</span>
+                <span data-lang-en set:html={initialScreen.titleEn} />
               </h3>
               <p class="mt-2 leading-relaxed text-muted dark:text-slate-400" data-ida-screen-copy>
-                {initialScreen.description}
+                <span data-lang-ko>{initialScreen.descriptionKo}</span>
+                <span data-lang-en>{initialScreen.descriptionEn}</span>
               </p>
             </div>
           </div>
@@ -283,34 +362,49 @@ const initialScreen = screenItems[1];
   <Content
     isReversed
     tagline="Operation & Expansion"
-    title="분석 엔진을 제품으로 운용하기 위한 기반"
+    title={bi('분석 엔진을 제품으로 운용하기 위한 기반', 'The product foundation that runs the analysis engine')}
     items={[
       {
-        title: 'SaaS 운용 구조',
-        description: 'JWT 인증, 프로젝트 단위 관리, 사용량 제한 등 SaaS 제품 운용에 필요한 기본 구조를 갖춥니다.',
+        title: bi('SaaS 운용 구조', 'SaaS operating structure'),
+        description: bi(
+          'JWT 인증, 프로젝트 단위 관리, 사용량 제한 등 SaaS 제품 운용에 필요한 기본 구조를 갖춥니다.',
+          'JWT auth, per-project management, usage limits — the basics required to run as a SaaS product are in place.'
+        ),
         icon: 'tabler:shield-check',
       },
       {
-        title: '도메인 확장',
-        description:
+        title: bi('도메인 확장', 'Domain expansion'),
+        description: bi(
           'R&D 과제, 특허, 리테일, 금융 리스크처럼 텍스트와 날짜 축이 있는 데이터로 분석 대상을 확장할 수 있습니다.',
+          'Push the analysis target into any data with text and date axes: R&D programs, patents, retail, financial risk.'
+        ),
         icon: 'tabler:database-search',
       },
       {
-        title: '반복 탐색',
-        description: '국가, 분야, 기간, 프리셋 등 조건을 조정하며 같은 데이터에서 다른 관점의 시그널을 확인합니다.',
+        title: bi('반복 탐색', 'Iterative exploration'),
+        description: bi(
+          '국가, 분야, 기간, 프리셋 등 조건을 조정하며 같은 데이터에서 다른 관점의 시그널을 확인합니다.',
+          'Vary country, field, time window, and preset to surface different signals from the same data.'
+        ),
         icon: 'tabler:refresh-dot',
       },
     ]}
     image={{
       src: mobileScreen,
-      alt: 'MetaInsight 모바일 프로젝트 화면',
+      alt: 'MetaInsight mobile projects screen',
     }}
   >
     <Fragment slot="content">
       <p class="text-lg leading-relaxed text-muted dark:text-slate-400">
-        MetaInsight는 분석 엔진만이 아니라 계정, 프로젝트, 결과 저장, 내보내기, 모바일 대응 화면까지 포함한 제품형
-        구조를 갖추고 있습니다. IDA는 이 기반 위에서 기업 문서·규제·과제 데이터 분석 영역으로 확장됩니다.
+        <span data-lang-ko
+          >MetaInsight는 분석 엔진만이 아니라 계정, 프로젝트, 결과 저장, 내보내기, 모바일 대응 화면까지 포함한 제품형
+          구조를 갖추고 있습니다. IDA는 이 기반 위에서 기업 문서·규제·과제 데이터 분석 영역으로 확장됩니다.</span
+        >
+        <span data-lang-en
+          >MetaInsight is more than an analytics engine — it includes accounts, projects, saved results, export, and
+          mobile-ready screens. IDA extends that foundation into enterprise document, regulatory, and program data
+          analysis.</span
+        >
       </p>
     </Fragment>
   </Content>
@@ -330,6 +424,22 @@ const initialScreen = screenItems[1];
           return clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
         });
       };
+
+      const escapeHtml = (s) =>
+        String(s ?? '').replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#39;',
+            })[c]
+        );
+
+      const buildBilingual = (ko, en, { rawEn = false } = {}) =>
+        `<span data-lang-ko>${escapeHtml(ko)}</span><span data-lang-en>${rawEn ? String(en ?? '') : escapeHtml(en)}</span>`;
 
       const setActiveIdaScreen = (root, selectedButton) => {
         const image = root.querySelector('[data-ida-screen-image]');
@@ -353,17 +463,21 @@ const initialScreen = screenItems[1];
         });
 
         const nextImage = selectedButton.getAttribute('data-ida-image');
-        const nextAlt = selectedButton.getAttribute('data-ida-alt') || '';
-        const nextTitle = selectedButton.getAttribute('data-ida-title') || '';
-        const nextDescription = selectedButton.getAttribute('data-ida-description') || '';
+        const nextAltKo = selectedButton.getAttribute('data-ida-alt-ko') || '';
+        const nextAltEn = selectedButton.getAttribute('data-ida-alt-en') || '';
+        const nextTitleKo = selectedButton.getAttribute('data-ida-title-ko') || '';
+        const nextTitleEn = selectedButton.getAttribute('data-ida-title-en') || '';
+        const nextDescKo = selectedButton.getAttribute('data-ida-description-ko') || '';
+        const nextDescEn = selectedButton.getAttribute('data-ida-description-en') || '';
 
         if (nextImage && image.getAttribute('src') !== nextImage) {
           image.removeAttribute('srcset');
           image.setAttribute('src', nextImage);
         }
-        image.setAttribute('alt', nextAlt);
-        if (heading) heading.textContent = nextTitle;
-        if (copy) copy.textContent = nextDescription;
+        const lang = document.documentElement.lang === 'ko' ? 'ko' : 'en';
+        image.setAttribute('alt', lang === 'ko' ? nextAltKo : nextAltEn);
+        if (heading) heading.innerHTML = buildBilingual(nextTitleKo, nextTitleEn, { rawEn: true });
+        if (copy) copy.innerHTML = buildBilingual(nextDescKo, nextDescEn);
       };
 
       window.selectIdaScreen = (selectedButton) => {

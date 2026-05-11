@@ -12,6 +12,10 @@ import { headerData } from '~/navigation';
 const metadata = {
   title: 'Business Strategy — MetaIntelligence',
 };
+
+const bi = (k: string, e: string) => `<span data-lang-ko>${k}</span><span data-lang-en>${e}</span>`;
+// Use when the bilingual content contains block-level HTML (<ul>, <p>, etc.); span auto-closes before block children.
+const biBlock = (k: string, e: string) => `<div data-lang-ko>${k}</div><div data-lang-en>${e}</div>`;
 ---
 
 <Layout metadata={metadata}>
@@ -22,7 +26,10 @@ const metadata = {
   <Hero2
     tagline="Business Strategy"
     title="From Deep Tech <br>to <span class='text-accent dark:text-white highlight'>Product</span>"
-    subtitle="우리는 원천 기술 연구(R&D)를 통해 산업의 고질적인 난제를 해결하며 수익을 창출하고(Cash-Cow),<br class='hidden md:inline'/> 검증된 기술을 표준화된 솔루션으로 확장하여 시장을 장악하는(Scale-up) 전략을 구사합니다."
+    subtitle={bi(
+      "우리는 원천 기술 연구(R&D)를 통해 산업의 고질적인 난제를 해결하며 수익을 창출하고(Cash-Cow),<br class='hidden md:inline'/> 검증된 기술을 표준화된 솔루션으로 확장하여 시장을 장악하는(Scale-up) 전략을 구사합니다.",
+      "Through deep R&D, we solve the industry's most stubborn problems and generate revenue (Cash-Cow),<br class='hidden md:inline'/> then scale validated technology into standardized solutions that capture the market (Scale-up)."
+    )}
     image={{
       src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       alt: 'Business Strategy',
@@ -33,18 +40,25 @@ const metadata = {
     isReversed
     tagline="Our Vision"
     title="AX 2035: The Operating System for Industrial Intelligence"
-    subtitle="데이터가 흐르는 모든 산업 현장에 우리의 지능(Intelligence)을 이식합니다."
+    subtitle={bi(
+      '데이터가 흐르는 모든 산업 현장에 우리의 지능(Intelligence)을 이식합니다.',
+      'We embed our Intelligence into every industrial site where data flows.'
+    )}
     items={[
       {
         title: 'Manufacturing AI',
-        description:
+        description: bi(
           '국내 제조 기업 상위 10%인 5만 개 사에 당사의 MVI(Machine Vision Intelligence) 소프트웨어를 도입하여, 공정 불량률 "Zero"에 도전합니다.',
+          'Deploying our MVI (Machine Vision Intelligence) software to the top 10% of Korean manufacturers — 50,000 companies — to drive process defect rates toward "Zero."'
+        ),
         icon: 'tabler:robot',
       },
       {
         title: 'Knowledge AI',
-        description:
+        description: bi(
           '제조를 넘어 법률·특허·심의 등 고도의 논리가 필요한 영역에서, 인간 전문가를 보조하는 가장 신뢰받는 "AI 에이전트"를 보급합니다.',
+          'Beyond manufacturing, delivering the most trusted "AI agents" that assist human experts in high-stakes domains such as law, patents, and regulatory review.'
+        ),
         icon: 'tabler:books',
       },
     ]}
@@ -55,10 +69,16 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        대한민국 AI 전환(AX)의<br /> 핵심 파트너
+        <span data-lang-ko>대한민국 AI 전환(AX)의<br /> 핵심 파트너</span>
+        <span data-lang-en>The Core Partner for Korea's<br /> AI Transformation (AX)</span>
       </h3>
       <p class="text-lg text-muted mt-4">
-        우리는 2035년까지 대한민국 제조 및 지식 산업의 AI 전환(AX)을 완수하는 것을 목표로 합니다.
+        <span data-lang-ko
+          >우리는 2035년까지 대한민국 제조 및 지식 산업의 AI 전환(AX)을 완수하는 것을 목표로 합니다.</span
+        >
+        <span data-lang-en
+          >We aim to complete the AI Transformation (AX) of Korea's manufacturing and knowledge industries by 2035.</span
+        >
       </p>
     </Fragment>
   </Content>
@@ -66,46 +86,81 @@ const metadata = {
   <div class="bg-blue-50 dark:bg-slate-900/50 py-12 md:py-20">
     <Steps
       title="Business Model"
-      subtitle="초기 생존을 위한 현금 흐름과 유니콘 성장을 위한 확장성을 동시에 확보하는 하이브리드 모델"
+      subtitle={bi(
+        '초기 생존을 위한 현금 흐름과 유니콘 성장을 위한 확장성을 동시에 확보하는 하이브리드 모델',
+        'A hybrid model that secures the cash flow needed to survive early on and the scalability needed for unicorn-scale growth.'
+      )}
       isReversed={true}
       items={[
         {
           title: 'Phase 1: High-End R&D & Consulting (Foundation)',
-          description: `
-            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
-              <li><strong>Target:</strong> 기술 난이도가 높아 일반 AI 기업이 해결하지 못하는 대기업 및 공공기관</li>
-              <li><strong>Value:</strong> 물리학·NLP 박사급 인력의 맞춤형 모델링 및 난제 해결 (Corner Case Solution)</li>
-              <li><strong>Revenue:</strong> 고부가가치 R&D 용역, 기술 자문료, 초기 PoC 비용 (Cash Flow & Reference 확보)</li>
-            </ul>
-          `,
-          icon: 'tabler:flask', // R&D 상징
+          description: biBlock(
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> 기술 난이도가 높아 일반 AI 기업이 해결하지 못하는 대기업 및 공공기관</li>
+                <li><strong>Value:</strong> 물리학·NLP 박사급 인력의 맞춤형 모델링 및 난제 해결 (Corner Case Solution)</li>
+                <li><strong>Revenue:</strong> 고부가가치 R&D 용역, 기술 자문료, 초기 PoC 비용 (Cash Flow & Reference 확보)</li>
+              </ul>
+            `,
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> Enterprises and public institutions facing problems too hard for typical AI vendors to crack</li>
+                <li><strong>Value:</strong> Custom modeling and corner-case solutions delivered by PhD-level physics and NLP talent</li>
+                <li><strong>Revenue:</strong> High-margin R&D services, technical advisory fees, and PoC engagements (securing cash flow and references)</li>
+              </ul>
+            `
+          ),
+          icon: 'tabler:flask',
         },
         {
           title: 'Phase 2: Vertical Solution Licensing (Expansion)',
-          description: `
-            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
-              <li><strong>Target:</strong> AI 도입 의지가 있으나 전문 인력과 비용 장벽이 높은 중견/중소 기업 (SMB)</li>
-              <li><strong>Product:</strong> 
-                <ul class="list-circle ml-4 mt-1">
-                  <li>MVI (Meta Vision Intelligence): 범용 카메라 기반 제조 불량 검출 SW</li>
-                  <li>IDA (Intelligent Document Analyzer): 기업 문서/규제 분석 NLP 엔진</li>
-                </ul>
-              </li>
-              <li><strong>Revenue:</strong> 솔루션 라이선스(License) 판매 및 유지보수 구독료 (Profit Maximization)</li>
-            </ul>
-          `,
-          icon: 'tabler:package', // 패키지/솔루션 상징
+          description: biBlock(
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> AI 도입 의지가 있으나 전문 인력과 비용 장벽이 높은 중견/중소 기업 (SMB)</li>
+                <li><strong>Product:</strong>
+                  <ul class="list-circle ml-4 mt-1">
+                    <li>MVI (Meta Vision Intelligence): 범용 카메라 기반 제조 불량 검출 SW</li>
+                    <li>IDA (Intelligent Document Analyzer): 기업 문서/규제 분석 NLP 엔진</li>
+                  </ul>
+                </li>
+                <li><strong>Revenue:</strong> 솔루션 라이선스(License) 판매 및 유지보수 구독료 (Profit Maximization)</li>
+              </ul>
+            `,
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> SMBs that want to adopt AI but face steep talent and cost barriers</li>
+                <li><strong>Product:</strong>
+                  <ul class="list-circle ml-4 mt-1">
+                    <li>MVI (Meta Vision Intelligence): manufacturing defect detection software running on commodity cameras</li>
+                    <li>IDA (Intelligent Document Analyzer): NLP engine for enterprise document and regulatory analysis</li>
+                  </ul>
+                </li>
+                <li><strong>Revenue:</strong> Solution license sales and maintenance subscriptions (profit maximization)</li>
+              </ul>
+            `
+          ),
+          icon: 'tabler:package',
         },
         {
           title: 'Phase 3: AI Platform Ecosystem (Scale-up)',
-          description: `
-            <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
-              <li><strong>Target:</strong> 자체 AI 개발이 어려운 하드웨어 장비사 및 SI 파트너사</li>
-              <li><strong>Value:</strong> 독자적인 Vision-NLP 융합 엔진을 API 및 모듈 형태로 개방</li>
-              <li><strong>Revenue:</strong> 기술 이전료, API 사용료, 플랫폼 수수료 (Platform Business)</li>
-            </ul>
-          `,
-          icon: 'tabler:network', // 생태계/플랫폼 상징
+          description: biBlock(
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> 자체 AI 개발이 어려운 하드웨어 장비사 및 SI 파트너사</li>
+                <li><strong>Value:</strong> 독자적인 Vision-NLP 융합 엔진을 API 및 모듈 형태로 개방</li>
+                <li><strong>Revenue:</strong> 기술 이전료, API 사용료, 플랫폼 수수료 (Platform Business)</li>
+              </ul>
+            `,
+            `
+              <ul class="list-disc ml-5 mt-2 space-y-1 text-muted">
+                <li><strong>Target:</strong> Hardware OEMs and SI partners that cannot build AI in-house</li>
+                <li><strong>Value:</strong> Our proprietary Vision–NLP fusion engine, opened up as APIs and modules</li>
+                <li><strong>Revenue:</strong> Technology transfer fees, API usage fees, and platform commissions (platform business)</li>
+              </ul>
+            `
+          ),
+          icon: 'tabler:network',
         },
       ]}
       image={{
@@ -117,22 +172,31 @@ const metadata = {
 
   <Features2
     title="Why MetaIntelligence Strategy Works"
-    subtitle="우리의 전략이 시장에서 통하는 이유"
+    subtitle={bi('우리의 전략이 시장에서 통하는 이유', 'Why our strategy works in the market')}
     columns={3}
     items={[
       {
         title: 'Deep Tech Foundation',
-        description: '오픈소스 튜닝 수준이 아닌, 물리학과 수학에 기반한 원천 기술력 보유',
+        description: bi(
+          '오픈소스 튜닝 수준이 아닌, 물리학과 수학에 기반한 원천 기술력 보유',
+          'Original technology grounded in physics and mathematics — not just open-source tuning.'
+        ),
         icon: 'tabler:atom',
       },
       {
         title: 'Practical Scalability',
-        description: 'R&D로 검증된 기술만을 제품화하여 실패 확률을 최소화하고 시장성 확보',
+        description: bi(
+          'R&D로 검증된 기술만을 제품화하여 실패 확률을 최소화하고 시장성 확보',
+          'Only R&D-validated technology gets productized, minimizing failure risk while securing market fit.'
+        ),
         icon: 'tabler:chart-arrows-vertical',
       },
       {
         title: 'Sustainable Growth',
-        description: 'Cash-Cow(용역)와 Scale-up(솔루션)의 조화를 통한 안정적 재무 구조',
+        description: bi(
+          'Cash-Cow(용역)와 Scale-up(솔루션)의 조화를 통한 안정적 재무 구조',
+          'A stable financial structure that balances Cash-Cow (services) with Scale-up (solutions).'
+        ),
         icon: 'tabler:leaf',
       },
     ]}
