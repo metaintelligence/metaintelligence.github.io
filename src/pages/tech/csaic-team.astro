@@ -10,18 +10,17 @@ const metadata = {
   title: 'CSAIC Team — MetaIntelligence',
 };
 
-// 공통 스타일 정의 (여백 및 크기 조정)
 const styles = {
-  sectionHeader: 'flex items-center mb-6', // 섹션 헤더와 본문 사이 간격 확대
+  sectionHeader: 'flex items-center mb-6',
   iconWrapper:
-    'flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 mr-4 shrink-0', // 아이콘 배경 크기 확대 및 오른쪽 여백(mr-4) 추가
-  sectionTitle: 'text-2xl font-bold text-gray-900 dark:text-white ml-2', // 제목 폰트 크기 확대 및 왼쪽 여백(ml-2) 추가
-  careerItem: 'mb-6', // 경력 항목 간 간격 확대
-  careerTitle: 'font-bold text-gray-900 dark:text-white text-lg block mb-2', // 경력 제목 크기 확대 및 하단 여백 추가
-  careerDetailList: 'list-disc list-outside ml-6 space-y-2 text-muted dark:text-slate-400 text-base leading-relaxed', // 리스트 여백 및 줄간격 확대
-  competencyList: 'space-y-6', // 역량 항목 간 간격 확대
-  competencyItem: 'text-muted dark:text-slate-400 text-base leading-relaxed', // 역량 본문 폰트 크기 및 줄간격 확대
-  competencyTitle: 'font-bold text-gray-900 dark:text-white block mb-1 text-lg', // 역량 제목 크기 확대 및 하단 여백 추가
+    'flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 text-primary dark:text-blue-300 mr-4 shrink-0',
+  sectionTitle: 'text-2xl font-bold text-gray-900 dark:text-white ml-2',
+  careerItem: 'mb-6',
+  careerTitle: 'font-bold text-gray-900 dark:text-white text-lg block mb-2',
+  careerDetailList: 'list-disc list-outside ml-6 space-y-2 text-muted dark:text-slate-400 text-base leading-relaxed',
+  competencyList: 'space-y-6',
+  competencyItem: 'text-muted dark:text-slate-400 text-base leading-relaxed',
+  competencyTitle: 'font-bold text-gray-900 dark:text-white block mb-1 text-lg',
 };
 ---
 
@@ -33,7 +32,7 @@ const styles = {
   <Hero2
     tagline="CSAIC Team"
     title="Experts in <br><span class='text-accent dark:text-white highlight'>AI, Physics, and Engineering</span>"
-    subtitle="각 분야 정점의 전문가들이 모여, 본질을 꿰뚫는 AI 기술을 만듭니다.<br>MetaIntelligence의 핵심 브레인, CSAIC 팀을 소개합니다."
+    subtitle={`<span data-lang-ko>각 분야 정점의 전문가들이 모여, 본질을 꿰뚫는 AI 기술을 만듭니다.<br>MetaIntelligence의 핵심 브레인, CSAIC 팀을 소개합니다.</span><span data-lang-en>Top experts in each field, building AI technology that gets to the essence.<br>Meet CSAIC — the core brain of MetaIntelligence.</span>`}
     image={{
       src: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80',
       alt: 'CSAIC Team',
@@ -45,19 +44,20 @@ const styles = {
       isReversed
       image={{
         src: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        alt: '물리 · 우주 추상 이미지',
+        alt: 'Physics and cosmos — abstract imagery',
       }}
     >
       <Fragment slot="content">
         <div class="mb-10 border-b border-gray-200 dark:border-gray-700 pb-8">
           <span class="text-sm font-bold tracking-widest text-primary uppercase mb-3 block">CEO & Founder</span>
           <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
-            최성수 박사
+            <span data-lang-ko>최성수 박사</span>
+            <span data-lang-en>Dr. Seongsoo Choi</span>
             <a
               href="https://seongsoochoi.github.io/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="최성수 박사 개인 사이트 (새 창에서 열림)"
+              aria-label="Dr. Seongsoo Choi personal site (opens in new tab)"
               class="inline-flex items-center justify-center w-11 h-11 ml-2 align-middle rounded-full text-muted hover:text-primary hover:bg-primary/10 dark:hover:text-blue-400 dark:hover:bg-blue-400/10 transition-colors"
             >
               <svg
@@ -82,9 +82,16 @@ const styles = {
           </p>
           <div class="prose dark:prose-invert max-w-none text-base text-muted leading-relaxed">
             <p>
-              자연어(NLP)와 비전(Vision)을 융합하는 <strong>통합 AI 솔루션 아키텍트</strong>입니다. 물리학 기반 문제
-              해결 역량과 <strong>슈퍼컴퓨팅(HPC)</strong> 전문성을 바탕으로, 텍스트·이미지 데이터를 아우르는 고성능 AI 엔진을
-              설계합니다.
+              <span data-lang-ko
+                >자연어(NLP)와 비전(Vision)을 융합하는 <strong>통합 AI 솔루션 아키텍트</strong>입니다. 물리학 기반 문제
+                해결 역량과 <strong>슈퍼컴퓨팅(HPC)</strong> 전문성을 바탕으로, 텍스트·이미지 데이터를 아우르는 고성능 AI
+                엔진을 설계합니다.</span
+              >
+              <span data-lang-en
+                >An <strong>integrated AI solution architect</strong> fusing natural language (NLP) and vision. Building
+                on physics-grounded problem solving and <strong>high-performance computing (HPC)</strong> expertise, he designs
+                high-performance AI engines that span text and image data.</span
+              >
             </p>
           </div>
         </div>
@@ -115,35 +122,75 @@ const styles = {
 
             <ul class="list-none">
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>주식회사 메타인텔리전스 대표이사 (2022.01 ~ 현재)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>주식회사 메타인텔리전스 대표이사 (2022.01 ~ 현재)</span>
+                  <span data-lang-en>MetaIntelligence Co., Ltd. — CEO (Jan 2022 – Present)</span>
+                </span>
                 <ul class={styles.careerDetailList}>
-                  <li>자연어/비전 통합 AI 솔루션 총괄 및 아키텍처 설계</li>
-                  <li>특허 기반 R&D(과기정통부 10억 규모) 수주 및 총괄</li>
-                  <li>기업·공공기관 난제 해결을 위한 수리 모델링 및 AI 자문</li>
+                  <li>
+                    <span data-lang-ko>자연어/비전 통합 AI 솔루션 총괄 및 아키텍처 설계</span>
+                    <span data-lang-en>Leads integrated NLP/vision AI solutions and overall architecture.</span>
+                  </li>
+                  <li>
+                    <span data-lang-ko>특허 기반 R&D(과기정통부 10억 규모) 수주 및 총괄</span>
+                    <span data-lang-en
+                      >Won and directed patent-backed R&D programs (~₩1B from the Ministry of Science and ICT).</span
+                    >
+                  </li>
+                  <li>
+                    <span data-lang-ko>기업·공공기관 난제 해결을 위한 수리 모델링 및 AI 자문</span>
+                    <span data-lang-en
+                      >Mathematical modeling and AI advisory work for enterprise and public-sector hard problems.</span
+                    >
+                  </li>
                 </ul>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>한국연구재단(NRF) 전문가/연구책임자 (2021.04 ~ 현재)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>한국연구재단(NRF) 전문가/연구책임자 (2021.04 ~ 현재)</span>
+                  <span data-lang-en>NRF Korea — Expert / Principal Investigator (Apr 2021 – Present)</span>
+                </span>
                 <ul class={styles.careerDetailList}>
-                  <li>국가 R&D 방향성 수립 연구용역 및 정책 리포트 집필</li>
+                  <li>
+                    <span data-lang-ko>국가 R&D 방향성 수립 연구용역 및 정책 리포트 집필</span>
+                    <span data-lang-en>Authored R&D direction-setting studies and policy reports.</span>
+                  </li>
                 </ul>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>에프원소프트(주) 수석연구원(AI Master)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>에프원소프트(주) 수석연구원(AI Master)</span>
+                  <span data-lang-en>F1Soft — Principal Researcher (AI Master)</span>
+                </span>
                 <ul class={styles.careerDetailList}>
-                  <li>Multimodal AI 연구 및 HPC 최적화 파이프라인 구축</li>
+                  <li>
+                    <span data-lang-ko>Multimodal AI 연구 및 HPC 최적화 파이프라인 구축</span>
+                    <span data-lang-en>Multimodal AI research and HPC-optimized pipelines.</span>
+                  </li>
                 </ul>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>삼성디스플레이(주) Staff Software Engineer</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>삼성디스플레이(주) Staff Software Engineer</span>
+                  <span data-lang-en>Samsung Display — Staff Software Engineer</span>
+                </span>
                 <ul class={styles.careerDetailList}>
-                  <li>위상수학(Topology) 융합 AI 기반 공정 불량 검출 자동화</li>
+                  <li>
+                    <span data-lang-ko>위상수학(Topology) 융합 AI 기반 공정 불량 검출 자동화</span>
+                    <span data-lang-en>Automated process-defect detection using AI fused with topology methods.</span>
+                  </li>
                 </ul>
               </li>
               <li class={styles.careerItem}>
                 <span class={styles.careerTitle}>UNIST / NRF Global Ph.D. Fellowship</span>
                 <ul class={styles.careerDetailList}>
-                  <li>초거대 슈퍼컴퓨팅 운영 및 계산과학/양자다체이론 연구</li>
+                  <li>
+                    <span data-lang-ko>초거대 슈퍼컴퓨팅 운영 및 계산과학/양자다체이론 연구</span>
+                    <span data-lang-en
+                      >Operated large-scale supercomputers; research in computational science and quantum many-body
+                      theory.</span
+                    >
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -176,15 +223,22 @@ const styles = {
             <ul class={styles.competencyList}>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>Integrated AI & Patent Tech</span>
-                자연어/비전 융합 통합 솔루션 아키텍처 설계 및 원천 특허 고도화
+                <span data-lang-ko>자연어/비전 융합 통합 솔루션 아키텍처 설계 및 원천 특허 고도화</span>
+                <span data-lang-en
+                  >Architects integrated NLP/vision solutions and advances the underlying patent portfolio.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>Physics-Informed AI</span>
-                물리/수학(Quantum, Topology) 기반 가설 수립 및 모델 설계
+                <span data-lang-ko>물리/수학(Quantum, Topology) 기반 가설 수립 및 모델 설계</span>
+                <span data-lang-en
+                  >Builds hypotheses and models grounded in physics and math — quantum theory, topology.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>Strategic R&D Management</span>
-                기획부터 성과 확산까지 전 주기 R&D 관리 및 문제 해결
+                <span data-lang-ko>기획부터 성과 확산까지 전 주기 R&D 관리 및 문제 해결</span>
+                <span data-lang-en>End-to-end R&D management — from planning through outcome dissemination.</span>
               </li>
             </ul>
           </div>
@@ -197,7 +251,7 @@ const styles = {
     <Content
       image={{
         src: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        alt: '언어 · NLP 추상 이미지',
+        alt: 'Language and NLP — abstract imagery',
       }}
     >
       <Fragment slot="content">
@@ -206,12 +260,13 @@ const styles = {
             >Co-Founder / AI Director</span
           >
           <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
-            천민아 박사
+            <span data-lang-ko>천민아 박사</span>
+            <span data-lang-en>Dr. Minah Cheon</span>
             <a
               href="https://minahcheon.github.io/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="천민아 박사 개인 사이트 (새 창에서 열림)"
+              aria-label="Dr. Minah Cheon personal site (opens in new tab)"
               class="inline-flex items-center justify-center w-11 h-11 ml-2 align-middle rounded-full text-muted hover:text-purple-600 hover:bg-purple-600/10 dark:hover:text-purple-400 dark:hover:bg-purple-400/10 transition-colors"
             >
               <svg
@@ -261,16 +316,32 @@ const styles = {
             </div>
             <ul class="list-none">
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>주식회사 메타인텔리전스 CSAIC (2024.01 ~ 현재)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>주식회사 메타인텔리전스 CSAIC (2024.01 ~ 현재)</span>
+                  <span data-lang-en>MetaIntelligence Co., Ltd. — CSAIC (Jan 2024 – Present)</span>
+                </span>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>게임물관리위원회 이의신청자문위원회 위원</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>게임물관리위원회 이의신청자문위원회 위원</span>
+                  <span data-lang-en
+                    >Member, Appeals Advisory Committee — Game Rating and Administration Committee (Korea)</span
+                  >
+                </span>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>한국해양대학교 박사후 연구원 (데이터 1-cycle 검증)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>한국해양대학교 박사후 연구원 (데이터 1-cycle 검증)</span>
+                  <span data-lang-en
+                    >Postdoctoral Researcher, Korea Maritime &amp; Ocean University (1-cycle data verification)</span
+                  >
+                </span>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>자연어 처리 기반 지적재산권(발명가) 다수 보유</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>자연어 처리 기반 지적재산권(발명가) 다수 보유</span>
+                  <span data-lang-en>Holds multiple NLP-based intellectual property rights as inventor.</span>
+                </span>
               </li>
             </ul>
           </div>
@@ -303,15 +374,22 @@ const styles = {
             <ul class={styles.competencyList}>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>NLP Pipeline Design</span>
-                기술문서 정보 구조화 및 핵심 정보 추출 파이프라인 설계
+                <span data-lang-ko>기술문서 정보 구조화 및 핵심 정보 추출 파이프라인 설계</span>
+                <span data-lang-en
+                  >Designs pipelines that structure technical documents and extract the key information.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>LLM Evaluation</span>
-                LLM 품질 평가 체계 설계 및 정량 지표 전환
+                <span data-lang-ko>LLM 품질 평가 체계 설계 및 정량 지표 전환</span>
+                <span data-lang-en
+                  >Builds LLM quality-evaluation frameworks and converts them into quantitative metrics.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>R&D Analysis</span>
-                텍스트 분석 결과의 정량적 데이터화 및 연구 활용
+                <span data-lang-ko>텍스트 분석 결과의 정량적 데이터화 및 연구 활용</span>
+                <span data-lang-en>Turns text-analysis output into quantitative data for downstream research.</span>
               </li>
             </ul>
           </div>
@@ -325,7 +403,7 @@ const styles = {
       isReversed
       image={{
         src: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        alt: '그래픽스 · 3D 렌더 추상 이미지',
+        alt: 'Graphics and 3D rendering — abstract imagery',
       }}
     >
       <Fragment slot="content">
@@ -334,12 +412,13 @@ const styles = {
             >Director of SW Engineering</span
           >
           <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-3 text-gray-900 dark:text-white">
-            김우현 이사
+            <span data-lang-ko>김우현 이사</span>
+            <span data-lang-en>Woohyun Kim, Director</span>
             <a
               href="https://artrointel.github.io"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="김우현 이사 개인 사이트 (새 창에서 열림)"
+              aria-label="Woohyun Kim personal site (opens in new tab)"
               class="inline-flex items-center justify-center w-11 h-11 ml-2 align-middle rounded-full text-muted hover:text-blue-600 hover:bg-blue-600/10 dark:hover:text-blue-400 dark:hover:bg-blue-400/10 transition-colors"
             >
               <svg
@@ -387,16 +466,25 @@ const styles = {
             </div>
             <ul class="list-none">
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>삼성전자 MX사업부 (10년)</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>삼성전자 MX사업부 (10년)</span>
+                  <span data-lang-en>Samsung Electronics, MX Division (10 years)</span>
+                </span>
                 <ul class={styles.careerDetailList}>
                   <li>Samsung Galaxy - ARM Mali GPU Driver Management</li>
                   <li><strong>Android Watch Face Format (WFF) Standard</strong> Creator & Architect</li>
                   <li>Samsung Android (Watchface Studio, AI Effect, Internal Graphic solutions)</li>
-                  <li>Samsung GoodLock, Wonderland App 개발</li>
+                  <li>
+                    <span data-lang-ko>Samsung GoodLock, Wonderland App 개발</span>
+                    <span data-lang-en>Samsung GoodLock and Wonderland app development</span>
+                  </li>
                 </ul>
               </li>
               <li class={styles.careerItem}>
-                <span class={styles.careerTitle}>Graphic Rendering 기술 A급 특허 보유</span>
+                <span class={styles.careerTitle}>
+                  <span data-lang-ko>Graphic Rendering 기술 A급 특허 보유</span>
+                  <span data-lang-en>Holds A-tier patents in graphic rendering.</span>
+                </span>
               </li>
             </ul>
           </div>
@@ -427,18 +515,38 @@ const styles = {
             <ul class={styles.competencyList}>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>Global-Scale Productization & UX</span>
-                구글 오픈소스 표준화 및 글로벌 제조사 프레임워크 탑재, 500만+ 다운로드 앱 개발 경험을 보유하고 있습니다.
-                단순한 기능 구현을 넘어, 사용자 친화적인 UI/UX를 중시하며 글로벌 서비스 수준의 완성도를 지향합니다.
+                <span data-lang-ko
+                  >구글 오픈소스 표준화 및 글로벌 제조사 프레임워크 탑재, 500만+ 다운로드 앱 개발 경험을 보유하고
+                  있습니다. 단순한 기능 구현을 넘어, 사용자 친화적인 UI/UX를 중시하며 글로벌 서비스 수준의 완성도를
+                  지향합니다.</span
+                >
+                <span data-lang-en
+                  >Contributed to Google open-source standards, shipped frameworks on global OEM devices, and built apps
+                  with 5M+ downloads. Beyond just getting features working, he puts weight on user-friendly UI/UX and
+                  aims for global-service polish.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>GPU & Rendering Optimization</span>
-                글로벌 플래그십 모바일 디바이스의 그래픽스 및 프레임워크를 함께 개발하고 최적화했던 경험을 바탕으로, 고성능
-                AI 모델을 포함하는 당사 소프트웨어를 가볍고 빠르게 구동시킵니다.
+                <span data-lang-ko
+                  >글로벌 플래그십 모바일 디바이스의 그래픽스 및 프레임워크를 함께 개발하고 최적화했던 경험을 바탕으로,
+                  고성능 AI 모델을 포함하는 당사 소프트웨어를 가볍고 빠르게 구동시킵니다.</span
+                >
+                <span data-lang-en
+                  >Drawing on experience co-developing and optimizing the graphics stack and frameworks on global
+                  flagship mobile devices, he keeps our high-performance-AI software running light and fast.</span
+                >
               </li>
               <li class={styles.competencyItem}>
                 <span class={styles.competencyTitle}>Flexible Engineering Philosophy</span>
-                개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장 효율적인
-                방식으로 견고하고 유연한 시스템을 구현합니다.
+                <span data-lang-ko
+                  >개발 플랫폼과 언어에 대한 장벽이 없습니다. 범용성과 확장성을 최우선 가치로 두며, 상황에 맞춰 가장
+                  효율적인 방식으로 견고하고 유연한 시스템을 구현합니다.</span
+                >
+                <span data-lang-en
+                  >No platform or language barriers. Generality and scalability come first, and whichever approach is
+                  most efficient for the situation is the one chosen — to build robust, flexible systems.</span
+                >
               </li>
             </ul>
           </div>
